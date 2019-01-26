@@ -33,4 +33,12 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - SayHello
+  - ActivateAvatarRPC
+  - DeactivateAvatarRPC
+  - PlayParticleSystemsRPC
+  - WantToBumpRPC
+  - WantToMoveBackRPC
+  - WantToMoveForwardRPC
+  - WantToMoveLeftRPC
+  - WantToMoveRightRPC
   DisableAutoOpenWizard: 1
