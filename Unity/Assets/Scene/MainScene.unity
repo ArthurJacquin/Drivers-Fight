@@ -280,6 +280,11 @@ PrefabInstance:
       propertyPath: InstantiationId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1906377423321984326, guid: a8366a057e8cd7c42bd5871cd5fbb477,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8366a057e8cd7c42bd5871cd5fbb477, type: 3}
 --- !u!114 &183823352 stripped
@@ -509,7 +514,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player7StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -539,7 +544,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player3StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -686,7 +691,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player6StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1606,7 +1611,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player5StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2298,7 +2303,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player1StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2481,7 +2486,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player2StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2935,7 +2940,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player4StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3009,7 +3014,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player8StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

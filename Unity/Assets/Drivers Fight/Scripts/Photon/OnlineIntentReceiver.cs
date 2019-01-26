@@ -27,9 +27,9 @@ namespace MyPhotonProject.Scripts
                 photonView.RPC("WantToMoveLeftRPC", RpcTarget.MasterClient, true);
             }
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
-                photonView.RPC("WantToMoveBackRPC", RpcTarget.MasterClient, true);
+                photonView.RPC("WantToMoveBackwardRPC", RpcTarget.MasterClient, true);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
@@ -37,7 +37,7 @@ namespace MyPhotonProject.Scripts
                 photonView.RPC("WantToMoveRightRPC", RpcTarget.MasterClient, true);
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKey(KeyCode.Z))
             {
                 photonView.RPC("WantToMoveForwardRPC", RpcTarget.MasterClient, true);
             }
@@ -49,7 +49,7 @@ namespace MyPhotonProject.Scripts
 
             if (Input.GetKeyUp(KeyCode.S))
             {
-                photonView.RPC("WantToMoveBackRPC", RpcTarget.MasterClient, false);
+                photonView.RPC("WantToMoveBackwardRPC", RpcTarget.MasterClient, false);
             }
 
             if (Input.GetKeyUp(KeyCode.D))
@@ -73,11 +73,11 @@ namespace MyPhotonProject.Scripts
         }
 
         [PunRPC]
-        void WantToMoveBackRPC(bool intent)
+        void WantToMoveBackwardRPC(bool intent)
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                WantToMoveBack = intent;
+                WantToMoveBackward = intent;
             }
         }
 

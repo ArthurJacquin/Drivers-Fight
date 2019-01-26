@@ -6,10 +6,10 @@ namespace MyPhotonProject.Scripts
     public class AvatarsControllerScript : MonoBehaviour
     {
         [SerializeField]
-        private AvatarExposerScript[] avatars;
+        private AvatarExposerScript[] avatars; 
 
         [SerializeField]
-        private Transform[] startPositions;
+        private Transform[] startPositions; //Spawn position
 
         [SerializeField]
         private AIntentReceiver[] onlineIntentReceivers;
@@ -23,7 +23,13 @@ namespace MyPhotonProject.Scripts
         [SerializeField]
         private PhotonView photonView;
 
-        //TODO: Mettre les parametres ici (vitesse, hp, ...)
+        private float carSpeed = 0f; //Current speed of the car
+
+        private float carMaximumSpeed = 20f; //Max speed of the car
+
+        private float carAcceleration = 0.2f; //Acceleration of the car
+
+        private float carDeceleration = 0.3f; //Deceleration of the car
 
         private AIntentReceiver[] activatedIntentReceivers;
 
@@ -99,7 +105,7 @@ namespace MyPhotonProject.Scripts
             {
                 activatedIntentReceivers[i].enabled = true;
                 activatedIntentReceivers[i].WantToMoveLeft = false;
-                activatedIntentReceivers[i].WantToMoveBack = false;
+                activatedIntentReceivers[i].WantToMoveBackward = false;
                 activatedIntentReceivers[i].WantToMoveRight = false;
                 activatedIntentReceivers[i].WantToMoveForward = false;
             }
@@ -119,6 +125,7 @@ namespace MyPhotonProject.Scripts
 
             EnableIntentReceivers();
             GameStarted = true;
+            
         }
 
         private void FixedUpdate()
@@ -150,7 +157,7 @@ namespace MyPhotonProject.Scripts
                 return;
             }
 
-            var fallenAvatarsCount = 0;
+            var deadAvatarsCount = 0;
             var activatedAvatarsCount = 0;
 
             //Execute the requested actions
@@ -164,32 +171,93 @@ namespace MyPhotonProject.Scripts
 
                 activatedAvatarsCount += avatar.AvatarRootGameObject.activeSelf ? 1 : 0;
 
-                if (intentReceiver.WantToMoveBack)
+                //Backward
+                if (intentReceiver.WantToMoveBackward)
                 {
-                    moveIntent += Vector3.back;
+                    //Update speed
+                    if (carSpeed < carMaximumSpeed && !intentReceiver.WantToStopTheCar)
+                    {
+                        carSpeed += carAcceleration;
+                    }
+
+                    //Turn Left
+                    if (intentReceiver.WantToMoveLeft)
+                    {
+                        avatar.AvatarRootTransform.position += -avatar.AvatarRootTransform.forward * carSpeed * Time.deltaTime;
+                        avatar.AvatarRootTransform.Rotate(0.0f, 40.0f * Time.deltaTime, 0.0f);
+                    }
+
+                    //Turn Right
+                    else if (intentReceiver.WantToMoveRight)
+                    {
+                        avatar.AvatarRootTransform.position += -avatar.AvatarRootTransform.forward * carSpeed * Time.deltaTime;
+                        avatar.AvatarRootTransform.Rotate(0.0f, -40.0f * Time.deltaTime, 0.0f);
+                    }
+
+                    //Dont turn
+                    else
+                    {
+                        avatar.AvatarRootTransform.position += -avatar.AvatarRootTransform.forward * carSpeed * Time.deltaTime;
+                    }
                 }
 
+                //Forward
                 if (intentReceiver.WantToMoveForward)
                 {
-                    moveIntent += Vector3.forward;
+                    //Update speed
+                    if (carSpeed < carMaximumSpeed && !intentReceiver.WantToStopTheCar)
+                    {
+                        carSpeed += carAcceleration;
+                    }
+
+                    //Turn Left
+                    if (intentReceiver.WantToMoveLeft)
+                    {
+                        avatar.AvatarRootTransform.position += avatar.AvatarRootTransform.forward * carSpeed * Time.deltaTime;
+                        avatar.AvatarRootTransform.Rotate(0.0f, -40.0f * Time.deltaTime, 0.0f);
+                    }
+
+                    //Turn Right
+                    else if (intentReceiver.WantToMoveRight)
+                    {
+                        avatar.AvatarRootTransform.position += avatar.AvatarRootTransform.forward * carSpeed * Time.deltaTime;
+                        avatar.AvatarRootTransform.Rotate(0.0f, 40.0f * Time.deltaTime, 0.0f);
+                    }
+
+                    //Dont turn
+                    else
+                    {
+                        avatar.AvatarRootTransform.position += avatar.AvatarRootTransform.forward * carSpeed * Time.deltaTime;
+                    }
                 }
 
-                if (intentReceiver.WantToMoveLeft)
+                //Deceleration
+                if(intentReceiver.WantToStopTheCar)
                 {
-                    moveIntent += Vector3.left;
+                    if (carSpeed > 0f)
+                    {
+                        carSpeed -= carDeceleration;
+
+                        if (carSpeed < 0f)
+                        {
+                            carSpeed = 0f;
+                        }
+                    }
+
+                    if (carSpeed <= 0f)
+                    {
+                        carSpeed = 0f;
+
+                        intentReceiver.WantToMoveForward = false;
+                        intentReceiver.WantToMoveBackward = false;
+
+                        intentReceiver.WantToStopTheCar = false;
+                    }
                 }
-
-                if (intentReceiver.WantToMoveRight)
-                {
-                    moveIntent += Vector3.right;
-                }
-
-                moveIntent = moveIntent.normalized;
-
-                /*avatar.AvatarRigidBody.AddForce(moveIntent * moveForce);
-
+                
                 //Refresh dead players count
-                if (!(avatar.transform.position.y <= yLowerLimit))
+                //TODO: Décommenter une fois isDead() implémenté
+                /*if (!avatar.isDead()))
                 {
                     continue;
                 }
@@ -197,7 +265,8 @@ namespace MyPhotonProject.Scripts
                 fallenAvatarsCount++;*/
             }
 
-            if (activatedAvatarsCount - fallenAvatarsCount <= 1 && activatedAvatarsCount > 1)
+            //If 1 player remaining then end the game
+            if (activatedAvatarsCount - deadAvatarsCount <= 1 && activatedAvatarsCount > 1)
             {
                 EndGame();
             }

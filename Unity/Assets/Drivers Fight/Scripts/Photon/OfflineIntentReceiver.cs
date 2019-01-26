@@ -65,9 +65,9 @@ namespace MyPhotonProject.Scripts
                 WantToMoveLeft = true;
             }
 
-            if (Input.GetKeyDown(keys[avatarIndex][PlayerAction.Down]))
+            if (Input.GetKey(keys[avatarIndex][PlayerAction.Down]) && WantToMoveForward == false)
             {
-                WantToMoveBack = true;
+                WantToMoveBackward = true;
             }
 
             if (Input.GetKeyDown(keys[avatarIndex][PlayerAction.Right]))
@@ -75,7 +75,7 @@ namespace MyPhotonProject.Scripts
                 WantToMoveRight = true;
             }
 
-            if (Input.GetKeyDown(keys[avatarIndex][PlayerAction.Up]))
+            if (Input.GetKey(keys[avatarIndex][PlayerAction.Up]) && WantToMoveBackward == false)
             {
                 WantToMoveForward = true;
             }
@@ -87,7 +87,7 @@ namespace MyPhotonProject.Scripts
 
             if (Input.GetKeyUp(keys[avatarIndex][PlayerAction.Down]))
             {
-                WantToMoveBack = false;
+                WantToStopTheCar = true;
             }
 
             if (Input.GetKeyUp(keys[avatarIndex][PlayerAction.Right]))
@@ -97,7 +97,7 @@ namespace MyPhotonProject.Scripts
 
             if (Input.GetKeyUp(keys[avatarIndex][PlayerAction.Up]))
             {
-                WantToMoveForward = false;
+                WantToStopTheCar = true;
             }
         }
     }
