@@ -68,6 +68,7 @@ namespace MyPhotonProject.Scripts
             if (Input.GetKey(keys[avatarIndex][PlayerAction.Down]) && WantToMoveForward == false)
             {
                 WantToMoveBackward = true;
+                WantToStopTheCar = false;
             }
 
             if (Input.GetKeyDown(keys[avatarIndex][PlayerAction.Right]))
@@ -78,6 +79,7 @@ namespace MyPhotonProject.Scripts
             if (Input.GetKey(keys[avatarIndex][PlayerAction.Up]) && WantToMoveBackward == false)
             {
                 WantToMoveForward = true;
+                WantToStopTheCar = false;
             }
 
             if (Input.GetKeyUp(keys[avatarIndex][PlayerAction.Left]))

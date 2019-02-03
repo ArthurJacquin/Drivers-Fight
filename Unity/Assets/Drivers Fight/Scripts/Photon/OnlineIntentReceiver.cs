@@ -27,7 +27,7 @@ namespace MyPhotonProject.Scripts
                 photonView.RPC("WantToMoveLeftRPC", RpcTarget.MasterClient, true);
             }
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S) && !WantToMoveForward)
             {
                 photonView.RPC("WantToMoveBackwardRPC", RpcTarget.MasterClient, true);
             }
@@ -37,7 +37,7 @@ namespace MyPhotonProject.Scripts
                 photonView.RPC("WantToMoveRightRPC", RpcTarget.MasterClient, true);
             }
 
-            if (Input.GetKey(KeyCode.Z))
+            if (Input.GetKey(KeyCode.Z) && !WantToMoveBackward)
             {
                 photonView.RPC("WantToMoveForwardRPC", RpcTarget.MasterClient, true);
             }
@@ -49,7 +49,7 @@ namespace MyPhotonProject.Scripts
 
             if (Input.GetKeyUp(KeyCode.S))
             {
-                photonView.RPC("WantToMoveBackwardRPC", RpcTarget.MasterClient, false);
+                photonView.RPC("WantToStopRPC", RpcTarget.MasterClient, true);
             }
 
             if (Input.GetKeyUp(KeyCode.D))
@@ -59,7 +59,7 @@ namespace MyPhotonProject.Scripts
 
             if (Input.GetKeyUp(KeyCode.Z))
             {
-                photonView.RPC("WantToMoveForwardRPC", RpcTarget.MasterClient, false);
+                photonView.RPC("WantToStopRPC", RpcTarget.MasterClient, true);
             }
         }
 
@@ -78,6 +78,7 @@ namespace MyPhotonProject.Scripts
             if (PhotonNetwork.IsMasterClient)
             {
                 WantToMoveBackward = intent;
+                WantToStopTheCar = false;
             }
         }
 
@@ -96,6 +97,16 @@ namespace MyPhotonProject.Scripts
             if (PhotonNetwork.IsMasterClient)
             {
                 WantToMoveForward = intent;
+                WantToStopTheCar = false;
+            }
+        }
+
+        [PunRPC]
+        void WantToStopRPC(bool intent)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                WantToStopTheCar = intent;
             }
         }
     }
