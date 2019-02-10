@@ -13,13 +13,13 @@ public class PlayerStatsScript : CarStatsScript
     {
         if (newItem != null)
         {
-            armor.AddModifier(newItem.armorModifier);
+            frontBumperArmor.AddModifier(newItem.armorModifier);
             damage.AddModifier(newItem.damageModifier);
         }
 
         if (oldItem != null)
         {
-            armor.RemoveModifier(oldItem.armorModifier);
+            frontBumperArmor.RemoveModifier(oldItem.armorModifier);
             damage.RemoveModifier(oldItem.damageModifier);
         }
     }

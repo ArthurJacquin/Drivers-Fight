@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerMovementScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
     private Transform targetTransform;
+    [SerializeField]
+    private CarStatsScript carStats;
 
     private bool wantToMoveForward;
     private bool wantToMoveBackward;
@@ -16,17 +18,42 @@ public class PlayerMovementScript : MonoBehaviour
 
     private bool wantToStopTheCar;
 
-    public CarStatsScript carStats;
+    private int carFrontBumperArmor;
+    private int carRearBumperArmor;
+    private int carRightFlankArmor;
+    private int carLeftFlankArmor;
+    private int carWheelArmor;
+    private int carTiresArmor;
 
     private float carSpeed = 0f;
-    private float carMaximumSpeed = 20f;
-    private float carAccelerationSpeed = 0.5f;
-    private float carDecelerationSpeed = 0.5f;
+    private float carMaximumSpeed;
+    private float carAccelerationSpeed;
+    private float carDecelerationSpeed;
+
+    private int carManeuverability;
+
+    private int carDamage;
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Life = " + carStats.currentHealth);
+        Debug.Log("Life = " + carStats.currentEngineHealth);
+
+        // Récupérer les stats du joueur
+        carFrontBumperArmor = carStats.currentFrontBumperArmor;
+        carRearBumperArmor = carStats.currentRearBumperArmor;
+        carRightFlankArmor = carStats.currentRightFlankArmor;
+        carLeftFlankArmor = carStats.currentLeftFlankArmor;
+        carWheelArmor = carStats.currentWheelArmor;
+        carTiresArmor = carStats.currentTiresArmor;
+
+        carMaximumSpeed = carStats.currentMaximumSpeed;
+        carAccelerationSpeed = carStats.currentAccelerationSpeed;
+        carDecelerationSpeed = carStats.currentDecelerationSpeed;
+
+        carManeuverability = carStats.currentManeuverability;
+
+        carDamage = carStats.currentDamage;
 
         if (EventSystem.current.IsPointerOverGameObject())
         {
