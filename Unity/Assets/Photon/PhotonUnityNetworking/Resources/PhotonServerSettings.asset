@@ -43,4 +43,6 @@ MonoBehaviour:
   - WantToMoveRightRPC
   - WantToMoveBackwardRPC
   - WantToStopRPC
+  - OnCollisionEnter
+  - OnCollisionEnterRPC
   DisableAutoOpenWizard: 1
