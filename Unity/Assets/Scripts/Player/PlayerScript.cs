@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
 
     private bool wantToStopTheCar;
 
+    private int carEngineHealth;
+
     private int carFrontBumperArmor;
     private int carRearBumperArmor;
     private int carRightFlankArmor;
@@ -34,12 +36,71 @@ public class PlayerScript : MonoBehaviour
 
     private int carDamage;
 
-    // Update is called once per frame
-    void Update()
+    public void updateCarEngineHealth()
     {
-        Debug.Log("Life = " + carStats.currentEngineHealth);
+        carEngineHealth = carStats.currentEngineHealth;
+    }
 
+    public void updateCarFrontBumperArmor()
+    {
+        carFrontBumperArmor = carStats.currentFrontBumperArmor;
+    }
+
+    public void updateCarRearBumperArmor()
+    {
+        carRearBumperArmor = carStats.currentRearBumperArmor;
+    }
+
+    public void updateCarRightFlankArmor()
+    {
+        carRightFlankArmor = carStats.currentRightFlankArmor;
+    }
+
+    public void updateCarLeftFlankArmor()
+    {
+        carLeftFlankArmor = carStats.currentLeftFlankArmor;
+    }
+
+    public void updateCarWheelArmor()
+    {
+        carWheelArmor = carStats.currentWheelArmor;
+    }
+
+    public void updateCarTiresArmor()
+    {
+        carTiresArmor = carStats.currentTiresArmor;
+    }
+
+    public void updateCarMaximumSpeed()
+    {
+        carMaximumSpeed = carStats.currentMaximumSpeed;
+    }
+
+    public void updateCarAccelerationSpeed()
+    {
+        carAccelerationSpeed = carStats.currentAccelerationSpeed;
+    }
+
+    public void updateCarDecelerationSpeed()
+    {
+        carDecelerationSpeed = carStats.currentDecelerationSpeed;
+    }
+
+    public void updateCarManeuverability()
+    {
+        carManeuverability = carStats.currentManeuverability;
+    }
+
+    public void updateCarDamage()
+    {
+        carDamage = (int)carSpeed / 2;
+    }
+
+    void Start()
+    {
         // Récupérer les stats du joueur
+        carEngineHealth = carStats.currentEngineHealth;
+
         carFrontBumperArmor = carStats.currentFrontBumperArmor;
         carRearBumperArmor = carStats.currentRearBumperArmor;
         carRightFlankArmor = carStats.currentRightFlankArmor;
@@ -54,6 +115,12 @@ public class PlayerScript : MonoBehaviour
         carManeuverability = carStats.currentManeuverability;
 
         carDamage = carStats.currentDamage;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.Log("Life = " + carEngineHealth);
 
         if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -68,6 +135,7 @@ public class PlayerScript : MonoBehaviour
             if (carSpeed < carMaximumSpeed && wantToStopTheCar == false)
             {
                 carSpeed += carAccelerationSpeed;
+                updateCarDamage();
             }
         }
         if (Input.GetKeyUp(KeyCode.Z))
@@ -83,6 +151,7 @@ public class PlayerScript : MonoBehaviour
             if (carSpeed < carMaximumSpeed && wantToStopTheCar == false)
             {
                 carSpeed += carAccelerationSpeed;
+                updateCarDamage();
             }
         }
         if (Input.GetKeyUp(KeyCode.S))
@@ -118,6 +187,8 @@ public class PlayerScript : MonoBehaviour
                 {
                     carSpeed = 0f;
                 }
+
+                updateCarDamage();
             }
 
             if (carSpeed <= 0f)
