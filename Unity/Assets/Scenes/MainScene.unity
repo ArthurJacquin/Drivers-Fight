@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1056,6 +1056,8 @@ MonoBehaviour:
   - {fileID: 747337051}
   - {fileID: 148180245}
   playerPrefab: {fileID: 12, guid: b54fe8680740bf74ab18a8c15e90677b, type: 3}
+  sectorSpawnerPrefab: {fileID: 1816356522885985531, guid: a46e0f880daaccd44beb899dbababc6b,
+    type: 3}
 --- !u!4 &855570535
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,8 +1091,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 0}
-  viewIdField: 10
-  InstantiationId: 10
+  viewIdField: 2
+  InstantiationId: 2
   isRuntimeInstantiated: 0
 --- !u!114 &855570538
 MonoBehaviour:

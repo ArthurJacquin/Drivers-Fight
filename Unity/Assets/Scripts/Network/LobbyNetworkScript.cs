@@ -32,6 +32,9 @@ namespace DriversFight.Scripts
         [SerializeField]
         private GameObject playerPrefab;
 
+        [SerializeField]
+        private GameObject sectorSpawnerPrefab;
+
         public event Action OnlinePlayReady;
 
         public event Action<int> PlayerJoined;
@@ -179,6 +182,12 @@ namespace DriversFight.Scripts
                                       + $"You are controlling Avatar {i}, Let's Play !";
 
             PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
+
+            //Lancement de la génération des secteurs si master client
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate("Sectors/" + sectorSpawnerPrefab.name, sectorSpawnerPrefab.transform.position, Quaternion.identity);
+            }
         }
     }
 }
