@@ -33,7 +33,7 @@ namespace DriversFight.Scripts
         private GameObject playerPrefab;
 
         [SerializeField]
-        private GameObject sectorSpawnerPrefab;
+        private GameObject scriptsWhenGameLaunchPrefab;
 
         public event Action OnlinePlayReady;
 
@@ -45,8 +45,22 @@ namespace DriversFight.Scripts
 
         public event Action MasterClientSwitched;
 
+
+        public static LobbyNetworkScript instance = null;
+
         private void Awake()
         {
+            if (instance == null)
+            {
+                instance = this;
+                Debug.Log("oui");
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);
+                Debug.Log("non");
+            }
+
             playButton.onClick.AddListener(OnlinePlaySetup);
             createRoomButton.onClick.AddListener(AskForRoomCreation);
             joinRoomButton.onClick.AddListener(AskForRoomJoin);
@@ -182,11 +196,11 @@ namespace DriversFight.Scripts
                                       + $"You are controlling Avatar {i}, Let's Play !";
 
             PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
-
+            
             //Lancement de la génération des secteurs si master client
             if (PhotonNetwork.IsMasterClient)
             {
-                PhotonNetwork.Instantiate("Sectors/" + sectorSpawnerPrefab.name, sectorSpawnerPrefab.transform.position, Quaternion.identity);
+                PhotonNetwork.Instantiate(scriptsWhenGameLaunchPrefab.name, scriptsWhenGameLaunchPrefab.transform.position, Quaternion.identity);
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 
 namespace DriversFight.Scripts
 {
@@ -25,13 +26,39 @@ namespace DriversFight.Scripts
         //public CarStatsScript carStats;
 
         private float carSpeed = 0f;
-        private float carMaximumSpeed = 20f;
+        private float carMaximumSpeed = 50f;
         private float carAccelerationSpeed = 0.5f;
         private float carDecelerationSpeed = 0.5f;
+        private int carLife = 100;
+
+        private float timeToWait;
+
+        private void Awake()
+        {
+            timeToWait = Time.time;
+        }
 
         // Update is called once per frame
         void Update()
         {
+            if (carLife <= 0)
+            {
+                NetworkControllerScript.instance.endBadDriverGame();
+            }
+
+            if (PlayerNumbering.SortedPlayers.Length < 2)
+            {
+                if (Time.time - timeToWait > 20 && Time.time - timeToWait < 25)
+                {
+                    NetworkControllerScript.instance.endBadDriverGame();
+                }
+
+                if (Time.time - timeToWait > 25)
+                {
+                    NetworkControllerScript.instance.endGoodDriverGame();
+                }
+            }
+
             if (!photonView.IsMine)
             {
                 return;
@@ -157,6 +184,11 @@ namespace DriversFight.Scripts
                     avatar.AvatarRootTransform.position += -transform.forward * carSpeed * Time.deltaTime;
                 }
             }
+        }
+
+        public void carEnterInSector()
+        {
+            carLife = 0;
         }
     }
 }

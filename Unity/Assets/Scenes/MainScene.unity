@@ -1055,8 +1055,8 @@ MonoBehaviour:
   - {fileID: 214237539}
   - {fileID: 747337051}
   - {fileID: 148180245}
-  playerPrefab: {fileID: 12, guid: b54fe8680740bf74ab18a8c15e90677b, type: 3}
-  sectorSpawnerPrefab: {fileID: 1816356522885985531, guid: a46e0f880daaccd44beb899dbababc6b,
+  playerPrefab: {fileID: 11, guid: b54fe8680740bf74ab18a8c15e90677b, type: 3}
+  scriptsWhenGameLaunchPrefab: {fileID: 18, guid: f493752739b5dbd4582a63ec7b72ff34,
     type: 3}
 --- !u!4 &855570535
 Transform:
