@@ -27,7 +27,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 11bdd61587db747672b66c52442395d8 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.ServerAddressProperty
 ee1dba1a186ac062d564e9eb73a1c56f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.GraphicToggleIsOnTransition
 c656dcc13ae391b68d594cc8f9c590b0 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CurrentRoomMaxPlayersProperty
-82120b5d75952748b900a8e47f65e134 Assembly-CSharp.dll:DriversFight.Scripts.AvatarExposerScript
+2f5bb1702cdddedcab7b53da0ea8f801 Assembly-CSharp.dll:DriversFight.Scripts.AvatarExposerScript
 3ba023cd67d72cace33969ab863e0fd4 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PhotonStatsGui
 8ae3331b163cc121825eeed3975d6c4d Assembly-CSharp.dll:.ChatGui
 74c875e0f15c48e0a55f06093aa93e15 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.LayoutElementMatchSize
@@ -221,7 +221,6 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 3dbccc5793489caad80e37a33f1d2d30 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.LoadLevelUIForm
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Bullet
 4ce15e99c635d2567873d27549d1f16f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PointedAtGameObjectInfo
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.test
 37b66d97ccef5607e80037acafe51b3b Assembly-CSharp.dll:Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 92b8fbb1b8e53469d7549c58a3fe58fe Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyMainPanel
@@ -302,3 +301,5 @@ c8283c7732e3b6aa70d28f1fed4430ca PhotonUnityNetworking.Utilities.dll:Photon.Pun.
 f07d654754d37f82934d9057c671e9cc Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.UserIdUiForm
 c656dcc13ae391b68d594cc8f9c590b0 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CountOfRoomsProperty
 f0c4eb24258257daca58a9939f0894d2 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyTopPanel
+43959875eb7f1baf2601fcdcc5afaef2 Assembly-CSharp.dll:DriversFight.Scripts.CarStatsScript
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PlayerCamera

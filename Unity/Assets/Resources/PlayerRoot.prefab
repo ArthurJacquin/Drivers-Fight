@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 29}
   - component: {fileID: 26}
   - component: {fileID: 28}
+  - component: {fileID: 30}
   m_Layer: 8
   m_Name: PlayerRoot
   m_TagString: Untagged
@@ -80,9 +81,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AvatarRigidBody: {fileID: 21}
-  AvatarRigidBodyView: {fileID: 0}
   AvatarRootTransform: {fileID: 17}
   AvatarRootGameObject: {fileID: 12}
+  cam: {fileID: 18}
+  Stats: {fileID: 30}
 --- !u!114 &29
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +136,24 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &30
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235ef5b38b7452b488ac4dddf1ca204f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEngineHealth: 500
+  currentSpeed: 0
+  defaultMaximumSpeed: 20
+  defaultAccelerationSpeed: 0.1
+  defaultDecelerationSpeed: 0.2
+  defaultManeuvrability: 50
 --- !u!1 &13
 GameObject:
   m_ObjectHideFlags: 0

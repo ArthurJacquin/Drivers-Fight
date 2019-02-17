@@ -14,6 +14,9 @@ namespace DriversFight.Scripts
         [SerializeField]
         private PhotonView photonView;
 
+        private Transform targetTransform;
+        private CarStatsScript stats;
+
         private bool wantToMoveForward;
         private bool wantToMoveBackward;
 
@@ -22,12 +25,11 @@ namespace DriversFight.Scripts
 
         private bool wantToStopTheCar;
 
-        //public CarStatsScript carStats;
-
-        private float carSpeed = 0f;
-        private float carMaximumSpeed = 20f;
-        private float carAccelerationSpeed = 0.5f;
-        private float carDecelerationSpeed = 0.5f;
+        private void Start()
+        {
+            targetTransform = avatar.AvatarRootTransform;
+            stats = avatar.Stats;
+        }
 
         // Update is called once per frame
         void Update()
@@ -47,12 +49,11 @@ namespace DriversFight.Scripts
                 wantToMoveForward = true;
                 wantToStopTheCar = false;
 
-                if (carSpeed < carMaximumSpeed && wantToStopTheCar == false)
+                if (stats.currentSpeed < stats.currentMaximumSpeed.GetValue() && wantToStopTheCar == false)
                 {
-                    carSpeed += carAccelerationSpeed;
+                    stats.currentSpeed += stats.currentAccelerationSpeed.GetValue();
                 }
             }
-
             if (Input.GetKeyUp(KeyCode.Z))
             {
                 wantToStopTheCar = true;
@@ -63,9 +64,9 @@ namespace DriversFight.Scripts
                 wantToMoveBackward = true;
                 wantToStopTheCar = false;
 
-                if (carSpeed < carMaximumSpeed && wantToStopTheCar == false)
+                if (stats.currentSpeed < stats.currentMaximumSpeed.GetValue() && wantToStopTheCar == false)
                 {
-                    carSpeed += carAccelerationSpeed;
+                    stats.currentSpeed += stats.currentAccelerationSpeed.GetValue();
                 }
             }
             if (Input.GetKeyUp(KeyCode.S))
@@ -93,19 +94,19 @@ namespace DriversFight.Scripts
 
             if (wantToStopTheCar)
             {
-                if (carSpeed > 0f)
+                if (stats.currentSpeed > 0f)
                 {
-                    carSpeed -= carDecelerationSpeed;
+                    stats.currentSpeed -= stats.currentDecelerationSpeed.GetValue();
 
-                    if (carSpeed < 0f)
+                    if (stats.currentSpeed < 0f)
                     {
-                        carSpeed = 0f;
+                        stats.currentSpeed = 0f;
                     }
                 }
 
-                if (carSpeed <= 0f)
+                if (stats.currentSpeed <= 0f)
                 {
-                    carSpeed = 0f;
+                    stats.currentSpeed = 0f;
 
                     wantToMoveForward = false;
                     wantToMoveBackward = false;
@@ -127,34 +128,34 @@ namespace DriversFight.Scripts
             {
                 if (wantToMoveLeft)
                 {
-                    avatar.AvatarRootTransform.position += transform.forward * carSpeed * Time.deltaTime;
-                    avatar.AvatarRootTransform.Rotate(0.0f, -40.0f * Time.deltaTime, 0.0f);
+                    targetTransform.position += transform.forward * stats.currentSpeed * Time.deltaTime;
+                    targetTransform.Rotate(0.0f, -stats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
                 }
                 else if (wantToMoveRight)
                 {
-                    avatar.AvatarRootTransform.position += transform.forward * carSpeed * Time.deltaTime;
-                    avatar.AvatarRootTransform.Rotate(0.0f, 40.0f * Time.deltaTime, 0.0f);
+                    targetTransform.position += transform.forward * stats.currentSpeed * Time.deltaTime;
+                    targetTransform.Rotate(0.0f, stats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
                 }
                 else
                 {
-                    avatar.AvatarRootTransform.position += transform.forward * carSpeed * Time.deltaTime;
+                    targetTransform.position += transform.forward * stats.currentSpeed * Time.deltaTime;
                 }
             }
             else if (wantToMoveBackward)
             {
                 if (wantToMoveLeft)
                 {
-                    avatar.AvatarRootTransform.position += -transform.forward * carSpeed * Time.deltaTime;
-                    avatar.AvatarRootTransform.Rotate(0.0f, 40.0f * Time.deltaTime, 0.0f);
+                    targetTransform.position += -transform.forward * stats.currentSpeed * Time.deltaTime;
+                    targetTransform.Rotate(0.0f, stats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
                 }
                 else if (wantToMoveRight)
                 {
-                    avatar.AvatarRootTransform.position += -transform.forward * carSpeed * Time.deltaTime;
-                    avatar.AvatarRootTransform.Rotate(0.0f, -40.0f * Time.deltaTime, 0.0f);
+                    targetTransform.position += -transform.forward * stats.currentSpeed * Time.deltaTime;
+                    targetTransform.Rotate(0.0f, -stats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
                 }
                 else
                 {
-                    avatar.AvatarRootTransform.position += -transform.forward * carSpeed * Time.deltaTime;
+                    targetTransform.position += -transform.forward * stats.currentSpeed * Time.deltaTime;
                 }
             }
         }
