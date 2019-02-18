@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
+  - component: {fileID: 534669906}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -543,6 +544,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 54.076004, y: 0, z: 0}
+--- !u!114 &534669906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3272c5a5d02ffa342b87ad5ef636417d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &552474946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1068,7 @@ MonoBehaviour:
   - {fileID: 214237539}
   - {fileID: 747337051}
   - {fileID: 148180245}
-  playerPrefab: {fileID: 12, guid: b54fe8680740bf74ab18a8c15e90677b, type: 3}
+  playerPrefab: {fileID: 13, guid: b54fe8680740bf74ab18a8c15e90677b, type: 3}
 --- !u!4 &855570535
 Transform:
   m_ObjectHideFlags: 0
@@ -1379,7 +1392,7 @@ Canvas:
   m_GameObject: {fileID: 1111359967}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 534669904}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

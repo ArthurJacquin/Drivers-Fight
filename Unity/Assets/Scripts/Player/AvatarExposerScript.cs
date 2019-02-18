@@ -8,7 +8,6 @@ namespace DriversFight.Scripts
         public Rigidbody AvatarRigidBody;
         public Transform AvatarRootTransform;
         public GameObject AvatarRootGameObject;
-        public Camera cam;
         public CarStatsScript Stats;
 
 

@@ -179,6 +179,7 @@ namespace DriversFight.Scripts
                                       + $"You are controlling Avatar {i}, Let's Play !";
 
             PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
+            Camera.main.GetComponent<PlayerCamera>().enabled = true;
         }
     }
 }

@@ -159,5 +159,30 @@ namespace DriversFight.Scripts
                 }
             }
         }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (!photonView.IsMine)
+                return;
+
+            if(other.gameObject.tag == "Car")
+            {
+                if (stats.currentSpeed > 0)
+                {
+                    DealDamage( Mathf.RoundToInt(stats.currentSpeed * 2), other.gameObject.GetComponent<PhotonView>().ViewID);
+                }
+            }
+            else
+            {
+                Debug.Log("Collision avec un truc");
+            }
+        }
+
+
+        [PunRPC]
+        private void DealDamage(int damage, int viewID)
+        {
+            PhotonView.Find(viewID).gameObject.SendMessage("TakeFrontDamage", damage);
+        }
     }
 }
