@@ -13,9 +13,6 @@ namespace DriversFight.Scripts
         [SerializeField]
         private AvatarExposerScript avatar;
 
-        [SerializeField]
-        private PhotonView photonView;
-
         private Transform targetTransform;
         private CarStatsScript stats;
 
@@ -42,7 +39,7 @@ namespace DriversFight.Scripts
         // Update is called once per frame
         void Update()
         {
-            if (!photonView.IsMine)
+            if (!avatar.photonView.IsMine)
             {
                 return;
             }
@@ -142,7 +139,7 @@ namespace DriversFight.Scripts
         // Update is called once per frame
         void FixedUpdate()
         {
-            if (!photonView.IsMine)
+            if (!avatar.photonView.IsMine)
             {
                 return;
             }
@@ -185,7 +182,7 @@ namespace DriversFight.Scripts
 
         private void OnCollisionEnter(Collision other)
         {
-            if (!photonView.IsMine)
+            if (!avatar.photonView.IsMine)
                 return;
 
             if(other.gameObject.tag == "Car")
@@ -195,7 +192,7 @@ namespace DriversFight.Scripts
                 {
                     var otherView = other.gameObject.GetComponent<PhotonView>();
                     Debug.Log("Collision avec le joueur " + other.gameObject.GetComponent<PhotonView>().ViewID);
-                    photonView.RPC("DealDamage", otherView.Owner, Mathf.RoundToInt(stats.currentSpeed * 2), otherView.ViewID);
+                    avatar.photonView.RPC("DealDamage", otherView.Owner, Mathf.RoundToInt(stats.currentSpeed * 2), otherView.ViewID);
                 }
             }
             else

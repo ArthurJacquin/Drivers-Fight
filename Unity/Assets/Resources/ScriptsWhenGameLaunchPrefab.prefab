@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &22
+--- !u!1 &31
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 34}
-  - component: {fileID: 75}
-  - component: {fileID: 82}
-  - component: {fileID: 80}
+  - component: {fileID: 41}
+  - component: {fileID: 88}
+  - component: {fileID: 90}
+  - component: {fileID: 89}
   m_Layer: 0
   m_Name: ScriptsWhenGameLaunchPrefab
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &34
+--- !u!4 &41
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22}
+  m_GameObject: {fileID: 31}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,13 +33,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &75
+--- !u!114 &88
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22}
+  m_GameObject: {fileID: 31}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ed6c289e51db0f4f995b68cadf9fca2, type: 3}
@@ -53,28 +53,28 @@ MonoBehaviour:
   sector5: {fileID: 25, guid: b3f9dd10664a03d41b19031757e16b69, type: 3}
   sector6: {fileID: 20, guid: 05a70b1c8ffe10b4a9e73098627e9776, type: 3}
   sector7: {fileID: 26, guid: ffb63192215086a45991b17a7b8a8508, type: 3}
-  firstSectorSpawn: 5
-  timeNextSectorSpawn: 3
-  timeToShowWarning: 0
---- !u!114 &82
+  firstSectorSpawn: 60
+  timeNextSectorSpawn: 30
+  timeToShowWarning: 15
+--- !u!114 &90
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22}
+  m_GameObject: {fileID: 31}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 525b3314919761c419f939cf718be8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &80
+--- !u!114 &89
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22}
+  m_GameObject: {fileID: 31}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}

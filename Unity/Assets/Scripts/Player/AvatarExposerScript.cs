@@ -9,6 +9,7 @@ namespace DriversFight.Scripts
         public Transform AvatarRootTransform;
         public GameObject AvatarRootGameObject;
         public CarStatsScript Stats;
+        public PhotonView photonView;
 
 
         public enum SideHit

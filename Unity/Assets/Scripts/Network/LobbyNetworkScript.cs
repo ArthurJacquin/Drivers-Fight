@@ -53,6 +53,13 @@ namespace DriversFight.Scripts
         [SerializeField]
         private GameObject scriptsWhenGameLaunchPrefab;
 
+        [Header("UI")]
+        [SerializeField]
+        private GameObject playerUI;
+
+        [SerializeField]
+        private PlayerUI playerUIScript;
+
 
         public event Action OnlinePlayReady;
 
@@ -100,6 +107,8 @@ namespace DriversFight.Scripts
             welcomeMessageText.text = "Drivers Fight";
 
             endGamePanel.SetActive(false);
+            playerUI.gameObject.SetActive(false);
+            playerUIScript.enabled = false;
         }
 
         private void OnlinePlaySetup()
@@ -189,6 +198,7 @@ namespace DriversFight.Scripts
 
             welcomeMessageText.enabled = false;
 
+            //Setup game
             var newPlayer = PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
 
             PlayerCamera cam = Camera.main.GetComponent<PlayerCamera>();
@@ -196,6 +206,10 @@ namespace DriversFight.Scripts
             cam.target = newPlayer.transform;
 
             PhotonNetwork.Instantiate(scriptsWhenGameLaunchPrefab.name, scriptsWhenGameLaunchPrefab.transform.position, Quaternion.identity);
+
+            playerUIScript.avatar = newPlayer.GetComponent<AvatarExposerScript>();
+            playerUI.gameObject.SetActive(true);
+            playerUIScript.enabled = true;
         }
 
         public void ShowEndGamePanel(int rank)

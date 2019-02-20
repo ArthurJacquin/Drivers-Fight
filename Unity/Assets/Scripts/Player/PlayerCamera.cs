@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    [HideInInspector]
     public Transform target;
 
     private Vector3 offset = new Vector3(0, 2, 6.5f);
