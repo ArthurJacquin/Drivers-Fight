@@ -52,11 +52,6 @@ namespace DriversFight.Scripts
                 {
                     NetworkControllerScript.instance.endBadDriverGame();
                 }
-
-                if (Time.time - timeToWait > 25)
-                {
-                    NetworkControllerScript.instance.endGoodDriverGame();
-                }
             }
 
             if (!photonView.IsMine)
