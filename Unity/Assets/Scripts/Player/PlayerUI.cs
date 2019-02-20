@@ -25,10 +25,10 @@ namespace DriversFight.Scripts
         {
             if (!avatar.photonView.IsMine)
                 return;
-            
+
             speedText.text = Mathf.RoundToInt(avatar.Stats.currentSpeed).ToString();
             speedBar.fillAmount = avatar.Stats.currentSpeed / avatar.Stats.currentMaximumSpeed.GetValue();
-            healthBar.fillAmount = avatar.Stats.currentEngineHealth / avatar.Stats.maxEngineHealth;
+            healthBar.fillAmount = (float)avatar.Stats.currentEngineHealth / (float)avatar.Stats.maxEngineHealth;
         }
     }
 }

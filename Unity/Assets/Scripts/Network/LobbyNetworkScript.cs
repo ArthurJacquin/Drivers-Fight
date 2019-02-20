@@ -47,12 +47,6 @@ namespace DriversFight.Scripts
         [SerializeField]
         NetworkControllerScript networkController;
 
-        [SerializeField]
-        private GameObject playerPrefab;
-
-        [SerializeField]
-        private GameObject scriptsWhenGameLaunchPrefab;
-
         [Header("UI")]
         [SerializeField]
         private GameObject playerUI;
@@ -199,13 +193,13 @@ namespace DriversFight.Scripts
             welcomeMessageText.enabled = false;
 
             //Setup game
-            var newPlayer = PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
+            var newPlayer = PhotonNetwork.Instantiate("PlayerRoot", startPositions[i].position, startPositions[i].rotation);
 
             PlayerCamera cam = Camera.main.GetComponent<PlayerCamera>();
             cam.enabled = true;
             cam.target = newPlayer.transform;
 
-            PhotonNetwork.Instantiate(scriptsWhenGameLaunchPrefab.name, scriptsWhenGameLaunchPrefab.transform.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("scriptsWhenGameLaunchPrefab", Vector3.zero, Quaternion.identity);
 
             playerUIScript.avatar = newPlayer.GetComponent<AvatarExposerScript>();
             playerUI.gameObject.SetActive(true);

@@ -24,8 +24,6 @@ namespace DriversFight.Scripts
 
         private bool wantToStopTheCar;
 
-        private bool gameOver = false;
-
         private float timeToWait;
 
         private void Start()
@@ -129,7 +127,7 @@ namespace DriversFight.Scripts
             }
 
             //Kill myself if dead
-            if (stats.currentEngineHealth <= 0 && !gameOver)
+            if (stats.currentEngineHealth <= 0)
             {
                 Debug.Log("Kill player");
                 NetworkControllerScript.instance.EndGame();
