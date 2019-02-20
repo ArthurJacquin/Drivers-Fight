@@ -224,7 +224,7 @@ namespace DriversFight.Scripts
             }
             else
             {
-                rankingText.text = "Tu terminez en " + rank + "eme position.";
+                rankingText.text = "Tu termines en " + rank + "eme position.";
                 commentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !"; 
             }
 
