@@ -150,7 +150,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 3c5ac52e4f3ab1351ca71f2414b0c66c Assembly-CSharp.dll:DriversFight.Scripts.PlayerSyncScript
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-aa751ad147d45170bd8a11707e0647e4 Assembly-CSharp.dll:DriversFight.Scripts.NetworkControllerScript
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:DriversFight.Scripts.NetworkControllerScript
 0927e41b46e1bd11671f9b5adda4b832 PhotonUnityNetworking.dll:Photon.Pun.PhotonRigidbody2DView
 670905152aa7e4cde2f35ca54a61bf41 Assembly-CSharp.dll:DriversFight.Scripts.PlayerMovementScript
 71bb6a6b6c8f052f948db64c7dd3ca4f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnStartDelete
@@ -207,6 +207,7 @@ c380fc5ce39348202e0a58fe3e243a74 Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.L
 e37675de1ea5e56da90f5600d33587bd Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.ToggleExpand
 cba6cca6bb3290c4c00d709cf63843db Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.NickNameField
 4d9f3379d9846c3f857ff61792c5ee3b Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.PlayerUI
+9f9cb2a89210652d74fa9482adb9bec3 Assembly-CSharp.dll:DriversFight.Scripts.SectorSpawnManagement
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -257,8 +258,9 @@ e10400e84c8c573b2b5e4088aca77453 Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.P
 a8d3c943d9168cbdd8596f040ff02ff4 Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Asteroid
 9db963832ef7feebd35f44e6ad6f646c PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnJoinedInstantiate
 d7f7bc402888d42a0dbb080693e6863c Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.LoaderAnime
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:DriversFight.Scripts.SectorPlayerColliderManagement
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
-d1b53901d6cace81d259dc1a5244af74 Assembly-CSharp.dll:DriversFight.Scripts.LobbyNetworkScript
+caf8f47dcf12cd95ecbc722cff7e9cf1 Assembly-CSharp.dll:DriversFight.Scripts.LobbyNetworkScript
 7221ab9307aaa6b66a416e2e4561f420 Assembly-CSharp.dll:.ScoreHelper
 e80cf4684910fdd7f091d85a19a93603 Assembly-CSharp.dll:Photon.Pun.Demo.SlotRacer.SlotLanes
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton

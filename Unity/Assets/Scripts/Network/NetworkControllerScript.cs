@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
-using Photon.Realtime;
 using Photon.Pun.UtilityScripts;
 using UnityEngine;
 
@@ -9,32 +9,43 @@ namespace DriversFight.Scripts
 {
     public class NetworkControllerScript : MonoBehaviour
     {
-        [SerializeField]
+        /*[SerializeField]
         private PhotonView photonView;
 
         [SerializeField]
-        private LobbyNetworkScript lobbyNetworkScript;
+        private LobbyNetworkScript LobbyNetworkScript;*/
 
-        public int playerCount
+        public static NetworkControllerScript instance = null;
 
         private bool GameStarted { get; set; }
 
         private void Awake()
         {
-
+            if(PhotonNetwork.IsMasterClient)
+            {
+                if (instance == null)
+                {
+                    instance = this;
+                    Debug.Log("oui");
+                }
+                else if (instance != this)
+                {
+                    Destroy(gameObject);
+                    Debug.Log("non");
+                }
+            }
         }
 
-        //Réinitialise tout pour le début d'une nouvelle partie
         private void ResetGame()
         {
-            
+
         }
 
-        [PunRPC]
-        private void EndGame()
+        public void EndGame()
         {
-            //TODO : Ecran de fin de partie
-            lobbyNetworkScript.ShowMainMenu();
+            var rank = PlayerNumbering.SortedPlayers.Length;
+            PhotonNetwork.Disconnect();
+            LobbyNetworkScript.instance.ShowEndGamePanel(rank);
         }
     }
 }

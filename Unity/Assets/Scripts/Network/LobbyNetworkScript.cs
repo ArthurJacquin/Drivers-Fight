@@ -10,7 +10,9 @@ namespace DriversFight.Scripts
 {
     public class LobbyNetworkScript : MonoBehaviourPunCallbacks
     {
-        [Header("UI")]
+        public static LobbyNetworkScript instance = null;
+
+        [Header("Menu")]
         [SerializeField]
         private Button playButton;
 
@@ -23,6 +25,19 @@ namespace DriversFight.Scripts
         [SerializeField]
         private TMPro.TextMeshProUGUI welcomeMessageText;
 
+        [Header("End game panel")]
+        [SerializeField]
+        private GameObject endGamePanel;
+
+        [SerializeField]
+        private TMPro.TextMeshProUGUI rankingText;
+
+        [SerializeField]
+        private TMPro.TextMeshProUGUI commentaryText;
+
+        [SerializeField]
+        private Button backButton;
+
         [Header("Instantiation")]
         private AvatarExposerScript[] avatars;
 
@@ -30,7 +45,14 @@ namespace DriversFight.Scripts
         private Transform[] startPositions;
 
         [SerializeField]
+        NetworkControllerScript networkController;
+
+        [SerializeField]
         private GameObject playerPrefab;
+
+        [SerializeField]
+        private GameObject scriptsWhenGameLaunchPrefab;
+
 
         public event Action OnlinePlayReady;
 
@@ -44,6 +66,17 @@ namespace DriversFight.Scripts
 
         private void Awake()
         {
+            if (instance == null)
+            {
+                instance = this;
+                Debug.Log("oui");
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);
+                Debug.Log("non");
+            }
+
             playButton.onClick.AddListener(OnlinePlaySetup);
             createRoomButton.onClick.AddListener(AskForRoomCreation);
             joinRoomButton.onClick.AddListener(AskForRoomJoin);
@@ -65,6 +98,8 @@ namespace DriversFight.Scripts
             joinRoomButton.interactable = false;
 
             welcomeMessageText.text = "Drivers Fight";
+
+            endGamePanel.SetActive(false);
         }
 
         private void OnlinePlaySetup()
@@ -152,8 +187,7 @@ namespace DriversFight.Scripts
                 }
             }
 
-            welcomeMessageText.text = $"You are Actor : {PhotonNetwork.LocalPlayer.ActorNumber}\n "
-                                      + $"You are controlling Avatar {i}, Let's Play !";
+            welcomeMessageText.enabled = false;
 
             var newPlayer = PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
 
@@ -161,7 +195,26 @@ namespace DriversFight.Scripts
             cam.enabled = true;
             cam.target = newPlayer.transform;
 
-            NetworkControllerScript.
+            PhotonNetwork.Instantiate(scriptsWhenGameLaunchPrefab.name, scriptsWhenGameLaunchPrefab.transform.position, Quaternion.identity);
+        }
+
+        public void ShowEndGamePanel(int rank)
+        {
+            endGamePanel.SetActive(true);
+
+            //Good or bad end
+            if(rank == 1)
+            {
+                rankingText.text = "Vous êtes l'ULTIME DRIVER !";
+                commentaryText.text = "";
+            }
+            else
+            {
+                rankingText.text = "Tu terminez en " + rank + "eme position.";
+                commentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !"; 
+            }
+
+            backButton.onClick.AddListener(ShowMainMenu);
         }
     }
 }

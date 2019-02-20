@@ -27,10 +27,16 @@ namespace DriversFight.Scripts
 
         private bool wantToStopTheCar;
 
+        private bool gameOver = false;
+
+        private float timeToWait;
+
         private void Start()
         {
             targetTransform = avatar.AvatarRootTransform;
             stats = avatar.Stats;
+
+            timeToWait = Time.time;
         }
 
         // Update is called once per frame
@@ -39,6 +45,14 @@ namespace DriversFight.Scripts
             if (!photonView.IsMine)
             {
                 return;
+            }
+
+            if (PlayerNumbering.SortedPlayers.Length < 2)
+            {
+                if (Time.time - timeToWait > 20 && Time.time - timeToWait < 25)
+                {
+                    NetworkControllerScript.instance.EndGame();
+                }
             }
 
             if (EventSystem.current.IsPointerOverGameObject())
@@ -118,13 +132,10 @@ namespace DriversFight.Scripts
             }
 
             //Kill myself if dead
-            if (stats.currentEngineHealth <= 0)
+            if (stats.currentEngineHealth <= 0 && !gameOver)
             {
                 Debug.Log("Kill player");
-                photonView.RPC("KillPLayer", RpcTarget.AllBuffered, photonView.ViewID);
-                Destroy(this);
-
-                if()
+                NetworkControllerScript.instance.EndGame();
             }
         }
 
@@ -201,26 +212,9 @@ namespace DriversFight.Scripts
             PhotonView.Find(viewID).gameObject.SendMessage("TakeFrontDamage", damage);
         }
 
-
-        [PunRPC]
-        private void KillPLayer(int viewID)
+        public void carEnterInSector()
         {
-            Debug.Log("Killing player");
-            GameObject go = PhotonView.Find(viewID).gameObject;
-            Destroy(go);
-
-            for (int i = 0; i < PlayerNumbering.SortedPlayers.Length; i++)
-            {
-                if (PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[i].ActorNumber)
-                {
-                    //PlayerNumbering.SortedPlayers;
-                }
-            }
-
-            if (PlayerNumbering.SortedPlayers.Length <= 1)
-            {
-
-            }
+            stats.currentEngineHealth = 0;
         }
     }
 }
