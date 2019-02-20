@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 namespace DriversFight.Scripts
 {
     public class CarStatsScript : MonoBehaviour
     {
-        public int maxEngineHealth = 500;
+        public int maxEngineHealth = 100;
         public int currentEngineHealth { get; set; }
 
         public Stats frontBumperArmor;
@@ -57,10 +58,6 @@ namespace DriversFight.Scripts
 
             currentEngineHealth -= damage;
 
-            if (currentEngineHealth <= 0)
-            {
-                Die();
-            }
         }
 
         public void TakeRearDamage(int damage)
@@ -69,11 +66,6 @@ namespace DriversFight.Scripts
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
             currentEngineHealth -= damage;
-
-            if (currentEngineHealth <= 0)
-            {
-                Die();
-            }
         }
 
         public void TakeRightDamage(int damage)
@@ -82,11 +74,6 @@ namespace DriversFight.Scripts
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
             currentEngineHealth -= damage;
-
-            if (currentEngineHealth <= 0)
-            {
-                Die();
-            }
         }
 
         public void TakeLeftDamage(int damage)
@@ -95,11 +82,6 @@ namespace DriversFight.Scripts
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
             currentEngineHealth -= damage;
-
-            if (currentEngineHealth <= 0)
-            {
-                Die();
-            }
         }
 
         public void TakeWheelDamage(int damage)
@@ -108,11 +90,6 @@ namespace DriversFight.Scripts
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
             currentEngineHealth -= damage;
-
-            if (currentEngineHealth <= 0)
-            {
-                Die();
-            }
         }
 
         public void TakeTiresDamage(int damage)
@@ -121,16 +98,6 @@ namespace DriversFight.Scripts
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
             currentEngineHealth -= damage;
-
-            if (currentEngineHealth <= 0)
-            {
-                Die();
-            }
-        }
-
-        public virtual void Die()
-        {
-
         }
     }
 }

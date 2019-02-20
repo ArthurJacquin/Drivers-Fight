@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 16}
   - component: {fileID: 19}
   - component: {fileID: 23}
-  - component: {fileID: 25}
+  - component: {fileID: 26}
   - component: {fileID: 22}
   - component: {fileID: 24}
-  - component: {fileID: 26}
+  - component: {fileID: 25}
   - component: {fileID: 27}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -69,8 +69,8 @@ MonoBehaviour:
   AvatarRigidBody: {fileID: 19}
   AvatarRootTransform: {fileID: 16}
   AvatarRootGameObject: {fileID: 13}
-  Stats: {fileID: 26}
---- !u!114 &25
+  Stats: {fileID: 27}
+--- !u!114 &26
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 27}
+  - {fileID: 25}
   viewIdField: 1
   InstantiationId: 1
   isRuntimeInstantiated: 0
@@ -121,25 +121,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &26
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 235ef5b38b7452b488ac4dddf1ca204f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxEngineHealth: 500
-  currentSpeed: 0
-  defaultMaximumSpeed: 20
-  defaultAccelerationSpeed: 0.1
-  defaultDecelerationSpeed: 0.2
-  defaultManeuvrability: 50
---- !u!114 &27
+--- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,6 +134,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 22}
+--- !u!114 &27
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235ef5b38b7452b488ac4dddf1ca204f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEngineHealth: 100
+  currentSpeed: 0
+  defaultMaximumSpeed: 20
+  defaultAccelerationSpeed: 0.1
+  defaultDecelerationSpeed: 0.2
+  defaultManeuvrability: 50
 --- !u!1 &14
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 18}
   - component: {fileID: 17}
   - component: {fileID: 20}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

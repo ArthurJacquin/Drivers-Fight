@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Realtime;
+using Photon.Pun.UtilityScripts;
 using UnityEngine;
 
 namespace DriversFight.Scripts
@@ -11,7 +13,9 @@ namespace DriversFight.Scripts
         private PhotonView photonView;
 
         [SerializeField]
-        private LobbyNetworkScript LobbyNetworkScript;
+        private LobbyNetworkScript lobbyNetworkScript;
+
+        public int playerCount
 
         private bool GameStarted { get; set; }
 
@@ -20,16 +24,17 @@ namespace DriversFight.Scripts
 
         }
 
-
-
+        //Réinitialise tout pour le début d'une nouvelle partie
         private void ResetGame()
         {
-
+            
         }
 
+        [PunRPC]
         private void EndGame()
         {
-
+            //TODO : Ecran de fin de partie
+            lobbyNetworkScript.ShowMainMenu();
         }
     }
 }

@@ -140,29 +140,6 @@ namespace DriversFight.Scripts
             PlayerLeft?.Invoke(i);
         }
 
-        public override void OnPlayerEnteredRoom(Player newPlayer)
-        {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                StartCoroutine(InformPlayerJoinedEndOfFrame(newPlayer.ActorNumber));
-            }
-        }
-
-        private IEnumerator InformPlayerJoinedEndOfFrame(int actorNumber)
-        {
-            yield return new WaitForSeconds(0.1f);
-            var i = 0;
-            for (; i < PlayerNumbering.SortedPlayers.Length; i++)
-            {
-                if (actorNumber == PlayerNumbering.SortedPlayers[i].ActorNumber)
-                {
-                    break;
-                }
-            }
-
-            PlayerJoined?.Invoke(i);
-        }
-
         private IEnumerator SetWelcomeMessageAndSetReadyAtTheEndOfFrame()
         {
             yield return new WaitForSeconds(0.1f);
@@ -178,8 +155,13 @@ namespace DriversFight.Scripts
             welcomeMessageText.text = $"You are Actor : {PhotonNetwork.LocalPlayer.ActorNumber}\n "
                                       + $"You are controlling Avatar {i}, Let's Play !";
 
-            PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
-            Camera.main.GetComponent<PlayerCamera>().enabled = true;
+            var newPlayer = PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
+
+            PlayerCamera cam = Camera.main.GetComponent<PlayerCamera>();
+            cam.enabled = true;
+            cam.target = newPlayer.transform;
+
+            NetworkControllerScript.
         }
     }
 }

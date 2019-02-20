@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
 
     private Vector3 offset = new Vector3(0, 2, 6.5f);
     private Vector3 rotationVector;

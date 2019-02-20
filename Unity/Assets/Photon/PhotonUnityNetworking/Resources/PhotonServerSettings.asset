@@ -46,4 +46,6 @@ MonoBehaviour:
   - OnCollisionEnter
   - OnCollisionEnterRPC
   - DealDamage
+  - KillPLayer
+  - EndGame
   DisableAutoOpenWizard: 1

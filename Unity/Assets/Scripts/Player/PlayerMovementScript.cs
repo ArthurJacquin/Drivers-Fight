@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Photon.Pun;
+using Photon.Realtime;
+using Photon.Pun.UtilityScripts;
 
 namespace DriversFight.Scripts
 {
@@ -114,6 +116,16 @@ namespace DriversFight.Scripts
                     wantToStopTheCar = false;
                 }
             }
+
+            //Kill myself if dead
+            if (stats.currentEngineHealth <= 0)
+            {
+                Debug.Log("Kill player");
+                photonView.RPC("KillPLayer", RpcTarget.AllBuffered, photonView.ViewID);
+                Destroy(this);
+
+                if()
+            }
         }
 
         // Update is called once per frame
@@ -167,9 +179,12 @@ namespace DriversFight.Scripts
 
             if(other.gameObject.tag == "Car")
             {
-                if (stats.currentSpeed > 0)
+                //Damage other player
+                if (stats.currentSpeed > 1)
                 {
-                    DealDamage( Mathf.RoundToInt(stats.currentSpeed * 2), other.gameObject.GetComponent<PhotonView>().ViewID);
+                    var otherView = other.gameObject.GetComponent<PhotonView>();
+                    Debug.Log("Collision avec le joueur " + other.gameObject.GetComponent<PhotonView>().ViewID);
+                    photonView.RPC("DealDamage", otherView.Owner, Mathf.RoundToInt(stats.currentSpeed * 2), otherView.ViewID);
                 }
             }
             else
@@ -182,7 +197,30 @@ namespace DriversFight.Scripts
         [PunRPC]
         private void DealDamage(int damage, int viewID)
         {
+            Debug.Log("Deal damage to " + viewID);
             PhotonView.Find(viewID).gameObject.SendMessage("TakeFrontDamage", damage);
+        }
+
+
+        [PunRPC]
+        private void KillPLayer(int viewID)
+        {
+            Debug.Log("Killing player");
+            GameObject go = PhotonView.Find(viewID).gameObject;
+            Destroy(go);
+
+            for (int i = 0; i < PlayerNumbering.SortedPlayers.Length; i++)
+            {
+                if (PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[i].ActorNumber)
+                {
+                    //PlayerNumbering.SortedPlayers;
+                }
+            }
+
+            if (PlayerNumbering.SortedPlayers.Length <= 1)
+            {
+
+            }
         }
     }
 }
