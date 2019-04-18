@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using UnityEngine;
 
 namespace DriversFight.Scripts
@@ -20,17 +21,19 @@ namespace DriversFight.Scripts
 
         private void Awake()
         {
-            if (instance == null)
+            if(PhotonNetwork.IsMasterClient)
             {
-                instance = this;
-                Debug.Log("oui");
+                if (instance == null)
+                {
+                    instance = this;
+                    Debug.Log("oui");
+                }
+                else if (instance != this)
+                {
+                    Destroy(gameObject);
+                    Debug.Log("non");
+                }
             }
-            else if (instance != this)
-            {
-                Destroy(gameObject);
-                Debug.Log("non");
-            }
-
         }
 
         private void ResetGame()
@@ -38,27 +41,11 @@ namespace DriversFight.Scripts
 
         }
 
-        private void EndGame()
+        public void EndGame()
         {
-
-        }
-
-        public void endBadDriverGame()
-        {
+            var rank = PlayerNumbering.SortedPlayers.Length;
             PhotonNetwork.Disconnect();
-            LobbyNetworkScript.instance.ShowMainMenu();
-        }
-
-        public void endGoodDriverGame()
-        {
-            System.Threading.Thread.Sleep(5000);
-            PhotonNetwork.Disconnect();
-            LobbyNetworkScript.instance.ShowMainMenu();
-        }
-
-        public static implicit operator NetworkControllerScript(PlayerMovementScript v)
-        {
-            throw new NotImplementedException();
+            LobbyNetworkScript.instance.ShowEndGamePanel(rank);
         }
     }
 }

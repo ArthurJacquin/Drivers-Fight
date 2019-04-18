@@ -6,9 +6,10 @@ namespace DriversFight.Scripts
     public class AvatarExposerScript : MonoBehaviour
     {
         public Rigidbody AvatarRigidBody;
-        public PhotonRigidbodyView AvatarRigidBodyView;
         public Transform AvatarRootTransform;
         public GameObject AvatarRootGameObject;
+        public CarStatsScript Stats;
+        public PhotonView photonView;
 
 
         public enum SideHit

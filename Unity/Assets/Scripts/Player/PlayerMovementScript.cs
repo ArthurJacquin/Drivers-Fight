@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Photon.Pun;
+using Photon.Realtime;
 using Photon.Pun.UtilityScripts;
 
 namespace DriversFight.Scripts
@@ -12,8 +13,8 @@ namespace DriversFight.Scripts
         [SerializeField]
         private AvatarExposerScript avatar;
 
-        [SerializeField]
-        private PhotonView photonView;
+        private Transform targetTransform;
+        private CarStatsScript stats;
 
         private bool wantToMoveForward;
         private bool wantToMoveBackward;
@@ -23,40 +24,30 @@ namespace DriversFight.Scripts
 
         private bool wantToStopTheCar;
 
-        //public CarStatsScript carStats;
-
-        private float carSpeed = 0f;
-        private float carMaximumSpeed = 50f;
-        private float carAccelerationSpeed = 0.5f;
-        private float carDecelerationSpeed = 0.5f;
-        private int carLife = 100;
-
         private float timeToWait;
 
-        private void Awake()
+        private void Start()
         {
+            targetTransform = avatar.AvatarRootTransform;
+            stats = avatar.Stats;
+
             timeToWait = Time.time;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (carLife <= 0)
+            if (!avatar.photonView.IsMine)
             {
-                NetworkControllerScript.instance.endBadDriverGame();
+                return;
             }
 
             if (PlayerNumbering.SortedPlayers.Length < 2)
             {
                 if (Time.time - timeToWait > 20 && Time.time - timeToWait < 25)
                 {
-                    NetworkControllerScript.instance.endBadDriverGame();
+                    NetworkControllerScript.instance.EndGame();
                 }
-            }
-
-            if (!photonView.IsMine)
-            {
-                return;
             }
 
             if (EventSystem.current.IsPointerOverGameObject())
@@ -69,12 +60,11 @@ namespace DriversFight.Scripts
                 wantToMoveForward = true;
                 wantToStopTheCar = false;
 
-                if (carSpeed < carMaximumSpeed && wantToStopTheCar == false)
+                if (stats.currentSpeed < stats.currentMaximumSpeed.GetValue() && wantToStopTheCar == false)
                 {
-                    carSpeed += carAccelerationSpeed;
+                    stats.currentSpeed += stats.currentAccelerationSpeed.GetValue();
                 }
             }
-
             if (Input.GetKeyUp(KeyCode.Z))
             {
                 wantToStopTheCar = true;
@@ -85,9 +75,9 @@ namespace DriversFight.Scripts
                 wantToMoveBackward = true;
                 wantToStopTheCar = false;
 
-                if (carSpeed < carMaximumSpeed && wantToStopTheCar == false)
+                if (stats.currentSpeed < stats.currentMaximumSpeed.GetValue() && wantToStopTheCar == false)
                 {
-                    carSpeed += carAccelerationSpeed;
+                    stats.currentSpeed += stats.currentAccelerationSpeed.GetValue();
                 }
             }
             if (Input.GetKeyUp(KeyCode.S))
@@ -115,19 +105,19 @@ namespace DriversFight.Scripts
 
             if (wantToStopTheCar)
             {
-                if (carSpeed > 0f)
+                if (stats.currentSpeed > 0f)
                 {
-                    carSpeed -= carDecelerationSpeed;
+                    stats.currentSpeed -= stats.currentDecelerationSpeed.GetValue();
 
-                    if (carSpeed < 0f)
+                    if (stats.currentSpeed < 0f)
                     {
-                        carSpeed = 0f;
+                        stats.currentSpeed = 0f;
                     }
                 }
 
-                if (carSpeed <= 0f)
+                if (stats.currentSpeed <= 0f)
                 {
-                    carSpeed = 0f;
+                    stats.currentSpeed = 0f;
 
                     wantToMoveForward = false;
                     wantToMoveBackward = false;
@@ -135,12 +125,19 @@ namespace DriversFight.Scripts
                     wantToStopTheCar = false;
                 }
             }
+
+            //Kill myself if dead
+            if (stats.currentEngineHealth <= 0)
+            {
+                Debug.Log("Kill player");
+                NetworkControllerScript.instance.EndGame();
+            }
         }
 
         // Update is called once per frame
         void FixedUpdate()
         {
-            if (!photonView.IsMine)
+            if (!avatar.photonView.IsMine)
             {
                 return;
             }
@@ -149,41 +146,70 @@ namespace DriversFight.Scripts
             {
                 if (wantToMoveLeft)
                 {
-                    avatar.AvatarRootTransform.position += transform.forward * carSpeed * Time.deltaTime;
-                    avatar.AvatarRootTransform.Rotate(0.0f, -40.0f * Time.deltaTime, 0.0f);
+                    targetTransform.position += transform.forward * stats.currentSpeed * Time.deltaTime;
+                    targetTransform.Rotate(0.0f, -stats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
                 }
                 else if (wantToMoveRight)
                 {
-                    avatar.AvatarRootTransform.position += transform.forward * carSpeed * Time.deltaTime;
-                    avatar.AvatarRootTransform.Rotate(0.0f, 40.0f * Time.deltaTime, 0.0f);
+                    targetTransform.position += transform.forward * stats.currentSpeed * Time.deltaTime;
+                    targetTransform.Rotate(0.0f, stats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
                 }
                 else
                 {
-                    avatar.AvatarRootTransform.position += transform.forward * carSpeed * Time.deltaTime;
+                    targetTransform.position += transform.forward * stats.currentSpeed * Time.deltaTime;
                 }
             }
             else if (wantToMoveBackward)
             {
                 if (wantToMoveLeft)
                 {
-                    avatar.AvatarRootTransform.position += -transform.forward * carSpeed * Time.deltaTime;
-                    avatar.AvatarRootTransform.Rotate(0.0f, 40.0f * Time.deltaTime, 0.0f);
+                    targetTransform.position += -transform.forward * stats.currentSpeed * Time.deltaTime;
+                    targetTransform.Rotate(0.0f, stats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
                 }
                 else if (wantToMoveRight)
                 {
-                    avatar.AvatarRootTransform.position += -transform.forward * carSpeed * Time.deltaTime;
-                    avatar.AvatarRootTransform.Rotate(0.0f, -40.0f * Time.deltaTime, 0.0f);
+                    targetTransform.position += -transform.forward * stats.currentSpeed * Time.deltaTime;
+                    targetTransform.Rotate(0.0f, -stats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
                 }
                 else
                 {
-                    avatar.AvatarRootTransform.position += -transform.forward * carSpeed * Time.deltaTime;
+                    targetTransform.position += -transform.forward * stats.currentSpeed * Time.deltaTime;
                 }
             }
         }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            if (!avatar.photonView.IsMine)
+                return;
+
+            if(other.gameObject.tag == "Car")
+            {
+                //Damage other player
+                if (stats.currentSpeed > 1)
+                {
+                    var otherView = other.gameObject.GetComponent<PhotonView>();
+                    Debug.Log("Collision avec le joueur " + other.gameObject.GetComponent<PhotonView>().ViewID);
+                    avatar.photonView.RPC("DealDamage", otherView.Owner, Mathf.RoundToInt(stats.currentSpeed * 2), otherView.ViewID);
+                }
+            }
+            else
+            {
+                Debug.Log("Collision avec un truc");
+            }
+        }
+
+
+        [PunRPC]
+        private void DealDamage(int damage, int viewID)
+        {
+            Debug.Log("Deal damage to " + viewID);
+            PhotonView.Find(viewID).gameObject.SendMessage("TakeFrontDamage", damage);
+        }
+
         public void carEnterInSector()
         {
-            carLife = 0;
+            stats.currentEngineHealth = 0;
         }
     }
 }

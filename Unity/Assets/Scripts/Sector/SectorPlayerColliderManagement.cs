@@ -14,12 +14,13 @@ namespace DriversFight.Scripts
             box = GetComponent<BoxCollider>();
         }
 
-        private void OnTriggerEnter(Collider whosThat)
+        private void OnTriggerEnter(Collider other)
         {
-            if (whosThat.CompareTag("Player"))
+            Debug.Log("v,," + other.gameObject.tag);
+            if (other.gameObject.tag.Equals("Car"))
             {
                 Debug.LogWarning("Dans l'secteur !");
-                whosThat.gameObject.GetComponent<PlayerMovementScript>().carEnterInSector();
+                other.gameObject.GetComponent<PlayerMovementScript>().carEnterInSector();
             }
         }
     }

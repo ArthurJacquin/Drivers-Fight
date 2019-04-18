@@ -10,7 +10,9 @@ namespace DriversFight.Scripts
 {
     public class LobbyNetworkScript : MonoBehaviourPunCallbacks
     {
-        [Header("UI")]
+        public static LobbyNetworkScript instance = null;
+
+        [Header("Menu")]
         [SerializeField]
         private Button playButton;
 
@@ -23,6 +25,19 @@ namespace DriversFight.Scripts
         [SerializeField]
         private TMPro.TextMeshProUGUI welcomeMessageText;
 
+        [Header("End game panel")]
+        [SerializeField]
+        private GameObject endGamePanel;
+
+        [SerializeField]
+        private TMPro.TextMeshProUGUI rankingText;
+
+        [SerializeField]
+        private TMPro.TextMeshProUGUI commentaryText;
+
+        [SerializeField]
+        private Button backButton;
+
         [Header("Instantiation")]
         private AvatarExposerScript[] avatars;
 
@@ -30,10 +45,15 @@ namespace DriversFight.Scripts
         private Transform[] startPositions;
 
         [SerializeField]
-        private GameObject playerPrefab;
+        NetworkControllerScript networkController;
+
+        [Header("UI")]
+        [SerializeField]
+        private GameObject playerUI;
 
         [SerializeField]
-        private GameObject scriptsWhenGameLaunchPrefab;
+        private PlayerUI playerUIScript;
+
 
         public event Action OnlinePlayReady;
 
@@ -44,9 +64,6 @@ namespace DriversFight.Scripts
         public event Action Disconnected;
 
         public event Action MasterClientSwitched;
-
-
-        public static LobbyNetworkScript instance = null;
 
         private void Awake()
         {
@@ -82,6 +99,10 @@ namespace DriversFight.Scripts
             joinRoomButton.interactable = false;
 
             welcomeMessageText.text = "Drivers Fight";
+
+            endGamePanel.SetActive(false);
+            playerUI.gameObject.SetActive(false);
+            playerUIScript.enabled = false;
         }
 
         private void OnlinePlaySetup()
@@ -157,29 +178,6 @@ namespace DriversFight.Scripts
             PlayerLeft?.Invoke(i);
         }
 
-        public override void OnPlayerEnteredRoom(Player newPlayer)
-        {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                StartCoroutine(InformPlayerJoinedEndOfFrame(newPlayer.ActorNumber));
-            }
-        }
-
-        private IEnumerator InformPlayerJoinedEndOfFrame(int actorNumber)
-        {
-            yield return new WaitForSeconds(0.1f);
-            var i = 0;
-            for (; i < PlayerNumbering.SortedPlayers.Length; i++)
-            {
-                if (actorNumber == PlayerNumbering.SortedPlayers[i].ActorNumber)
-                {
-                    break;
-                }
-            }
-
-            PlayerJoined?.Invoke(i);
-        }
-
         private IEnumerator SetWelcomeMessageAndSetReadyAtTheEndOfFrame()
         {
             yield return new WaitForSeconds(0.1f);
@@ -192,16 +190,39 @@ namespace DriversFight.Scripts
                 }
             }
 
-            welcomeMessageText.text = $"You are Actor : {PhotonNetwork.LocalPlayer.ActorNumber}\n "
-                                      + $"You are controlling Avatar {i}, Let's Play !";
+            welcomeMessageText.enabled = false;
 
-            PhotonNetwork.Instantiate(playerPrefab.name, startPositions[i].position, startPositions[i].rotation);
-            
-            //Lancement de la génération des secteurs si master client
-            if (PhotonNetwork.IsMasterClient)
+            //Setup game
+            var newPlayer = PhotonNetwork.Instantiate("PlayerRoot", startPositions[i].position, startPositions[i].rotation);
+
+            PlayerCamera cam = Camera.main.GetComponent<PlayerCamera>();
+            cam.enabled = true;
+            cam.target = newPlayer.transform;
+
+            PhotonNetwork.Instantiate("scriptsWhenGameLaunchPrefab", Vector3.zero, Quaternion.identity);
+
+            playerUIScript.avatar = newPlayer.GetComponent<AvatarExposerScript>();
+            playerUI.gameObject.SetActive(true);
+            playerUIScript.enabled = true;
+        }
+
+        public void ShowEndGamePanel(int rank)
+        {
+            endGamePanel.SetActive(true);
+
+            //Good or bad end
+            if(rank == 1)
             {
-                PhotonNetwork.Instantiate(scriptsWhenGameLaunchPrefab.name, scriptsWhenGameLaunchPrefab.transform.position, Quaternion.identity);
+                rankingText.text = "Vous êtes l'ULTIME DRIVER !";
+                commentaryText.text = "";
             }
+            else
+            {
+                rankingText.text = "Tu termines en " + rank + "eme position.";
+                commentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !"; 
+            }
+
+            backButton.onClick.AddListener(ShowMainMenu);
         }
     }
 }

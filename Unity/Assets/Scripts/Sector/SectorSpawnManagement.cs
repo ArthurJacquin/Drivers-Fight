@@ -39,12 +39,12 @@ namespace DriversFight.Scripts
         private int timeNextSectorSpawn = 0;
 
         [SerializeField]
-        private int timeToShowWarningDude = 0;
+        private int timeToShowWarning = 0;
 
         /*[SerializeField]
         private TMPro.TextMeshProUGUI warningText;*/
 
-        private float timeToSpawnTheSectorMaBoy = 0f;
+        private float timeToSpawnTheSector = 0f;
 
         private List<GameObject> sectors = new List<GameObject>();
 
@@ -62,7 +62,7 @@ namespace DriversFight.Scripts
             
             sectorsAlreadyPop.Add(-1);
 
-            timeToSpawnTheSectorMaBoy = firstSectorSpawn + Time.time;
+            timeToSpawnTheSector = firstSectorSpawn + Time.time;
 
             sectors.Add(sector0);
             sectors.Add(sector1);
@@ -80,7 +80,7 @@ namespace DriversFight.Scripts
         {
             if (numberGeneratedSector < sectorsFinalNumber)
             {
-                if (Time.time > timeToSpawnTheSectorMaBoy)
+                if (PhotonNetwork.IsMasterClient && Time.time > timeToSpawnTheSector)
                 {
                     StartCoroutine(RandomSpawnSector());
                 }
@@ -91,7 +91,7 @@ namespace DriversFight.Scripts
                     StartCoroutine(CountDownSector());
                 }*/
 
-                if (timeToSpawnTheSectorMaBoy - Time.time > timeToShowWarningDude && timeToSpawnTheSectorMaBoy - Time.time < timeToShowWarningDude + 1)
+                if (timeToSpawnTheSector - Time.time > timeToShowWarning && timeToSpawnTheSector - Time.time < timeToShowWarning + 1)
                 {
                     if (sectorsAlreadyPop.Count <= sectorsFinalNumber)
                     {
@@ -119,10 +119,11 @@ namespace DriversFight.Scripts
 
         private IEnumerator RandomSpawnSector()
         {
+
             PhotonNetwork.Instantiate("Sectors/" + sectors[sectorNumber].name, sectors[sectorNumber].transform.position, Quaternion.identity);
             sectorsAlreadyPop.Add(sectorNumber);
             numberGeneratedSector++;
-            timeToSpawnTheSectorMaBoy += timeNextSectorSpawn;
+            timeToSpawnTheSector += timeNextSectorSpawn;
 
             Debug.LogWarning("secteur : " + sectorNumber + "    " + Time.time);
 
