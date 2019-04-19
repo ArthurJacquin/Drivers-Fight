@@ -58,14 +58,14 @@ namespace DriversFight.Scripts
                 photonView.RPC("ActivateAvatarRPC", RpcTarget.AllBuffered, id);
 
                 //Camera steup
-                PlayerCamera cam = Camera.main.GetComponent<PlayerCamera>();
+                /*PlayerCamera cam = Camera.main.GetComponent<PlayerCamera>();
                 cam.enabled = true;
                 cam.target = avatars[id].AvatarRootTransform;
 
                 //UI setup
                 playerUIScript.avatar = avatars[id];
                 playerUI.gameObject.SetActive(true);
-                playerUIScript.enabled = true;
+                playerUIScript.enabled = true;*/
             }
             else
             {
@@ -80,9 +80,9 @@ namespace DriversFight.Scripts
                 photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, id);
 
                 //UI
-                playerUIScript.avatar = null;
+                /*playerUIScript.avatar = null;
                 playerUI.gameObject.SetActive(false);
-                playerUIScript.enabled = false;
+                playerUIScript.enabled = false;*/
             }
             else
             {
@@ -141,6 +141,7 @@ namespace DriversFight.Scripts
                 avatar.AvatarRigidBody.angularVelocity = Vector3.zero;
                 avatar.AvatarRootTransform.position = startPositions[i].position;
                 avatar.AvatarRootTransform.rotation = startPositions[i].rotation;
+                avatar.AvatarTransformView.enabled = activatedIntentReceivers == onlineIntentReceivers;
             }
 
             EnableIntentReceivers();
@@ -150,12 +151,6 @@ namespace DriversFight.Scripts
 
         private void FixedUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                
-                return;
-            }
-
             // If on network, only the master client can move objects
             if (PhotonNetwork.IsConnected && !PhotonNetwork.IsMasterClient)
             {
@@ -294,7 +289,7 @@ namespace DriversFight.Scripts
             }
         }
 
-        private void EndGame()
+        public void EndGame()
         {
             GameStarted = false;
             activatedIntentReceivers = null;

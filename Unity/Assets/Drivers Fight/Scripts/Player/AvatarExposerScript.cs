@@ -8,6 +8,7 @@ namespace DriversFight.Scripts
         public Rigidbody AvatarRigidBody;
         public Transform AvatarRootTransform;
         public GameObject AvatarRootGameObject;
+        public PhotonTransformView AvatarTransformView;
         public CarStatsScript Stats;
         public PhotonView photonView;
     }

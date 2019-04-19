@@ -13,19 +13,19 @@ namespace DriversFight.Scripts
     {
         [SerializeField]
         private Button localPlayButton;
-        
+
         [SerializeField]
         private Button onlinePlayButton;
-        
+
         [SerializeField]
         private Button createRoomButton;
-        
+
         [SerializeField]
         private Button joinRoomButton;
-        
+
         [SerializeField]
         private Text welcomeMessageText;
-        
+
         public event Action OnlinePlayReady;
 
         public event Action OfflinePlayReady;
@@ -35,7 +35,7 @@ namespace DriversFight.Scripts
         public event Action<int> PlayerLeft;
 
         public event Action Disconnected;
-        
+
         public event Action MasterClientSwitched;
 
         private void Awake()
@@ -57,12 +57,12 @@ namespace DriversFight.Scripts
             onlinePlayButton.gameObject.SetActive(true);
             localPlayButton.interactable = true;
             onlinePlayButton.interactable = true;
-            
+
             createRoomButton.gameObject.SetActive(false);
             joinRoomButton.gameObject.SetActive(false);
             createRoomButton.interactable = false;
             joinRoomButton.interactable = false;
-            
+
             welcomeMessageText.text = "Choose Game Mode !";
         }
 
@@ -72,11 +72,11 @@ namespace DriversFight.Scripts
             onlinePlayButton.gameObject.SetActive(false);
             createRoomButton.gameObject.SetActive(false);
             joinRoomButton.gameObject.SetActive(false);
-            
+
             welcomeMessageText.text = "Let's Play !";
 
             OfflinePlayReady?.Invoke();
-            
+
             PlayerJoined?.Invoke(0);
             PlayerJoined?.Invoke(1);
             PlayerJoined?.Invoke(2);
@@ -91,9 +91,9 @@ namespace DriversFight.Scripts
             joinRoomButton.gameObject.SetActive(true);
             createRoomButton.interactable = false;
             joinRoomButton.interactable = false;
-            
+
             welcomeMessageText.text = "Create or Join an existing Game ?";
-            
+
             PhotonNetwork.ConnectUsingSettings();
         }
 
@@ -152,7 +152,7 @@ namespace DriversFight.Scripts
                     break;
                 }
             }
-            
+
             PlayerLeft?.Invoke(i);
         }
 
@@ -163,10 +163,10 @@ namespace DriversFight.Scripts
                 StartCoroutine(InformPlayerJoinedEndOfFrame(newPlayer.ActorNumber));
             }
         }
-        
+
         private IEnumerator InformPlayerJoinedEndOfFrame(int actorNumber)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(2f);
             var i = 0;
             for (; i < PlayerNumbering.SortedPlayers.Length; i++)
             {
@@ -175,13 +175,13 @@ namespace DriversFight.Scripts
                     break;
                 }
             }
-            
+
             PlayerJoined?.Invoke(i);
         }
 
         private IEnumerator SetWelcomeMessageAndSetReadyAtTheEndOfFrame()
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(2f);
             var i = 0;
             for (; i < PlayerNumbering.SortedPlayers.Length; i++)
             {
@@ -190,10 +190,10 @@ namespace DriversFight.Scripts
                     break;
                 }
             }
-            
+
             welcomeMessageText.text = $"You are Actor : {PhotonNetwork.LocalPlayer.ActorNumber}\n "
                                       + $"You are controlling Avatar {i}, Let's Play !";
-            
+
             OnlinePlayReady?.Invoke();
 
             if (PhotonNetwork.IsMasterClient)
