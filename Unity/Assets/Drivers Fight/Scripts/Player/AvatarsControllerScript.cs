@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using UnityEngine;
 
 namespace DriversFight.Scripts
@@ -23,12 +24,6 @@ namespace DriversFight.Scripts
         [SerializeField]
         private PhotonView photonView;
 
-        [SerializeField]
-        private PlayerUI playerUIScript;
-
-        [SerializeField]
-        private GameObject playerUI;
-
         private float carSpeed = 0f; //Current speed of the car
 
         private float carMaximumSpeed = 20f; //Max speed of the car
@@ -38,6 +33,12 @@ namespace DriversFight.Scripts
         private float carDeceleration = 0.3f; //Deceleration of the car
 
         private AIntentReceiver[] activatedIntentReceivers;
+
+        [SerializeField]
+        private PlayerUIScript playerUIScript;
+
+        [SerializeField]
+        private GameObject playerUI;
 
         private bool GameStarted { get; set; }
 
@@ -49,6 +50,27 @@ namespace DriversFight.Scripts
             startGameControllerScript.PlayerLeft += DeactivateAvatar;
             startGameControllerScript.Disconnected += EndGame;
             startGameControllerScript.MasterClientSwitched += EndGame;
+            startGameControllerScript.PlayerSetup += SetupPlayer;
+        }
+
+        private void SetupPlayer(int id)
+        {
+            //Camera setup for client
+            PlayerCameraScript cam = Camera.main.GetComponent<PlayerCameraScript>();
+            if (cam.enabled == false)
+            {
+                cam.enabled = true;
+                cam.target = avatars[id].AvatarRootTransform;
+            }
+
+
+            //UI setup for client
+            if (!playerUI.activeSelf)
+            {
+                playerUIScript.avatar = avatars[id];
+                playerUI.gameObject.SetActive(true);
+                playerUIScript.enabled = true;
+            }
         }
 
         private void ActivateAvatar(int id)
@@ -56,16 +78,6 @@ namespace DriversFight.Scripts
             if (PhotonNetwork.IsConnected)
             {
                 photonView.RPC("ActivateAvatarRPC", RpcTarget.AllBuffered, id);
-
-                //Camera steup
-                /*PlayerCamera cam = Camera.main.GetComponent<PlayerCamera>();
-                cam.enabled = true;
-                cam.target = avatars[id].AvatarRootTransform;
-
-                //UI setup
-                playerUIScript.avatar = avatars[id];
-                playerUI.gameObject.SetActive(true);
-                playerUIScript.enabled = true;*/
             }
             else
             {
@@ -78,11 +90,6 @@ namespace DriversFight.Scripts
             if (PhotonNetwork.IsConnected)
             {
                 photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, id);
-
-                //UI
-                /*playerUIScript.avatar = null;
-                playerUI.gameObject.SetActive(false);
-                playerUIScript.enabled = false;*/
             }
             else
             {
@@ -192,7 +199,7 @@ namespace DriversFight.Scripts
                 if (intentReceiver.WantToMoveBackward)
                 {
                     //Update speed
-                    if (mystats.currentSpeed < carMaximumSpeed && !intentReceiver.WantToStopTheCar)
+                    if (mystats.currentSpeed < mystats.currentMaximumSpeed.GetValue() && !intentReceiver.WantToStopTheCar)
                     {
                         mystats.currentSpeed += mystats.currentAccelerationSpeed.GetValue();
                     }
@@ -222,7 +229,7 @@ namespace DriversFight.Scripts
                 if (intentReceiver.WantToMoveForward)
                 {
                     //Update speed
-                    if (mystats.currentSpeed < carMaximumSpeed && !intentReceiver.WantToStopTheCar)
+                    if (mystats.currentSpeed < mystats.currentMaximumSpeed.GetValue() && !intentReceiver.WantToStopTheCar)
                     {
                         mystats.currentSpeed += mystats.currentAccelerationSpeed.GetValue();
                     }

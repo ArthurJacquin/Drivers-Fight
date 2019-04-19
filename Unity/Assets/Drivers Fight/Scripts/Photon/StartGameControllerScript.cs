@@ -34,6 +34,8 @@ namespace DriversFight.Scripts
 
         public event Action<int> PlayerLeft;
 
+        public event Action<int> PlayerSetup;
+
         public event Action Disconnected;
 
         public event Action MasterClientSwitched;
@@ -191,8 +193,7 @@ namespace DriversFight.Scripts
                 }
             }
 
-            welcomeMessageText.text = $"You are Actor : {PhotonNetwork.LocalPlayer.ActorNumber}\n "
-                                      + $"You are controlling Avatar {i}, Let's Play !";
+            StartCoroutine(WelcomeMessage(i));
 
             OnlinePlayReady?.Invoke();
 
@@ -200,6 +201,18 @@ namespace DriversFight.Scripts
             {
                 PlayerJoined?.Invoke(i);
             }
+
+            PlayerSetup?.Invoke(i);
+        }
+
+        IEnumerator WelcomeMessage(int i)
+        {
+            welcomeMessageText.text = $"You are Actor : {PhotonNetwork.LocalPlayer.ActorNumber}\n "
+                                      + $"You are controlling Avatar {i}, Let's Play !";
+
+            yield return new WaitForSeconds(5f);
+
+            welcomeMessageText.enabled = false;
         }
     }
 }

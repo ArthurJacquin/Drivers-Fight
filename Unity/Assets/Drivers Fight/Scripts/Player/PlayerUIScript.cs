@@ -6,9 +6,9 @@ using Photon.Pun;
 
 namespace DriversFight.Scripts
 {
-    public class PlayerUI : MonoBehaviour
+    public class PlayerUIScript : MonoBehaviour
     {
-        [HideInInspector]
+        //[HideInInspector]
         public AvatarExposerScript avatar;
 
         [SerializeField]
@@ -23,9 +23,6 @@ namespace DriversFight.Scripts
         // Update is called once per frame
         void Update()
         {
-            if (!avatar.photonView.IsMine)
-                return;
-
             speedText.text = Mathf.RoundToInt(avatar.Stats.currentSpeed).ToString();
             speedBar.fillAmount = avatar.Stats.currentSpeed / avatar.Stats.currentMaximumSpeed.GetValue();
             healthBar.fillAmount = (float)avatar.Stats.currentEngineHealth / (float)avatar.Stats.maxEngineHealth;

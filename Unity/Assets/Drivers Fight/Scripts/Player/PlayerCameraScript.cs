@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCamera : MonoBehaviour
+public class PlayerCameraScript : MonoBehaviour
 {
     [HideInInspector]
     public Transform target;
@@ -16,8 +16,8 @@ public class PlayerCamera : MonoBehaviour
 
     private void Start()
     {
-        if (target == null)
-            target = GameObject.FindGameObjectWithTag("Car").transform;
+        //if (target == null)
+            //target = GameObject.FindGameObjectWithTag("Car").transform;
     }
 
     private void LateUpdate()
