@@ -43,9 +43,4 @@ MonoBehaviour:
   - WantToMoveRightRPC
   - WantToMoveBackwardRPC
   - WantToStopRPC
-  - OnCollisionEnter
-  - OnCollisionEnterRPC
-  - DealDamage
-  - KillPLayer
-  - EndGame
   DisableAutoOpenWizard: 1
