@@ -14,10 +14,10 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - Environnement
-  - Sector
   - Car
+  - CarCollisonTrigger
+  - Environnement
+  - 
   - 
   - 
   - 
