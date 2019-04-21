@@ -56,11 +56,19 @@ namespace DriversFight.Scripts
         private void SetupPlayer(int id)
         {
             //Camera setup for client
-            PlayerCameraScript cam = Camera.main.GetComponent<PlayerCameraScript>();
+            PlayerCameraScript cam = GameObject.Find("Main Camera").GetComponent<PlayerCameraScript>();
             if (cam.enabled == false)
             {
                 cam.enabled = true;
                 cam.target = avatars[id].AvatarRootTransform;
+            }
+
+            //Camera setup for client
+            MiniMapCameraScript miniCam = GameObject.Find("MiniCam").GetComponent<MiniMapCameraScript>();
+            if (miniCam.enabled == false)
+            {
+                miniCam.enabled = true;
+                miniCam.player = avatars[id].AvatarRootTransform;
             }
 
 

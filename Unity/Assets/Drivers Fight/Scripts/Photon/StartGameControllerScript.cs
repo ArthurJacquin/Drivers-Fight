@@ -117,7 +117,7 @@ namespace DriversFight.Scripts
 
         public void AskForRoomCreation()
         {
-            PhotonNetwork.CreateRoom("Toto", new RoomOptions
+            PhotonNetwork.CreateRoom("JeChangeSinonOnEstEnsemblePourTester", new RoomOptions
             {
                 MaxPlayers = 4,
                 PlayerTtl = 10000
