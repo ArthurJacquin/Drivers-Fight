@@ -12,6 +12,12 @@ namespace DriversFight.Scripts
     public class StartGameControllerScript : MonoBehaviourPunCallbacks
     {
         [SerializeField]
+        private GameObject mainMenu;
+
+        [SerializeField]
+        private GameObject gameModeSelection;
+
+        [SerializeField]
         private Button localPlayButton;
 
         [SerializeField]
@@ -25,6 +31,13 @@ namespace DriversFight.Scripts
 
         [SerializeField]
         private Text welcomeMessageText;
+
+        [SerializeField]
+        private GameObject endGamePanel;
+
+        private TextMesh playerRank;
+
+        private TextMesh endGameCommentary;
 
         public event Action OnlinePlayReady;
 
@@ -55,10 +68,13 @@ namespace DriversFight.Scripts
 
         public void ShowMainMenu()
         {
+            mainMenu.SetActive(true);
+
             localPlayButton.gameObject.SetActive(true);
             onlinePlayButton.gameObject.SetActive(true);
             localPlayButton.interactable = true;
             onlinePlayButton.interactable = true;
+            gameModeSelection.SetActive(false);
 
             createRoomButton.gameObject.SetActive(false);
             joinRoomButton.gameObject.SetActive(false);
@@ -117,7 +133,7 @@ namespace DriversFight.Scripts
 
         public void AskForRoomCreation()
         {
-            PhotonNetwork.CreateRoom("Toto", new RoomOptions
+            PhotonNetwork.CreateRoom("Drivers Fight", new RoomOptions
             {
                 MaxPlayers = 4,
                 PlayerTtl = 10000
@@ -137,6 +153,15 @@ namespace DriversFight.Scripts
             joinRoomButton.gameObject.SetActive(false);
 
             StartCoroutine(SetWelcomeMessageAndSetReadyAtTheEndOfFrame());
+        }
+
+        public override void OnLeftRoom()
+        {
+            endGamePanel.SetActive(true);
+            //playerRank.text = Rank;
+            //endGameCommentary = ""
+
+            PhotonNetwork.Disconnect();
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
