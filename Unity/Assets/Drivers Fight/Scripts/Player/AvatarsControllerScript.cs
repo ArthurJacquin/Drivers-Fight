@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace DriversFight.Scripts
 {
@@ -40,7 +41,50 @@ namespace DriversFight.Scripts
         [SerializeField]
         private GameObject playerUI;
 
-        private bool GameStarted { get; set; }
+        private bool collisionSubscriptionDone = false;
+
+        private bool gameStarted = false;
+
+        private readonly Dictionary<CollisionEnterDispatcherScript, AvatarExposerScript>
+            dispatcherToAvatar = new Dictionary<CollisionEnterDispatcherScript, AvatarExposerScript>();
+
+        private readonly Dictionary<Collider, AvatarExposerScript>
+            colliderToAvatar = new Dictionary<Collider, AvatarExposerScript>();
+
+        private bool GameStarted
+        {
+            get { return gameStarted; }
+            set
+            {
+
+                if (value && !gameStarted && (!PhotonNetwork.IsConnected || PhotonNetwork.IsMasterClient))
+                {
+                    SubscribeCollisionsEffect();
+                }
+                gameStarted = value;
+            }
+        }
+
+        private void SubscribeCollisionsEffect()
+        {
+            foreach (var avatar in avatars)
+            {
+                avatar.CollisionDispatcher.CollisionEvent += HandleCollision;
+            }
+        }
+
+        private void HandleCollision(CollisionEnterDispatcherScript collisionDispatcher,
+            Collider col)
+        {
+            if (!dispatcherToAvatar.TryGetValue(collisionDispatcher, out var sourceAvatar)
+                || !colliderToAvatar.TryGetValue(col, out var targetAvatar))
+            {
+                return;
+            }
+
+            targetAvatar.Stats.TakeFrontDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+            Debug.Log(targetAvatar.gameObject.name + " lost 10 hp !");
+        }
 
         private void Awake()
         {
@@ -51,6 +95,12 @@ namespace DriversFight.Scripts
             startGameControllerScript.Disconnected += EndGame;
             startGameControllerScript.MasterClientSwitched += EndGame;
             startGameControllerScript.PlayerSetup += SetupPlayer;
+
+            foreach (var avatar in avatars)
+            {
+                dispatcherToAvatar.Add(avatar.CollisionDispatcher, avatar);
+                colliderToAvatar.Add(avatar.MainCollider, avatar);
+            }
         }
 
         private void SetupPlayer(int id)
@@ -278,7 +328,9 @@ namespace DriversFight.Scripts
                         intentReceiver.WantToStopTheCar = false;
                     }
                 }
-                
+
+                photonView.RPC("UpdateClientsUIRPC", RpcTarget.OthersBuffered, i, mystats.currentSpeed, mystats.currentEngineHealth);
+
                 //Refresh dead players count
                 //TODO: Décommenter une fois isDead() implémenté
                 /*if (!avatar.isDead()))
@@ -325,6 +377,13 @@ namespace DriversFight.Scripts
         private void DeactivateAvatarRPC(int avatarId)
         {
             avatars[avatarId].AvatarRootGameObject.SetActive(false);
+        }
+
+        [PunRPC]
+        private void UpdateClientsUIRPC(int id, float speed, int hp)
+        {
+            avatars[id].Stats.currentSpeed = speed;
+            avatars[id].Stats.currentEngineHealth = hp;
         }
     }
 }

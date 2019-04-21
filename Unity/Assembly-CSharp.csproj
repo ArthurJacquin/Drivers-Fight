@@ -71,6 +71,7 @@
     <Compile Include="Assets\Drivers Fight\Scripts\Player\AvatarExposerScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Player\AvatarsControllerScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Player\CarStatsScript.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Player\CollisionEnterDispatcherScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Player\PlayerCameraScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Player\PlayerUIScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Player\StatsScript.cs" />
