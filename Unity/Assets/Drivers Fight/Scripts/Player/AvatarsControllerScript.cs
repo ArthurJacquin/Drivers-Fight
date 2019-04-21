@@ -236,7 +236,6 @@ namespace DriversFight.Scripts
             for (var i = 0; i < activatedIntentReceivers.Length; i++)
             {
                 //Movements
-                var moveIntent = Vector3.zero;
 
                 var intentReceiver = activatedIntentReceivers[i];
                 var avatar = avatars[i];
@@ -330,15 +329,6 @@ namespace DriversFight.Scripts
                 }
 
                 photonView.RPC("UpdateClientsUIRPC", RpcTarget.OthersBuffered, i, mystats.currentSpeed, mystats.currentEngineHealth);
-
-                //Refresh dead players count
-                //TODO: Décommenter une fois isDead() implémenté
-                /*if (!avatar.isDead()))
-                {
-                    continue;
-                }
-
-                fallenAvatarsCount++;*/
             }
 
             //If 1 player remaining then end the game

@@ -44,4 +44,7 @@ MonoBehaviour:
   - WantToMoveBackwardRPC
   - WantToStopRPC
   - UpdateClientsUIRPC
+  - UpdateHpRPC
+  - UpdateSpeedRPC
+  - UpdateIntentReceiverRPC
   DisableAutoOpenWizard: 1

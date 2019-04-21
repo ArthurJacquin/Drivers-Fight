@@ -27,7 +27,7 @@ namespace DriversFight.Scripts
                 photonView.RPC("WantToMoveLeftRPC", RpcTarget.MasterClient, true);
             }
 
-            if (Input.GetKey(KeyCode.S) && !WantToMoveForward)
+            if (Input.GetKey(KeyCode.S))
             {
                 photonView.RPC("WantToMoveBackwardRPC", RpcTarget.MasterClient, true);
             }
@@ -37,7 +37,7 @@ namespace DriversFight.Scripts
                 photonView.RPC("WantToMoveRightRPC", RpcTarget.MasterClient, true);
             }
 
-            if (Input.GetKey(KeyCode.Z) && !WantToMoveBackward)
+            if (Input.GetKey(KeyCode.Z))
             {
                 photonView.RPC("WantToMoveForwardRPC", RpcTarget.MasterClient, true);
             }
@@ -77,8 +77,11 @@ namespace DriversFight.Scripts
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                WantToMoveBackward = intent;
-                WantToStopTheCar = false;
+                if (WantToMoveForward == false)
+                {
+                    WantToMoveBackward = intent;
+                    WantToStopTheCar = false;
+                }
             }
         }
 
@@ -96,8 +99,11 @@ namespace DriversFight.Scripts
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                WantToMoveForward = intent;
-                WantToStopTheCar = false;
+                if (WantToMoveBackward == false)
+                {
+                    WantToMoveForward = intent;
+                    WantToStopTheCar = false;
+                }
             }
         }
 
