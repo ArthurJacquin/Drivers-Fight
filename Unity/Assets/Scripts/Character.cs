@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
     [SerializeField] Inventory inventory;
     [SerializeField] EquipmentPanel equipmentPanel;
     [SerializeField] StatPanel statPanel;
+    [SerializeField] ItemTooltip itemTooltip;
 
     public IEnumerable<StatModifier> StatModifiers { get; internal set; }
 
