@@ -82,8 +82,23 @@ namespace DriversFight.Scripts
             {
                 return;
             }
-
-            targetAvatar.Stats.TakeFrontDamage((int)sourceAvatar.Stats.currentSpeed * 10);
+            if (sourceAvatar.Stats.currentSpeed > 1)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - this.transform.position, out hit, 3, 1 << 8))
+                {
+                    Debug.DrawLine(this.transform.position, hit.point, Color.blue, 999f, false);
+                    Debug.Log("Hit : " + hit.rigidbody.gameObject.name);
+                    if (hit.normal == targetAvatar.transform.forward)
+                        targetAvatar.Stats.TakeFrontDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                    if (hit.normal == -targetAvatar.transform.forward)
+                        targetAvatar.Stats.TakeRearDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                    if (hit.normal == targetAvatar.transform.right)
+                        targetAvatar.Stats.TakeRightDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                    if (hit.normal == -targetAvatar.transform.right)
+                        targetAvatar.Stats.TakeLeftDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                }
+            }
         }
 
         private void Awake()
