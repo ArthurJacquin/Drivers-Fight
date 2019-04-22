@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Car
+  - Sector
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - 
   - Car
-  - 
+  - Sector
   - Environnement
   - 
   - 

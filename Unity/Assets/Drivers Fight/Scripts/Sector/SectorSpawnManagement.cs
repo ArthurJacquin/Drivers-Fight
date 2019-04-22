@@ -9,44 +9,26 @@ namespace DriversFight.Scripts
     public class SectorSpawnManagement : MonoBehaviour
     {
         [SerializeField]
-        private GameObject sector0;
-
-        [SerializeField]
-        private GameObject sector1;
-
-        [SerializeField]
-        private GameObject sector2;
-
-        [SerializeField]
-        private GameObject sector3;
-
-        [SerializeField]
-        private GameObject sector4;
-
-        [SerializeField]
-        private GameObject sector5;
-
-        [SerializeField]
-        private GameObject sector6;
-
-        [SerializeField]
-        private GameObject sector7;
+        private GameObject[] sectors;
         
         [SerializeField]
-        private int firstSectorSpawn = 0;
+        private int firstSectorSpawn = 60;
 
         [SerializeField]
-        private int timeNextSectorSpawn = 0;
+        private int timeNextSectorSpawn = 30;
 
         [SerializeField]
-        private int timeToShowWarning = 0;
+        private int timeToShowWarning = 15;
+
+        [SerializeField]
+        private PhotonView photonView;
+
+        private System.Random rng = new System.Random();
 
         /*[SerializeField]
-        private TMPro.TextMeshProUGUI warningText;*/
+        private TextMesh warningText;*/
 
         private float timeToSpawnTheSector = 0f;
-
-        private List<GameObject> sectors = new List<GameObject>();
 
         private List<int> sectorsAlreadyPop = new List<int>();
 
@@ -54,78 +36,50 @@ namespace DriversFight.Scripts
 
         private int sectorsFinalNumber = 0;
 
-        private int sectorNumber;
+        private List<int> sectorNumbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7 };
 
         private void Start()
         {
             Debug.Log("Lancement du script de spawn de secteur");
-            
-            sectorsAlreadyPop.Add(-1);
 
             timeToSpawnTheSector = firstSectorSpawn + Time.time;
-
-            sectors.Add(sector0);
-            sectors.Add(sector1);
-            sectors.Add(sector2);
-            sectors.Add(sector3);
-            sectors.Add(sector4);
-            sectors.Add(sector5);
-            sectors.Add(sector6);
-            sectors.Add(sector7);
-
-            sectorsFinalNumber = sectors.Count;
+            Shuffle(sectorNumbers);
+            sectorsFinalNumber = sectors.Length - 1;
         }
 
         void Update()
         {
-            if (numberGeneratedSector < sectorsFinalNumber)
+            if (numberGeneratedSector <= sectorsFinalNumber)
             {
                 if (PhotonNetwork.IsMasterClient && Time.time > timeToSpawnTheSector)
                 {
                     StartCoroutine(RandomSpawnSector());
                 }
-
-                /*if (timeToSpawnTheSectorMaBoy - Time.time <= 11)
-                {
-                    warningText.enabled = true;
-                    StartCoroutine(CountDownSector());
-                }*/
-
-                if (timeToSpawnTheSector - Time.time > timeToShowWarning && timeToSpawnTheSector - Time.time < timeToShowWarning + 1)
-                {
-                    if (sectorsAlreadyPop.Count <= sectorsFinalNumber)
-                    {
-                        sectorNumber = Random.Range(0, sectors.Count);
-                        int i = 1;
-                        while (i > 0)
-                        {
-                            i = 0;
-                            foreach (int pop in sectorsAlreadyPop)
-                            {
-                                if (sectorNumber == pop)
-                                {
-                                    sectorNumber = Random.Range(0, sectors.Count);
-                                    i++;
-                                }
-                            }
-                        }
-                    }
-                    /*StopCoroutine(CountDownSector());
-                    warningText.enabled = false;*/
-                }
             }
+        }
 
+        public void Shuffle(List<int> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                int value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
 
         private IEnumerator RandomSpawnSector()
         {
+            Debug.Log(sectorNumbers[numberGeneratedSector]);
+            sectors[sectorNumbers[numberGeneratedSector]].SetActive(true);
+            sectorsAlreadyPop.Add(sectorNumbers[numberGeneratedSector]);
+            photonView.RPC("SpawnSector", RpcTarget.OthersBuffered, sectorNumbers[numberGeneratedSector]);
 
-            PhotonNetwork.Instantiate("Sectors/" + sectors[sectorNumber].name, sectors[sectorNumber].transform.position, Quaternion.identity);
-            sectorsAlreadyPop.Add(sectorNumber);
             numberGeneratedSector++;
             timeToSpawnTheSector += timeNextSectorSpawn;
-
-            Debug.LogWarning("secteur : " + sectorNumber + "    " + Time.time);
 
             yield return new WaitForSeconds(1);
         }
@@ -134,11 +88,17 @@ namespace DriversFight.Scripts
         {
             while (true)
             {
-                int seconds = Mathf.FloorToInt(timeToSpawnTheSectorMaBoy - Time.time);
+                int seconds = Mathf.FloorToInt(timeToSpawnTheSector - Time.time);
                 string niceTime = string.Format("{00}", seconds);
                 warningText.text = "Sector " + sectorNumber + " will be close in " + niceTime;
                 yield return new WaitForSeconds(1);
             }
         }*/
+
+        [PunRPC]
+        private void SpawnSector(int sectorNumber)
+        {
+            sectors[sectorNumber].SetActive(true);
+        }
     }
 }

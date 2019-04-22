@@ -2,6 +2,7 @@
 using Photon.Pun.UtilityScripts;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace DriversFight.Scripts
 {
@@ -20,7 +21,10 @@ namespace DriversFight.Scripts
         private AIntentReceiver[] offlineIntentReceivers;
 
         [SerializeField]
-        private StartGameControllerScript startGameControllerScript; 
+        private StartGameControllerScript startGameControllerScript;
+
+        [SerializeField]
+        private SectorSpawnManagement sectorSpawnManagementScript;
 
         [SerializeField]
         private PhotonView photonView;
@@ -70,6 +74,7 @@ namespace DriversFight.Scripts
             foreach (var avatar in avatars)
             {
                 avatar.CollisionDispatcher.CollisionEvent += HandleCollision;
+                avatar.CollisionDispatcher.SectorTriggerEvent += HandleTrigger;
             }
         }
 
@@ -82,6 +87,7 @@ namespace DriversFight.Scripts
             {
                 return;
             }
+
             if (sourceAvatar.Stats.currentSpeed > 1)
             {
                 RaycastHit hit;
@@ -97,6 +103,23 @@ namespace DriversFight.Scripts
                         targetAvatar.Stats.TakeRightDamage((int)sourceAvatar.Stats.currentSpeed * 2);
                     if (hit.normal == -targetAvatar.transform.right)
                         targetAvatar.Stats.TakeLeftDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                }
+            }
+        }
+
+        private void HandleTrigger(CollisionEnterDispatcherScript collisionDispatcher)
+        {
+            if (!dispatcherToAvatar.TryGetValue(collisionDispatcher, out var sourceAvatar))
+            {
+                return;
+            }
+
+            for(var i = 0; i < avatars.Length; i++)
+            {
+                if(sourceAvatar == avatars[i])
+                {
+                    photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i);
+                    break;
                 }
             }
         }
@@ -145,6 +168,7 @@ namespace DriversFight.Scripts
             if (PhotonNetwork.IsConnected)
             {
                 photonView.RPC("ActivateAvatarRPC", RpcTarget.AllBuffered, id);
+                sectorSpawnManagementScript.enabled = true;
             }
             else
             {
@@ -226,7 +250,8 @@ namespace DriversFight.Scripts
 
             EnableIntentReceivers();
             GameStarted = true;
-            
+
+            StartCoroutine("WaitForPlayers");
         }
 
         private void FixedUpdate()
@@ -356,14 +381,15 @@ namespace DriversFight.Scripts
                 if(mystats.currentEngineHealth <= 0 && avatar.gameObject.activeSelf)
                 {
                     photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i);
+                    deadAvatarsCount++;
                 }
             }
 
             //If 1 player remaining then end the game
-            /*if (activatedAvatarsCount - deadAvatarsCount <= 1 && activatedAvatarsCount > 1)
+            if (activatedAvatarsCount - deadAvatarsCount <= 1 && activatedAvatarsCount > 1)
             {
                 EndGame();
-            }*/
+            }
         }
 
         public void EndGame()
@@ -379,8 +405,17 @@ namespace DriversFight.Scripts
             DisableIntentReceivers();
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.Disconnect();
+                PhotonNetwork.LeaveRoom();
             }
+        }
+
+        IEnumerator WaitForPlayers()
+        {
+            yield return new WaitForSeconds(30);
+
+            if (PlayerNumbering.SortedPlayers.Length == 1)
+                EndGame();
+
         }
 
         [PunRPC]
@@ -394,9 +429,10 @@ namespace DriversFight.Scripts
         {
             avatars[avatarId].AvatarRootGameObject.SetActive(false);
 
-            if(PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[avatarId].ActorNumber)
+            if(PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[avatarId].ActorNumber && !PhotonNetwork.IsMasterClient)
             {
                 PhotonNetwork.LeaveRoom();
+                playerUI.SetActive(false);
             }
         }
 
