@@ -295,7 +295,7 @@ namespace DriversFight.Scripts
                 var intentReceiver = activatedIntentReceivers[i];
                 var avatar = avatars[i];
 
-                CarStatsScript mystats = avatar.Stats;
+                Character mystats = avatar.Stats;
 
                 activatedAvatarsCount += avatar.AvatarRootGameObject.activeSelf ? 1 : 0;
 
@@ -303,23 +303,23 @@ namespace DriversFight.Scripts
                 if (intentReceiver.WantToMoveBackward)
                 {
                     //Update speed
-                    if (mystats.currentSpeed < mystats.currentMaximumSpeed.GetValue() && !intentReceiver.WantToStopTheCar)
+                    if (mystats.currentSpeed < mystats.currentMaximumSpeed && !intentReceiver.WantToStopTheCar)
                     {
-                        mystats.currentSpeed += mystats.currentAccelerationSpeed.GetValue();
+                        mystats.currentSpeed += mystats.currentAccelerationSpeed;
                     }
 
                     //Turn Left
                     if (intentReceiver.WantToMoveLeft)
                     {
                         avatar.AvatarRootTransform.position += -avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
-                        avatar.AvatarRootTransform.Rotate(0.0f, mystats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
+                        avatar.AvatarRootTransform.Rotate(0.0f, mystats.currentManeuverability  * Time.deltaTime, 0.0f);
                     }
 
                     //Turn Right
                     else if (intentReceiver.WantToMoveRight)
                     {
                         avatar.AvatarRootTransform.position += -avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
-                        avatar.AvatarRootTransform.Rotate(0.0f, -mystats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
+                        avatar.AvatarRootTransform.Rotate(0.0f, -mystats.currentManeuverability  * Time.deltaTime, 0.0f);
                     }
 
                     //Dont turn
@@ -333,23 +333,23 @@ namespace DriversFight.Scripts
                 if (intentReceiver.WantToMoveForward)
                 {
                     //Update speed
-                    if (mystats.currentSpeed < mystats.currentMaximumSpeed.GetValue() && !intentReceiver.WantToStopTheCar)
+                    if (mystats.currentSpeed < mystats.currentMaximumSpeed  && !intentReceiver.WantToStopTheCar)
                     {
-                        mystats.currentSpeed += mystats.currentAccelerationSpeed.GetValue();
+                        mystats.currentSpeed += mystats.currentAccelerationSpeed ;
                     }
 
                     //Turn Left
                     if (intentReceiver.WantToMoveLeft)
                     {
                         avatar.AvatarRootTransform.position += avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
-                        avatar.AvatarRootTransform.Rotate(0.0f, -mystats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
+                        avatar.AvatarRootTransform.Rotate(0.0f, -mystats.currentManeuverability  * Time.deltaTime, 0.0f);
                     }
 
                     //Turn Right
                     else if (intentReceiver.WantToMoveRight)
                     {
                         avatar.AvatarRootTransform.position += avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
-                        avatar.AvatarRootTransform.Rotate(0.0f, mystats.currentManeuverability.GetValue() * Time.deltaTime, 0.0f);
+                        avatar.AvatarRootTransform.Rotate(0.0f, mystats.currentManeuverability  * Time.deltaTime, 0.0f);
                     }
 
                     //Dont turn
@@ -364,7 +364,7 @@ namespace DriversFight.Scripts
                 {
                     if (mystats.currentSpeed > 0f)
                     {
-                        mystats.currentSpeed -= mystats.currentDecelerationSpeed.GetValue();
+                        mystats.currentSpeed -= mystats.currentDecelerationSpeed ;
 
                         if (mystats.currentSpeed < 0f)
                         {
@@ -383,9 +383,9 @@ namespace DriversFight.Scripts
                     }
                 }
 
-                photonView.RPC("UpdateClientsUIRPC", RpcTarget.OthersBuffered, i, mystats.currentSpeed, mystats.currentEngineHealth);
+                photonView.RPC("UpdateClientsUIRPC", RpcTarget.OthersBuffered, i, mystats.currentSpeed, mystats.EngineHealth);
 
-                if(mystats.currentEngineHealth <= 0 && avatar.gameObject.activeSelf)
+                if(mystats.EngineHealth <= 0 && avatar.gameObject.activeSelf)
                 {
                     photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i);
                     deadAvatarsCount++;
@@ -462,7 +462,7 @@ namespace DriversFight.Scripts
         private void UpdateClientsUIRPC(int id, float speed, int hp)
         {
             avatars[id].Stats.currentSpeed = speed;
-            avatars[id].Stats.currentEngineHealth = hp;
+            avatars[id].Stats.EngineHealth = hp;
         }
 
         public void LeaveRoom()
