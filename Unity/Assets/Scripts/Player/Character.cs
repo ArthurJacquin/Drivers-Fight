@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour
 {
+    public int EngineHealth = 500;
+
     public CharacterStat FrontBumperArmor;
     public CharacterStat RearBumperArmor;
     public CharacterStat RightFlankArmor;

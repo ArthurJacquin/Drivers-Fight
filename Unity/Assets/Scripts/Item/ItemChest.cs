@@ -33,7 +33,7 @@ public class ItemChest : MonoBehaviour
         {
             if (!isEmpty)
             {
-                inventory.AddItem(item);
+                inventory.AddItem(Instantiate(item));
                 isEmpty = true;
                 spriteRenderer.color = emptyColor;
             }

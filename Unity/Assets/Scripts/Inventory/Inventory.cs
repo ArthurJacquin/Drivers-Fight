@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IItemContainer
 {
     [SerializeField] List<Item> items;
     [SerializeField] Transform itemsParent;
@@ -27,8 +27,23 @@ public class Inventory : MonoBehaviour
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
         }
 
+        //SetStartingItems();
         RefreshUI();
     }
+
+    /*private void SetStartingItems()
+    {
+        int i = 0;
+        for (; i < startingItems.Length && i < itemSlots.Length; i++)
+        {
+            itemSlots[i].Item = Instantiate(startingItems[i]);
+        }
+        
+        for (; i < itemSlots.Length; i++)
+		{
+            itemSlots[i].Item = null;
+		}
+    }*/
 
     private void RefreshUI()
     {
@@ -56,6 +71,21 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public Item RemoveItem(string itemID)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            Item item = itemSlots[i].Item;
+            if (item != null && item.ID == itemID)
+            {
+                itemSlots[i].Item = null;
+                return item;
+            }
+        }
+
+        return null;
+    }
+
     public bool RemoveItem(Item item)
     {
         if (items.Remove(item))
@@ -69,6 +99,28 @@ public class Inventory : MonoBehaviour
 
     public bool IsFull()
     {
-        return items.Count >= itemSlots.Length;
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].Item == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int ItemCount(string itemID)
+    {
+        int number = 0;
+
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].Item.ID == itemID)
+            {
+                number++;
+            }
+        }
+
+        return number;
     }
 }
