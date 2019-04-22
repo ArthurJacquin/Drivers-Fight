@@ -3,6 +3,7 @@ using Photon.Pun.UtilityScripts;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 namespace DriversFight.Scripts
 {
@@ -44,6 +45,12 @@ namespace DriversFight.Scripts
 
         [SerializeField]
         private GameObject playerUI; // Gameobject contenant l'UI
+
+        [SerializeField]
+        private TextMeshProUGUI endGamePanelRankText;
+
+        [SerializeField]
+        private TextMeshProUGUI endGamePanelCommentaryText;
 
         private bool collisionSubscriptionDone = false;
 
@@ -405,7 +412,7 @@ namespace DriversFight.Scripts
             DisableIntentReceivers();
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.LeaveRoom();
+                LeaveRoom();
             }
         }
 
@@ -429,9 +436,24 @@ namespace DriversFight.Scripts
         {
             avatars[avatarId].AvatarRootGameObject.SetActive(false);
 
-            if(PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[avatarId].ActorNumber && !PhotonNetwork.IsMasterClient)
+            if(PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[avatarId].ActorNumber)
             {
-                PhotonNetwork.LeaveRoom();
+                //Good or bad end
+                if (PlayerNumbering.SortedPlayers.Length == 1)
+                {
+                    endGamePanelRankText.text = "Vous êtes l'ULTIME DRIVER !";
+                    endGamePanelCommentaryText.text = "Félicitation !";
+                }
+                else
+                {
+                    endGamePanelRankText.text = "Tu termines en " + PlayerNumbering.SortedPlayers.Length + "eme position.";
+                    endGamePanelCommentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !";
+                }
+
+
+                if (!PhotonNetwork.IsMasterClient)
+                    PhotonNetwork.LeaveRoom();
+
                 playerUI.SetActive(false);
             }
         }

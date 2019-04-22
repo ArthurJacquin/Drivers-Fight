@@ -35,10 +35,6 @@ namespace DriversFight.Scripts
         [SerializeField]
         private GameObject endGamePanel;
 
-        private TextMesh playerRank;
-
-        private TextMesh endGameCommentary;
-
         public event Action OnlinePlayReady;
 
         public event Action OfflinePlayReady;
@@ -158,8 +154,6 @@ namespace DriversFight.Scripts
         public override void OnLeftRoom()
         {
             endGamePanel.SetActive(true);
-            //playerRank.text = Rank;
-            //endGameCommentary = ""
 
             PhotonNetwork.Disconnect();
         }

@@ -8,7 +8,7 @@ namespace DriversFight.Scripts
 {
     public class PlayerUIScript : MonoBehaviour
     {
-        //[HideInInspector]
+        [HideInInspector]
         public AvatarExposerScript avatar;
 
         [SerializeField]
