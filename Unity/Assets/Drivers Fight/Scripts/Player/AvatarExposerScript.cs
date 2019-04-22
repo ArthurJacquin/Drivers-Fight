@@ -11,5 +11,7 @@ namespace DriversFight.Scripts
         public PhotonTransformView AvatarTransformView;
         public CarStatsScript Stats;
         public PhotonView photonView;
+        public CollisionEnterDispatcherScript CollisionDispatcher;
+        public Collider MainCollider;
     }
 }

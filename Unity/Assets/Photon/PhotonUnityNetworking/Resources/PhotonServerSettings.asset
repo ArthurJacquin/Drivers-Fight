@@ -43,4 +43,10 @@ MonoBehaviour:
   - WantToMoveRightRPC
   - WantToMoveBackwardRPC
   - WantToStopRPC
+  - UpdateClientsUIRPC
+  - UpdateHpRPC
+  - UpdateSpeedRPC
+  - UpdateIntentReceiverRPC
+  - KillPLayer
+  - SpawnSector
   DisableAutoOpenWizard: 1

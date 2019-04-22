@@ -1,13 +1,16 @@
 ﻿using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
+using TMPro;
 
 namespace DriversFight.Scripts
 {
     public class AvatarsControllerScript : MonoBehaviour
     {
         [SerializeField]
-        private AvatarExposerScript[] avatars; 
+        private AvatarExposerScript[] avatars; //AvatarExposer des joueurs
 
         [SerializeField]
         private Transform[] startPositions; //Spawn position
@@ -20,6 +23,9 @@ namespace DriversFight.Scripts
 
         [SerializeField]
         private StartGameControllerScript startGameControllerScript;
+
+        [SerializeField]
+        private SectorSpawnManagement sectorSpawnManagementScript;
 
         [SerializeField]
         private PhotonView photonView;
@@ -35,12 +41,95 @@ namespace DriversFight.Scripts
         private AIntentReceiver[] activatedIntentReceivers;
 
         [SerializeField]
-        private PlayerUIScript playerUIScript;
+        private PlayerUIScript playerUIScript; //Script de mise à jour de l'UI
 
         [SerializeField]
-        private GameObject playerUI;
+        private GameObject playerUI; // Gameobject contenant l'UI
 
-        private bool GameStarted { get; set; }
+        [SerializeField]
+        private TextMeshProUGUI endGamePanelRankText;
+
+        [SerializeField]
+        private TextMeshProUGUI endGamePanelCommentaryText;
+
+        private bool collisionSubscriptionDone = false;
+
+        private bool gameStarted = false;
+
+        private readonly Dictionary<CollisionEnterDispatcherScript, AvatarExposerScript>
+            dispatcherToAvatar = new Dictionary<CollisionEnterDispatcherScript, AvatarExposerScript>();
+
+        private readonly Dictionary<Collider, AvatarExposerScript>
+            colliderToAvatar = new Dictionary<Collider, AvatarExposerScript>();
+
+        private bool GameStarted
+        {
+            get { return gameStarted; }
+            set
+            {
+
+                if (value && !gameStarted && (!PhotonNetwork.IsConnected || PhotonNetwork.IsMasterClient))
+                {
+                    SubscribeCollisionsEffect();
+                }
+                gameStarted = value;
+            }
+        }
+
+        private void SubscribeCollisionsEffect()
+        {
+            foreach (var avatar in avatars)
+            {
+                avatar.CollisionDispatcher.CollisionEvent += HandleCollision;
+                avatar.CollisionDispatcher.SectorTriggerEvent += HandleTrigger;
+            }
+        }
+
+        //Choses à faire en cas de collision
+        private void HandleCollision(CollisionEnterDispatcherScript collisionDispatcher,
+            Collider col)
+        {
+            if (!dispatcherToAvatar.TryGetValue(collisionDispatcher, out var sourceAvatar)
+                || !colliderToAvatar.TryGetValue(col, out var targetAvatar))
+            {
+                return;
+            }
+
+            if (sourceAvatar.Stats.currentSpeed > 1)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - this.transform.position, out hit, 3, 1 << 8))
+                {
+                    Debug.DrawLine(this.transform.position, hit.point, Color.blue, 999f, false);
+                    Debug.Log("Hit : " + hit.rigidbody.gameObject.name);
+                    if (hit.normal == targetAvatar.transform.forward)
+                        targetAvatar.Stats.TakeFrontDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                    if (hit.normal == -targetAvatar.transform.forward)
+                        targetAvatar.Stats.TakeRearDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                    if (hit.normal == targetAvatar.transform.right)
+                        targetAvatar.Stats.TakeRightDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                    if (hit.normal == -targetAvatar.transform.right)
+                        targetAvatar.Stats.TakeLeftDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                }
+            }
+        }
+
+        private void HandleTrigger(CollisionEnterDispatcherScript collisionDispatcher)
+        {
+            if (!dispatcherToAvatar.TryGetValue(collisionDispatcher, out var sourceAvatar))
+            {
+                return;
+            }
+
+            for(var i = 0; i < avatars.Length; i++)
+            {
+                if(sourceAvatar == avatars[i])
+                {
+                    photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i);
+                    break;
+                }
+            }
+        }
 
         private void Awake()
         {
@@ -51,8 +140,15 @@ namespace DriversFight.Scripts
             startGameControllerScript.Disconnected += EndGame;
             startGameControllerScript.MasterClientSwitched += EndGame;
             startGameControllerScript.PlayerSetup += SetupPlayer;
+
+            foreach (var avatar in avatars)
+            {
+                dispatcherToAvatar.Add(avatar.CollisionDispatcher, avatar);
+                colliderToAvatar.Add(avatar.MainCollider, avatar);
+            }
         }
 
+        //Mise en place de la camera et du HUD du joueur
         private void SetupPlayer(int id)
         {
             //Camera setup for client
@@ -63,7 +159,7 @@ namespace DriversFight.Scripts
                 cam.target = avatars[id].AvatarRootTransform;
             }
 
-            //Camera setup for client
+            //Camera for minimap
             MiniMapCameraScript miniCam = GameObject.Find("MiniCam").GetComponent<MiniMapCameraScript>();
             if (miniCam.enabled == false)
             {
@@ -81,11 +177,13 @@ namespace DriversFight.Scripts
             }
         }
 
+        //Active le gameobject du joueur
         private void ActivateAvatar(int id)
         {
             if (PhotonNetwork.IsConnected)
             {
                 photonView.RPC("ActivateAvatarRPC", RpcTarget.AllBuffered, id);
+                sectorSpawnManagementScript.enabled = true;
             }
             else
             {
@@ -93,6 +191,7 @@ namespace DriversFight.Scripts
             }
         }
 
+        //Desactive le gameobject du joueur
         private void DeactivateAvatar(int id)
         {
             if (PhotonNetwork.IsConnected)
@@ -105,18 +204,21 @@ namespace DriversFight.Scripts
             }
         }
 
+        //Récupère les IntentReceivers actifs online
         private void ChooseAndSubscribeToOnlineIntentReceivers()
         {
             activatedIntentReceivers = onlineIntentReceivers;
             ResetGame();
         }
 
+        //Récupère les IntentReceivers actifs offline
         private void ChooseAndSubscribeToOfflineIntentReceivers()
         {
             activatedIntentReceivers = offlineIntentReceivers;
             ResetGame();
         }
 
+        //Desactive les IntentReceivers des joueurs
         private void DisableIntentReceivers()
         {
             if (activatedIntentReceivers == null)
@@ -130,6 +232,7 @@ namespace DriversFight.Scripts
             }
         }
 
+        //Active les IntentReceivers des joueurs
         private void EnableIntentReceivers()
         {
             if (activatedIntentReceivers == null)
@@ -147,6 +250,7 @@ namespace DriversFight.Scripts
             }
         }
 
+        //Réinitialise les paramètres de partie
         private void ResetGame()
         {
             for (var i = 0; i < avatars.Length; i++)
@@ -161,7 +265,8 @@ namespace DriversFight.Scripts
 
             EnableIntentReceivers();
             GameStarted = true;
-            
+
+            StartCoroutine("WaitForPlayers");
         }
 
         private void FixedUpdate()
@@ -194,7 +299,6 @@ namespace DriversFight.Scripts
             for (var i = 0; i < activatedIntentReceivers.Length; i++)
             {
                 //Movements
-                var moveIntent = Vector3.zero;
 
                 var intentReceiver = activatedIntentReceivers[i];
                 var avatar = avatars[i];
@@ -286,15 +390,14 @@ namespace DriversFight.Scripts
                         intentReceiver.WantToStopTheCar = false;
                     }
                 }
-                
-                //Refresh dead players count
-                //TODO: Décommenter une fois isDead() implémenté
-                /*if (!avatar.isDead()))
-                {
-                    continue;
-                }
 
-                fallenAvatarsCount++;*/
+                photonView.RPC("UpdateClientsUIRPC", RpcTarget.OthersBuffered, i, mystats.currentSpeed, mystats.currentEngineHealth);
+
+                if(mystats.currentEngineHealth <= 0 && avatar.gameObject.activeSelf)
+                {
+                    photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i);
+                    deadAvatarsCount++;
+                }
             }
 
             //If 1 player remaining then end the game
@@ -314,13 +417,20 @@ namespace DriversFight.Scripts
                 avatars[i].AvatarRootGameObject.SetActive(false);
             }
 
-            startGameControllerScript.ShowMainMenu();
-
             DisableIntentReceivers();
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.Disconnect();
+                LeaveRoom();
             }
+        }
+
+        IEnumerator WaitForPlayers()
+        {
+            yield return new WaitForSeconds(30);
+
+            if (PlayerNumbering.SortedPlayers.Length == 1)
+                EndGame();
+
         }
 
         [PunRPC]
@@ -333,6 +443,48 @@ namespace DriversFight.Scripts
         private void DeactivateAvatarRPC(int avatarId)
         {
             avatars[avatarId].AvatarRootGameObject.SetActive(false);
+
+            if(PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[avatarId].ActorNumber)
+            {
+                //Good or bad end
+                if (PlayerNumbering.SortedPlayers.Length == 1)
+                {
+                    endGamePanelRankText.text = "Vous êtes l'ULTIME DRIVER !";
+                    endGamePanelCommentaryText.text = "Félicitation !";
+                }
+                else
+                {
+                    endGamePanelRankText.text = "Tu termines en " + PlayerNumbering.SortedPlayers.Length + "eme position.";
+                    endGamePanelCommentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !";
+                }
+
+
+                if (!PhotonNetwork.IsMasterClient)
+                    PhotonNetwork.LeaveRoom();
+
+                playerUI.SetActive(false);
+            }
+        }
+
+        [PunRPC]
+        private void UpdateClientsUIRPC(int id, float speed, int hp)
+        {
+            avatars[id].Stats.currentSpeed = speed;
+            avatars[id].Stats.currentEngineHealth = hp;
+        }
+
+        public void LeaveRoom()
+        {
+            var i = 0;
+            for (; i < PlayerNumbering.SortedPlayers.Length; i++)
+            {
+                if (PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[i].ActorNumber)
+                {
+                    break;
+                }
+            }
+
+            photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i);
         }
     }
 }
