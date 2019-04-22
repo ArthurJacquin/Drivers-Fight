@@ -1,10 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryScript : MonoBehaviour
 {
     public static InventoryScript instance;
+    public Text ScrapNumber;
+
+    void Start()
+    {
+        SetScrap();
+    }
+
+    void UpdateScrap()
+    {
+        SetScrap();
+    }
+
+    void SetScrap()
+    {
+        ScrapNumber.text = scrap.ToString();
+    }
 
     void Awake()
     {
@@ -19,7 +36,8 @@ public class InventoryScript : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
-    public int space = 20;
+    public int space = 8;
+    public int scrap = 0;
 
     public List<ItemScript> items = new List<ItemScript>();
 

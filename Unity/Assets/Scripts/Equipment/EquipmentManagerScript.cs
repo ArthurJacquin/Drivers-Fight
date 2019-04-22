@@ -28,7 +28,7 @@ public class EquipmentManagerScript : MonoBehaviour
 
     public void Equip(EquipmentScript newItem)
     {
-        int slotIndex = (int)newItem.equipSlot;
+        /*int slotIndex = (int)newItem.equipSlot;
 
         EquipmentScript oldItem = null;
 
@@ -43,7 +43,7 @@ public class EquipmentManagerScript : MonoBehaviour
             onEquipmentChanged.Invoke(newItem, oldItem);
         }
 
-        currentEquipment[slotIndex] = newItem;
+        currentEquipment[slotIndex] = newItem;*/
     }
 
     public void Unequip(int slotIndex)

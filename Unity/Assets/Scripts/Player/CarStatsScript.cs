@@ -2,7 +2,7 @@
 
 public class CarStatsScript : MonoBehaviour
 {
-    public int maxEngineHealth = 100;
+    public int maxEngineHealth = 500;
     public int currentEngineHealth { get; private set; }
 
     public Stats frontBumperArmor;

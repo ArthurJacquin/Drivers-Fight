@@ -19,4 +19,4 @@ public class EquipmentScript : ItemScript
 
 }
 
-public enum EquipmentSlot { ParechocAvant, ParechocArrière, FlancDroit, FlancGauche, Volant, Pneus, Moteur }
+public enum OldEquipmentSlot { ParechocAvant, ParechocArrière, FlancDroit, FlancGauche, Volant, Pneus, Moteur }
