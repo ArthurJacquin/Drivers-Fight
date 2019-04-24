@@ -162,22 +162,14 @@ MonoBehaviour:
   TiresArmor:
     BaseValue: 0
   MaximumSpeed:
-    BaseValue: 0
+    BaseValue: 100
   AccelerationSpeed:
-    BaseValue: 0
+    BaseValue: 0.2
   DecelerationSpeed:
-    BaseValue: 0
+    BaseValue: 0.5
   Maneuverability:
-    BaseValue: 0
-  defaultMaximumSpeed: 20
-  defaultAccelerationSpeed: 0.1
-  defaultDecelerationSpeed: 0.2
-  defaultManeuvrability: 50
+    BaseValue: 40
   currentSpeed: 0
-  currentMaximumSpeed: 20
-  currentAccelerationSpeed: 0.2
-  currentDecelerationSpeed: 0.5
-  currentManeuverability: 40
   Damage:
     BaseValue: 0
   inventory: {fileID: 0}

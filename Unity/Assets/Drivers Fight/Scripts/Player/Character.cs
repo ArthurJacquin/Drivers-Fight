@@ -19,16 +19,7 @@ public class Character : MonoBehaviour
 
     public CharacterStat Maneuverability;
 
-    public float defaultMaximumSpeed = 20f;
-    public float defaultAccelerationSpeed = 0.1f;
-    public float defaultDecelerationSpeed = 0.2f;
-    public float defaultManeuvrability = 50f;
-
     public float currentSpeed;
-    public float currentMaximumSpeed;
-    public float currentAccelerationSpeed;
-    public float currentDecelerationSpeed;
-    public float currentManeuverability;
 
     public CharacterStat Damage;
 
@@ -48,11 +39,6 @@ public class Character : MonoBehaviour
         equipmentPanel.OnItemRightClickedEvent += UnequipFromEquipPanel;
 
         currentSpeed = 0f;
-        currentMaximumSpeed = defaultMaximumSpeed;
-        currentAccelerationSpeed = defaultAccelerationSpeed;
-        currentDecelerationSpeed = defaultDecelerationSpeed;
-        currentManeuverability = defaultManeuvrability;
-
     }
 
     private void EquipFromInventory(Item item)

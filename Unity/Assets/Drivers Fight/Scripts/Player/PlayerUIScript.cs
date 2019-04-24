@@ -24,8 +24,8 @@ namespace DriversFight.Scripts
         void Update()
         {
             speedText.text = Mathf.RoundToInt(avatar.Stats.currentSpeed).ToString();
-            speedBar.fillAmount = avatar.Stats.currentSpeed / avatar.Stats.currentMaximumSpeed;
-            healthBar.fillAmount = (float)avatar.Stats.EngineHealth / (float)avatar.Stats.EngineHealth;
+            speedBar.fillAmount = avatar.Stats.currentSpeed / avatar.Stats.MaximumSpeed.Value;
+            healthBar.fillAmount = (float)avatar.Stats.EngineHealth / 500f;
         }
     }
 }

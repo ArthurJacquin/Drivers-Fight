@@ -106,13 +106,13 @@ namespace DriversFight.Scripts
                     Debug.DrawLine(this.transform.position, hit.point, Color.blue, 999f, false);
                     Debug.Log("Hit : " + hit.rigidbody.gameObject.name);
                     if (hit.normal == targetAvatar.transform.forward)
-                        targetAvatar.Stats.TakeFrontDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                        targetAvatar.Stats.TakeFrontDamage((int)sourceAvatar.Stats.currentSpeed * 5);
                     if (hit.normal == -targetAvatar.transform.forward)
-                        targetAvatar.Stats.TakeRearDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                        targetAvatar.Stats.TakeRearDamage((int)sourceAvatar.Stats.currentSpeed * 5);
                     if (hit.normal == targetAvatar.transform.right)
-                        targetAvatar.Stats.TakeRightDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                        targetAvatar.Stats.TakeRightDamage((int)sourceAvatar.Stats.currentSpeed * 5);
                     if (hit.normal == -targetAvatar.transform.right)
-                        targetAvatar.Stats.TakeLeftDamage((int)sourceAvatar.Stats.currentSpeed * 2);
+                        targetAvatar.Stats.TakeLeftDamage((int)sourceAvatar.Stats.currentSpeed * 5);
                 }
             }
         }
@@ -313,23 +313,23 @@ namespace DriversFight.Scripts
                 if (intentReceiver.WantToMoveBackward)
                 {
                     //Update speed
-                    if (mystats.currentSpeed < mystats.currentMaximumSpeed && !intentReceiver.WantToStopTheCar)
+                    if (mystats.currentSpeed < mystats.MaximumSpeed.Value && !intentReceiver.WantToStopTheCar)
                     {
-                        mystats.currentSpeed += mystats.currentAccelerationSpeed;
+                        mystats.currentSpeed += mystats.AccelerationSpeed.Value;
                     }
 
                     //Turn Left
                     if (intentReceiver.WantToMoveLeft)
                     {
                         avatar.AvatarRootTransform.position += -avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
-                        avatar.AvatarRootTransform.Rotate(0.0f, mystats.currentManeuverability  * Time.deltaTime, 0.0f);
+                        avatar.AvatarRootTransform.Rotate(0.0f, mystats.Maneuverability.Value  * Time.deltaTime, 0.0f);
                     }
 
                     //Turn Right
                     else if (intentReceiver.WantToMoveRight)
                     {
                         avatar.AvatarRootTransform.position += -avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
-                        avatar.AvatarRootTransform.Rotate(0.0f, -mystats.currentManeuverability  * Time.deltaTime, 0.0f);
+                        avatar.AvatarRootTransform.Rotate(0.0f, -mystats.Maneuverability.Value * Time.deltaTime, 0.0f);
                     }
 
                     //Dont turn
@@ -343,23 +343,23 @@ namespace DriversFight.Scripts
                 if (intentReceiver.WantToMoveForward)
                 {
                     //Update speed
-                    if (mystats.currentSpeed < mystats.currentMaximumSpeed  && !intentReceiver.WantToStopTheCar)
+                    if (mystats.currentSpeed < mystats.MaximumSpeed.Value  && !intentReceiver.WantToStopTheCar)
                     {
-                        mystats.currentSpeed += mystats.currentAccelerationSpeed ;
+                        mystats.currentSpeed += mystats.AccelerationSpeed.Value ;
                     }
 
                     //Turn Left
                     if (intentReceiver.WantToMoveLeft)
                     {
                         avatar.AvatarRootTransform.position += avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
-                        avatar.AvatarRootTransform.Rotate(0.0f, -mystats.currentManeuverability  * Time.deltaTime, 0.0f);
+                        avatar.AvatarRootTransform.Rotate(0.0f, -mystats.Maneuverability.Value * Time.deltaTime, 0.0f);
                     }
 
                     //Turn Right
                     else if (intentReceiver.WantToMoveRight)
                     {
                         avatar.AvatarRootTransform.position += avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
-                        avatar.AvatarRootTransform.Rotate(0.0f, mystats.currentManeuverability  * Time.deltaTime, 0.0f);
+                        avatar.AvatarRootTransform.Rotate(0.0f, mystats.Maneuverability.Value * Time.deltaTime, 0.0f);
                     }
 
                     //Dont turn
@@ -374,7 +374,7 @@ namespace DriversFight.Scripts
                 {
                     if (mystats.currentSpeed > 0f)
                     {
-                        mystats.currentSpeed -= mystats.currentDecelerationSpeed ;
+                        mystats.currentSpeed -= mystats.DecelerationSpeed.Value ;
 
                         if (mystats.currentSpeed < 0f)
                         {
