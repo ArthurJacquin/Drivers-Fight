@@ -162,7 +162,7 @@ MonoBehaviour:
   TiresArmor:
     BaseValue: 0
   MaximumSpeed:
-    BaseValue: 100
+    BaseValue: 20
   AccelerationSpeed:
     BaseValue: 0.2
   DecelerationSpeed:

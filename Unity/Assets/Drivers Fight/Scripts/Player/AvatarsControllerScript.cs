@@ -101,9 +101,9 @@ namespace DriversFight.Scripts
             if (sourceAvatar.Stats.currentSpeed > 1)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - this.transform.position, out hit, 3, 1 << 8))
+                if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, out hit, 3, 1 << 8))
                 {
-                    Debug.DrawLine(this.transform.position, hit.point, Color.blue, 999f, false);
+                    Debug.DrawLine(this.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, Color.blue, 999f, false);
                     Debug.Log("Hit : " + hit.rigidbody.gameObject.name);
                     if (hit.normal == targetAvatar.transform.forward)
                         targetAvatar.Stats.TakeFrontDamage((int)sourceAvatar.Stats.currentSpeed * 5);
@@ -462,7 +462,19 @@ namespace DriversFight.Scripts
 
 
                 if (!PhotonNetwork.IsMasterClient)
+                {
                     PhotonNetwork.LeaveRoom();
+                    sectorSpawnManagementScript.enabled = false;
+                }
+                else
+                {
+                    if (PlayerNumbering.SortedPlayers.Length == 1)
+                    {
+                        PhotonNetwork.LeaveRoom();
+                        sectorSpawnManagementScript.enabled = false;
+                    }
+
+                }
 
                 playerUI.SetActive(false);
             }

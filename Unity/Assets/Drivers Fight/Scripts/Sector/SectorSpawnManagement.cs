@@ -38,13 +38,21 @@ namespace DriversFight.Scripts
 
         private List<int> sectorNumbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7 };
 
-        private void Start()
+        private void OnEnable()
         {
             Debug.Log("Lancement du script de spawn de secteur");
 
             timeToSpawnTheSector = firstSectorSpawn + Time.time;
             Shuffle(sectorNumbers);
             sectorsFinalNumber = sectors.Length - 1;
+
+            if (sectorsAlreadyPop.Count != 0)
+            {
+                foreach (var sector in sectorsAlreadyPop)
+                {
+                    sectorsAlreadyPop.Remove(sector);
+                }
+            }
         }
 
         void Update()
