@@ -47,6 +47,9 @@ namespace DriversFight.Scripts
         private GameObject playerUI; // Gameobject contenant l'UI
 
         [SerializeField]
+        private MiniMapCameraScript miniCam;
+
+        [SerializeField]
         private TextMeshProUGUI endGamePanelRankText;
 
         [SerializeField]
@@ -157,6 +160,13 @@ namespace DriversFight.Scripts
             {
                 cam.enabled = true;
                 cam.target = avatars[id].AvatarRootTransform;
+            }
+
+            //Camera for minimap
+            if (miniCam.enabled == false)
+            {
+                miniCam.enabled = true;
+                miniCam.player = avatars[id].AvatarRootTransform;
             }
 
 
