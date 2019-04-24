@@ -1,0 +1,19 @@
+A corriger
+
+- switch master
+- souris desactiver avec l'inventaire
+- dernier restant
+- collision usine
+- options
+
+A faire:
+- usine / craft
+- bots
+- graphismes
+- lobby
+- plus d'objets
+- consommable
+- ameliorer zones
+- reseaux sociaux
+- pause globale
+- langues
