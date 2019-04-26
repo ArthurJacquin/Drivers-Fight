@@ -7,8 +7,9 @@ public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
     private Transform targetTransform;
+
     [SerializeField]
-    private CarStatsScript carStats;
+    private Character carStats;
 
     private bool wantToMoveForward;
     private bool wantToMoveBackward;
@@ -27,7 +28,7 @@ public class PlayerScript : MonoBehaviour
     private int carWheelArmor;
     private int carTiresArmor;
 
-    private float carSpeed = 0f;
+    private float carSpeed;
     private float carMaximumSpeed;
     private float carAccelerationSpeed;
     private float carDecelerationSpeed;
@@ -38,57 +39,62 @@ public class PlayerScript : MonoBehaviour
 
     public void updateCarEngineHealth()
     {
-        carEngineHealth = carStats.currentEngineHealth;
+        carEngineHealth = (int)carStats.EngineHealth;
     }
 
     public void updateCarFrontBumperArmor()
     {
-        carFrontBumperArmor = carStats.currentFrontBumperArmor;
+        carFrontBumperArmor = (int)carStats.FrontBumperArmor.Value;
     }
 
     public void updateCarRearBumperArmor()
     {
-        carRearBumperArmor = carStats.currentRearBumperArmor;
+        carRearBumperArmor = (int)carStats.RearBumperArmor.Value;
     }
 
     public void updateCarRightFlankArmor()
     {
-        carRightFlankArmor = carStats.currentRightFlankArmor;
+        carRightFlankArmor = (int)carStats.RightFlankArmor.Value;
     }
 
     public void updateCarLeftFlankArmor()
     {
-        carLeftFlankArmor = carStats.currentLeftFlankArmor;
+        carLeftFlankArmor = (int)carStats.LeftFlankArmor.Value;
     }
 
     public void updateCarWheelArmor()
     {
-        carWheelArmor = carStats.currentWheelArmor;
+        carWheelArmor = (int)carStats.WheelArmor.Value;
     }
 
     public void updateCarTiresArmor()
     {
-        carTiresArmor = carStats.currentTiresArmor;
+        carTiresArmor = (int)carStats.TiresArmor.Value;
+    }
+
+    public void updateCarSpeed()
+    {
+        carSpeed = carStats.currentSpeed;
     }
 
     public void updateCarMaximumSpeed()
     {
-        carMaximumSpeed = carStats.currentMaximumSpeed;
+        carMaximumSpeed = carStats.MaximumSpeed.Value;
     }
 
     public void updateCarAccelerationSpeed()
     {
-        carAccelerationSpeed = carStats.currentAccelerationSpeed;
+        carAccelerationSpeed = carStats.AccelerationSpeed.Value;
     }
 
     public void updateCarDecelerationSpeed()
     {
-        carDecelerationSpeed = carStats.currentDecelerationSpeed;
+        carDecelerationSpeed = carStats.DecelerationSpeed.Value;
     }
 
     public void updateCarManeuverability()
     {
-        carManeuverability = carStats.currentManeuverability;
+        carManeuverability = (int)carStats.Maneuverability.Value;
     }
 
     public void updateCarDamage()
@@ -96,7 +102,8 @@ public class PlayerScript : MonoBehaviour
         carDamage = (int)carSpeed / 2;
     }
 
-    private void OnCollisionStay(Collision collisionInfo)
+    // Collision with object for collect it
+    /*private void OnCollisionStay(Collision collisionInfo)
     {
         foreach (ContactPoint contact in collisionInfo.contacts)
         {
@@ -113,38 +120,55 @@ public class PlayerScript : MonoBehaviour
             }
             Debug.Log(Vector3.Distance(targetTransform.position, transform.position) <= distance);
         }
-    }
+    }*/
 
     void Start()
     {
         // Récupérer les stats du joueur
-        carEngineHealth = carStats.currentEngineHealth;
+        carEngineHealth = carStats.EngineHealth;
 
-        carFrontBumperArmor = carStats.currentFrontBumperArmor;
-        carRearBumperArmor = carStats.currentRearBumperArmor;
-        carRightFlankArmor = carStats.currentRightFlankArmor;
-        carLeftFlankArmor = carStats.currentLeftFlankArmor;
-        carWheelArmor = carStats.currentWheelArmor;
-        carTiresArmor = carStats.currentTiresArmor;
+        carFrontBumperArmor = (int)carStats.FrontBumperArmor.Value;
+        carRearBumperArmor = (int)carStats.RearBumperArmor.Value;
+        carRightFlankArmor = (int)carStats.RightFlankArmor.Value;
+        carLeftFlankArmor = (int)carStats.LeftFlankArmor.Value;
+        carWheelArmor = (int)carStats.WheelArmor.Value;
+        carTiresArmor = (int)carStats.TiresArmor.Value;
 
-        carMaximumSpeed = carStats.currentMaximumSpeed;
-        carAccelerationSpeed = carStats.currentAccelerationSpeed;
-        carDecelerationSpeed = carStats.currentDecelerationSpeed;
+        carSpeed = carStats.currentSpeed;
+        carMaximumSpeed = carStats.MaximumSpeed.Value;
+        carAccelerationSpeed = carStats.AccelerationSpeed.Value;
+        carDecelerationSpeed = carStats.DecelerationSpeed.Value;
 
-        carManeuverability = carStats.currentManeuverability;
+        carManeuverability = (int)carStats.Maneuverability.Value;
 
-        carDamage = carStats.currentDamage;
+        carDamage = (int)carStats.Damage.Value;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Life = " + carEngineHealth);
+        Debug.Log("Speed = " + carSpeed);
 
-        /*if (EventSystem.current.IsPointerOverGameObject())
+        // Update Stats
+        updateCarDamage();
+        updateCarMaximumSpeed();
+        updateCarAccelerationSpeed();
+        updateCarDecelerationSpeed();
+        updateCarEngineHealth();
+        updateCarFrontBumperArmor();
+        updateCarLeftFlankArmor();
+        updateCarRearBumperArmor();
+        updateCarRightFlankArmor();
+        updateCarManeuverability();
+        updateCarTiresArmor();
+        updateCarWheelArmor();
+
+        /*
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
-        }*/
+        }
+        */
 
         if (Input.GetKey(KeyCode.Z) && wantToMoveBackward == false)
         {
@@ -196,6 +220,7 @@ public class PlayerScript : MonoBehaviour
             wantToMoveRight = false;
         }
 
+        // Player stop press touch for moving
         if (wantToStopTheCar)
         {
             if (carSpeed > 0f)
@@ -225,6 +250,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Player movement
         if (wantToMoveForward)
         {
             if (wantToMoveLeft)

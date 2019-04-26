@@ -30,6 +30,11 @@ namespace Drivers.CharacterStats
         protected readonly List<StatModifier> statModifiers;
         public readonly ReadOnlyCollection<StatModifier> StatModifiers;
 
+        public static explicit operator int(CharacterStat v)
+        {
+            throw new NotImplementedException();
+        }
+
         public CharacterStat()
         {
             statModifiers = new List<StatModifier>();

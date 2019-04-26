@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad438a33e2cfd654ca628458b1b201ad, type: 3}
   m_Name: Rear Bumper
   m_EditorClassIdentifier: 
+  id: 655bae42a021d0a4093d72ecb254f975
   ItemName: Rear bumper
   Icon: {fileID: 21300000, guid: 1fbd90ae41fc1704a8ce037089375515, type: 3}
   FrontBumperArmorBonus: 0
@@ -21,8 +22,8 @@ MonoBehaviour:
   WheelArmorBonus: 0
   TiresArmorBonus: 0
   MaximumSpeedBonus: 10
-  AccelerationSpeedBonus: 10
-  DecelerationSpeedBonus: 10
+  AccelerationSpeedBonus: 1
+  DecelerationSpeedBonus: 1
   ManeuverabilityBonus: 5
   DamageBonus: 0
   FrontBumperArmorPercentBonus: 0

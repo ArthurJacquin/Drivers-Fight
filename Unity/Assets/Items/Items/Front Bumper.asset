@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad438a33e2cfd654ca628458b1b201ad, type: 3}
   m_Name: Front Bumper
   m_EditorClassIdentifier: 
+  id: ccb097f34fd8c0641bfb09c38d6dbd97
   ItemName: Front bumper
   Icon: {fileID: 21300000, guid: 3e5f335d026c4104bac1fb559f4111fc, type: 3}
   FrontBumperArmorBonus: 20
@@ -21,8 +22,8 @@ MonoBehaviour:
   WheelArmorBonus: 0
   TiresArmorBonus: 0
   MaximumSpeedBonus: 5
-  AccelerationSpeedBonus: 5
-  DecelerationSpeedBonus: 5
+  AccelerationSpeedBonus: 1
+  DecelerationSpeedBonus: 1
   ManeuverabilityBonus: 0
   DamageBonus: 10
   FrontBumperArmorPercentBonus: 0

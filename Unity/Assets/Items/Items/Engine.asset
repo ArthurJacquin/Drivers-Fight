@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad438a33e2cfd654ca628458b1b201ad, type: 3}
   m_Name: Engine
   m_EditorClassIdentifier: 
+  id: 13e753a09b6b8484a8a7e58bdf9907d8
   ItemName: Engine
   Icon: {fileID: 21300000, guid: f41da9bc7ce23144a8205acc63974325, type: 3}
   FrontBumperArmorBonus: 0
@@ -21,8 +22,8 @@ MonoBehaviour:
   WheelArmorBonus: 0
   TiresArmorBonus: 0
   MaximumSpeedBonus: 20
-  AccelerationSpeedBonus: 10
-  DecelerationSpeedBonus: 10
+  AccelerationSpeedBonus: 1
+  DecelerationSpeedBonus: 1
   ManeuverabilityBonus: 0
   DamageBonus: 0
   FrontBumperArmorPercentBonus: 0

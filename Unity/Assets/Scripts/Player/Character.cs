@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour
 {
+    // Player life
     public int EngineHealth = 500;
 
+    // Stat declaration
     public CharacterStat FrontBumperArmor;
     public CharacterStat RearBumperArmor;
     public CharacterStat RightFlankArmor;
@@ -18,6 +20,8 @@ public class Character : MonoBehaviour
     public CharacterStat DecelerationSpeed;
 
     public CharacterStat Maneuverability;
+
+    public float currentSpeed;
 
     public CharacterStat Damage;
 
@@ -32,6 +36,8 @@ public class Character : MonoBehaviour
     {
         statPanel.SetStats(FrontBumperArmor, RearBumperArmor, RightFlankArmor, LeftFlankArmor, WheelArmor, TiresArmor, MaximumSpeed, AccelerationSpeed, DecelerationSpeed, Maneuverability, Damage);
         statPanel.UpdateStatValues();
+
+        currentSpeed = 0f;
 
         inventory.OnItemRightClickedEvent += EquipFromInventory;
         equipmentPanel.OnItemRightClickedEvent += UnequipFromEquipPanel;
@@ -84,5 +90,54 @@ public class Character : MonoBehaviour
             statPanel.UpdateStatValues();
             inventory.AddItem(item);
         }
+    }
+
+    public void TakeFrontDamage(int damage)
+    {
+        damage -= (int)FrontBumperArmor.Value;
+        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+
+        EngineHealth -= damage;
+
+    }
+
+    public void TakeRearDamage(int damage)
+    {
+        damage -= (int)RearBumperArmor.Value;
+        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+
+        EngineHealth -= damage;
+    }
+
+    public void TakeRightDamage(int damage)
+    {
+        damage -= (int)RightFlankArmor.Value;
+        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+
+        EngineHealth -= damage;
+    }
+
+    public void TakeLeftDamage(int damage)
+    {
+        damage -= (int)LeftFlankArmor.Value;
+        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+
+        EngineHealth -= damage;
+    }
+
+    public void TakeWheelDamage(int damage)
+    {
+        damage -= (int)WheelArmor.Value;
+        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+
+        EngineHealth -= damage;
+    }
+
+    public void TakeTiresDamage(int damage)
+    {
+        damage -= (int)TiresArmor.Value;
+        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+
+        EngineHealth -= damage;
     }
 }
