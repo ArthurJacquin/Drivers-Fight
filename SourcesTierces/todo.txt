@@ -17,3 +17,26 @@ A faire:
 - reseaux sociaux
 - pause globale
 - langues
+
+
+Baptiste:
+- usine / craft
+- ameliorer zones
+- graphismes voitures
+- reseaux sociaux
+
+Benoit:
+- souris desactiver dans le menu pause si on a ouvert l'inventaire avant
+- plus d'objets
+- consommable
+- pause globale
+- langues
+
+Arthur:
+- switch master
+- dernier restant
+- options
+- bots
+- lobby
+
+
