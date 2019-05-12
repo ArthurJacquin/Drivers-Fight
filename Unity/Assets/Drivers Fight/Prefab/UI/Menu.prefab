@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 114870576038855462}
   - component: {fileID: 114109549425413106}
   - component: {fileID: 7755948019577721870}
+  - component: {fileID: 1549674956791312935}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -308,8 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68250cb31c665941ba23657c9ebf4e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolutionDropdown: {fileID: 2828886656733801483}
-  audioVolumeSlider: {fileID: 5638623628684813124}
+  resolutionDropdown: {fileID: 5581454791610225221}
+  audioVolumeSlider: {fileID: 5606293892796749863}
 --- !u!114 &7755948019577721870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +324,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 8784274909447720696}
+--- !u!114 &1549674956791312935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324387113636854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ca6c29cfa2deb4e93b1d7ea15e662a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  dropdown: {fileID: 2828886656733801483}
+  slider: {fileID: 5638623628684813124}
 --- !u!1 &1590116676889962
 GameObject:
   m_ObjectHideFlags: 0

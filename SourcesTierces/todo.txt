@@ -20,16 +20,17 @@ A faire:
 
 
 Baptiste:
-- usine / craft
+- usine 
 - ameliorer zones
 - graphismes voitures
 - reseaux sociaux
+- pause globale
 
 Benoit:
 - souris desactiver dans le menu pause si on a ouvert l'inventaire avant
-- plus d'objets
+- plus d'objets / craft
+- spawn des objets
 - consommable
-- pause globale
 - langues
 
 Arthur:

@@ -8,9 +8,11 @@ public class SettingsMenu : MonoBehaviour {
 
     [SerializeField]
     private Dropdown resolutionDropdown;
-    public Slider audioVolumeSlider;
 
-    Resolution[] resolutions;
+    [SerializeField]
+    private Slider audioVolumeSlider;
+
+    public Resolution[] resolutions;
     
     public static float volume = 1f;
 
@@ -27,6 +29,7 @@ public class SettingsMenu : MonoBehaviour {
         for(int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + "x" + resolutions[i].height;
+
             options.Add(option);
 
             if(resolutions[i].width == Screen.currentResolution.width && 
@@ -35,7 +38,7 @@ public class SettingsMenu : MonoBehaviour {
                 currentResolutionIndex = i;
             }
         }
-
+        print(options[currentResolutionIndex]);
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
@@ -56,6 +59,7 @@ public class SettingsMenu : MonoBehaviour {
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
+        print("Want to set the resolution to " + resolution);
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 }
