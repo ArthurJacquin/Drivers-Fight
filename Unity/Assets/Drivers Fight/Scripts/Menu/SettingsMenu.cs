@@ -12,7 +12,7 @@ public class SettingsMenu : MonoBehaviour {
     [SerializeField]
     private Slider audioVolumeSlider;
 
-    public Resolution[] resolutions;
+    Resolution[] resolutions;
     
     public static float volume = 1f;
 
@@ -38,7 +38,7 @@ public class SettingsMenu : MonoBehaviour {
                 currentResolutionIndex = i;
             }
         }
-        print(options[currentResolutionIndex]);
+        
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();

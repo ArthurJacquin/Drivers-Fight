@@ -53,11 +53,16 @@ namespace DriversFight.Scripts
         private TextMeshProUGUI endGamePanelRankText;
 
         [SerializeField]
+        private GameObject endGamePanel;
+
+        [SerializeField]
         private TextMeshProUGUI endGamePanelCommentaryText;
 
         private bool collisionSubscriptionDone = false;
 
         private bool gameStarted = false;
+
+        private bool waitingForPlayers = false;
 
         private readonly Dictionary<CollisionEnterDispatcherScript, AvatarExposerScript>
             dispatcherToAvatar = new Dictionary<CollisionEnterDispatcherScript, AvatarExposerScript>();
@@ -398,20 +403,21 @@ namespace DriversFight.Scripts
                 if(mystats.EngineHealth <= 0 && avatar.gameObject.activeSelf)
                 {
                     photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i);
-                    deadAvatarsCount++;
+                     
                 }
             }
 
             //If 1 player remaining then end the game
-            if (activatedAvatarsCount - deadAvatarsCount <= 1 && activatedAvatarsCount > 1)
+            if (activatedAvatarsCount - deadAvatarsCount <= 1 && activatedAvatarsCount >= 1 && !waitingForPlayers)
             {
-                EndGame();
+                LeaveRoom();
             }
         }
 
         public void EndGame()
         {
             GameStarted = false;
+            waitingForPlayers = false;
             activatedIntentReceivers = null;
 
             for (var i = 0; i < avatars.Length; i++)
@@ -428,11 +434,13 @@ namespace DriversFight.Scripts
 
         IEnumerator WaitForPlayers()
         {
+            waitingForPlayers = true;
             yield return new WaitForSeconds(30);
 
             if (PlayerNumbering.SortedPlayers.Length == 1)
                 EndGame();
 
+            waitingForPlayers = false;
         }
 
         [PunRPC]
@@ -460,26 +468,31 @@ namespace DriversFight.Scripts
                     endGamePanelCommentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !";
                 }
 
-
+                //Leave room
                 if (!PhotonNetwork.IsMasterClient)
                 {
                     PhotonNetwork.LeaveRoom();
-                    sectorSpawnManagementScript.enabled = false;
                 }
                 else
                 {
                     if (PlayerNumbering.SortedPlayers.Length == 1)
                     {
                         PhotonNetwork.LeaveRoom();
-                        sectorSpawnManagementScript.enabled = false;
-                    }
+                        endGamePanel.SetActive(true);
 
+                        PhotonNetwork.Disconnect();
+                    }
+                    else
+                    {
+                        //Switch master
+                    }
                 }
 
                 playerUI.SetActive(false);
             }
         }
 
+        //Update client player stats
         [PunRPC]
         private void UpdateClientsUIRPC(int id, float speed, int hp)
         {
@@ -487,6 +500,7 @@ namespace DriversFight.Scripts
             avatars[id].Stats.EngineHealth = hp;
         }
 
+        //Deconnect the player from a room
         public void LeaveRoom()
         {
             var i = 0;

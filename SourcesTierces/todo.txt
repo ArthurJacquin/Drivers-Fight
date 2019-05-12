@@ -35,8 +35,8 @@ Benoit:
 
 Arthur:
 - switch master
+- reset game
 - dernier restant
-- options
 - bots
 - lobby
 
