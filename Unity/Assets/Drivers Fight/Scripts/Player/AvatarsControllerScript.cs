@@ -50,6 +50,9 @@ namespace DriversFight.Scripts
         private MiniMapCameraScript miniCam;
 
         [SerializeField]
+        private GameObject items;
+
+        [SerializeField]
         private TextMeshProUGUI endGamePanelRankText;
 
         [SerializeField]
@@ -272,6 +275,9 @@ namespace DriversFight.Scripts
 
             EnableIntentReceivers();
             GameStarted = true;
+            items.SetActive(true);
+            playerUI.SetActive(false);
+            sectorSpawnManagementScript.enabled = false;
 
             StartCoroutine("WaitForPlayers");
         }
@@ -398,7 +404,7 @@ namespace DriversFight.Scripts
                     }
                 }
 
-                photonView.RPC("UpdateClientsUIRPC", RpcTarget.OthersBuffered, i, mystats.currentSpeed, mystats.EngineHealth);
+                photonView.RPC("UpdateClientsUIRPC", RpcTarget.OthersBuffered, i, mystats, mystats.EngineHealth);
 
                 if(mystats.EngineHealth <= 0 && avatar.gameObject.activeSelf)
                 {
@@ -475,17 +481,16 @@ namespace DriversFight.Scripts
                 }
                 else
                 {
-                    if (PlayerNumbering.SortedPlayers.Length == 1)
+                    if (PlayerNumbering.SortedPlayers.Length > 1)
                     {
-                        PhotonNetwork.LeaveRoom();
-                        endGamePanel.SetActive(true);
+                        //switch master
+                        PhotonNetwork.SetMasterClient(PhotonNetwork.MasterClient.GetNext());
+                    }
 
-                        PhotonNetwork.Disconnect();
-                    }
-                    else
-                    {
-                        //Switch master
-                    }
+                    PhotonNetwork.LeaveRoom();
+                    endGamePanel.SetActive(true);
+
+                    PhotonNetwork.Disconnect();
                 }
 
                 playerUI.SetActive(false);
@@ -494,9 +499,9 @@ namespace DriversFight.Scripts
 
         //Update client player stats
         [PunRPC]
-        private void UpdateClientsUIRPC(int id, float speed, int hp)
+        private void UpdateClientsUIRPC(int id, Character stats, int hp)
         {
-            avatars[id].Stats.currentSpeed = speed;
+            avatars[id].Stats = stats;
             avatars[id].Stats.EngineHealth = hp;
         }
 

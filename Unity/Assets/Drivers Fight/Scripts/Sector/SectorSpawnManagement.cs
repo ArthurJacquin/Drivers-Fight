@@ -30,7 +30,7 @@ namespace DriversFight.Scripts
 
         private float timeToSpawnTheSector = 0f;
 
-        private List<int> sectorsAlreadyPop = new List<int>();
+        private List<int> sectorsAlreadyPop;
 
         private int numberGeneratedSector = 0;
 
@@ -41,6 +41,14 @@ namespace DriversFight.Scripts
         private void OnEnable()
         {
             Debug.Log("Lancement du script de spawn de secteur");
+
+            //Reset
+            sectorsAlreadyPop = new List<int>();
+            foreach(var sector in sectors)
+            {
+                if (sector.activeSelf)
+                    sector.SetActive(false);
+            }
 
             timeToSpawnTheSector = firstSectorSpawn + Time.time;
             Shuffle(sectorNumbers);
