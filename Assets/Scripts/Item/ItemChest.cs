@@ -3,6 +3,7 @@
 public class ItemChest : MonoBehaviour
 {
     [SerializeField] Item item;
+    [SerializeField] int amount = 1;
     [SerializeField] Inventory inventory;
     [SerializeField] SpriteRenderer spriteRenderer;
     // [SerializeField] GameObject playerGameObject;
@@ -29,15 +30,22 @@ public class ItemChest : MonoBehaviour
 
     private void Update()
     {
-        if (isInRange && Input.GetKeyDown(itemPickupKeyCode))
+        if (isInRange && !isEmpty && Input.GetKeyDown(itemPickupKeyCode))
         {
-            if (!isEmpty)
+            Item itemCopy = item.GetCopy();
+            if (inventory.AddItem(itemCopy))
             {
-                inventory.AddItem(Instantiate(item));
-                isEmpty = true;
-                spriteRenderer.color = emptyColor;
+                amount--;
+                if (amount == 0)
+                {
+                    isEmpty = true;
+                    spriteRenderer.color = emptyColor;
+                }
             }
-            
+            else
+            {
+                itemCopy.Destroy();
+            }
         }
     }
 

@@ -59,6 +59,15 @@ public class Character : MonoBehaviour
         }
     }
 
+    /*private void Drop(ItemSlot dropItemSlot)
+    {
+        int draggedItemAmount = dragItemSlot.Amount;
+
+        dragItemSlot.Amount = dropItemSlot.Amount;
+
+        dropItemSlot.Amount = draggedItemAmount;
+    }*/
+
     public void Equip(EquippableItem item)
     {
         if (inventory.RemoveItem(item))
