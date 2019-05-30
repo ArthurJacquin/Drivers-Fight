@@ -6,7 +6,6 @@ public class ItemChest : MonoBehaviour
     [SerializeField] int amount = 1;
     [SerializeField] Inventory inventory;
     [SerializeField] SpriteRenderer spriteRenderer;
-    // [SerializeField] GameObject playerGameObject;
     [SerializeField] Color emptyColor;
     [SerializeField] KeyCode itemPickupKeyCode = KeyCode.E;
 
@@ -71,7 +70,7 @@ public class ItemChest : MonoBehaviour
 
     private void CheckCollision(GameObject gameObject, bool state)
     {
-        if (gameObject.gameObject.CompareTag("Player"))
+        if (gameObject.CompareTag("Player"))
         {
             isInRange = state;
             spriteRenderer.enabled = state;
