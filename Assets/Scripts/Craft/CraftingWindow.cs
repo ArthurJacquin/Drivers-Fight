@@ -55,7 +55,7 @@ public class CraftingWindow : MonoBehaviour
             craftingRecipeUIs[i].CraftingRecipe = CraftingRecipes[i];
         }
 
-        for (int i = CraftingRecipes.Count; i < CraftingRecipes.Count; i++)
+        for (int i = CraftingRecipes.Count; i < craftingRecipeUIs.Count; i++)
         {
             craftingRecipeUIs[i].CraftingRecipe = null;
         }

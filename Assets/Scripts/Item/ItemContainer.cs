@@ -78,9 +78,10 @@ public abstract class ItemContainer : MonoBehaviour, IItemContainer
         for (int i = 0; i < itemSlots.Length; i++)
         {
             Item item = itemSlots[i].Item;
-            if (item != null && itemSlots[i].Item.ID == itemID)
+            if (item != null && item.ID == itemID)
             {
-                number++;
+                //number++;
+                number += itemSlots[i].Amount;
             }
         }
 
