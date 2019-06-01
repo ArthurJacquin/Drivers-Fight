@@ -7,6 +7,8 @@ public class InventoryInput : MonoBehaviour
     [SerializeField] GameObject statPanelGameObject;
     [SerializeField] KeyCode[] toggleCharacterPanelKeys;
     [SerializeField] KeyCode[] toggleInventoryKeys;
+    [SerializeField] StatTooltip tooltip;
+    [SerializeField] ItemTooltip itemTooltip;
 
     void Update()
     {
@@ -25,6 +27,8 @@ public class InventoryInput : MonoBehaviour
                 else
                 {
                     HideMouseCursor();
+                    tooltip.HideTooltip();
+                    itemTooltip.HideTooltip();
                 }
 
                 break;
@@ -51,6 +55,8 @@ public class InventoryInput : MonoBehaviour
                 {
                     characterPanelGameObject.SetActive(false);
                     HideMouseCursor();
+                    tooltip.HideTooltip();
+                    itemTooltip.HideTooltip();
                 }
 
                 break;

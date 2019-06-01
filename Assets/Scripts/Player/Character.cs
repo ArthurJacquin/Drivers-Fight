@@ -224,6 +224,7 @@ public class Character : MonoBehaviour
                 }
                 item.Equip(this);
                 statPanel.UpdateStatValues();
+                itemTooltip.HideTooltip();
             }
             else
             {
@@ -239,6 +240,7 @@ public class Character : MonoBehaviour
             item.Unequip(this);
             statPanel.UpdateStatValues();
             inventory.AddItem(item);
+            itemTooltip.HideTooltip();
         }
     }
 
