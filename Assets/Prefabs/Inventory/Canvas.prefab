@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618781450498684}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
   EquipmentType: 4
 --- !u!1 &2264618781524579611
 GameObject:
@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618781735540191}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
 --- !u!1 &2264618781739710674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,7 +1124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618781785472631}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
   EquipmentType: 1
 --- !u!1 &2264618781861620069
 GameObject:
@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618781912578226}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
 --- !u!1 &2264618781915366259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,7 +1848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618782018626939}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
 --- !u!1 &2264618782028615206
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,7 +2086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618782073194925}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
   EquipmentType: 2
 --- !u!1 &2264618782076614946
 GameObject:
@@ -2499,7 +2499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618782109396710}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
   EquipmentType: 0
 --- !u!1 &2264618782118033140
 GameObject:
@@ -2743,7 +2743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618782131701518}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
 --- !u!1 &2264618782136174445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,7 +3081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618782167185951}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
   EquipmentType: 6
 --- !u!1 &2264618782206360490
 GameObject:
@@ -4344,7 +4344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618782538616558}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
 --- !u!1 &2264618782584147191
 GameObject:
   m_ObjectHideFlags: 0
@@ -4433,7 +4433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618782584147188}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
   EquipmentType: 5
 --- !u!1 &2264618782622687710
 GameObject:
@@ -4677,7 +4677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618782667058819}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
 --- !u!1 &2264618782667530927
 GameObject:
   m_ObjectHideFlags: 0
@@ -5842,7 +5842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618783041251794}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
 --- !u!1 &2264618783046953241
 GameObject:
   m_ObjectHideFlags: 0
@@ -6461,7 +6461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618783226306853}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
   EquipmentType: 3
 --- !u!1 &2264618783243403372
 GameObject:
@@ -6553,19 +6553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e22bc53e71df34bb6bbd545d84d27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: ccb097f34fd8c0641bfb09c38d6dbd97, type: 2}
-  - {fileID: 11400000, guid: 655bae42a021d0a4093d72ecb254f975, type: 2}
+  itemSlots: []
+  startingItems: []
   itemsParent: {fileID: 2264618783357741343}
-  itemSlots:
-  - {fileID: 2264618782131701516}
-  - {fileID: 2264618782667058828}
-  - {fileID: 2264618782018626820}
-  - {fileID: 2264618782538616559}
-  - {fileID: 2264618781735540184}
-  - {fileID: 2264618783041251795}
-  - {fileID: 2264618781912578227}
-  - {fileID: 2264618783374192102}
 --- !u!1 &2264618783258446839
 GameObject:
   m_ObjectHideFlags: 0
@@ -6694,6 +6684,8 @@ MonoBehaviour:
   statPanelGameObject: {fileID: 2264618783323424469}
   toggleCharacterPanelKeys: 6300000069000000
   toggleInventoryKeys: 62000000
+  tooltip: {fileID: 0}
+  itemTooltip: {fileID: 0}
 --- !u!1 &2264618783299705427
 GameObject:
   m_ObjectHideFlags: 0
@@ -7075,7 +7067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2264618783374192101}
-  tooltip: {fileID: 2264618782076614949}
+  amountText: {fileID: 0}
 --- !u!1 &2264618783410632379
 GameObject:
   m_ObjectHideFlags: 0

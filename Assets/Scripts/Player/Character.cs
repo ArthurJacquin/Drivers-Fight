@@ -37,14 +37,6 @@ public class Character : MonoBehaviour
 
     public IEnumerable<StatModifier> StatModifiers { get; internal set; }
 
-    /*private void OnValidate()
-    {
-        if (itemTooltip == null)
-        {
-            itemTooltip = FindObjectOfType<ItemTooltip>();
-        }
-    }*/
-
     private void Start()
     {
         if (itemTooltip == null)
@@ -59,8 +51,8 @@ public class Character : MonoBehaviour
 
         // Setup Events:
         // Right Click
-        inventory.OnRightClickEvent += Equip;
-        equipmentPanel.OnRightClickEvent += Unequip;
+        inventory.OnRightClickEvent += InventoryRightClick;
+        equipmentPanel.OnRightClickEvent += EquipmentPanelRightClick;
         // Pointer Enter
         inventory.OnPointerEnterEvent += ShowTooltip;
         equipmentPanel.OnPointerEnterEvent += ShowTooltip;
@@ -83,30 +75,39 @@ public class Character : MonoBehaviour
         equipmentPanel.OnDropEvent += Drop;
     }
 
-    private void Equip(BaseItemSlot itemSlot)
+    private void InventoryRightClick(BaseItemSlot itemSlot)
     {
-        EquippableItem equippableItem = itemSlot.Item as EquippableItem;
-        if (equippableItem != null)
+        if (itemSlot.Item is EquippableItem)
         {
-            Equip(equippableItem);
+            Equip((EquippableItem)itemSlot.Item);
+        }
+        else if (itemSlot.Item is UsableItem)
+        {
+            UsableItem usableItem = (UsableItem)itemSlot.Item;
+            usableItem.Use(this);
+
+            if (usableItem.IsConsumable)
+            {
+                inventory.RemoveItem(usableItem);
+                usableItem.Destroy();
+                itemTooltip.HideTooltip();
+            }
         }
     }
 
-    private void Unequip(BaseItemSlot itemSlot)
+    private void EquipmentPanelRightClick(BaseItemSlot itemSlot)
     {
-        EquippableItem equippableItem = itemSlot.Item as EquippableItem;
-        if (equippableItem != null)
+        if (itemSlot.Item is EquippableItem)
         {
-            Unequip(equippableItem);
+            Unequip((EquippableItem)itemSlot.Item);
         }
     }
 
     private void ShowTooltip(BaseItemSlot itemSlot)
     {
-        EquippableItem equippableItem = itemSlot.Item as EquippableItem;
-        if (equippableItem != null)
+        if (itemSlot.Item != null)
         {
-            itemTooltip.ShowTooltip(equippableItem);
+            itemTooltip.ShowTooltip(itemSlot.Item);
         }
     }
 
@@ -242,6 +243,11 @@ public class Character : MonoBehaviour
             inventory.AddItem(item);
             itemTooltip.HideTooltip();
         }
+    }
+
+    public void UpdateStatValues()
+    {
+        statPanel.UpdateStatValues();
     }
 
     public void TakeFrontDamage(int damage)

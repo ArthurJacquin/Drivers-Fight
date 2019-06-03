@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -184,6 +181,11 @@ public class PlayerScript : MonoBehaviour
                 }
                 updateCarDamage();
             }
+            else if (carSpeed > carMaximumSpeed && wantToStopTheCar == false)
+            {
+                carSpeed = carMaximumSpeed;
+                updateCarDamage();
+            }
         }
         if (Input.GetKeyUp(KeyCode.Z))
         {
@@ -202,6 +204,11 @@ public class PlayerScript : MonoBehaviour
                 {
                     carSpeed = carMaximumSpeed;
                 }
+                updateCarDamage();
+            }
+            else if (carSpeed > carMaximumSpeed && wantToStopTheCar == false)
+            {
+                carSpeed = carMaximumSpeed;
                 updateCarDamage();
             }
         }
