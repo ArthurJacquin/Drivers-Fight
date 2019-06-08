@@ -99,26 +99,6 @@ public class PlayerScript : MonoBehaviour
         carDamage = (int)carSpeed / 2;
     }
 
-    // Collision with object for collect it
-    /*private void OnCollisionStay(Collision collisionInfo)
-    {
-        foreach (ContactPoint contact in collisionInfo.contacts)
-        {
-            Interactable interactable = collisionInfo.gameObject.GetComponent<Interactable>();
-            if (interactable == null)
-            {
-                Debug.Log("null");
-                return;
-            }
-            float distance = interactable.radius;
-            if (Vector3.Distance(targetTransform.position, transform.position) <= distance)
-            {
-                Debug.Log("Interaction");
-            }
-            Debug.Log(Vector3.Distance(targetTransform.position, transform.position) <= distance);
-        }
-    }*/
-
     void Start()
     {
         // Récupérer les stats du joueur
