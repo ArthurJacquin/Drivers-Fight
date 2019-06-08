@@ -12,6 +12,8 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public event Action<BaseItemSlot> OnPointerExitEvent;
     public event Action<BaseItemSlot> OnRightClickEvent;
 
+    protected bool IsPointerOver;
+
     protected Color normalColor = Color.white;
     protected Color disabledColor = new Color(1, 1, 1, 0);
 
@@ -23,6 +25,10 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         set
         {
             _item = value;
+            if (_item == null && Amount != 0)
+            {
+                Amount = 0;
+            }
 
             if (_item == null)
             {
@@ -32,6 +38,12 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             {
                 image.sprite = _item.Icon;
                 image.color = normalColor;
+            }
+
+            if (IsPointerOver)
+            {
+                OnPointerExit(null);
+                OnPointerEnter(null);
             }
         }
     }
@@ -49,7 +61,7 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
                 _amount = 0;
             }
 
-            if (_amount == 0)
+            if (_amount == 0 && Item != null)
             {
                 Item = null;
             }
@@ -76,6 +88,17 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         {
             amountText = GetComponentInChildren<Text>();
         }
+
+        Item = _item;
+        Amount = _amount;
+    }
+
+    protected virtual void OnDisable()
+    {
+        if (IsPointerOver)
+        {
+            OnPointerExit(null);
+        }
     }
 
     public virtual bool CanAddStack(Item item, int amount = 1)
@@ -101,6 +124,8 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        IsPointerOver = true;
+
         if (OnPointerEnterEvent != null)
         {
             OnPointerEnterEvent(this);
@@ -109,6 +134,8 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        IsPointerOver = false;
+
         if (OnPointerExitEvent != null)
         {
             OnPointerExitEvent(this);

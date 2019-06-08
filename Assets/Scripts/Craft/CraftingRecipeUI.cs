@@ -30,31 +30,14 @@ public class CraftingRecipeUI : MonoBehaviour
     {
         foreach (BaseItemSlot itemSlot in itemSlots)
         {
-            itemSlot.OnPointerEnterEvent += OnPointerEnterEvent;
-            itemSlot.OnPointerExitEvent += OnPointerExitEvent;
+            itemSlot.OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
+            itemSlot.OnPointerExitEvent += slot => OnPointerExitEvent(slot);
         }
     }
 
     public void OnCraftButtonClick()
     {
-        if (craftingRecipe != null && ItemContainer != null)
-        {
-            if (craftingRecipe.CanCraft(ItemContainer))
-            {
-                if (!ItemContainer.IsFull())
-                {
-                    craftingRecipe.Craft(ItemContainer);
-                }
-                else
-                {
-                    Debug.LogError("Inventory is full");
-                }
-            }
-            else
-            {
-                Debug.LogError("You don't have the required materials");
-            }
-        }
+        craftingRecipe.Craft(ItemContainer);
     }
 
     private void SetCraftingRecipe(CraftingRecipe newCraftingRecipe)

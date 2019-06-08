@@ -8,10 +8,14 @@ public class HealItemEffect : UsableItemEffect
     public override void ExecuteEffect(UsableItem parentItem, Character character)
     {
         character.EngineHealth += HealthAmount;
+        if (character.EngineHealth > 500)
+        {
+            character.EngineHealth = 500;
+        }
     }
 
     public override string GetDescription()
     {
-        return "Heals for " + HealthAmount + " health.";
+        return "Repair engine for " + HealthAmount + " health.";
     }
 }
