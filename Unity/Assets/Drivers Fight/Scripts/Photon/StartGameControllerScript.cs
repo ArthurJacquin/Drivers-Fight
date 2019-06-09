@@ -154,6 +154,7 @@ namespace DriversFight.Scripts
         public override void OnLeftRoom()
         {
             endGamePanel.SetActive(true);
+            
 
             PhotonNetwork.Disconnect();
         }

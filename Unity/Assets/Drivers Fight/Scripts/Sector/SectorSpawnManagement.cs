@@ -89,7 +89,6 @@ namespace DriversFight.Scripts
 
         private IEnumerator RandomSpawnSector()
         {
-            Debug.Log(sectorNumbers[numberGeneratedSector]);
             sectors[sectorNumbers[numberGeneratedSector]].SetActive(true);
             sectorsAlreadyPop.Add(sectorNumbers[numberGeneratedSector]);
             photonView.RPC("SpawnSector", RpcTarget.OthersBuffered, sectorNumbers[numberGeneratedSector]);

@@ -13,5 +13,6 @@ namespace DriversFight.Scripts
         public PhotonView photonView;
         public CollisionEnterDispatcherScript CollisionDispatcher;
         public Collider MainCollider;
+        public bool IsAlive = true;
     }
 }

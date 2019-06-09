@@ -27,6 +27,7 @@ Baptiste:
 - pause globale
 
 Benoit:
+- fonction reset des stats/inventaire
 - souris desactiver dans le menu pause si on a ouvert l'inventaire avant
 - plus d'objets / craft
 - spawn des objets
