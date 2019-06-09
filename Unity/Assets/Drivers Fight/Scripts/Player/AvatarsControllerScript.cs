@@ -187,6 +187,10 @@ namespace DriversFight.Scripts
                 playerUI.gameObject.SetActive(true);
                 playerUIScript.enabled = true;
             }
+
+            //Sector reset
+            sectorSpawnManagementScript.enabled = true;
+            sectorSpawnManagementScript.enabled = false;
         }
 
         //Active le gameobject du joueur
@@ -284,8 +288,6 @@ namespace DriversFight.Scripts
             EnableIntentReceivers();
             GameStarted = true;
             items.SetActive(true);
-            playerUI.SetActive(false);
-            sectorSpawnManagementScript.enabled = false;
 
             StartCoroutine("WaitForPlayers");
         }
@@ -452,7 +454,7 @@ namespace DriversFight.Scripts
         {
             waitingForPlayers = true;
             yield return new WaitForSeconds(30);
-
+            Debug.Log(PlayerNumbering.SortedPlayers.Length);
             if (PlayerNumbering.SortedPlayers.Length == 1)
                 EndGame();
 
@@ -493,6 +495,9 @@ namespace DriversFight.Scripts
 
                 //UI
                 playerUI.SetActive(false);
+
+                //Sectors
+                sectorSpawnManagementScript.enabled = false;
 
                 //Leave room
                 if (!PhotonNetwork.IsMasterClient)

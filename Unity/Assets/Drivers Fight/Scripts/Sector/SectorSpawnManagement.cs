@@ -63,6 +63,29 @@ namespace DriversFight.Scripts
             }
         }
 
+        private void OnDisable()
+        {
+            //Reset
+            sectorsAlreadyPop = new List<int>();
+            foreach (var sector in sectors)
+            {
+                if (sector.activeSelf)
+                    sector.SetActive(false);
+            }
+
+            timeToSpawnTheSector = firstSectorSpawn + Time.time;
+            Shuffle(sectorNumbers);
+            sectorsFinalNumber = sectors.Length - 1;
+
+            if (sectorsAlreadyPop.Count != 0)
+            {
+                foreach (var sector in sectorsAlreadyPop)
+                {
+                    sectorsAlreadyPop.Remove(sector);
+                }
+            }
+        }
+
         void Update()
         {
             if (numberGeneratedSector <= sectorsFinalNumber)

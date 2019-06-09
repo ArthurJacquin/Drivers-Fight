@@ -131,7 +131,7 @@ namespace DriversFight.Scripts
         {
             PhotonNetwork.CreateRoom("Drivers Fight", new RoomOptions
             {
-                MaxPlayers = 4,
+                MaxPlayers = 8,
                 PlayerTtl = 10000
             });
         }
