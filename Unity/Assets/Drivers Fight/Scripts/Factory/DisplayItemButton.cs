@@ -7,7 +7,9 @@ namespace DriversFight.Scripts
 {
     public class DisplayItemButton : MonoBehaviour
     {
-        public CarStatsScript carItem;
+        // Par Benoît : CarStatsScript est un script obsolete périmé depuis longtemps, pourquoi l'insérer ici ? Celui-ci n'existe plus.
+        // public CarStatsScript carItem;
+
         public int itemNumber;
 
         public Text itemName;

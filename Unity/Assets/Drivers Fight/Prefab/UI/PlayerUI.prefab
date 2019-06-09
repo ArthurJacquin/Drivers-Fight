@@ -1884,7 +1884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a411d0735063ff49ad726c1d6e6020a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carItem: {fileID: 0}
   itemNumber: 0
   itemName: {fileID: 3173172465983680819}
   itemCost: {fileID: 1347306306687879505}
