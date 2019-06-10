@@ -41,6 +41,7 @@ public class EquipmentPanel : MonoBehaviour
             {
                 previousItem = (EquippableItem)equipmentSlots[i].Item;
                 equipmentSlots[i].Item = item;
+                equipmentSlots[i].Amount = 1;
                 return true;
             }
         }
@@ -56,6 +57,7 @@ public class EquipmentPanel : MonoBehaviour
             if (equipmentSlots[i].Item == item)
             {
                 equipmentSlots[i].Item = null;
+                equipmentSlots[i].Amount = 0;
                 return true;
             }
         }

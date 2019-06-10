@@ -34,67 +34,67 @@ public class PlayerScript : MonoBehaviour
 
     private int carDamage;
 
-    public void updateCarEngineHealth()
+    public void UpdateCarEngineHealth()
     {
         carEngineHealth = (int)carStats.EngineHealth;
     }
 
-    public void updateCarFrontBumperArmor()
+    public void UpdateCarFrontBumperArmor()
     {
         carFrontBumperArmor = (int)carStats.FrontBumperArmor.Value;
     }
 
-    public void updateCarRearBumperArmor()
+    public void UpdateCarRearBumperArmor()
     {
         carRearBumperArmor = (int)carStats.RearBumperArmor.Value;
     }
 
-    public void updateCarRightFlankArmor()
+    public void UpdateCarRightFlankArmor()
     {
         carRightFlankArmor = (int)carStats.RightFlankArmor.Value;
     }
 
-    public void updateCarLeftFlankArmor()
+    public void UpdateCarLeftFlankArmor()
     {
         carLeftFlankArmor = (int)carStats.LeftFlankArmor.Value;
     }
 
-    public void updateCarWheelArmor()
+    public void UpdateCarWheelArmor()
     {
         carWheelArmor = (int)carStats.WheelArmor.Value;
     }
 
-    public void updateCarTiresArmor()
+    public void UpdateCarTiresArmor()
     {
         carTiresArmor = (int)carStats.TiresArmor.Value;
     }
 
-    public void updateCarSpeed()
+    public void UpdateCarSpeed()
     {
         carSpeed = carStats.currentSpeed;
     }
 
-    public void updateCarMaximumSpeed()
+    public void UpdateCarMaximumSpeed()
     {
         carMaximumSpeed = carStats.MaximumSpeed.Value;
     }
 
-    public void updateCarAccelerationSpeed()
+    public void UpdateCarAccelerationSpeed()
     {
         carAccelerationSpeed = carStats.AccelerationSpeed.Value;
     }
 
-    public void updateCarDecelerationSpeed()
+    public void UpdateCarDecelerationSpeed()
     {
         carDecelerationSpeed = carStats.DecelerationSpeed.Value;
     }
 
-    public void updateCarManeuverability()
+    public void UpdateCarManeuverability()
     {
         carManeuverability = (int)carStats.Maneuverability.Value;
     }
 
-    public void updateCarDamage()
+    public void UpdateCarDamage()
     {
         carDamage = (int)carSpeed / 2;
     }
@@ -127,18 +127,18 @@ public class PlayerScript : MonoBehaviour
         Debug.Log("Speed = " + carSpeed);
 
         // Update Stats
-        updateCarDamage();
-        updateCarMaximumSpeed();
-        updateCarAccelerationSpeed();
-        updateCarDecelerationSpeed();
-        updateCarEngineHealth();
-        updateCarFrontBumperArmor();
-        updateCarLeftFlankArmor();
-        updateCarRearBumperArmor();
-        updateCarRightFlankArmor();
-        updateCarManeuverability();
-        updateCarTiresArmor();
-        updateCarWheelArmor();
+        UpdateCarDamage();
+        UpdateCarMaximumSpeed();
+        UpdateCarAccelerationSpeed();
+        UpdateCarDecelerationSpeed();
+        UpdateCarEngineHealth();
+        UpdateCarFrontBumperArmor();
+        UpdateCarLeftFlankArmor();
+        UpdateCarRearBumperArmor();
+        UpdateCarRightFlankArmor();
+        UpdateCarManeuverability();
+        UpdateCarTiresArmor();
+        UpdateCarWheelArmor();
 
         /*
         if (EventSystem.current.IsPointerOverGameObject())
@@ -159,12 +159,12 @@ public class PlayerScript : MonoBehaviour
                 {
                     carSpeed = carMaximumSpeed;
                 }
-                updateCarDamage();
+                UpdateCarDamage();
             }
             else if (carSpeed > carMaximumSpeed && wantToStopTheCar == false)
             {
                 carSpeed = carMaximumSpeed;
-                updateCarDamage();
+                UpdateCarDamage();
             }
         }
         if (Input.GetKeyUp(KeyCode.Z))
@@ -184,12 +184,12 @@ public class PlayerScript : MonoBehaviour
                 {
                     carSpeed = carMaximumSpeed;
                 }
-                updateCarDamage();
+                UpdateCarDamage();
             }
             else if (carSpeed > carMaximumSpeed && wantToStopTheCar == false)
             {
                 carSpeed = carMaximumSpeed;
-                updateCarDamage();
+                UpdateCarDamage();
             }
         }
         if (Input.GetKeyUp(KeyCode.S))
@@ -227,7 +227,7 @@ public class PlayerScript : MonoBehaviour
                     carSpeed = 0f;
                 }
 
-                updateCarDamage();
+                UpdateCarDamage();
             }
 
             if (carSpeed <= 0f)

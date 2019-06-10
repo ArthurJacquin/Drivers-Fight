@@ -37,7 +37,10 @@ public class CraftingRecipeUI : MonoBehaviour
 
     public void OnCraftButtonClick()
     {
-        craftingRecipe.Craft(ItemContainer);
+        if (craftingRecipe != null && ItemContainer != null)
+        {
+            craftingRecipe.Craft(ItemContainer);
+        }
     }
 
     private void SetCraftingRecipe(CraftingRecipe newCraftingRecipe)

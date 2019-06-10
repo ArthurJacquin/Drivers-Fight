@@ -9,7 +9,7 @@ public class StatTooltip : MonoBehaviour
     [SerializeField] Text StatModifiersLabelText;
     [SerializeField] Text StatModifiersText;
 
-    private StringBuilder sb = new StringBuilder();
+    private readonly StringBuilder sb = new StringBuilder();
 
     public void ShowTooltip(CharacterStat stat, string statName)
     {

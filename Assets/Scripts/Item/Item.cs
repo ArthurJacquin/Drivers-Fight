@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Text;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(menuName ="Items/Item")]
 public class Item : ScriptableObject
@@ -14,11 +16,13 @@ public class Item : ScriptableObject
 
     protected static readonly StringBuilder sb = new StringBuilder();
 
-    private void OnValidate()
+    #if UNITY_EDITOR
+    protected virtual void OnValidate()
     {
         string path = AssetDatabase.GetAssetPath(this);
         id = AssetDatabase.AssetPathToGUID(path);
     }
+    #endif
 
     public virtual Item GetCopy()
     {

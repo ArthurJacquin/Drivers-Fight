@@ -25,6 +25,7 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         set
         {
             _item = value;
+
             if (_item == null && Amount != 0)
             {
                 Amount = 0;
@@ -77,6 +78,16 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         }
     }
 
+    public virtual bool CanAddStack(Item item, int amount = 1)
+    {
+        return Item != null && Item.ID == item.ID;
+    }
+
+    public virtual bool CanReceiveItem(Item item)
+    {
+        return false;
+    }
+
     protected virtual void OnValidate()
     {
         if (image == null)
@@ -99,16 +110,6 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         {
             OnPointerExit(null);
         }
-    }
-
-    public virtual bool CanAddStack(Item item, int amount = 1)
-    {
-        return Item != null && Item.ID == item.ID;
-    }
-
-    public virtual bool CanReceiveItem(Item item)
-    {
-        return false;
     }
 
     public void OnPointerClick(PointerEventData eventData)

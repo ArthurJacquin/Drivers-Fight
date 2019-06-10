@@ -12,8 +12,8 @@ public class StatBuffItemEffect : UsableItemEffect
     {
         StatModifier statModifier = new StatModifier(MaxSpeedBuff, StatModType.Flat, parentItem);
         character.MaximumSpeed.AddModifier(statModifier);
-        character.StartCoroutine(RemoveBuff(character, statModifier, Duration));
         character.UpdateStatValues();
+        character.StartCoroutine(RemoveBuff(character, statModifier, Duration));
     }
 
     public override string GetDescription()

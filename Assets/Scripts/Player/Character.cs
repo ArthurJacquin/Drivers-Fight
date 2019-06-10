@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     public int EngineHealth = 500;
 
     // Stat declaration
+    [Header("Stats")]
     public CharacterStat FrontBumperArmor;
     public CharacterStat RearBumperArmor;
     public CharacterStat RightFlankArmor;
@@ -26,8 +27,11 @@ public class Character : MonoBehaviour
 
     public CharacterStat Damage;
 
+    [Header("Public")]
     [SerializeField] Inventory inventory;
     [SerializeField] EquipmentPanel equipmentPanel;
+
+    [Header("Serialize Field")]
     [SerializeField] CraftingWindow craftingWindow;
     [SerializeField] StatPanel statPanel;
     [SerializeField] ItemTooltip itemTooltip;
@@ -39,13 +43,16 @@ public class Character : MonoBehaviour
 
     public IEnumerable<StatModifier> StatModifiers { get; internal set; }
 
-    private void Start()
+    private void OnValidate()
     {
         if (itemTooltip == null)
         {
             itemTooltip = FindObjectOfType<ItemTooltip>();
         }
+    }
 
+    private void Awake()
+    {
         statPanel.SetStats(FrontBumperArmor, RearBumperArmor, RightFlankArmor, LeftFlankArmor, WheelArmor, TiresArmor, MaximumSpeed, AccelerationSpeed, DecelerationSpeed, Maneuverability, Damage);
         statPanel.UpdateStatValues();
 
@@ -115,7 +122,10 @@ public class Character : MonoBehaviour
 
     private void HideTooltip(BaseItemSlot itemSlot)
     {
-        itemTooltip.HideTooltip();
+        if (itemTooltip.gameObject.activeSelf)
+        {
+            itemTooltip.HideTooltip();
+        }
     }
 
     private void BeginDrag(BaseItemSlot itemSlot)
@@ -125,22 +135,19 @@ public class Character : MonoBehaviour
             dragItemSlot = itemSlot;
             draggableItem.sprite = itemSlot.Item.Icon;
             draggableItem.transform.position = Input.mousePosition;
-            draggableItem.enabled = true;
+            draggableItem.gameObject.SetActive(true);
         }
+    }
+
+    private void Drag(BaseItemSlot itemSlot)
+    {
+        draggableItem.transform.position = Input.mousePosition;
     }
 
     private void EndDrag(BaseItemSlot itemSlot)
     {
         dragItemSlot = null;
-        draggableItem.enabled = false;
-    }
-
-    private void Drag(BaseItemSlot itemSlot)
-    {
-        if (draggableItem.enabled)
-        {
-            draggableItem.transform.position = Input.mousePosition;
-        }
+        draggableItem.gameObject.SetActive(false);
     }
 
     private void Drop(BaseItemSlot dropItemSlot)
@@ -160,6 +167,58 @@ public class Character : MonoBehaviour
         }
     }
 
+    private void AddStacks(BaseItemSlot dropItemSlot)
+    {
+        int numAddablesStacks = dropItemSlot.Item.MaximumStacks - dropItemSlot.Amount;
+        int stacksToAdd = Mathf.Min(numAddablesStacks, dragItemSlot.Amount);
+
+        // Add stacks until drop slot is full
+        // Remove the same number of stacks from drag item
+        dropItemSlot.Amount += stacksToAdd;
+        dragItemSlot.Amount -= stacksToAdd;
+    }
+
+    private void SwapItems(BaseItemSlot dropItemSlot)
+    {
+        EquippableItem dragItem = dragItemSlot.Item as EquippableItem;
+        EquippableItem dropItem = dropItemSlot.Item as EquippableItem;
+
+        if (dropItemSlot is EquipmentSlot)
+        {
+            if (dragItem != null)
+            {
+                dragItem.Equip(this);
+            }
+            if (dropItem != null)
+            {
+                dropItem.Unequip(this);
+            }
+        }
+
+        if (dragItemSlot is EquipmentSlot)
+        {
+            if (dragItem != null)
+            {
+                dragItem.Unequip(this);
+            }
+            if (dropItem != null)
+            {
+                dropItem.Equip(this);
+            }
+        }
+
+        statPanel.UpdateStatValues();
+
+        Item draggedItem = dragItemSlot.Item;
+        int draggedItemAmount = dragItemSlot.Amount;
+
+        dragItemSlot.Item = dropItemSlot.Item;
+        dragItemSlot.Amount = dropItemSlot.Amount;
+
+        dropItemSlot.Item = draggedItem;
+        dropItemSlot.Amount = draggedItemAmount;
+    }
+
     private void DropItemOutsideUI()
     {
         if (dragItemSlot == null)
@@ -176,58 +235,6 @@ public class Character : MonoBehaviour
     {
         baseItemSlot.Item.Destroy();
         baseItemSlot.Item = null;
-    }
-
-    private void SwapItems(BaseItemSlot dropItemSlot)
-    {
-        EquippableItem dragItem = dragItemSlot.Item as EquippableItem;
-        EquippableItem dropItem = dropItemSlot.Item as EquippableItem;
-
-        if (dragItemSlot is EquipmentSlot)
-        {
-            if (dragItem != null)
-            {
-                dragItem.Unequip(this);
-            }
-            if (dropItem != null)
-            {
-                dropItem.Equip(this);
-            }
-        }
-
-        if (dropItemSlot is EquipmentSlot)
-        {
-            if (dragItem != null)
-            {
-                dragItem.Equip(this);
-            }
-            if (dropItem != null)
-            {
-                dropItem.Unequip(this);
-            }
-        }
-
-        statPanel.UpdateStatValues();
-
-        Item draggedItem = dragItemSlot.Item;
-        int draggedItemAmount = dragItemSlot.Amount;
-
-        dragItemSlot.Item = dropItemSlot.Item;
-        dragItemSlot.Amount = dropItemSlot.Amount;
-
-        dropItemSlot.Item = draggedItem;
-        dropItemSlot.Amount = draggedItemAmount;
-    }
-
-    private void AddStacks(BaseItemSlot dropItemSlot)
-    {
-        int numAddablesStacks = dropItemSlot.Item.MaximumStacks - dropItemSlot.Amount;
-        int stacksToAdd = Mathf.Min(numAddablesStacks, dragItemSlot.Amount);
-
-        // Add stacks until drop slot is full
-        // Remove the same number of stacks from drag item
-        dropItemSlot.Amount += stacksToAdd;
-        dragItemSlot.Amount -= stacksToAdd;
     }
 
     public void Equip(EquippableItem item)
@@ -255,7 +262,7 @@ public class Character : MonoBehaviour
 
     public void Unequip(EquippableItem item)
     {
-        if (!inventory.CanAddItem(item) && equipmentPanel.RemoveItem(item))
+        if (inventory.CanAddItem(item) && equipmentPanel.RemoveItem(item))
         {
             item.Unequip(this);
             statPanel.UpdateStatValues();

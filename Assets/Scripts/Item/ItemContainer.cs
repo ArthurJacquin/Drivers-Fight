@@ -16,20 +16,28 @@ public abstract class ItemContainer : MonoBehaviour, IItemContainer
 
     protected virtual void OnValidate()
     {
-        GetComponentsInChildren<ItemSlot>(includeInactive: true, result: itemSlots);
+        GetComponentsInChildren(includeInactive: true, result: itemSlots);
     }
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         for (int i = 0; i < itemSlots.Count; i++)
         {
-            itemSlots[i].OnPointerEnterEvent += slot => { if (OnPointerEnterEvent != null) OnPointerEnterEvent(slot); };
-            itemSlots[i].OnPointerExitEvent += slot => { if (OnPointerExitEvent != null) OnPointerExitEvent(slot); };
-            itemSlots[i].OnRightClickEvent += slot => { if (OnRightClickEvent != null) OnRightClickEvent(slot); };
-            itemSlots[i].OnBeginDragEvent += slot => { if (OnBeginDragEvent != null) OnBeginDragEvent(slot); };
-            itemSlots[i].OnEndDragEvent += slot => { if (OnEndDragEvent != null) OnEndDragEvent(slot); };
-            itemSlots[i].OnDragEvent += slot => { if (OnDragEvent != null) OnDragEvent(slot); };
-            itemSlots[i].OnDropEvent += slot => { if (OnDropEvent != null) OnDropEvent(slot); };
+            itemSlots[i].OnPointerEnterEvent += slot => EventHelper(slot, OnPointerEnterEvent);
+            itemSlots[i].OnPointerExitEvent += slot => EventHelper(slot, OnPointerExitEvent);
+            itemSlots[i].OnRightClickEvent += slot => EventHelper(slot, OnRightClickEvent);
+            itemSlots[i].OnBeginDragEvent += slot => EventHelper(slot, OnBeginDragEvent);
+            itemSlots[i].OnEndDragEvent += slot => EventHelper(slot, OnEndDragEvent);
+            itemSlots[i].OnDragEvent += slot => EventHelper(slot, OnDragEvent);
+            itemSlots[i].OnDropEvent += slot => EventHelper(slot, OnDropEvent);
+        }
+    }
+
+    private void EventHelper(BaseItemSlot itemSlot, Action<BaseItemSlot> action)
+    {
+        if (action != null)
+        {
+            action(itemSlot);
         }
     }
 
@@ -123,6 +131,7 @@ public abstract class ItemContainer : MonoBehaviour, IItemContainer
         for (int i = 0; i < itemSlots.Count; i++)
         {
             itemSlots[i].Item = null;
+            itemSlots[i].Amount = 0;
         }
     }
 }

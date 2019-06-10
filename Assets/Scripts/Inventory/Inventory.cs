@@ -2,32 +2,32 @@
 
 public class Inventory : ItemContainer
 {
-    [SerializeField] Item[] startingItems;
-    [SerializeField] Transform itemsParent;
-
-    protected override void Start()
-    {
-        base.Start();
-        SetStartingItems();
-    }
+    [SerializeField] protected Item[] startingItems;
+    [SerializeField] protected Transform itemsParent;
 
     protected override void OnValidate()
     {
         if (itemsParent != null)
         {
-            itemsParent.GetComponentsInChildren<ItemSlot>(includeInactive: true, result: itemSlots);
+            itemsParent.GetComponentsInChildren(includeInactive: true, result: itemSlots);
         }
 
         SetStartingItems();
     }
-    
+
+    protected override void Awake()
+    {
+        base.Awake();
+        SetStartingItems();
+    }
+
     private void SetStartingItems()
     {
         Clear();
 
-        for (int i = 0; i < startingItems.Length; i++)
+        foreach (Item item in startingItems)
         {
-            AddItem(startingItems[i].GetCopy());
+            AddItem(item.GetCopy());
         }
     }
 }
