@@ -7,7 +7,7 @@ public class ItemChest : MonoBehaviour
     [SerializeField] Inventory inventory;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Color emptyColor;
-    [SerializeField] KeyCode itemPickupKeyCode = KeyCode.E;
+    [SerializeField] KeyCode itemPickupKeyCode = KeyCode.F;
 
     private bool isInRange;
     private bool isEmpty;
