@@ -213,8 +213,6 @@ namespace DriversFight.Scripts
                 }
             }
 
-            StartCoroutine(WelcomeMessage(i));
-
             OnlinePlayReady?.Invoke();
 
             if (PhotonNetwork.IsMasterClient)
@@ -223,16 +221,6 @@ namespace DriversFight.Scripts
             }
 
             PlayerSetup?.Invoke(i);
-        }
-
-        IEnumerator WelcomeMessage(int i)
-        {
-            welcomeMessageText.text = $"You are Actor : {PhotonNetwork.LocalPlayer.ActorNumber}\n "
-                                      + $"You are controlling Avatar {i}, Let's Play !";
-
-            yield return new WaitForSeconds(5f);
-
-            welcomeMessageText.enabled = false;
         }
     }
 }

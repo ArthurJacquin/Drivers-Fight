@@ -61,6 +61,8 @@ namespace DriversFight.Scripts
                     sectorsAlreadyPop.Remove(sector);
                 }
             }
+
+            numberGeneratedSector = 0;
         }
 
         private void OnDisable()
@@ -84,6 +86,8 @@ namespace DriversFight.Scripts
                     sectorsAlreadyPop.Remove(sector);
                 }
             }
+
+            numberGeneratedSector = 0;
         }
 
         void Update()

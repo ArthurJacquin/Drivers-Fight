@@ -49,4 +49,5 @@ MonoBehaviour:
   - UpdateIntentReceiverRPC
   - KillPLayer
   - SpawnSector
+  - UpdateTimeWaited
   DisableAutoOpenWizard: 1

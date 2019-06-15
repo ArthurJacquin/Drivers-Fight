@@ -61,9 +61,14 @@ namespace DriversFight.Scripts
         private GameObject endGamePanel;
 
         [SerializeField]
+        private TextMeshProUGUI mainText;
+
+        [SerializeField]
         private TextMeshProUGUI endGamePanelCommentaryText;
 
         private bool collisionSubscriptionDone = false;
+
+        private int timeWaited;
 
         private bool gameStarted = false;
 
@@ -188,9 +193,8 @@ namespace DriversFight.Scripts
                 playerUIScript.enabled = true;
             }
 
-            //Sector reset
-            sectorSpawnManagementScript.enabled = true;
-            sectorSpawnManagementScript.enabled = false;
+            gameStarted = false;
+            deadAvatarsCount = 0;
         }
 
         //Active le gameobject du joueur
@@ -199,7 +203,6 @@ namespace DriversFight.Scripts
             if (PhotonNetwork.IsConnected)
             {
                 photonView.RPC("ActivateAvatarRPC", RpcTarget.AllBuffered, id);
-                sectorSpawnManagementScript.enabled = true;
             }
             else
             {
@@ -285,11 +288,9 @@ namespace DriversFight.Scripts
                 avatar.Stats.currentSpeed = 0f;
             }
 
-            EnableIntentReceivers();
-            GameStarted = true;
-            items.SetActive(true);
-
             StartCoroutine("WaitForPlayers");
+            StartCoroutine("StartTheGame");
+            
         }
 
         private void FixedUpdate()
@@ -450,15 +451,84 @@ namespace DriversFight.Scripts
             }
         }
 
+        //Wait for players to connect to the game and disconnect if nobody in the room
         IEnumerator WaitForPlayers()
         {
             waitingForPlayers = true;
-            yield return new WaitForSeconds(30);
-            Debug.Log(PlayerNumbering.SortedPlayers.Length);
-            if (PlayerNumbering.SortedPlayers.Length == 1)
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                timeWaited = 0;
+                photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
+            }
+           
+            //Wait for players
+            while(timeWaited < 30)
+            {
+                mainText.text = "Waiting for players... " + (30 - timeWaited);
+                yield return new WaitForSeconds(1);
+
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    timeWaited++;
+                    photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
+                }
+
+                if (PlayerNumbering.SortedPlayers.Length != 1)
+                    break;
+            }
+
+            //if alone, leave the game
+            if (timeWaited == 30)
                 EndGame();
 
+            if (PhotonNetwork.IsMasterClient)
+            {
+                timeWaited = 0;
+                photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
+            }
+
+            //Wait for game start
+            while (timeWaited < 10)
+            {
+                mainText.text = "Game begin in " + (10 - timeWaited) + " !";
+                yield return new WaitForSeconds(1);
+
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    timeWaited++;
+                    photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
+                }
+            }
             waitingForPlayers = false;
+
+            mainText.text = "FIGHT !";
+
+            yield return new WaitForSeconds(3);
+            mainText.text = "DRIVER'S FIGHT !";
+            mainText.gameObject.SetActive(false);
+        }
+
+        IEnumerator StartTheGame()
+        {
+            while (waitingForPlayers)
+            {
+                yield return new WaitForSeconds(1);
+            }
+
+            EnableIntentReceivers();
+            GameStarted = true;
+            items.SetActive(true);
+
+            //Sector reset
+            if(PhotonNetwork.IsMasterClient)
+                sectorSpawnManagementScript.enabled = true;
+            else
+            {
+                sectorSpawnManagementScript.enabled = true;
+                sectorSpawnManagementScript.enabled = false;
+            }
+            
         }
 
         [PunRPC]
@@ -521,6 +591,13 @@ namespace DriversFight.Scripts
         {
             avatars[id].Stats.currentSpeed = speed;
             avatars[id].Stats.EngineHealth = hp;
+        }
+
+        //Update timer for all players
+        [PunRPC]
+        private void UpdateTimeWaited(int time)
+        {
+            timeWaited = time;
         }
 
         //Deconnect the player from a room
