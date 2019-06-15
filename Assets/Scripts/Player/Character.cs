@@ -7,6 +7,8 @@ public class Character : MonoBehaviour
 {
     // Player life
     public int EngineHealth = 500;
+    // For know if the player have a invincible buff or not. False by default.
+    public bool Invincibility = false;
 
     // Stat declaration
     [Header("Stats")]
@@ -277,50 +279,67 @@ public class Character : MonoBehaviour
 
     public void TakeFrontDamage(int damage)
     {
-        damage -= (int)FrontBumperArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        if (!Invincibility)
+        {
+            damage -= (int)FrontBumperArmor.Value;
+            damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        EngineHealth -= damage;
-
+            EngineHealth -= damage;
+        }
     }
 
     public void TakeRearDamage(int damage)
     {
-        damage -= (int)RearBumperArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        if (!Invincibility)
+        {
+            damage -= (int)RearBumperArmor.Value;
+            damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        EngineHealth -= damage;
+            EngineHealth -= damage;
+        }
     }
 
     public void TakeRightDamage(int damage)
     {
-        damage -= (int)RightFlankArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        if (!Invincibility)
+        {
+            damage -= (int)RightFlankArmor.Value;
+            damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        EngineHealth -= damage;
+            EngineHealth -= damage;
+        }
     }
 
     public void TakeLeftDamage(int damage)
     {
-        damage -= (int)LeftFlankArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        if (!Invincibility)
+        {
+            damage -= (int)LeftFlankArmor.Value;
+            damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        EngineHealth -= damage;
+            EngineHealth -= damage;
+        }
     }
 
     public void TakeWheelDamage(int damage)
     {
-        damage -= (int)WheelArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        if (!Invincibility)
+        {
+            damage -= (int)WheelArmor.Value;
+            damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        EngineHealth -= damage;
+            EngineHealth -= damage;
+        }
     }
 
     public void TakeTiresDamage(int damage)
     {
-        damage -= (int)TiresArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        if (!Invincibility)
+        {
+            damage -= (int)TiresArmor.Value;
+            damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        EngineHealth -= damage;
+            EngineHealth -= damage;
+        }
     }
 }
