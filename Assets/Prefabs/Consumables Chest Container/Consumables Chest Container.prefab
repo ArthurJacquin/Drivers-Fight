@@ -40,6 +40,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6209229814863150692}
     m_Modifications:
+    - target: {fileID: 3197959630994316264, guid: fd387ac8dfc438144b236c030d92cde4,
+        type: 3}
+      propertyPath: m_Name
+      value: Invincibility
+      objectReference: {fileID: 0}
     - target: {fileID: 3197959630994316265, guid: fd387ac8dfc438144b236c030d92cde4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -95,10 +100,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3197959630994316264, guid: fd387ac8dfc438144b236c030d92cde4,
+    - target: {fileID: 3197959630994316270, guid: fd387ac8dfc438144b236c030d92cde4,
         type: 3}
-      propertyPath: m_Name
-      value: Invincibility
+      propertyPath: inventory
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd387ac8dfc438144b236c030d92cde4, type: 3}
@@ -115,6 +120,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6209229814863150692}
     m_Modifications:
+    - target: {fileID: 3258469201501792625, guid: 6849b68e1c265c74789de51e54ed183e,
+        type: 3}
+      propertyPath: m_Name
+      value: Engine Repair Kit
+      objectReference: {fileID: 0}
     - target: {fileID: 3258469201501792624, guid: 6849b68e1c265c74789de51e54ed183e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -170,10 +180,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3258469201501792625, guid: 6849b68e1c265c74789de51e54ed183e,
+    - target: {fileID: 3258469201501792627, guid: 6849b68e1c265c74789de51e54ed183e,
         type: 3}
-      propertyPath: m_Name
-      value: Engine Repair Kit
+      propertyPath: inventory
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6849b68e1c265c74789de51e54ed183e, type: 3}
@@ -190,6 +200,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6209229814863150692}
     m_Modifications:
+    - target: {fileID: 3263050918021890411, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
+        type: 3}
+      propertyPath: m_Name
+      value: Nitro
+      objectReference: {fileID: 0}
     - target: {fileID: 3263050918021890408, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -245,10 +260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3263050918021890411, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
+    - target: {fileID: 3263050918021890409, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
         type: 3}
-      propertyPath: m_Name
-      value: Nitro
+      propertyPath: inventory
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1, type: 3}

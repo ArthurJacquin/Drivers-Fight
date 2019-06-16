@@ -1,16 +1,11 @@
 ﻿using UnityEngine;
 using Drivers.CharacterStats;
-using System.ComponentModel;
 
 public enum EquipmentType
 {
-    [Description("Front Armor")]
     FrontArmor,
-    [Description("Rear Armor")]
     RearArmor,
-    [Description("Right Armor")]
     RightArmor,
-    [Description("Left Armor")]
     LeftArmor,
     Wheel,
     Tires,
