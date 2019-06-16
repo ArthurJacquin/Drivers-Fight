@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 655bae42a021d0a4093d72ecb254f975
   ItemName: Rear bumper lvl 1
-  Icon: {fileID: 21300000, guid: 1fbd90ae41fc1704a8ce037089375515, type: 3}
+  Icon: {fileID: 21300000, guid: 00b000c0b326b2c4db82464d1de63f2f, type: 3}
+  MaximumStacks: 1
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 20
   RightFlankArmorBonus: 0

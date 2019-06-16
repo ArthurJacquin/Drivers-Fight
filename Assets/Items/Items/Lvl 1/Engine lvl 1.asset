@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 13e753a09b6b8484a8a7e58bdf9907d8
   ItemName: Engine lvl 1
-  Icon: {fileID: 21300000, guid: f41da9bc7ce23144a8205acc63974325, type: 3}
+  Icon: {fileID: 21300000, guid: 005ff6490c0e67945903de230d39f46c, type: 3}
+  MaximumStacks: 1
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
   RightFlankArmorBonus: 0

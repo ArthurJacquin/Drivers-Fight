@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: df552095ee957334c9312e28600b1c93
   ItemName: Left protection lvl 2
-  Icon: {fileID: 21300000, guid: 7ed2b7a59c6cfb3448d51203cb208e06, type: 3}
+  Icon: {fileID: 21300000, guid: eae61fd71c5546a43b2ea068308f8a90, type: 3}
+  MaximumStacks: 1
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
   RightFlankArmorBonus: 0

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: e0764537768e99f46a26972823e043b8
   ItemName: Right protection lvl 2
-  Icon: {fileID: 21300000, guid: 12aa83bb0166aa74a9af6d1c5f407606, type: 3}
+  Icon: {fileID: 21300000, guid: 2d68ab791d3eb3d449de02ee0d4fb80c, type: 3}
+  MaximumStacks: 1
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
   RightFlankArmorBonus: 20

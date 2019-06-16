@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: a3e5a45a914894a42964e845471a085e
   ItemName: Tires lvl 1
-  Icon: {fileID: 21300000, guid: 809aa897033559348a9958cd7b143646, type: 3}
+  Icon: {fileID: 21300000, guid: d67aa56541eb3934d88e7b987a4f3f80, type: 3}
+  MaximumStacks: 1
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
   RightFlankArmorBonus: 0
