@@ -7,12 +7,17 @@ namespace DriversFight.Scripts
 {
     public class DisplayItemButton : MonoBehaviour
     {
-        public CarStatsScript carItem;
+        // Par Benoît : CarStatsScript est un script obsolete périmé depuis longtemps, pourquoi l'insérer ici ? Celui-ci n'existe plus.
+        // public CarStatsScript carItem;
+
         public int itemNumber;
 
         public Text itemName;
         public Text itemCost;
         public Text itemDescription;
+
+        [HideInInspector]
+        public AvatarExposerScript avatar;
 
         // Start is called before the first frame update
         void Start()
@@ -22,27 +27,23 @@ namespace DriversFight.Scripts
 
         void SetButton()
         {
-            itemName.text = "yes";
-            itemCost.text = "maybe";
-            itemDescription.text = "no";
-            /*itemName.text = carItem.items[itemNumber].name;
-            itemCost.text = "$" + carItem.items[itemNumber].cost;
-            itemDescription.text = carItem.items[itemNumber].description;*/
+            itemName.text = "Repair car";
+            itemCost.text = "100";
         }
 
         public void OnClick()
         {
-            /*if(carItem.currentEngineHealth > carItem.items[itemNumber].cost)
+            if(avatar.Stats.EngineHealth < 250)
             {
-                carItem.currentEngineHealth -= carItem.items[itemNumber].cost;
-                carItem.currentItem = itemNumber;
-            }*/
+                avatar.Stats.EngineHealth = avatar.Stats.EngineHealth + 100;
+                Debug.Log("+100");
+            }
+            
         }
 
         // Update is called once per frame
         void Update()
         {
-
         }
     }
 }

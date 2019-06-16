@@ -30,7 +30,7 @@ namespace DriversFight.Scripts
 
         private float timeToSpawnTheSector = 0f;
 
-        private List<int> sectorsAlreadyPop = new List<int>();
+        private List<int> sectorsAlreadyPop;
 
         private int numberGeneratedSector = 0;
 
@@ -38,13 +38,56 @@ namespace DriversFight.Scripts
 
         private List<int> sectorNumbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7 };
 
-        private void Start()
+        private void OnEnable()
         {
             Debug.Log("Lancement du script de spawn de secteur");
+
+            //Reset
+            sectorsAlreadyPop = new List<int>();
+            foreach(var sector in sectors)
+            {
+                if (sector.activeSelf)
+                    sector.SetActive(false);
+            }
 
             timeToSpawnTheSector = firstSectorSpawn + Time.time;
             Shuffle(sectorNumbers);
             sectorsFinalNumber = sectors.Length - 1;
+
+            if (sectorsAlreadyPop.Count != 0)
+            {
+                foreach (var sector in sectorsAlreadyPop)
+                {
+                    sectorsAlreadyPop.Remove(sector);
+                }
+            }
+
+            numberGeneratedSector = 0;
+        }
+
+        private void OnDisable()
+        {
+            //Reset
+            sectorsAlreadyPop = new List<int>();
+            foreach (var sector in sectors)
+            {
+                if (sector.activeSelf)
+                    sector.SetActive(false);
+            }
+
+            timeToSpawnTheSector = firstSectorSpawn + Time.time;
+            Shuffle(sectorNumbers);
+            sectorsFinalNumber = sectors.Length - 1;
+
+            if (sectorsAlreadyPop.Count != 0)
+            {
+                foreach (var sector in sectorsAlreadyPop)
+                {
+                    sectorsAlreadyPop.Remove(sector);
+                }
+            }
+
+            numberGeneratedSector = 0;
         }
 
         void Update()
@@ -73,7 +116,6 @@ namespace DriversFight.Scripts
 
         private IEnumerator RandomSpawnSector()
         {
-            Debug.Log(sectorNumbers[numberGeneratedSector]);
             sectors[sectorNumbers[numberGeneratedSector]].SetActive(true);
             sectorsAlreadyPop.Add(sectorNumbers[numberGeneratedSector]);
             photonView.RPC("SpawnSector", RpcTarget.OthersBuffered, sectorNumbers[numberGeneratedSector]);

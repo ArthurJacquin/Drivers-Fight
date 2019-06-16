@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3769640367718882427}
   - component: {fileID: 68}
   - component: {fileID: 70}
-  - component: {fileID: 1661043837774046498}
   - component: {fileID: 2130119239335811485}
   - component: {fileID: 7135334696376235270}
   m_Layer: 8
@@ -84,7 +83,7 @@ MonoBehaviour:
   AvatarRootTransform: {fileID: 33}
   AvatarRootGameObject: {fileID: 25}
   AvatarTransformView: {fileID: 70}
-  Stats: {fileID: 1661043837774046498}
+  Stats: {fileID: 7135334696376235270}
   photonView: {fileID: 68}
   CollisionDispatcher: {fileID: 2130119239335811485}
   MainCollider: {fileID: 59}
@@ -125,24 +124,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &1661043837774046498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f458799ad25846341b342234bdb97126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxEngineHealth: 100
-  currentSpeed: 0
-  defaultMaximumSpeed: 20
-  defaultAccelerationSpeed: 0.1
-  defaultDecelerationSpeed: 0.2
-  defaultManeuvrability: 50
 --- !u!114 &2130119239335811485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,13 +162,14 @@ MonoBehaviour:
   TiresArmor:
     BaseValue: 0
   MaximumSpeed:
-    BaseValue: 0
+    BaseValue: 20
   AccelerationSpeed:
-    BaseValue: 0
+    BaseValue: 0.2
   DecelerationSpeed:
-    BaseValue: 0
+    BaseValue: 0.5
   Maneuverability:
-    BaseValue: 0
+    BaseValue: 40
+  currentSpeed: 0
   Damage:
     BaseValue: 0
   inventory: {fileID: 0}

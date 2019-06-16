@@ -9,9 +9,10 @@ namespace DriversFight.Scripts
         public Transform AvatarRootTransform;
         public GameObject AvatarRootGameObject;
         public PhotonTransformView AvatarTransformView;
-        public CarStatsScript Stats;
+        public Character Stats;
         public PhotonView photonView;
         public CollisionEnterDispatcherScript CollisionDispatcher;
         public Collider MainCollider;
+        public bool IsAlive = true;
     }
 }

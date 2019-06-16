@@ -22,8 +22,8 @@ public class EquippableItem : Item
     public int WheelArmorBonus;
     public int TiresArmorBonus;
     public int MaximumSpeedBonus;
-    public int AccelerationSpeedBonus;
-    public int DecelerationSpeedBonus;
+    public float AccelerationSpeedBonus;
+    public float DecelerationSpeedBonus;
     public int ManeuverabilityBonus;
     public int DamageBonus;
 

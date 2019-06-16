@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad438a33e2cfd654ca628458b1b201ad, type: 3}
   m_Name: Tires
   m_EditorClassIdentifier: 
+  id: a3e5a45a914894a42964e845471a085e
   ItemName: Tires
   Icon: {fileID: 21300000, guid: 809aa897033559348a9958cd7b143646, type: 3}
   FrontBumperArmorBonus: 0
@@ -23,7 +24,7 @@ MonoBehaviour:
   MaximumSpeedBonus: 0
   AccelerationSpeedBonus: 0
   DecelerationSpeedBonus: 0
-  ManeuverabilityBonus: 20
+  ManeuverabilityBonus: 5
   DamageBonus: 0
   FrontBumperArmorPercentBonus: 0
   RearBumperArmorPercentBonus: 0

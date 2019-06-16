@@ -129,9 +129,9 @@ namespace DriversFight.Scripts
 
         public void AskForRoomCreation()
         {
-            PhotonNetwork.CreateRoom("CestUneSalleDeTestncize", new RoomOptions
+            PhotonNetwork.CreateRoom("Drivers Fight", new RoomOptions
             {
-                MaxPlayers = 4,
+                MaxPlayers = 8,
                 PlayerTtl = 10000
             });
         }
@@ -154,6 +154,7 @@ namespace DriversFight.Scripts
         public override void OnLeftRoom()
         {
             endGamePanel.SetActive(true);
+            
 
             PhotonNetwork.Disconnect();
         }
@@ -212,8 +213,6 @@ namespace DriversFight.Scripts
                 }
             }
 
-            StartCoroutine(WelcomeMessage(i));
-
             OnlinePlayReady?.Invoke();
 
             if (PhotonNetwork.IsMasterClient)
@@ -222,16 +221,6 @@ namespace DriversFight.Scripts
             }
 
             PlayerSetup?.Invoke(i);
-        }
-
-        IEnumerator WelcomeMessage(int i)
-        {
-            welcomeMessageText.text = $"You are Actor : {PhotonNetwork.LocalPlayer.ActorNumber}\n "
-                                      + $"You are controlling Avatar {i}, Let's Play !";
-
-            yield return new WaitForSeconds(5f);
-
-            welcomeMessageText.enabled = false;
         }
     }
 }
