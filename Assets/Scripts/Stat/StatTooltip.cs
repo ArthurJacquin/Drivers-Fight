@@ -25,9 +25,79 @@ public class StatTooltip : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private string CheckStatNameLanguage(string statName)
+    {
+        if (Application.systemLanguage == SystemLanguage.French)
+        {
+            if (statName == "Front armor")
+            {
+                statName = "Armure frontale";
+            }
+            else if (statName == "Rear armor")
+            {
+                statName = "Armure arrière";
+            }
+            else if (statName == "Left armor")
+            {
+                statName = "Armure gauche";
+            }
+            else if (statName == "Right armor")
+            {
+                statName = "Armure droite";
+            }
+            else if (statName == "Tires armor")
+            {
+                statName = "Armure pneus";
+            }
+            else if (statName == "Wheel armor")
+            {
+                statName = "Armure volant";
+            }
+            else if (statName == "Max. speed")
+            {
+                statName = "Vitesse max.";
+            }
+            else if (statName == "Acceleration")
+            {
+                statName = "Accélération";
+            }
+            else if (statName == "Deceleration")
+            {
+                statName = "Décélération";
+            }
+            else if (statName == "Maneuverability")
+            {
+                statName = "Maniabilité";
+            }
+            else if (statName == "Damage")
+            {
+                statName = "Dommage";
+            }
+        }
+
+        return statName;
+    }
+
+    private string CheckItemNameLanguage(string itemName)
+    {
+        if (Application.systemLanguage == SystemLanguage.French)
+        {
+            itemName = itemName.Replace("Engine", "Moteur");
+            itemName = itemName.Replace("Front bumper", "Pare-choc avant");
+            itemName = itemName.Replace("Rear bumper", "Pare-choc arrière");
+            itemName = itemName.Replace("Left protection", "Portière gauche");
+            itemName = itemName.Replace("Right protection", "Portière droite");
+            itemName = itemName.Replace("Steering wheel", "Volant");
+            itemName = itemName.Replace("Tires", "Pneus");
+        }
+
+        return itemName;
+    }
+
     private string GetStatTopText(CharacterStat stat, string statName)
     {
         sb.Length = 0;
+        statName = CheckStatNameLanguage(statName);
         sb.Append(statName);
         sb.Append(" ");
         sb.Append(stat.Value);
@@ -79,6 +149,7 @@ public class StatTooltip : MonoBehaviour
 
             if (item != null)
             {
+                item.ItemName = CheckItemNameLanguage(item.ItemName);
                 sb.Append(" ");
                 sb.Append(item.ItemName);
             }

@@ -16,6 +16,11 @@ public class EngineRepairItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
+        if (Application.systemLanguage == SystemLanguage.French)
+        {
+            return "Répare le moteur pour " + HealthAmount + " santé.";
+        }
+
         return "Repair engine for " + HealthAmount + " health.";
     }
 }

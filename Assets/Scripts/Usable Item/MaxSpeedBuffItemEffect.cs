@@ -18,6 +18,11 @@ public class MaxSpeedBuffItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
+        if (Application.systemLanguage == SystemLanguage.French)
+        {
+            return "Donne " + MaxSpeed + " vitesse max. pour " + Duration + " secondes.";
+        }
+
         return "Grants " + MaxSpeed + " max. speed for " + Duration + " seconds.";
     }
 

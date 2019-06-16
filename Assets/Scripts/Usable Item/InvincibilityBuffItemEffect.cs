@@ -14,6 +14,11 @@ public class InvincibilityBuffItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
+        if (Application.systemLanguage == SystemLanguage.French)
+        {
+            return "Vous êtes invincible pour " + Duration + " secondes.";
+        }
+
         return "You are invincible for " + Duration + " seconds.";
     }
 

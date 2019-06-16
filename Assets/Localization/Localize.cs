@@ -6,9 +6,8 @@ using UnityEngine.UI;
 /// Class managing UI text localization. Language specific strings shall be saved following this
 /// folder structure:
 ///
-///     Resources/localization/English.txt 
-///     Resources/localization/Italian.txt 
-///     Resources/localization/Japanese.txt
+///     Resources/localization/English.txt
+///     Resources/localization/French.txt
 ///
 /// ... and so on, where the file name (and consequently the resource name) is the string version of
 /// the SystemLanguage enumeration.

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Engine Repair Kit
   m_EditorClassIdentifier: 
   id: a2c3669fa5d625c42a940a768ab6f073
-  ItemName: Engine Repair Kit
+  ItemName: Engine repair kit
   Icon: {fileID: 21300000, guid: c1eb3b91cf698004b80d2c2c5f34cf72, type: 3}
   MaximumStacks: 5
   IsConsumable: 1
