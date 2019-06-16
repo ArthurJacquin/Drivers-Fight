@@ -1,72 +1,65 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class ItemSlot : BaseItemSlot, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
-    [SerializeField] Image image;
-    [SerializeField] ItemTooltip tooltip;
+    public event Action<BaseItemSlot> OnBeginDragEvent;
+    public event Action<BaseItemSlot> OnEndDragEvent;
+    public event Action<BaseItemSlot> OnDragEvent;
+    public event Action<BaseItemSlot> OnDropEvent;
 
-    public event Action<Item> OnRightClickEvent;
+    private Color dragColor = new Color(1, 1, 1, 0.5f);
 
-    private Item _item;
-    public Item Item
+    public override bool CanAddStack(Item item, int amount = 1)
     {
-        get
-        {
-            return _item;
-        }
-        set
-        {
-            _item = value;
+        return base.CanAddStack(item, amount) && Amount + amount <= item.MaximumStacks;
+    }
 
-            if (_item == null)
-            {
-                image.enabled = false;
-            }
-            else
-            {
-                image.sprite = _item.Icon;
-                image.enabled = true;
-            }
+    public override bool CanReceiveItem(Item item)
+    {
+        return true;
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (Item != null)
+        {
+            image.color = dragColor;
+        }
+
+        if (OnBeginDragEvent != null)
+        {
+            OnBeginDragEvent(this);
         }
     }
 
-    protected virtual void OnValidate()
+    public void OnEndDrag(PointerEventData eventData)
     {
-        if (image == null)
+        if (Item != null)
         {
-            image = GetComponent<Image>();
+            image.color = normalColor;
         }
 
-        if (tooltip == null)
+        if (OnEndDragEvent != null)
         {
-            tooltip = FindObjectOfType<ItemTooltip>();
-        }
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData != null && eventData.button == PointerEventData.InputButton.Right)
-        {
-            if (Item != null && OnRightClickEvent != null)
-            {
-                OnRightClickEvent(Item);
-            }
+            OnEndDragEvent(this);
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnDrag(PointerEventData eventData)
     {
-        if (Item is EquippableItem)
+        if (OnDragEvent != null)
         {
-            tooltip.ShowTooltip((EquippableItem)Item);
-        }  
+            OnDragEvent(this);
+        }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData)
     {
-        tooltip.HideTooltip();
+        if (OnDropEvent != null)
+        {
+            OnDropEvent(this);
+        }
     }
 }

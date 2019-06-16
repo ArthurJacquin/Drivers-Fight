@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad438a33e2cfd654ca628458b1b201ad, type: 3}
+  m_Name: Front bumper lvl 2
+  m_EditorClassIdentifier: 
+  id: 44d7503b8bb1e3946a8f4b90500c6425
+  ItemName: Front bumper lvl 2
+  Icon: {fileID: 21300000, guid: 1daa630a8a95d5f4894fa7d9a9beabbd, type: 3}
+  MaximumStacks: 1
+  FrontBumperArmorBonus: 20
+  RearBumperArmorBonus: 0
+  RightFlankArmorBonus: 0
+  LeftFlankArmorBonus: 0
+  WheelArmorBonus: 0
+  TiresArmorBonus: 0
+  MaximumSpeedBonus: 5
+  AccelerationSpeedBonus: 0.1
+  DecelerationSpeedBonus: 0.1
+  ManeuverabilityBonus: 0
+  DamageBonus: 10
+  FrontBumperArmorPercentBonus: 0
+  RearBumperArmorPercentBonus: 0
+  RightFlankArmorPercentBonus: 0
+  LeftFlankArmorPercentBonus: 0
+  WheelArmorPercentBonus: 0
+  TiresArmorPercentBonus: 0
+  MaximumSpeedPercentBonus: 0
+  AccelerationSpeedPercentBonus: 0
+  DecelerationSpeedPercentBonus: 0
+  ManeuverabilityPercentBonus: 0
+  DamagePercentBonus: 0
+  EquipmentType: 0

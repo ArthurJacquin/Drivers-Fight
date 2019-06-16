@@ -9,6 +9,10 @@ namespace Drivers.CharacterStats
     {
         public float BaseValue;
 
+        protected bool isDirty = true;
+        protected float lastBaseValue = float.MinValue;
+
+        protected float _value;
         public virtual float Value
         {
             get
@@ -19,13 +23,10 @@ namespace Drivers.CharacterStats
                     _value = CalculateFinalValue();
                     isDirty = false;
                 }
+
                 return _value;
             }
         }
-
-        protected bool isDirty = true;
-        protected float _value;
-        protected float lastBaseValue = float.MinValue;
 
         protected readonly List<StatModifier> statModifiers;
         public readonly ReadOnlyCollection<StatModifier> StatModifiers;
@@ -48,15 +49,6 @@ namespace Drivers.CharacterStats
             statModifiers.Sort(CompareModifierOrder);
         }
 
-        protected virtual int CompareModifierOrder(StatModifier a, StatModifier b)
-        {
-            if (a.Order < b.Order)
-                return -1;
-            else if (a.Order > b.Order)
-                return 1;
-            return 0; // if (a.Order == b.Order)
-        }
-
         public virtual bool RemoveModifier(StatModifier mod)
         {
             if (statModifiers.Remove(mod))
@@ -64,6 +56,7 @@ namespace Drivers.CharacterStats
                 isDirty = true;
                 return true;
             }
+
             return false;
         }
 
@@ -80,7 +73,18 @@ namespace Drivers.CharacterStats
                     statModifiers.RemoveAt(i);
                 }
             }
+
             return didRemove;
+        }
+
+        protected virtual int CompareModifierOrder(StatModifier a, StatModifier b)
+        {
+            if (a.Order < b.Order)
+                return -1;
+            else if (a.Order > b.Order)
+                return 1;
+
+            return 0; // if (a.Order == b.Order)
         }
 
         protected virtual float CalculateFinalValue()

@@ -10,6 +10,12 @@ public class InventoryInput : MonoBehaviour
 
     void Update()
     {
+        ToggleCharacterPanel();
+        ToggleInventory();
+    }
+
+    private void ToggleCharacterPanel()
+    {
         for (int i = 0; i < toggleCharacterPanelKeys.Length; i++)
         {
             if (Input.GetKeyDown(toggleCharacterPanelKeys[i]))
@@ -30,7 +36,10 @@ public class InventoryInput : MonoBehaviour
                 break;
             }
         }
+    }
 
+    private void ToggleInventory()
+    {
         for (int i = 0; i < toggleInventoryKeys.Length; i++)
         {
             if (Input.GetKeyDown(toggleInventoryKeys[i]))

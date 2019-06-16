@@ -1,48 +1,93 @@
-﻿using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemTooltip : MonoBehaviour
 {
     [SerializeField] Text ItemNameText;
-    [SerializeField] Text ItemSlotText;
-    [SerializeField] Text ItemStatsText;
+    [SerializeField] Text ItemTypeText;
+    [SerializeField] Text ItemDescriptionText;
 
-    private StringBuilder sb = new StringBuilder();
-
-    public void ShowTooltip(EquippableItem item)
+    private string CheckItemDescriptionLanguage(string itemDescription)
     {
-        ItemNameText.text = item.ItemName;
-        ItemSlotText.text = item.EquipmentType.ToString();
+        if (Application.systemLanguage == SystemLanguage.French)
+        {
+            itemDescription = itemDescription.Replace("Front armor", "Armure frontale");
+            itemDescription = itemDescription.Replace("Rear armor", "Armure arrière");
+            itemDescription = itemDescription.Replace("Left armor", "Armure gauche");
+            itemDescription = itemDescription.Replace("Right armor", "Armure droite");
+            itemDescription = itemDescription.Replace("Tires armor", "Armure pneus");
+            itemDescription = itemDescription.Replace("Wheel armor", "Armure volant");
+            itemDescription = itemDescription.Replace("Max. speed", "Vitesse max.");
+            itemDescription = itemDescription.Replace("Acceleration", "Accélération");
+            itemDescription = itemDescription.Replace("Deceleration", "Décélération");
+            itemDescription = itemDescription.Replace("Maneuverability", "Maniabilité");
+            itemDescription = itemDescription.Replace("Damage", "Dommage");
+        }
 
-        sb.Length = 0;
-        // Not percent stat
-        AddStat(item.FrontBumperArmorBonus, "Front armor");
-        AddStat(item.RearBumperArmorBonus, "Rear armor");
-        AddStat(item.RightFlankArmorBonus, "Right armor");
-        AddStat(item.LeftFlankArmorBonus, "Left armor");
-        AddStat(item.TiresArmorBonus, "Tires armor");
-        AddStat(item.WheelArmorBonus, "Wheel armor");
-        AddStat(item.MaximumSpeedBonus, "Max. speed");
-        AddStat(item.AccelerationSpeedBonus, "Acceleration");
-        AddStat(item.DecelerationSpeedBonus, "Deceleration");
-        AddStat(item.ManeuverabilityBonus, "Maneuverability");
-        AddStat(item.DamageBonus, "Damage");
+        return itemDescription;
+    }
 
-        // Percent stat
-        AddStat(item.FrontBumperArmorPercentBonus, "Front armor", isPercent: true);
-        AddStat(item.RearBumperArmorPercentBonus, "Rear armor", isPercent: true);
-        AddStat(item.RightFlankArmorPercentBonus, "Right armor", isPercent: true);
-        AddStat(item.LeftFlankArmorPercentBonus, "Left armor", isPercent: true);
-        AddStat(item.TiresArmorPercentBonus, "Tires armor", isPercent: true);
-        AddStat(item.WheelArmorPercentBonus, "Wheel armor", isPercent: true);
-        AddStat(item.MaximumSpeedPercentBonus, "Max. speed", isPercent: true);
-        AddStat(item.AccelerationSpeedPercentBonus, "Acceleration", isPercent: true);
-        AddStat(item.DecelerationSpeedPercentBonus, "Deceleration", isPercent: true);
-        AddStat(item.ManeuverabilityPercentBonus, "Maneuverability", isPercent: true);
-        AddStat(item.DamagePercentBonus, "Damage", isPercent: true);
+    private string CheckItemNameLanguage(string itemName)
+    {
+        if (Application.systemLanguage == SystemLanguage.French)
+        {
+            itemName = itemName.Replace("Engine repair kit", "Kit de réparation moteur");
+            itemName = itemName.Replace("Invincibility", "Invincibilité");
+            itemName = itemName.Replace("Scrap coin", "Pièce de ferraille");
+            itemName = itemName.Replace("Engine", "Moteur");
+            itemName = itemName.Replace("Front bumper", "Pare-choc avant");
+            itemName = itemName.Replace("Rear bumper", "Pare-choc arrière");
+            itemName = itemName.Replace("Left protection", "Portière gauche");
+            itemName = itemName.Replace("Right protection", "Portière droite");
+            itemName = itemName.Replace("Steering wheel", "Volant");
+            itemName = itemName.Replace("Tires", "Pneus");
+        }
 
-        ItemStatsText.text = sb.ToString();
+        return itemName;
+    }
+
+    private string CheckItemTypeLanguage(string itemType)
+    {
+        if (Application.systemLanguage == SystemLanguage.French)
+        {
+            itemType = itemType.Replace("Engine", "Moteur");
+            itemType = itemType.Replace("FrontArmor", "Pare-choc avant");
+            itemType = itemType.Replace("RearArmor", "Pare-choc arrière");
+            itemType = itemType.Replace("LeftArmor", "Portière gauche");
+            itemType = itemType.Replace("RightArmor", "Portière droite");
+            itemType = itemType.Replace("Wheel", "Volant");
+            itemType = itemType.Replace("Tires", "Pneus");
+            itemType = itemType.Replace("Consumable", "Consommable");
+            itemType = itemType.Replace("Usable", "Utilisable");
+        }
+
+        if (Application.systemLanguage == SystemLanguage.English)
+        {
+            itemType = itemType.Replace("Engine", "Engine");
+            itemType = itemType.Replace("FrontArmor", "Front Bumper");
+            itemType = itemType.Replace("RearArmorr", "Rear Bumper");
+            itemType = itemType.Replace("LeftArmor", "Left protection");
+            itemType = itemType.Replace("RightArmor", "Right protection");
+            //itemType = itemType.Replace("Wheel", "Wheel");
+            //itemType = itemType.Replace("Tires", "Tires");
+        }
+
+        return itemType;
+    }
+
+    public void ShowTooltip(Item item)
+    {
+        string itemName = item.ItemName;
+        itemName = CheckItemNameLanguage(itemName);
+        ItemNameText.text = itemName;
+
+        string itemType = item.GetItemType();
+        itemType = CheckItemTypeLanguage(itemType);
+        ItemTypeText.text = itemType;
+
+        string itemDescription = item.GetDescription();
+        itemDescription = CheckItemDescriptionLanguage(itemDescription);
+        ItemDescriptionText.text = itemDescription;
 
         gameObject.SetActive(true);
     }
@@ -50,35 +95,5 @@ public class ItemTooltip : MonoBehaviour
     public void HideTooltip()
     {
         gameObject.SetActive(false);
-    }
-
-    private void AddStat(float value, string statName, bool isPercent = false)
-    {
-        if (value != 0)
-        {
-            if (sb.Length > 0)
-            {
-                sb.AppendLine();
-            }
-
-            if (value > 0)
-            {
-                sb.Append("+");
-            }
-
-            if (isPercent)
-            {
-                sb.Append(value * 100);
-                sb.Append("% ");
-            }
-            else
-            {
-                sb.Append(value);
-                sb.Append(" ");
-            }
-
-            sb.Append(statName);
-        }
-        
     }
 }
