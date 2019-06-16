@@ -65,6 +65,10 @@
     <Compile Include="Assets\Drivers Fight\Localization\LocalizeBase.cs" />
     <Compile Include="Assets\Drivers Fight\Localization\LocalizeTM.cs" />
     <Compile Include="Assets\Drivers Fight\Localization\MenuManager.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotCameraScript.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotControllerScript.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotExposerScript.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotFieldOfViewScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Craft\CraftingRecipe.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Craft\CraftingRecipeUI.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Craft\CraftingWindow.cs" />
