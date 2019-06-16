@@ -194,6 +194,7 @@ namespace DriversFight.Scripts
             }
 
             gameStarted = false;
+            PauseMenu.inGame = true;
             deadAvatarsCount = 0;
         }
 
@@ -304,15 +305,6 @@ namespace DriversFight.Scripts
             // Do nothing if the game is not started
             if (!GameStarted)
             {
-                return;
-            }
-
-            // If intents and avatars are not setup properly
-            if (activatedIntentReceivers == null
-                || avatars == null
-                || avatars.Length != activatedIntentReceivers.Length)
-            {
-                Debug.LogError("There is something wrong with avatars and intents setup !");
                 return;
             }
 
@@ -565,6 +557,7 @@ namespace DriversFight.Scripts
 
                 //UI
                 playerUI.SetActive(false);
+                PauseMenu.inGame = false;
 
                 //Sectors
                 sectorSpawnManagementScript.enabled = false;
