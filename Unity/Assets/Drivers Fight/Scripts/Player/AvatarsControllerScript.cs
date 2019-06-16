@@ -472,7 +472,12 @@ namespace DriversFight.Scripts
 
             //if alone, leave the game
             if (timeWaited == 30)
+            {
                 EndGame();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+                
 
             if (PhotonNetwork.IsMasterClient)
             {
@@ -510,7 +515,7 @@ namespace DriversFight.Scripts
 
             EnableIntentReceivers();
             GameStarted = true;
-            items.SetActive(true);
+            //items.SetActive(true);
 
             //Sector reset
             if(PhotonNetwork.IsMasterClient)
