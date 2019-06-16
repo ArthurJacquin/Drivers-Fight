@@ -19,6 +19,7 @@ public class Inventory : ItemContainer
     {
         base.Awake();
         SetStartingItems();
+        transform.parent.gameObject.SetActive(false);
     }
 
     private void SetStartingItems()

@@ -1,0 +1,17 @@
+Inventory = Inventaire
+Equipment = Equipement
+Front armor = Armure frontale
+Rear armor = Armure arriere
+Left armor = Armure gauche
+Right armor = Armure droite
+Tires armor = Armure pneus
+Wheel armor = Armure volant
+Max. speed = Vitesse max.
+Acceleration = Acceleration
+Deceleration = Deceleration
+Maneuverability = Maniabilite
+Damage = Dommage
+Equipment & Stats = Equipement & Stats
+Destroy the item = Êtes-vous sûr de vouloir détruire l'objet
+Yes = Oui
+No = Non
