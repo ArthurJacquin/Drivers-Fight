@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Drivers.CharacterStats;
-using System.ComponentModel;
 
 public enum EquipmentType
 {
