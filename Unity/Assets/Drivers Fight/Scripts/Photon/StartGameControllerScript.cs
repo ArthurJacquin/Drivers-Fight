@@ -188,7 +188,7 @@ namespace DriversFight.Scripts
 
         private IEnumerator InformPlayerJoinedEndOfFrame(int actorNumber)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
             var i = 0;
             for (; i < PlayerNumbering.SortedPlayers.Length; i++)
             {
@@ -203,7 +203,7 @@ namespace DriversFight.Scripts
 
         private IEnumerator SetWelcomeMessageAndSetReadyAtTheEndOfFrame()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             var i = 0;
             for (; i < PlayerNumbering.SortedPlayers.Length; i++)
             {
