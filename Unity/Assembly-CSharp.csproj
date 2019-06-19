@@ -75,6 +75,7 @@
     <Compile Include="Assets\Drivers Fight\Scripts\Equipment\EquipmentPanel.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Equipment\EquipmentSlot.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Equipment\EquippableItem.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Factory\CraftInput.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Factory\DisplayItemButton.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Factory\FactoryController.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Inventory\DropItemArea.cs" />
