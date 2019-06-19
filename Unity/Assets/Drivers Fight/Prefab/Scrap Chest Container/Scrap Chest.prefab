@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1918154362258543861}
   - component: {fileID: 5180839025160864032}
   - component: {fileID: 790678375279070877}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scrap Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1638689725360204700}
   - component: {fileID: 7478785633576769937}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Item Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 5123993192501209067}
   - component: {fileID: 3109578853840703923}
   - component: {fileID: 3432645895725268449}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3027928975120943344}
   - component: {fileID: 3027928975120943351}
   - component: {fileID: 3027928975120943350}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3027928975568405251}
   - component: {fileID: 3027928975568405277}
   - component: {fileID: 3027928975568405276}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Item Chest Engine lvl 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3027928976034834006}
   - component: {fileID: 3027928976034834007}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Item Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3027928976197096853}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Items lvl 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
