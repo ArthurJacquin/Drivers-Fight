@@ -87,6 +87,7 @@ MonoBehaviour:
   photonView: {fileID: 68}
   CollisionDispatcher: {fileID: 2130119239335811485}
   MainCollider: {fileID: 59}
+  IsAlive: 1
 --- !u!114 &68
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,10 +146,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 25}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3954a45f2161a1845af3f35b77ff9110, type: 3}
+  m_Script: {fileID: 11500000, guid: a134cf2b510fd46498062e1ce3b9f365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EngineHealth: 500
+  Invincibility: 0
   FrontBumperArmor:
     BaseValue: 0
   RearBumperArmor:
@@ -166,7 +168,7 @@ MonoBehaviour:
   AccelerationSpeed:
     BaseValue: 0.2
   DecelerationSpeed:
-    BaseValue: 0.5
+    BaseValue: 0.3
   Maneuverability:
     BaseValue: 40
   currentSpeed: 0
@@ -174,8 +176,12 @@ MonoBehaviour:
     BaseValue: 0
   inventory: {fileID: 0}
   equipmentPanel: {fileID: 0}
+  craftingWindow: {fileID: 0}
   statPanel: {fileID: 0}
   itemTooltip: {fileID: 0}
+  draggableItem: {fileID: 0}
+  dropItemArea: {fileID: 0}
+  questionDialog: {fileID: 0}
 --- !u!1 &26
 GameObject:
   m_ObjectHideFlags: 0

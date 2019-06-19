@@ -364,6 +364,7 @@ namespace DriversFight.Scripts
                     //Turn Left
                     if (intentReceiver.WantToMoveLeft)
                     {
+                        Debug.Log("oui");
                         avatar.AvatarRootTransform.position += avatar.AvatarRootTransform.forward * mystats.currentSpeed * Time.deltaTime;
                         avatar.AvatarRootTransform.Rotate(0.0f, -mystats.Maneuverability.Value * Time.deltaTime, 0.0f);
                     }
