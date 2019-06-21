@@ -14,8 +14,8 @@ public class Character : MonoBehaviour
     [Header("Stats")]
     public CharacterStat FrontBumperArmor;
     public CharacterStat RearBumperArmor;
-    public CharacterStat RightFlankArmor;
     public CharacterStat LeftFlankArmor;
+    public CharacterStat RightFlankArmor;
     public CharacterStat WheelArmor;
     public CharacterStat TiresArmor;
 
@@ -55,7 +55,7 @@ public class Character : MonoBehaviour
 
     private void Awake()
     {
-        statPanel.SetStats(FrontBumperArmor, RearBumperArmor, RightFlankArmor, LeftFlankArmor, WheelArmor, TiresArmor, MaximumSpeed, AccelerationSpeed, DecelerationSpeed, Maneuverability, Damage);
+        statPanel.SetStats(FrontBumperArmor, RearBumperArmor, LeftFlankArmor, RightFlankArmor, WheelArmor, TiresArmor, MaximumSpeed, AccelerationSpeed, DecelerationSpeed, Maneuverability, Damage);
         statPanel.UpdateStatValues();
 
         currentSpeed = 0f;

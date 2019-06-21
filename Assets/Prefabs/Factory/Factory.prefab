@@ -59,6 +59,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   craftPanelGameObject: {fileID: 0}
+  characterPanelGameObject: {fileID: 0}
+  equipmentPanelGameObject: {fileID: 0}
+  statPanelGameObject: {fileID: 0}
   craftOpenKeyCode: 117
 --- !u!1 &5081642770049478095
 GameObject:

@@ -16,3 +16,5 @@ Are you sure you want to destroy the item ? = Are you sure you want to destroy t
 Yes = Yes
 No = No
 Modifiers = Modifiers
+Craft windows = Craft windows
+Factory = Factory
