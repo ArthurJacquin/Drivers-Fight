@@ -251,12 +251,12 @@ public class PlayerScript : MonoBehaviour
             if (wantToMoveLeft)
             {
                 targetTransform.position += transform.forward * carSpeed * Time.deltaTime;
-                targetTransform.Rotate(0.0f, -40.0f * Time.deltaTime, 0.0f);
+                targetTransform.Rotate(0.0f, -carManeuverability * Time.deltaTime, 0.0f);
             }
             else if (wantToMoveRight)
             {
                 targetTransform.position += transform.forward * carSpeed * Time.deltaTime;
-                targetTransform.Rotate(0.0f, 40.0f * Time.deltaTime, 0.0f);
+                targetTransform.Rotate(0.0f, carManeuverability * Time.deltaTime, 0.0f);
             }
             else
             {
@@ -268,12 +268,12 @@ public class PlayerScript : MonoBehaviour
             if (wantToMoveLeft)
             {
                 targetTransform.position += -transform.forward * carSpeed * Time.deltaTime;
-                targetTransform.Rotate(0.0f, 40.0f * Time.deltaTime, 0.0f);
+                targetTransform.Rotate(0.0f, carManeuverability * Time.deltaTime, 0.0f);
             }
             else if (wantToMoveRight)
             {
                 targetTransform.position += -transform.forward * carSpeed * Time.deltaTime;
-                targetTransform.Rotate(0.0f, -40.0f * Time.deltaTime, 0.0f);
+                targetTransform.Rotate(0.0f, -carManeuverability * Time.deltaTime, 0.0f);
             }
             else
             {

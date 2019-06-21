@@ -105,6 +105,11 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111065012483}
+    - target: {fileID: 3027928975568405276, guid: a3af3557f30b5e744b19bca5744172e4,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3af3557f30b5e744b19bca5744172e4, type: 3}
 --- !u!4 &3025690111167498945 stripped
@@ -191,36 +196,71 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111276778881}
+    - target: {fileID: 1619947618769705482, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1619947618751121588, guid: 2762b0a74feab4d429bac7bfd337e3e3,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111798999672}
+    - target: {fileID: 1619947618751121588, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1619947618845584536, guid: 2762b0a74feab4d429bac7bfd337e3e3,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690112557013594}
+    - target: {fileID: 1619947618845584536, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1619947619131894274, guid: 2762b0a74feab4d429bac7bfd337e3e3,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690110912871716}
+    - target: {fileID: 1619947619131894274, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1619947619295133897, guid: 2762b0a74feab4d429bac7bfd337e3e3,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111787234994}
+    - target: {fileID: 1619947619295133897, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1619947619654202252, guid: 2762b0a74feab4d429bac7bfd337e3e3,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111904602581}
+    - target: {fileID: 1619947619654202252, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1619947617899373683, guid: 2762b0a74feab4d429bac7bfd337e3e3,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111951135225}
+    - target: {fileID: 1619947617899373683, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2762b0a74feab4d429bac7bfd337e3e3, type: 3}
 --- !u!4 &3025690111875916441 stripped
@@ -413,36 +453,71 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690110870320835}
+    - target: {fileID: 6261850570714688543, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6261850570649926201, guid: 774dcc6841816b04bb9954e28ec6dafe,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690112970020581}
+    - target: {fileID: 6261850570649926201, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6261850571120269117, guid: 774dcc6841816b04bb9954e28ec6dafe,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111383194492}
+    - target: {fileID: 6261850571120269117, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6261850571232233473, guid: 774dcc6841816b04bb9954e28ec6dafe,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111603617099}
+    - target: {fileID: 6261850571232233473, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6261850569462277736, guid: 774dcc6841816b04bb9954e28ec6dafe,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690110824597878}
+    - target: {fileID: 6261850569462277736, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6261850569950656187, guid: 774dcc6841816b04bb9954e28ec6dafe,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690111370150343}
+    - target: {fileID: 6261850569950656187, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6261850570005550037, guid: 774dcc6841816b04bb9954e28ec6dafe,
         type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 3025690112897734891}
+    - target: {fileID: 6261850570005550037, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 774dcc6841816b04bb9954e28ec6dafe, type: 3}
 --- !u!4 &3025690111227960212 stripped
