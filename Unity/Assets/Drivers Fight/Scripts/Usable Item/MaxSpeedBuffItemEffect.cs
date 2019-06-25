@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Drivers.CharacterStats;
+using Drivers.Localization;
 
 [CreateAssetMenu(menuName = "Item Effects/Max Speed Buff")]
 public class MaxSpeedBuffItemEffect : UsableItemEffect
@@ -18,7 +19,7 @@ public class MaxSpeedBuffItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
-        if (Application.systemLanguage == SystemLanguage.French)
+        if (Locale.CurrentLanguage == "French")
         {
             return "Donne " + MaxSpeed + " vitesse max. pour " + Duration + " secondes.";
         }

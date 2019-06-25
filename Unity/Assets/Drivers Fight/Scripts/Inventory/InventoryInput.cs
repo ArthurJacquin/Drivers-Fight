@@ -5,6 +5,7 @@ public class InventoryInput : MonoBehaviour
     [SerializeField] GameObject characterPanelGameObject;
     [SerializeField] GameObject equipmentPanelGameObject;
     [SerializeField] GameObject statPanelGameObject;
+    [SerializeField] GameObject craftPanelGameObject;
     [SerializeField] KeyCode[] toggleCharacterPanelKeys;
     [SerializeField] KeyCode[] toggleInventoryKeys;
 
@@ -30,7 +31,10 @@ public class InventoryInput : MonoBehaviour
                 }
                 else
                 {
-                    HideMouseCursor();
+                    if (!craftPanelGameObject.activeSelf)
+                    {
+                        HideMouseCursor();
+                    }
                 }
 
                 break;
@@ -59,7 +63,10 @@ public class InventoryInput : MonoBehaviour
                 else
                 {
                     characterPanelGameObject.SetActive(false);
-                    HideMouseCursor();
+                    if (!craftPanelGameObject.activeSelf)
+                    {
+                        HideMouseCursor();
+                    }
                 }
 
                 break;

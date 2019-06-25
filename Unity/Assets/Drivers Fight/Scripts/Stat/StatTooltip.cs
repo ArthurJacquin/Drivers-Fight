@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Drivers.CharacterStats;
+using Drivers.Localization;
 
 public class StatTooltip : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class StatTooltip : MonoBehaviour
 
     private string CheckStatNameLanguage(string statName)
     {
-        if (Application.systemLanguage == SystemLanguage.French)
+        if (Locale.CurrentLanguage == "French")
         {
             if (statName == "Front armor")
             {
@@ -80,7 +81,7 @@ public class StatTooltip : MonoBehaviour
 
     private string CheckItemNameLanguage(string itemName)
     {
-        if (Application.systemLanguage == SystemLanguage.French)
+        if (Locale.CurrentLanguage == "French")
         {
             itemName = itemName.Replace("Engine", "Moteur");
             itemName = itemName.Replace("Front bumper", "Pare-choc avant");

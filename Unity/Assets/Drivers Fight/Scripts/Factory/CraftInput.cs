@@ -3,6 +3,7 @@
 public class CraftInput : MonoBehaviour
 {
     [SerializeField] GameObject craftPanelGameObject;
+    [SerializeField] GameObject characterPanelGameObject;
     [SerializeField] KeyCode craftOpenKeyCode = KeyCode.U;
 
     private bool isInRange;
@@ -16,7 +17,10 @@ public class CraftInput : MonoBehaviour
         else if (!isInRange && craftPanelGameObject.activeSelf)
         {
             craftPanelGameObject.SetActive(false);
-            HideMouseCursor();
+            if (!characterPanelGameObject.activeSelf)
+            {
+                HideMouseCursor();
+            }
         }
     }
 
@@ -30,7 +34,10 @@ public class CraftInput : MonoBehaviour
         else
         {
             craftPanelGameObject.SetActive(false);
-            HideMouseCursor();
+            if (!characterPanelGameObject.activeSelf)
+            {
+                HideMouseCursor();
+            }
         }
     }
 
@@ -45,12 +52,6 @@ public class CraftInput : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-    /*public void ToggleEquipmentPanel()
-    {
-        equipmentPanelGameObject.SetActive(!equipmentPanelGameObject.activeSelf);
-        statPanelGameObject.SetActive(!statPanelGameObject.activeSelf);
-    }*/
 
     private void OnTriggerEnter(Collider other)
     {
