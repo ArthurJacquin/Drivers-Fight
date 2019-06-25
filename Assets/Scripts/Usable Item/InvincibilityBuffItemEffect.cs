@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Drivers.Localization;
+using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Item Effects/Invincibility Buff")]
@@ -14,7 +15,7 @@ public class InvincibilityBuffItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
-        if (Application.systemLanguage == SystemLanguage.French)
+        if (Locale.CurrentLanguage == "French")
         {
             return "Vous êtes invincible pour " + Duration + " secondes.";
         }

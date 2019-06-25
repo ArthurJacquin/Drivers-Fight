@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Drivers.Localization;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemTooltip : MonoBehaviour
@@ -9,7 +10,7 @@ public class ItemTooltip : MonoBehaviour
 
     private string CheckItemDescriptionLanguage(string itemDescription)
     {
-        if (Application.systemLanguage == SystemLanguage.French)
+        if (Locale.CurrentLanguage == "French")
         {
             itemDescription = itemDescription.Replace("Front armor", "Armure frontale");
             itemDescription = itemDescription.Replace("Rear armor", "Armure arrière");
@@ -29,7 +30,7 @@ public class ItemTooltip : MonoBehaviour
 
     private string CheckItemNameLanguage(string itemName)
     {
-        if (Application.systemLanguage == SystemLanguage.French)
+        if (Locale.CurrentLanguage == "French")
         {
             itemName = itemName.Replace("Engine repair kit", "Kit de réparation moteur");
             itemName = itemName.Replace("Invincibility", "Invincibilité");
@@ -48,7 +49,7 @@ public class ItemTooltip : MonoBehaviour
 
     private string CheckItemTypeLanguage(string itemType)
     {
-        if (Application.systemLanguage == SystemLanguage.French)
+        if (Locale.CurrentLanguage == "French")
         {
             itemType = itemType.Replace("Engine", "Moteur");
             itemType = itemType.Replace("FrontArmor", "Pare-choc avant");
@@ -61,7 +62,7 @@ public class ItemTooltip : MonoBehaviour
             itemType = itemType.Replace("Usable", "Utilisable");
         }
 
-        if (Application.systemLanguage == SystemLanguage.English)
+        if (Locale.CurrentLanguage == "English")
         {
             itemType = itemType.Replace("Engine", "Engine");
             itemType = itemType.Replace("FrontArmor", "Front Bumper");
