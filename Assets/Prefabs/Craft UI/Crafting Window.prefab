@@ -129,7 +129,7 @@ MonoBehaviour:
     type: 3}
   recipeUIParent: {fileID: 1066326763532634975}
   craftingRecipeUIs:
-  - {fileID: 6806141086287869661}
+  - {fileID: 8414265111258208824}
   - {fileID: 5628810357401408013}
   - {fileID: 5628810358848823435}
   - {fileID: 5628810358804221308}
@@ -587,7 +587,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1066326764304655968}
+  - {fileID: 8414265111258209017}
   - {fileID: 5628810357401408012}
   - {fileID: 5628810358848823434}
   - {fileID: 5628810358804221311}
@@ -32911,13 +32911,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6c8fef216cb0341808d939d982bca4, type: 3}
---- !u!224 &1066326764304655968 stripped
+--- !u!224 &8414265111258209017 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8793598244725521655, guid: 2c6c8fef216cb0341808d939d982bca4,
     type: 3}
   m_PrefabInstance: {fileID: 8414265111258208919}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6806141086287869661 stripped
+--- !u!114 &8414265111258208824 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3076306851535727690, guid: 2c6c8fef216cb0341808d939d982bca4,
     type: 3}

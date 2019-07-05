@@ -3,6 +3,7 @@
   <!-- Main Menu -->
   <text key="PLAY">Play</text>
   <text key="OPTIONS">Options</text>
+  <text key="KEY_BINDINGS">Key bindings</text>
   <text key="QUIT">Quit</text>
   <!-- Options Menu -->
   <text key="FULLSCREEN">Fullscreen</text>
@@ -17,6 +18,14 @@
   <text key="HIGH">High</text>
   <text key="VERY_HIGH">Very high</text>
   <text key="ULTRA">Ultra</text>
+  <!-- Key Bindings Panel -->
+  <text key="MOVING_FORWARD">Moving forward</text>
+  <text key="MOVING_BACKWARD">Moving backward</text>
+  <text key="TURN_RIGHT">Turn on the right</text>
+  <text key="TURN_LEFT">Turn on the left</text>
+  <text key="OPEN_INVENTORY">Open inventory</text>
+  <text key="INTERACT_OBJECT">Interact with an object</text>
+  <text key="INTERACT_FACTORY">Interact with the factory</text>
   <!-- Character Panel -->
   <text key="EQUIPMENT_STATS">Equipment &#38; Stats</text>
   <text key="FRONT_ARMOR">Front armor</text>

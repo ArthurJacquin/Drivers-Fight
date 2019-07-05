@@ -8,19 +8,42 @@ namespace Drivers.LocalizationSettings
     public class LocalizationManager : MonoBehaviour
     {
         public static LocalizationManager Instance { get { return instance; } }
-        public int currentLanguageID = 0;
+        public int defaultLanguageID = 0;
 
         public static Action onChangedLanguage;
+        public static int currentLanguageID = 0;
 
+        [Space]
         [SerializeField]
         public List<TextAsset> languageFiles = new List<TextAsset>();
         public List<Language> languages = new List<Language>();
 
+        [Space]
+        public SettingsMenu settingsMenu;
+
         private static LocalizationManager instance;   // GameSystem local instance
+
+        public int ID
+        {
+            get
+            {
+                currentLanguageID = PlayerPrefs.GetInt("language_id");
+                return currentLanguageID;
+            }
+            set
+            {
+                if (currentLanguageID != value)
+                {
+                    currentLanguageID = value;
+                    PlayerPrefs.SetInt("language_id", value);
+                    onChangedLanguage?.Invoke();
+                }
+            }
+        }
 
         void Awake()
         {
-            //currentLanguageID = PlayerPrefs.GetInt("language_id");
+            currentLanguageID = PlayerPrefs.GetInt("language_id");
             instance = this;
             DontDestroyOnLoad(this);
             // This will read  each XML file from the languageFiles list<> and populate the languages list with the data
@@ -62,12 +85,14 @@ namespace Drivers.LocalizationSettings
 
         public void SetEnglish()
         {
-            currentLanguageID = 0;
+            ID = 0;
+            settingsMenu.UpdateGraphicDropdown();
         }
 
         public void SetFrench()
         {
-            currentLanguageID = 1;
+            ID = 1;
+            settingsMenu.UpdateGraphicDropdown();
         }
     }
 }

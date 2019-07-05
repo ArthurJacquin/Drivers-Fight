@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24923ad2cdd6dfa409a268f06cd889a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguageID: 0
+  defaultLanguageID: 0
   languageFiles:
   - {fileID: 4900000, guid: 6361f23d9972a6546a1d4d2e57c914bd, type: 3}
   - {fileID: 4900000, guid: d6bfb5c1c21f9314ba1e2139083cd869, type: 3}
   languages: []
+  settingsMenu: {fileID: 0}

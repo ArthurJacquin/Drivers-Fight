@@ -37,8 +37,13 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
+        UpdateGraphicDropdown();
+    }
+
+    public void UpdateGraphicDropdown()
+    {
         graphicDropdown.ClearOptions();
-        if (LocalizationManager.Instance.currentLanguageID == 1)
+        if (LocalizationManager.currentLanguageID == 1)
         {
             List<string> graphicOptions = new List<string> { LocalizationManager.Instance.GetText("VERY_LOW"), LocalizationManager.Instance.GetText("LOW"), LocalizationManager.Instance.GetText("MEDIUM"), LocalizationManager.Instance.GetText("HIGH"), LocalizationManager.Instance.GetText("VERY_HIGH"), LocalizationManager.Instance.GetText("ULTRA") };
             graphicDropdown.AddOptions(graphicOptions);
