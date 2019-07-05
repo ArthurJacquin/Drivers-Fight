@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language LANG="english" ID="0">
+  <!-- Main Menu -->
+  <text key="PLAY">Play</text>
+  <text key="OPTIONS">Options</text>
+  <text key="QUIT">Quit</text>
+  <!-- Options Menu -->
+  <text key="FULLSCREEN">Fullscreen</text>
+  <text key="GRAPHICS">Graphics</text>
+  <text key="VOLUME">Volume</text>
+  <text key="LANGUAGE">Language</text>
+  <text key="BACK">Back</text>
+  <!-- Graphics Options -->
+  <text key="VERY_LOW">Very low</text>
+  <text key="LOW">Low</text>
+  <text key="MEDIUM">Medium</text>
+  <text key="HIGH">High</text>
+  <text key="VERY_HIGH">Very high</text>
+  <text key="ULTRA">Ultra</text>
+  <!-- Character Panel -->
+  <text key="EQUIPMENT_STATS">Equipment &#38; Stats</text>
+  <text key="FRONT_ARMOR">Front armor</text>
+  <text key="REAR_ARMOR">Rear armor</text>
+  <text key="LEFT_ARMOR">Left armor</text>
+  <text key="RIGHT_ARMOR">Right armor</text>
+  <text key="TIRES_ARMOR">Tires armor</text>
+  <text key="WHEEL_ARMOR">Wheel armor</text>
+  <text key="MAX_SPEED">Max. speed</text>
+  <text key="ACCELERATION">Acceleration</text>
+  <text key="DECELERATION">Deceleration</text>
+  <text key="MANEUVERABILITY">Maneuverability</text>
+  <text key="DAMAGE">Damage</text>
+  <text key="MODIFIERS">Modifiers</text>
+  <!-- Inventory Panel -->
+  <text key="INVENTORY">Inventory</text>
+  <text key="EQUIPMENT">Equipment</text>
+  <text key="CONFIRM_DELETE">Are you sure you want to destroy the item ?</text>
+  <text key="YES">Yes</text>
+  <text key="NO">No</text>
+  <!-- Craft Panel -->
+  <text key="FACTORY">Factory</text>
+  <!-- Equipment -->
+  <text key="FACTORY">Engine</text>
+  <text key="FACTORY">Front bumper</text>
+  <text key="FACTORY">Rear bumper</text>
+  <text key="FACTORY">Left protection</text>
+  <text key="FACTORY">Right protection</text>
+  <text key="FACTORY">Steering wheel</text>
+  <text key="FACTORY">Tires</text>
+  <text key="FACTORY">Consumable</text>
+  <text key="FACTORY">Usable</text>
+  <text key="FACTORY">Engine repair kit</text>
+  <text key="FACTORY">Invincibility</text>
+  <text key="FACTORY">Scrap coin</text>
+  <text key="FACTORY">Durability</text>
+</Language>

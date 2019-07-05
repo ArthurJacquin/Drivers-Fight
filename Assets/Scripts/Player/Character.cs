@@ -29,6 +29,10 @@ public class Character : MonoBehaviour
 
     public CharacterStat Damage;
 
+    // Durability of items
+    [Header("Durability of items")]
+    [SerializeField] EquipmentDurability equipmentDurability;
+
     [Header("Public")]
     [SerializeField] Inventory inventory;
     [SerializeField] EquipmentPanel equipmentPanel;
@@ -187,13 +191,15 @@ public class Character : MonoBehaviour
 
         if (dropItemSlot is EquipmentSlot)
         {
-            if (dragItem != null)
-            {
-                dragItem.Equip(this);
-            }
             if (dropItem != null)
             {
                 dropItem.Unequip(this);
+                UnequipArmorDurability(dropItem);
+            }
+            if (dragItem != null)
+            {
+                dragItem.Equip(this);
+                EquipArmorDurability(dragItem);
             }
         }
 
@@ -202,10 +208,12 @@ public class Character : MonoBehaviour
             if (dragItem != null)
             {
                 dragItem.Unequip(this);
+                UnequipArmorDurability(dragItem);
             }
             if (dropItem != null)
             {
                 dropItem.Equip(this);
+                EquipArmorDurability(dropItem);
             }
         }
 
@@ -253,6 +261,7 @@ public class Character : MonoBehaviour
                     statPanel.UpdateStatValues();
                 }
                 item.Equip(this);
+                EquipArmorDurability(item);
                 statPanel.UpdateStatValues();
             }
             else
@@ -269,6 +278,55 @@ public class Character : MonoBehaviour
             item.Unequip(this);
             statPanel.UpdateStatValues();
             inventory.AddItem(item);
+            UnequipArmorDurability(item);
+        }
+    }
+
+    private void EquipArmorDurability(EquippableItem item)
+    {
+        if (item.EquipmentType == EquipmentType.FrontArmor)
+        {
+            equipmentDurability.CurrentFrontArmorDurability = item.ArmorDurability;
+            equipmentDurability.FrontArmorDurability = item.ArmorDurability;
+        }
+        else if (item.EquipmentType == EquipmentType.RearArmor)
+        {
+            equipmentDurability.CurrentRearArmorDurability = item.ArmorDurability;
+            equipmentDurability.RearArmorDurability = item.ArmorDurability;
+        }
+        else if (item.EquipmentType == EquipmentType.LeftArmor)
+        {
+            equipmentDurability.CurrentLeftArmorDurability = item.ArmorDurability;
+            equipmentDurability.LeftArmorDurability = item.ArmorDurability;
+        }
+        else if (item.EquipmentType == EquipmentType.RightArmor)
+        {
+            equipmentDurability.CurrentRightArmorDurability = item.ArmorDurability;
+            equipmentDurability.RightArmorDurability = item.ArmorDurability;
+        }
+    }
+
+    private void UnequipArmorDurability(EquippableItem item)
+    {
+        if (item.EquipmentType == EquipmentType.FrontArmor)
+        {
+            equipmentDurability.CurrentFrontArmorDurability = 0;
+            equipmentDurability.FrontArmorDurability = 0;
+        }
+        else if (item.EquipmentType == EquipmentType.RearArmor)
+        {
+            equipmentDurability.CurrentRearArmorDurability = 0;
+            equipmentDurability.RearArmorDurability = 0;
+        }
+        else if (item.EquipmentType == EquipmentType.LeftArmor)
+        {
+            equipmentDurability.CurrentLeftArmorDurability = 0;
+            equipmentDurability.LeftArmorDurability = 0;
+        }
+        else if (item.EquipmentType == EquipmentType.RightArmor)
+        {
+            equipmentDurability.CurrentRightArmorDurability = 0;
+            equipmentDurability.RightArmorDurability = 0;
         }
     }
 
@@ -277,14 +335,43 @@ public class Character : MonoBehaviour
         statPanel.UpdateStatValues();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            TakeFrontDamage(10);
+            //TakeRearDamage(10);
+            //TakeRightDamage(10);
+            //TakeLeftDamage(10);
+            Debug.Log(EngineHealth);
+        }
+    }
+
     public void TakeFrontDamage(int damage)
     {
         if (!Invincibility)
         {
+            // Reduce damage taken by armor value
             damage -= (int)FrontBumperArmor.Value;
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-            EngineHealth -= damage;
+            // if player have a front armor
+            if (equipmentDurability.CurrentFrontArmorDurability > 0)
+            {
+                // Reduce the front armor durability first from damage
+                equipmentDurability.CurrentFrontArmorDurability -= damage;
+
+                // If armor is destroyed, remaining damage hit the engine
+                if (equipmentDurability.CurrentFrontArmorDurability < 0)
+                {
+                    EngineHealth -= -equipmentDurability.CurrentFrontArmorDurability;
+                    equipmentDurability.CurrentFrontArmorDurability = 0;
+                }
+            }
+            else
+            {
+                EngineHealth -= damage;
+            }
         }
     }
 
@@ -295,7 +382,23 @@ public class Character : MonoBehaviour
             damage -= (int)RearBumperArmor.Value;
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-            EngineHealth -= damage;
+            // if player have a rear armor
+            if (equipmentDurability.CurrentRearArmorDurability > 0)
+            {
+                // Reduce the front armor durability first from damage
+                equipmentDurability.CurrentRearArmorDurability -= damage;
+
+                // If armor is destroyed, remaining damage hit the engine
+                if (equipmentDurability.CurrentRearArmorDurability < 0)
+                {
+                    EngineHealth -= -equipmentDurability.CurrentRearArmorDurability;
+                    equipmentDurability.CurrentRearArmorDurability = 0;
+                }
+            }
+            else
+            {
+                EngineHealth -= damage;
+            }
         }
     }
 
@@ -306,7 +409,23 @@ public class Character : MonoBehaviour
             damage -= (int)RightFlankArmor.Value;
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-            EngineHealth -= damage;
+            // if player have a rear armor
+            if (equipmentDurability.CurrentRightArmorDurability > 0)
+            {
+                // Reduce the front armor durability first from damage
+                equipmentDurability.CurrentRightArmorDurability -= damage;
+
+                // If armor is destroyed, remaining damage hit the engine
+                if (equipmentDurability.CurrentRightArmorDurability < 0)
+                {
+                    EngineHealth -= -equipmentDurability.CurrentRightArmorDurability;
+                    equipmentDurability.CurrentRightArmorDurability = 0;
+                }
+            }
+            else
+            {
+                EngineHealth -= damage;
+            }
         }
     }
 
@@ -317,7 +436,23 @@ public class Character : MonoBehaviour
             damage -= (int)LeftFlankArmor.Value;
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-            EngineHealth -= damage;
+            // if player have a rear armor
+            if (equipmentDurability.CurrentLeftArmorDurability > 0)
+            {
+                // Reduce the front armor durability first from damage
+                equipmentDurability.CurrentLeftArmorDurability -= damage;
+
+                // If armor is destroyed, remaining damage hit the engine
+                if (equipmentDurability.CurrentLeftArmorDurability < 0)
+                {
+                    EngineHealth -= -equipmentDurability.CurrentLeftArmorDurability;
+                    equipmentDurability.CurrentLeftArmorDurability = 0;
+                }
+            }
+            else
+            {
+                EngineHealth -= damage;
+            }
         }
     }
 

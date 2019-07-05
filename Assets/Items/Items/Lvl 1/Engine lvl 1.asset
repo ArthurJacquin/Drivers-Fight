@@ -16,10 +16,11 @@ MonoBehaviour:
   ItemName: Engine lvl 1
   Icon: {fileID: 21300000, guid: 005ff6490c0e67945903de230d39f46c, type: 3}
   MaximumStacks: 1
+  ArmorDurability: 0
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
-  RightFlankArmorBonus: 0
   LeftFlankArmorBonus: 0
+  RightFlankArmorBonus: 0
   WheelArmorBonus: 0
   TiresArmorBonus: 0
   MaximumSpeedBonus: 5
@@ -29,8 +30,8 @@ MonoBehaviour:
   DamageBonus: 0
   FrontBumperArmorPercentBonus: 0
   RearBumperArmorPercentBonus: 0
-  RightFlankArmorPercentBonus: 0
   LeftFlankArmorPercentBonus: 0
+  RightFlankArmorPercentBonus: 0
   WheelArmorPercentBonus: 0
   TiresArmorPercentBonus: 0
   MaximumSpeedPercentBonus: 0

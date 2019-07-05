@@ -100,6 +100,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7865839033289564864, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865839033183436284, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865839032687218628, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865839032617769442, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865839031784784710, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865839031724090920, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865839031197848469, guid: 774dcc6841816b04bb9954e28ec6dafe,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 774dcc6841816b04bb9954e28ec6dafe, type: 3}
 --- !u!4 &7273751951739570358 stripped
@@ -175,6 +210,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5889532064865705765, guid: a3af3557f30b5e744b19bca5744172e4,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3af3557f30b5e744b19bca5744172e4, type: 3}
 --- !u!4 &7273751951929989603 stripped
@@ -249,6 +289,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 890191075869350944, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 890191075971673957, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 890191075170201713, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 890191075340145757, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 890191075312649955, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 890191075419977451, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 890191076316952730, guid: 2762b0a74feab4d429bac7bfd337e3e3,
+        type: 3}
+      propertyPath: inventory
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2762b0a74feab4d429bac7bfd337e3e3, type: 3}

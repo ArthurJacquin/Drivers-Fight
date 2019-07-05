@@ -15,6 +15,12 @@ public enum EquipmentType
 [CreateAssetMenu(menuName ="Items/Equippable Item")]
 public class EquippableItem : Item
 {
+    [Space]
+    [Header("Armor bonus")]
+    public int ArmorDurability;
+
+    [Space]
+    [Header("Armor bonus")]
     public int FrontBumperArmorBonus;
     public int RearBumperArmorBonus;
     public int LeftFlankArmorBonus;
@@ -28,6 +34,7 @@ public class EquippableItem : Item
     public int DamageBonus;
 
     [Space]
+    [Header("Armor percent bonus")]
     public float FrontBumperArmorPercentBonus;
     public float RearBumperArmorPercentBonus;
     public float LeftFlankArmorPercentBonus;
@@ -41,6 +48,7 @@ public class EquippableItem : Item
     public float DamagePercentBonus;
 
     [Space]
+    [Header("Equipment type")]
     public EquipmentType EquipmentType;
 
     public override Item GetCopy()

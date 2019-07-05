@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Drivers.LocalizationSettings;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer audioMixer;
 
     public Dropdown resolutionDropdown;
+    public Dropdown graphicDropdown;
 
     Resolution[] resolutions;
 
@@ -34,6 +36,19 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        graphicDropdown.ClearOptions();
+        if (LocalizationManager.Instance.currentLanguageID == 1)
+        {
+            List<string> graphicOptions = new List<string> { LocalizationManager.Instance.GetText("VERY_LOW"), LocalizationManager.Instance.GetText("LOW"), LocalizationManager.Instance.GetText("MEDIUM"), LocalizationManager.Instance.GetText("HIGH"), LocalizationManager.Instance.GetText("VERY_HIGH"), LocalizationManager.Instance.GetText("ULTRA") };
+            graphicDropdown.AddOptions(graphicOptions);
+        }
+        else
+        {
+            List<string> graphicOptions = new List<string> { LocalizationManager.Instance.GetText("VERY_LOW"), LocalizationManager.Instance.GetText("LOW"), LocalizationManager.Instance.GetText("MEDIUM"), LocalizationManager.Instance.GetText("HIGH"), LocalizationManager.Instance.GetText("VERY_HIGH"), LocalizationManager.Instance.GetText("ULTRA") };
+            graphicDropdown.AddOptions(graphicOptions);
+        }
+        graphicDropdown.RefreshShownValue();
     }
 
     public void SetResolution(int resolutionIndex)

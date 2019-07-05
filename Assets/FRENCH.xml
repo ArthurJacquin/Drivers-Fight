@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language LANG="french" ID="1">
+  <!-- Main Menu -->
+  <text key="PLAY">Jouer</text>
+  <text key="OPTIONS">Options</text>
+  <text key="QUIT">Quitter</text>
+  <!-- Options Menu -->
+  <text key="FULLSCREEN">Plein écran</text>
+  <text key="GRAPHICS">Graphiques</text>
+  <text key="VOLUME">Volume</text>
+  <text key="LANGUAGE">Langage</text>
+  <text key="BACK">Retour</text>
+  <!-- Graphics Options -->
+  <text key="VERY_LOW">Très bas</text>
+  <text key="LOW">Bas</text>
+  <text key="MEDIUM">Moyen</text>
+  <text key="HIGH">Haut</text>
+  <text key="VERY_HIGH">Très haut</text>
+  <text key="ULTRA">Extrème</text>
+  <!-- Character Panel -->
+  <text key="EQUIPMENT_STATS">Equipement &#38; Stats</text>
+  <text key="FRONT_ARMOR">Armure frontale</text>
+  <text key="REAR_ARMOR">Armure arrière</text>
+  <text key="LEFT_ARMOR">Armure gauche</text>
+  <text key="RIGHT_ARMOR">Armure droite</text>
+  <text key="TIRES_ARMOR">Armure pneus</text>
+  <text key="WHEEL_ARMOR">Armure volant</text>
+  <text key="MAX_SPEED">Vitesse max.</text>
+  <text key="ACCELERATION">Accélération</text>
+  <text key="DECELERATION">Décéleration</text>
+  <text key="MANEUVERABILITY">Maniabilité</text>
+  <text key="DAMAGE">Dommage</text>
+  <text key="MODIFIERS">Modificateurs</text>
+  <!-- Inventory Panel -->
+  <text key="INVENTORY">Inventaire</text>
+  <text key="EQUIPMENT">Equipement</text>
+  <text key="CONFIRM_DELETE">Êtes-vous sûr de vouloir détruire l'objet ?</text>
+  <text key="YES">Oui</text>
+  <text key="NO">Non</text>
+  <!-- Craft Panel -->
+  <text key="FACTORY">Usine</text>
+</Language>
