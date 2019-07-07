@@ -16,9 +16,6 @@ namespace DriversFight.Scripts
         public Text itemCost;
         public Text itemDescription;
 
-        [HideInInspector]
-        public AvatarExposerScript avatar;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -27,23 +24,27 @@ namespace DriversFight.Scripts
 
         void SetButton()
         {
-            itemName.text = "Repair car";
-            itemCost.text = "100";
+            itemName.text = "yes";
+            itemCost.text = "maybe";
+            itemDescription.text = "no";
+            /*itemName.text = carItem.items[itemNumber].name;
+            itemCost.text = "$" + carItem.items[itemNumber].cost;
+            itemDescription.text = carItem.items[itemNumber].description;*/
         }
 
         public void OnClick()
         {
-            if(avatar.Stats.EngineHealth < 250)
+            /*if(carItem.currentEngineHealth > carItem.items[itemNumber].cost)
             {
-                avatar.Stats.EngineHealth = avatar.Stats.EngineHealth + 100;
-                Debug.Log("+100");
-            }
-            
+                carItem.currentEngineHealth -= carItem.items[itemNumber].cost;
+                carItem.currentItem = itemNumber;
+            }*/
         }
 
         // Update is called once per frame
         void Update()
         {
+
         }
     }
 }

@@ -298,61 +298,46 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/Photon/PhotonUnityNetworking/Code/Editor/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Advertisements">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Purchasing">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.VersionHandler">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.JarResolver_v1.2.95.0">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.95.0.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/Photon/PhotonUnityNetworking/Code/Editor/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Google.IOSResolver_v1.2.95.0">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.95.0.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.95.0.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity.Editor">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Editor/Facebook.Unity.Editor.dll</HintPath>
+    <Reference Include="Google.JarResolver_v1.2.95.0">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.95.0.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity.Settings">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandlerImpl_v1.2.95.0">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.95.0.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.95.0.dll</HintPath>
     </Reference>
-    <Reference Include="FacebookNamedPipeClient">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Gameroom/FacebookNamedPipeClient.dll</HintPath>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity.Gameroom">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Gameroom/Facebook.Unity.Gameroom.dll</HintPath>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
+    <Reference Include="UnityEngine.Advertisements.Editor">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.3f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

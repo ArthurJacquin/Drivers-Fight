@@ -3,16 +3,16 @@ using Drivers.CharacterStats;
 
 public enum EquipmentType
 {
-    ParechocAvant,
-    ParechocArrière,
-    FlancDroit,
-    FlancGauche,
-    Volant,
-    Pneus,
-    Moteur
+    FrontArmor,
+    RearArmor,
+    RightArmor,
+    LeftArmor,
+    Wheel,
+    Tires,
+    Engine
 }
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName ="Items/Equippable Item")]
 public class EquippableItem : Item
 {
     public int FrontBumperArmorBonus;
@@ -42,6 +42,16 @@ public class EquippableItem : Item
 
     [Space]
     public EquipmentType EquipmentType;
+
+    public override Item GetCopy()
+    {
+        return Instantiate(this);
+    }
+
+    public override void Destroy()
+    {
+        Destroy(this);
+    }
 
     public void Equip(Character c)
     {
@@ -151,5 +161,72 @@ public class EquippableItem : Item
         c.DecelerationSpeed.RemoveAllModifiersFromSource(this);
         c.Maneuverability.RemoveAllModifiersFromSource(this);
         c.Damage.RemoveAllModifiersFromSource(this);
+    }
+
+    public override string GetItemType()
+    {
+        return EquipmentType.ToString();
+    }
+
+    public override string GetDescription()
+    {
+        sb.Length = 0;
+
+        // Not percent stat
+        AddStat(FrontBumperArmorBonus, "Front armor");
+        AddStat(RearBumperArmorBonus, "Rear armor");
+        AddStat(RightFlankArmorBonus, "Right armor");
+        AddStat(LeftFlankArmorBonus, "Left armor");
+        AddStat(TiresArmorBonus, "Tires armor");
+        AddStat(WheelArmorBonus, "Wheel armor");
+        AddStat(MaximumSpeedBonus, "Max. speed");
+        AddStat(AccelerationSpeedBonus, "Acceleration");
+        AddStat(DecelerationSpeedBonus, "Deceleration");
+        AddStat(ManeuverabilityBonus, "Maneuverability");
+        AddStat(DamageBonus, "Damage");
+
+        // Percent stat
+        AddStat(FrontBumperArmorPercentBonus, "Front armor", isPercent: true);
+        AddStat(RearBumperArmorPercentBonus, "Rear armor", isPercent: true);
+        AddStat(RightFlankArmorPercentBonus, "Right armor", isPercent: true);
+        AddStat(LeftFlankArmorPercentBonus, "Left armor", isPercent: true);
+        AddStat(TiresArmorPercentBonus, "Tires armor", isPercent: true);
+        AddStat(WheelArmorPercentBonus, "Wheel armor", isPercent: true);
+        AddStat(MaximumSpeedPercentBonus, "Max. speed", isPercent: true);
+        AddStat(AccelerationSpeedPercentBonus, "Acceleration", isPercent: true);
+        AddStat(DecelerationSpeedPercentBonus, "Deceleration", isPercent: true);
+        AddStat(ManeuverabilityPercentBonus, "Maneuverability", isPercent: true);
+        AddStat(DamagePercentBonus, "Damage", isPercent: true);
+
+        return sb.ToString();
+    }
+
+    private void AddStat(float value, string statName, bool isPercent = false)
+    {
+        if (value != 0)
+        {
+            if (sb.Length > 0)
+            {
+                sb.AppendLine();
+            }
+
+            if (value > 0)
+            {
+                sb.Append("+");
+            }
+
+            if (isPercent)
+            {
+                sb.Append(value * 100);
+                sb.Append("% ");
+            }
+            else
+            {
+                sb.Append(value);
+                sb.Append(" ");
+            }
+
+            sb.Append(statName);
+        }
     }
 }

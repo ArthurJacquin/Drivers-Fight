@@ -1,37 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Video;
-using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class PauseMenu : MonoBehaviour {
+namespace DriversFight.Scripts
+{
 
-    public static bool gameIsPaused = false;
+    public class PauseMenu : MonoBehaviour {
 
-    public GameObject pauseMenuUI;
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
+        public static bool gameIsPaused = false;
+        public static bool inGame = false;
+
+        [SerializeField]
+        private GameObject pauseMenuUI;
+
+        [SerializeField]
+        private GameObject dropItemArea;
+
+        // Update is called once per frame
+        void Update() {
+            if (Input.GetKeyDown(KeyCode.Escape) && inGame)
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (gameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
-	}
 
-    public void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-    }
+        public void Resume()
+        {
+            pauseMenuUI.SetActive(false);
+            dropItemArea.SetActive(true);
+            HideMouseCursor();
+        }
 
-    void Pause()
-    {
-        pauseMenuUI.SetActive(true);
+        void Pause()
+        {
+            pauseMenuUI.SetActive(true);
+            dropItemArea.SetActive(false);
+            ShowMouseCursor();
+        }
+
+        public void ShowMouseCursor()
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        public void HideMouseCursor()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

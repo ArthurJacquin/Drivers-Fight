@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
+using Drivers.Localization;
 
 namespace DriversFight.Scripts
 {
@@ -39,6 +40,7 @@ namespace DriversFight.Scripts
         private float carDeceleration = 0.3f; //Deceleration of the car
 
         private int deadAvatarsCount = 0;
+        private int totalPlayer = 0;
 
         private AIntentReceiver[] activatedIntentReceivers;
 
@@ -156,7 +158,6 @@ namespace DriversFight.Scripts
             startGameControllerScript.PlayerJoined += ActivateAvatar;
             startGameControllerScript.PlayerLeft += DeactivateAvatar;
             startGameControllerScript.Disconnected += EndGame;
-            //startGameControllerScript.MasterClientSwitched += EndGame;
             startGameControllerScript.PlayerSetup += SetupPlayer;
 
             foreach (var avatar in avatars)
@@ -194,6 +195,7 @@ namespace DriversFight.Scripts
             }
 
             gameStarted = false;
+            PauseMenu.inGame = true;
             deadAvatarsCount = 0;
         }
 
@@ -288,9 +290,7 @@ namespace DriversFight.Scripts
                 avatar.Stats.currentSpeed = 0f;
             }
 
-            StartCoroutine("WaitForPlayers");
-            StartCoroutine("StartTheGame");
-            
+            StartCoroutine("WaitForPlayersAndStartTheGame");
         }
 
         private void FixedUpdate()
@@ -307,28 +307,16 @@ namespace DriversFight.Scripts
                 return;
             }
 
-            // If intents and avatars are not setup properly
-            if (activatedIntentReceivers == null
-                || avatars == null
-                || avatars.Length != activatedIntentReceivers.Length)
-            {
-                Debug.LogError("There is something wrong with avatars and intents setup !");
-                return;
-            }
-
-            var activatedAvatarsCount = 0;
-
             //Execute the requested actions
             for (var i = 0; i < activatedIntentReceivers.Length; i++)
             {
-                //Movements
-
+                
                 var intentReceiver = activatedIntentReceivers[i];
                 var avatar = avatars[i];
 
                 Character mystats = avatar.Stats;
 
-                activatedAvatarsCount += avatar.AvatarRootGameObject.activeSelf ? 1 : 0;
+                //Movements
 
                 //Backward
                 if (intentReceiver.WantToMoveBackward)
@@ -423,7 +411,7 @@ namespace DriversFight.Scripts
             }
 
             //If 1 player remaining then end the game
-            if (activatedAvatarsCount - deadAvatarsCount <= 1 && !waitingForPlayers)
+            if (totalPlayer - deadAvatarsCount <= 1 && !waitingForPlayers)
             {
                 for(var i = 0; i < avatars.Length; i++)
                 {
@@ -452,7 +440,7 @@ namespace DriversFight.Scripts
         }
 
         //Wait for players to connect to the game and disconnect if nobody in the room
-        IEnumerator WaitForPlayers()
+        IEnumerator WaitForPlayersAndStartTheGame()
         {
             waitingForPlayers = true;
 
@@ -465,6 +453,9 @@ namespace DriversFight.Scripts
             //Wait for players
             while(timeWaited < 30)
             {
+                if (endGamePanel.activeSelf)
+                   yield break;
+
                 mainText.text = "Waiting for players... " + (30 - timeWaited);
                 yield return new WaitForSeconds(1);
 
@@ -478,57 +469,64 @@ namespace DriversFight.Scripts
                     break;
             }
 
+            //Start the game or not ?
+            totalPlayer = PlayerNumbering.SortedPlayers.Length;
+
             //if alone, leave the game
-            if (timeWaited == 30)
-                EndGame();
-
-            if (PhotonNetwork.IsMasterClient)
+            if (timeWaited == 30 && totalPlayer <= 1)
             {
-                timeWaited = 0;
-                photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
+                LeaveRoom();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+
+                mainText.text = "DRIVER'S FIGHT !";
+                mainText.gameObject.SetActive(false);
             }
-
-            //Wait for game start
-            while (timeWaited < 10)
-            {
-                mainText.text = "Game begin in " + (10 - timeWaited) + " !";
-                yield return new WaitForSeconds(1);
-
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    timeWaited++;
-                    photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
-                }
-            }
-            waitingForPlayers = false;
-
-            mainText.text = "FIGHT !";
-
-            yield return new WaitForSeconds(3);
-            mainText.text = "DRIVER'S FIGHT !";
-            mainText.gameObject.SetActive(false);
-        }
-
-        IEnumerator StartTheGame()
-        {
-            while (waitingForPlayers)
-            {
-                yield return new WaitForSeconds(1);
-            }
-
-            EnableIntentReceivers();
-            GameStarted = true;
-            items.SetActive(true);
-
-            //Sector reset
-            if(PhotonNetwork.IsMasterClient)
-                sectorSpawnManagementScript.enabled = true;
             else
             {
-                sectorSpawnManagementScript.enabled = true;
-                sectorSpawnManagementScript.enabled = false;
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    timeWaited = 0;
+                    photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
+                }
+
+                //Wait for game start
+                while (timeWaited < 10)
+                {
+                    if (endGamePanel.activeSelf)
+                        yield break;
+
+                    mainText.text = "Game begin in " + (10 - timeWaited) + " !";
+                    yield return new WaitForSeconds(1);
+
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        timeWaited++;
+                        photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
+                    }
+                }
+                waitingForPlayers = false;
+
+                timeWaited = 0;
+                mainText.text = "FIGHT !";
+
+                yield return new WaitForSeconds(3);
+                mainText.text = "DRIVER'S FIGHT !";
+                mainText.gameObject.SetActive(false);
+
+                EnableIntentReceivers();
+                GameStarted = true;
+                //items.SetActive(true);
+
+                //Sector reset
+                if (PhotonNetwork.IsMasterClient)
+                    sectorSpawnManagementScript.enabled = true;
+                else
+                {
+                    sectorSpawnManagementScript.enabled = true;
+                    sectorSpawnManagementScript.enabled = false;
+                }
             }
-            
         }
 
         [PunRPC]
@@ -547,15 +545,37 @@ namespace DriversFight.Scripts
             if (PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[avatarId].ActorNumber)
             {
                 //Good or bad end
-                if (PlayerNumbering.SortedPlayers.Length <= 2 && avatars[avatarId].IsAlive)
+                if ((totalPlayer - deadAvatarsCount <= 1 && avatars[avatarId].IsAlive) || totalPlayer == 1)
                 {
-                    endGamePanelRankText.text = "Vous êtes l'ULTIME DRIVER !";
-                    endGamePanelCommentaryText.text = "Félicitation !";
+                    if (Locale.CurrentLanguage == "French")
+                    {
+                        endGamePanelRankText.text = "Vous êtes l'ULTIME DRIVER !";
+                        endGamePanelCommentaryText.text = "Félicitation !";
+                    }
+
+                    if (Locale.CurrentLanguage == "English")
+                    {
+                        endGamePanelRankText.text = "You are the ULTIMATE DRIVER !";
+                        endGamePanelCommentaryText.text = "Congratulation !";
+                    }
                 }
                 else
                 {
-                    endGamePanelRankText.text = "Tu termines en " + PlayerNumbering.SortedPlayers.Length + "eme position.";
-                    endGamePanelCommentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !";
+                    if (Locale.CurrentLanguage == "French")
+                    {
+                        endGamePanelRankText.text = "Tu termines en " + (totalPlayer - deadAvatarsCount) + "eme position.";
+                        endGamePanelCommentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !";
+                    }
+
+                    if (Locale.CurrentLanguage == "English")
+                    {
+                        endGamePanelRankText.text = "You finish in " + (totalPlayer - deadAvatarsCount);
+                        if(totalPlayer - deadAvatarsCount == 2)
+                            endGamePanelCommentaryText.text += "nd position.";
+                        if (totalPlayer - deadAvatarsCount == 3)
+                            endGamePanelCommentaryText.text += "rd position.";
+                        endGamePanelCommentaryText.text = "Even my grandma drives better than you !";
+                    }
                 }
 
                 //Reset 
@@ -565,9 +585,12 @@ namespace DriversFight.Scripts
 
                 //UI
                 playerUI.SetActive(false);
+                PauseMenu.inGame = false;
 
                 //Sectors
                 sectorSpawnManagementScript.enabled = false;
+
+                DisableIntentReceivers();
 
                 //Leave room
                 if (!PhotonNetwork.IsMasterClient)
@@ -576,8 +599,11 @@ namespace DriversFight.Scripts
                 }
                 else
                 {
-                    if (PlayerNumbering.SortedPlayers.Length <= 2)
+                    if (totalPlayer - deadAvatarsCount <= 1)
                     {
+                        deadAvatarsCount = 0;
+                        gameStarted = false;
+                        
                         PhotonNetwork.LeaveRoom();
                         PhotonNetwork.Disconnect();
                     } 

@@ -6,13 +6,25 @@ public class EquipmentPanel : MonoBehaviour
     [SerializeField] Transform equipmentSlotsParent;
     [SerializeField] EquipmentSlot[] equipmentSlots;
 
-    public event Action<Item> OnItemRightClickedEvent;
+    public event Action<BaseItemSlot> OnPointerEnterEvent;
+    public event Action<BaseItemSlot> OnPointerExitEvent;
+    public event Action<BaseItemSlot> OnRightClickEvent;
+    public event Action<BaseItemSlot> OnBeginDragEvent;
+    public event Action<BaseItemSlot> OnEndDragEvent;
+    public event Action<BaseItemSlot> OnDragEvent;
+    public event Action<BaseItemSlot> OnDropEvent;
 
     private void Start()
     {
         for (int i = 0; i < equipmentSlots.Length; i++)
         {
-            equipmentSlots[i].OnRightClickEvent += OnItemRightClickedEvent;
+            equipmentSlots[i].OnPointerEnterEvent += slot => { if (OnPointerEnterEvent != null) OnPointerEnterEvent(slot); };
+            equipmentSlots[i].OnPointerExitEvent += slot => { if (OnPointerExitEvent != null) OnPointerExitEvent(slot); };
+            equipmentSlots[i].OnRightClickEvent += slot => { if (OnRightClickEvent != null) OnRightClickEvent(slot); };
+            equipmentSlots[i].OnBeginDragEvent += slot => { if (OnBeginDragEvent != null) OnBeginDragEvent(slot); };
+            equipmentSlots[i].OnEndDragEvent += slot => { if (OnEndDragEvent != null) OnEndDragEvent(slot); };
+            equipmentSlots[i].OnDragEvent += slot => { if (OnDragEvent != null) OnDragEvent(slot); };
+            equipmentSlots[i].OnDropEvent += slot => { if (OnDropEvent != null) OnDropEvent(slot); };
         }
     }
 
@@ -29,9 +41,11 @@ public class EquipmentPanel : MonoBehaviour
             {
                 previousItem = (EquippableItem)equipmentSlots[i].Item;
                 equipmentSlots[i].Item = item;
+                equipmentSlots[i].Amount = 1;
                 return true;
             }
         }
+
         previousItem = null;
         return false;
     }
@@ -43,6 +57,7 @@ public class EquipmentPanel : MonoBehaviour
             if (equipmentSlots[i].Item == item)
             {
                 equipmentSlots[i].Item = null;
+                equipmentSlots[i].Amount = 0;
                 return true;
             }
         }

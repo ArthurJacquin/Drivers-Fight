@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,5 +10,10 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("QUIT");
         Application.Quit();
+    }
+
+    public void PhotonDisconnect()
+    {
+        PhotonNetwork.Disconnect();
     }
 }

@@ -30,9 +30,6 @@ namespace DriversFight.Scripts
         private Button joinRoomButton;
 
         [SerializeField]
-        private Text welcomeMessageText;
-
-        [SerializeField]
         private GameObject endGamePanel;
 
         public event Action OnlinePlayReady;
@@ -68,7 +65,7 @@ namespace DriversFight.Scripts
 
             localPlayButton.gameObject.SetActive(true);
             onlinePlayButton.gameObject.SetActive(true);
-            localPlayButton.interactable = true;
+            localPlayButton.interactable = false;
             onlinePlayButton.interactable = true;
             gameModeSelection.SetActive(false);
 
@@ -76,8 +73,6 @@ namespace DriversFight.Scripts
             joinRoomButton.gameObject.SetActive(false);
             createRoomButton.interactable = false;
             joinRoomButton.interactable = false;
-
-            welcomeMessageText.text = "Choose Game Mode !";
         }
 
         private void LocalPlaySetup()
@@ -86,8 +81,6 @@ namespace DriversFight.Scripts
             onlinePlayButton.gameObject.SetActive(false);
             createRoomButton.gameObject.SetActive(false);
             joinRoomButton.gameObject.SetActive(false);
-
-            welcomeMessageText.text = "Let's Play !";
 
             OfflinePlayReady?.Invoke();
 
@@ -105,8 +98,6 @@ namespace DriversFight.Scripts
             joinRoomButton.gameObject.SetActive(true);
             createRoomButton.interactable = false;
             joinRoomButton.interactable = false;
-
-            welcomeMessageText.text = "Create or Join an existing Game ?";
 
             PhotonNetwork.ConnectUsingSettings();
         }
@@ -188,7 +179,7 @@ namespace DriversFight.Scripts
 
         private IEnumerator InformPlayerJoinedEndOfFrame(int actorNumber)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
             var i = 0;
             for (; i < PlayerNumbering.SortedPlayers.Length; i++)
             {
@@ -203,7 +194,7 @@ namespace DriversFight.Scripts
 
         private IEnumerator SetWelcomeMessageAndSetReadyAtTheEndOfFrame()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             var i = 0;
             for (; i < PlayerNumbering.SortedPlayers.Length; i++)
             {

@@ -3,11 +3,11 @@
 public class ItemChest : MonoBehaviour
 {
     [SerializeField] Item item;
+    [SerializeField] int amount = 1;
     [SerializeField] Inventory inventory;
     [SerializeField] SpriteRenderer spriteRenderer;
-    // [SerializeField] GameObject playerGameObject;
     [SerializeField] Color emptyColor;
-    [SerializeField] KeyCode itemPickupKeyCode = KeyCode.E;
+    [SerializeField] KeyCode itemPickupKeyCode = KeyCode.F;
 
     private bool isInRange;
     private bool isEmpty;
@@ -29,15 +29,22 @@ public class ItemChest : MonoBehaviour
 
     private void Update()
     {
-        if (isInRange && Input.GetKeyDown(itemPickupKeyCode))
+        if (isInRange && !isEmpty && Input.GetKeyDown(itemPickupKeyCode))
         {
-            if (!isEmpty)
+            Item itemCopy = item.GetCopy();
+            if (inventory.AddItem(itemCopy))
             {
-                inventory.AddItem(Instantiate(item));
-                isEmpty = true;
-                spriteRenderer.color = emptyColor;
+                amount--;
+                if (amount == 0)
+                {
+                    isEmpty = true;
+                    spriteRenderer.color = emptyColor;
+                }
             }
-            
+            else
+            {
+                itemCopy.Destroy();
+            }
         }
     }
 
@@ -63,7 +70,7 @@ public class ItemChest : MonoBehaviour
 
     private void CheckCollision(GameObject gameObject, bool state)
     {
-        if (gameObject.gameObject.CompareTag("Car"))
+        if (gameObject.CompareTag("Car"))
         {
             isInRange = state;
             spriteRenderer.enabled = state;

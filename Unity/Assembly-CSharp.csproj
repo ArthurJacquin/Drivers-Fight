@@ -60,18 +60,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Drivers Fight\Localization\Locale.cs" />
+    <Compile Include="Assets\Drivers Fight\Localization\Localize.cs" />
+    <Compile Include="Assets\Drivers Fight\Localization\LocalizeBase.cs" />
+    <Compile Include="Assets\Drivers Fight\Localization\LocalizeTM.cs" />
+    <Compile Include="Assets\Drivers Fight\Localization\MenuManager.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotCameraScript.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotControllerScript.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotExposerScript.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotFieldOfViewScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Craft\CraftingRecipe.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Craft\CraftingRecipeUI.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Craft\CraftingWindow.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Equipment\EquipmentPanel.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Equipment\EquipmentSlot.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Equipment\EquippableItem.cs" />
-    <Compile Include="Assets\Drivers Fight\Scripts\Facebook\FacebookManager.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Factory\CraftInput.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Factory\DisplayItemButton.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Factory\FactoryController.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Inventory\DropItemArea.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Inventory\InventoryInput.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Inventory\QuestionDialog.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Item\BaseItemSlot.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Item\IItemContainer.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Item\ItemChest.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Item\ItemContainer.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Item\ItemSlot.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Item\ItemTooltip.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Menu\MainMenu.cs" />
@@ -91,25 +106,21 @@
     <Compile Include="Assets\Drivers Fight\Scripts\Player\PlayerCameraScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Player\PlayerUIScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Sector\SectorSpawnManagement.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Social\SocialManagement.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Stat\StatDisplay.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Stat\StatModifier.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Stat\StatPanel.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Stat\StatTooltip.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\AccelerationBuffItemEffect.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\EngineRepairItemEffect.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\InvincibilityBuffItemEffect.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\MaxSpeedBuffItemEffect.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\UsableItem.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\UsableItemEffect.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Utility\DataCollector\DataCollector.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Utility\DataCollector\DataDisplayer.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Utility\DataCollector\DataVault.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Utility\DataCollector\EventTest.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AccessTokenMenu.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppEvents.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppLinks.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppRequests.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\DialogShare.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
@@ -226,6 +237,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Drivers Fight\Localization\Resources\localization\English.txt" />
     <None Include="Assets\Photon\PhotonLibs\release_history.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -236,29 +248,29 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Photon\PhotonUnityNetworking\Demos\Shared Assets\Skin\3dText.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\FacebookSDK\link.xml" />
     <None Include="Assets\Photon\PhotonUnityNetworking\readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Drivers Fight\Localization\Resources\localization\French.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -462,37 +474,25 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.3f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.Unity.Settings">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="FacebookNamedPipeClient">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Gameroom/FacebookNamedPipeClient.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.Unity.Gameroom">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Gameroom/Facebook.Unity.Gameroom.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.Unity">
-      <HintPath>D:/ProjetDriver/Drivers-Fight/Unity/Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.3f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
