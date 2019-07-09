@@ -16,8 +16,9 @@ public enum EquipmentType
 public class EquippableItem : Item
 {
     [Space]
-    [Header("Armor bonus")]
+    [Header("Armor durability")]
     public int ArmorDurability;
+    public int CurrentArmorDurability;
 
     [Space]
     [Header("Armor bonus")]

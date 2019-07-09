@@ -10,6 +10,8 @@
   <text key="GRAPHICS">Graphics</text>
   <text key="VOLUME">Volume</text>
   <text key="LANGUAGE">Language</text>
+  <text key="ENGLISH">English</text>
+  <text key="FRENCH">French</text>
   <text key="BACK">Back</text>
   <!-- Graphics Options -->
   <text key="VERY_LOW">Very low</text>
@@ -27,7 +29,7 @@
   <text key="INTERACT_OBJECT">Interact with an object</text>
   <text key="INTERACT_FACTORY">Interact with the factory</text>
   <!-- Character Panel -->
-  <text key="EQUIPMENT_STATS">Equipment &#38; Stats</text>
+  <text key="STATS">Stats</text>
   <text key="FRONT_ARMOR">Front armor</text>
   <text key="REAR_ARMOR">Rear armor</text>
   <text key="LEFT_ARMOR">Left armor</text>
@@ -46,20 +48,20 @@
   <text key="CONFIRM_DELETE">Are you sure you want to destroy the item ?</text>
   <text key="YES">Yes</text>
   <text key="NO">No</text>
+  <!-- Equipment -->
+  <text key="ENGINE">Engine</text>
+  <text key="FRONT_BUMPER">Front bumper</text>
+  <text key="REAR_BUMPER">Rear bumper</text>
+  <text key="LEFT_PROTECTION">Left protection</text>
+  <text key="RIGHT_PROTECTION">Right protection</text>
+  <text key="STEERING_WHEEL">Steering wheel</text>
+  <text key="TIRES">Tires</text>
+  <text key="CONSUMABLE">Consumable</text>
+  <text key="USABLE">Usable</text>
+  <text key="ENGINE_REPAIR_KIT">Engine repair kit</text>
+  <text key="INVINCIBILITY">Invincibility</text>
+  <text key="SCRAP_COIN">Scrap coin</text>
+  <text key="DURABILITY">Durability</text>
   <!-- Craft Panel -->
   <text key="FACTORY">Factory</text>
-  <!-- Equipment -->
-  <text key="FACTORY">Engine</text>
-  <text key="FACTORY">Front bumper</text>
-  <text key="FACTORY">Rear bumper</text>
-  <text key="FACTORY">Left protection</text>
-  <text key="FACTORY">Right protection</text>
-  <text key="FACTORY">Steering wheel</text>
-  <text key="FACTORY">Tires</text>
-  <text key="FACTORY">Consumable</text>
-  <text key="FACTORY">Usable</text>
-  <text key="FACTORY">Engine repair kit</text>
-  <text key="FACTORY">Invincibility</text>
-  <text key="FACTORY">Scrap coin</text>
-  <text key="FACTORY">Durability</text>
 </Language>

@@ -10,6 +10,8 @@
   <text key="GRAPHICS">Graphiques</text>
   <text key="VOLUME">Volume</text>
   <text key="LANGUAGE">Langage</text>
+  <text key="ENGLISH">Anglais</text>
+  <text key="FRENCH">Français</text>
   <text key="BACK">Retour</text>
   <!-- Graphics Options -->
   <text key="VERY_LOW">Très bas</text>
@@ -27,7 +29,7 @@
   <text key="INTERACT_OBJECT">Intéragir avec un objet</text>
   <text key="INTERACT_FACTORY">Intéragir avec l'usine</text>
   <!-- Character Panel -->
-  <text key="EQUIPMENT_STATS">Equipement &#38; Stats</text>
+  <text key="STATS">Stats</text>
   <text key="FRONT_ARMOR">Armure frontale</text>
   <text key="REAR_ARMOR">Armure arrière</text>
   <text key="LEFT_ARMOR">Armure gauche</text>
@@ -46,6 +48,20 @@
   <text key="CONFIRM_DELETE">Êtes-vous sûr de vouloir détruire l'objet ?</text>
   <text key="YES">Oui</text>
   <text key="NO">Non</text>
+  <!-- Equipment -->
+  <text key="ENGINE">Moteur</text>
+  <text key="FRONT_BUMPER">Pare-choc avant</text>
+  <text key="REAR_BUMPER">Pare-choc arrière</text>
+  <text key="LEFT_PROTECTION">Portière gauche</text>
+  <text key="RIGHT_PROTECTION">Portière droite</text>
+  <text key="STEERING_WHEEL">Volant</text>
+  <text key="TIRES">Pneus</text>
+  <text key="CONSUMABLE">Consommable</text>
+  <text key="USABLE">Utilisable</text>
+  <text key="ENGINE_REPAIR_KIT">Kit de réparation moteur</text>
+  <text key="INVINCIBILITY">Invincibilité</text>
+  <text key="SCRAP_COIN">Pièce de ferraille</text>
+  <text key="DURABILITY">Durabilité</text>
   <!-- Craft Panel -->
   <text key="FACTORY">Usine</text>
 </Language>

@@ -86,13 +86,13 @@ namespace Drivers.LocalizationSettings
         public void SetEnglish()
         {
             ID = 0;
-            settingsMenu.UpdateGraphicDropdown();
+            settingsMenu.DisplayGraphicDropdown();
         }
 
         public void SetFrench()
         {
             ID = 1;
-            settingsMenu.UpdateGraphicDropdown();
+            settingsMenu.DisplayGraphicDropdown();
         }
     }
 }
