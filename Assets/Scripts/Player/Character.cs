@@ -35,6 +35,7 @@ public class Character : MonoBehaviour
 
     [Header("Serialize Field")]
     [SerializeField] CraftingWindow craftingWindow;
+    [SerializeField] GarageWindows garageWindows;
     [SerializeField] StatPanel statPanel;
     [SerializeField] ItemTooltip itemTooltip;
     [SerializeField] Image draggableItem;

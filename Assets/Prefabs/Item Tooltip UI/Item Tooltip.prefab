@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -370,7 +370,7 @@ MonoBehaviour:
   ItemDurabilityText: {fileID: 2816224529527502444}
   ItemTypeText: {fileID: 2726061812951331441}
   ItemDescriptionText: {fileID: 2726061813477346452}
-  equipmentDurability: {fileID: 0}
+  equipmentPanel: {fileID: 0}
 --- !u!1 &2726061814115208999
 GameObject:
   m_ObjectHideFlags: 0

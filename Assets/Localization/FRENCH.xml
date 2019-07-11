@@ -64,6 +64,15 @@
   <text key="DURABILITY">Durabilité</text>
   <!-- Craft Panel -->
   <text key="FACTORY">Usine</text>
+  <!-- Garage Panel -->
+  <text key="GARAGE">Garage</text>
+  <text key="GARAGE_DESCRIPTION">Vous pouvez réparer une pièce de votre équipement contre un kit de réparation</text>
+  <text key="REPAIR_FRONT_ARMOR">Réparer l'armure frontale</text>
+  <text key="REPAIR_REAR_ARMOR">Réparer l'armure arrière</text>
+  <text key="REPAIR_LEFT_ARMOR">Réparer l'armure gauche</text>
+  <text key="REPAIR_RIGHT_ARMOR">Réparer l'armure droite</text>
+  <text key="REPAIR_TIRES_ARMOR">Réparer les pneus</text>
+  <text key="REPAIR_WHEEL_ARMOR">Réparer le volant</text>
   <!-- Usable Item -->
   <text key="GRANTS">Donne</text>
   <text key="SECONDS">secondes</text>
@@ -72,4 +81,7 @@
   <text key="REPAIR_ENGINE_FOR">Répare le moteur pour</text>
   <text key="ACCELERATION_FOR">accélération pour</text>
   <text key="HEALTH">santé</text>
+  <!-- Item -->
+  <text key="COIN_DESCRIPTION">Peut être utilisé a l'usine pour fabriquer des pièces d'équipement.</text>
+  <text key="REPAIR_KIT_DESCRIPTION">Permet de réparer une pièce d'équipement au garage.</text>
 </Language>

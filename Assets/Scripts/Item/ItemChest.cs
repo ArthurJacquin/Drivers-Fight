@@ -70,7 +70,7 @@ public class ItemChest : MonoBehaviour
 
     private void CheckCollision(GameObject gameObject, bool state)
     {
-        if (gameObject.CompareTag("Player"))
+        if (gameObject.CompareTag("Car"))
         {
             isInRange = state;
             spriteRenderer.enabled = state;

@@ -75,7 +75,7 @@ public class CraftInput : MonoBehaviour
 
     private void CheckCollision(GameObject gameObject, bool state)
     {
-        if (gameObject.CompareTag("Player"))
+        if (gameObject.CompareTag("Car"))
         {
             isInRange = state;
         }
