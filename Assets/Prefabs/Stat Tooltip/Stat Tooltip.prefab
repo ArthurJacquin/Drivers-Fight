@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 3322420237891639994}
   - component: {fileID: 3322420237891639992}
   - component: {fileID: 3322420237891639993}
-  - component: {fileID: 3322420237891639999}
+  - component: {fileID: 7506247841694904104}
   m_Layer: 5
   m_Name: Modifiers Label Text
   m_TagString: Untagged
@@ -448,7 +448,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Modifiers
---- !u!114 &3322420237891639999
+--- !u!114 &7506247841694904104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3322420237891639995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34bbfd55bf3939d49b77c4292a6a2b91, type: 3}
+  m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localizationKey: Modifiers
+  key: MODIFIERS

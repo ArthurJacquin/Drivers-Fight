@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Drivers.CharacterStats;
-using Drivers.Localization;
+using Drivers.LocalizationSettings;
 
 [CreateAssetMenu(menuName = "Item Effects/Max Speed Buff")]
 public class MaxSpeedBuffItemEffect : UsableItemEffect
@@ -19,12 +19,7 @@ public class MaxSpeedBuffItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
-        if (Locale.CurrentLanguage == "French")
-        {
-            return "Donne " + MaxSpeed + " vitesse max. pour " + Duration + " secondes.";
-        }
-
-        return "Grants " + MaxSpeed + " max. speed for " + Duration + " seconds.";
+        return LocalizationManager.Instance.GetText("GRANTS") + " " + MaxSpeed + " " + LocalizationManager.Instance.GetText("MAX_SPEED_FOR") + " " + Duration + " " + LocalizationManager.Instance.GetText("SECONDS") + ".";
     }
 
     private static IEnumerator RemoveBuff(Character character, StatModifier statModifier, float duration)

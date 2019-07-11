@@ -9,6 +9,10 @@ public class ItemTooltip : MonoBehaviour
     [SerializeField] Text ItemTypeText;
     [SerializeField] Text ItemDescriptionText;
 
+    [Space]
+    [Header("Public")]
+    [SerializeField] EquipmentPanel equipmentPanel;
+
     private string CheckItemNameLanguage(string itemName)
     {
         itemName = itemName.Replace("Engine repair kit", LocalizationManager.Instance.GetText("ENGINE_REPAIR_KIT"));
@@ -40,13 +44,6 @@ public class ItemTooltip : MonoBehaviour
         return itemType;
     }
 
-    /*private string CheckItemDurabilityLanguage(string ItemDurabilityText)
-    {
-        ItemDurabilityText = ItemDurabilityText.Replace("Durability", LocalizationManager.Instance.GetText("DURABILITY"));
-
-        return ItemDurabilityText;
-    }*/
-
     private string CheckItemDescriptionLanguage(string itemDescription)
     {
         itemDescription = itemDescription.Replace("Front armor", LocalizationManager.Instance.GetText("FRONT_ARMOR"));
@@ -74,26 +71,19 @@ public class ItemTooltip : MonoBehaviour
         itemType = CheckItemTypeLanguage(itemType);
         ItemTypeText.text = itemType;
 
-        /*if (item.GetItemType() == "FrontArmor")
+        ItemDurabilityText.enabled = true;
+
+        // Get armor
+        var armor = item as EquippableItem;
+
+        if (armor && armor.ArmorDurability > 0)
         {
-            ItemDurabilityText.text = "Durability " + equipmentDurability.CurrentFrontArmorDurability + " / " + equipmentDurability.FrontArmorDurability;
-            ItemDurabilityText.text = CheckItemDurabilityLanguage(ItemDurabilityText.text);
+            ItemDurabilityText.text = LocalizationManager.Instance.GetText("DURABILITY") + " " + armor.CurrentArmorDurability + " / " + armor.ArmorDurability;
         }
-        else if (item.GetItemType() == "RearArmor")
+        else
         {
-            ItemDurabilityText.text = "Durability " + equipmentDurability.CurrentRearArmorDurability + " / " + equipmentDurability.RearArmorDurability;
-            ItemDurabilityText.text = CheckItemDurabilityLanguage(ItemDurabilityText.text);
+            ItemDurabilityText.enabled = false;
         }
-        else if(item.GetItemType() == "LeftArmor")
-        {
-            ItemDurabilityText.text = "Durability " + equipmentDurability.CurrentLeftArmorDurability + " / " + equipmentDurability.LeftArmorDurability;
-            ItemDurabilityText.text = CheckItemDurabilityLanguage(ItemDurabilityText.text);
-        }
-        else if(item.GetItemType() == "RightArmor")
-        {
-            ItemDurabilityText.text = "Durability " + equipmentDurability.CurrentRightArmorDurability + " / " + equipmentDurability.RightArmorDurability;
-            ItemDurabilityText.text = CheckItemDurabilityLanguage(ItemDurabilityText.text);
-        }*/
 
         string itemDescription = item.GetDescription();
         itemDescription = CheckItemDescriptionLanguage(itemDescription);

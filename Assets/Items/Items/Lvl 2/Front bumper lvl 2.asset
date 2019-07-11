@@ -16,7 +16,8 @@ MonoBehaviour:
   ItemName: Front bumper lvl 2
   Icon: {fileID: 21300000, guid: 1daa630a8a95d5f4894fa7d9a9beabbd, type: 3}
   MaximumStacks: 1
-  ArmorDurability: 10
+  ArmorDurability: 100
+  CurrentArmorDurability: 100
   FrontBumperArmorBonus: 20
   RearBumperArmorBonus: 0
   LeftFlankArmorBonus: 0

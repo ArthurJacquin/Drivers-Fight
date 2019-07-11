@@ -64,4 +64,12 @@
   <text key="DURABILITY">Durability</text>
   <!-- Craft Panel -->
   <text key="FACTORY">Factory</text>
+  <!-- Usable Item -->
+  <text key="GRANTS">Grants</text>
+  <text key="SECONDS">seconds</text>
+  <text key="MAX_SPEED_FOR">max. speed for</text>
+  <text key="YOU_ARE_INVINCIBLE_FOR">You are invincible for</text>
+  <text key="REPAIR_ENGINE_FOR">Repair engine for</text>
+  <text key="ACCELERATION_FOR">acceleration for</text>
+  <text key="HEALTH">health</text>
 </Language>

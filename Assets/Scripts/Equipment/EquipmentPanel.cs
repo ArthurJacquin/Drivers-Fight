@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public class EquipmentPanel : MonoBehaviour
@@ -63,5 +64,11 @@ public class EquipmentPanel : MonoBehaviour
         }
 
         return false;
+    }
+
+    public EquippableItem ContainsEquipmentType(EquipmentType type)
+    {
+        var slot = Array.Find(equipmentSlots, x => x.EquipmentType == type);
+        return slot.Item as EquippableItem;
     }
 }

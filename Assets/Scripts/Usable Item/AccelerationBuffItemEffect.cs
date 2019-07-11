@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Drivers.CharacterStats;
-using Drivers.Localization;
+using Drivers.LocalizationSettings;
 
 [CreateAssetMenu(menuName = "Item Effects/Acceleration Buff")]
 public class AccelerationBuffItemEffect : UsableItemEffect
@@ -19,12 +19,7 @@ public class AccelerationBuffItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
-        if (Locale.CurrentLanguage == "French")
-        {
-            return "Donne " + Acceleration + " accélération pour " + Duration + " secondes.";
-        }
-
-        return "Grants " + Acceleration + " acceleration for " + Duration + " seconds.";
+        return LocalizationManager.Instance.GetText("GRANTS") + " " + Acceleration + " " + LocalizationManager.Instance.GetText("ACCELERATION_FOR") + " " + Duration + " " + LocalizationManager.Instance.GetText("SECONDS") + ".";
     }
 
     private static IEnumerator RemoveBuff(Character character, StatModifier statModifier, float duration)

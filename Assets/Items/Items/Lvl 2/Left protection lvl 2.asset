@@ -16,10 +16,12 @@ MonoBehaviour:
   ItemName: Left protection lvl 2
   Icon: {fileID: 21300000, guid: eae61fd71c5546a43b2ea068308f8a90, type: 3}
   MaximumStacks: 1
+  ArmorDurability: 100
+  CurrentArmorDurability: 100
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
-  RightFlankArmorBonus: 0
   LeftFlankArmorBonus: 20
+  RightFlankArmorBonus: 0
   WheelArmorBonus: 0
   TiresArmorBonus: 0
   MaximumSpeedBonus: 0
@@ -29,8 +31,8 @@ MonoBehaviour:
   DamageBonus: 0
   FrontBumperArmorPercentBonus: 0
   RearBumperArmorPercentBonus: 0
-  RightFlankArmorPercentBonus: 0
   LeftFlankArmorPercentBonus: 0
+  RightFlankArmorPercentBonus: 0
   WheelArmorPercentBonus: 0
   TiresArmorPercentBonus: 0
   MaximumSpeedPercentBonus: 0
