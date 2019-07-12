@@ -282,204 +282,36 @@ public class Character : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TakeFrontDamage(10);
-            TakeRearDamage(10);
-            TakeRightDamage(10);
-            TakeLeftDamage(10);
+            TakeDamage(10, EquipmentType.FrontArmor, FrontBumperArmor);
+            TakeDamage(10, EquipmentType.RearArmor, RearBumperArmor);
+            TakeDamage(10, EquipmentType.RightArmor, RightFlankArmor);
+            TakeDamage(10, EquipmentType.LeftArmor, LeftFlankArmor);
+            TakeDamage(10, EquipmentType.Wheel, WheelArmor);
+            TakeDamage(10, EquipmentType.Tires, TiresArmor);
             Debug.Log(EngineHealth);
         }
     }
 
-    public void TakeFrontDamage(int damage)
+    public void TakeDamage(int damage, EquipmentType equipmentType, CharacterStat armorType)
     {
         if (Invincibility) return;
 
         // Reduce damage taken by armor value
-        damage -= (int)FrontBumperArmor.Value;
+        damage -= (int)armorType.Value;
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         // Get armor
-        var armor = equipmentPanel.ContainsEquipmentType(EquipmentType.FrontArmor);
+        var armor = equipmentPanel.ContainsEquipmentType(equipmentType);
 
-        Debug.Log($"Front Armor: {armor}");
+        Debug.Log($"{equipmentType} : {armor}");
 
         // Armor equipped ?
         if (armor != null)
         {
             // Reduce the armor durability first from damage
-            Debug.Log("Durability before hit: " + armor.CurrentArmorDurability);
+            Debug.Log($"{equipmentType} Durability before hit: " + armor.CurrentArmorDurability);
             armor.CurrentArmorDurability -= damage;
-            Debug.Log("Durability after hit: " + armor.CurrentArmorDurability);
-
-            // Armor destroyed ?
-            if (armor.CurrentArmorDurability <= 0)
-            {
-                EngineHealth -= Mathf.Abs(armor.CurrentArmorDurability);
-                armor.CurrentArmorDurability = 0;
-            }
-        }
-        else
-        {
-            EngineHealth -= damage;
-        }
-    }
-
-    public void TakeRearDamage(int damage)
-    {
-        if (Invincibility) return;
-
-        // Reduce damage taken by armor value
-        damage -= (int)RearBumperArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
-
-        // Get armor
-        var armor = equipmentPanel.ContainsEquipmentType(EquipmentType.RearArmor);
-
-        Debug.Log($"Rear Armor: {armor}");
-
-        // Armor equipped ?
-        if (armor != null)
-        {
-            // Reduce the armor durability first from damage
-            Debug.Log("Durability before hit: " + armor.CurrentArmorDurability);
-            armor.CurrentArmorDurability -= damage;
-            Debug.Log("Durability after hit: " + armor.CurrentArmorDurability);
-
-            // Armor destroyed ?
-            if (armor.CurrentArmorDurability <= 0)
-            {
-                EngineHealth -= Mathf.Abs(armor.CurrentArmorDurability);
-                armor.CurrentArmorDurability = 0;
-            }
-        }
-        else
-        {
-            EngineHealth -= damage;
-        }
-    }
-
-    public void TakeRightDamage(int damage)
-    {
-        if (Invincibility) return;
-
-        // Reduce damage taken by armor value
-        damage -= (int)RightFlankArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
-
-        // Get armor
-        var armor = equipmentPanel.ContainsEquipmentType(EquipmentType.RightArmor);
-
-        Debug.Log($"Right Armor: {armor}");
-
-        // Armor equipped ?
-        if (armor != null)
-        {
-            // Reduce the armor durability first from damage
-            Debug.Log("Durability before hit: " + armor.CurrentArmorDurability);
-            armor.CurrentArmorDurability -= damage;
-            Debug.Log("Durability after hit: " + armor.CurrentArmorDurability);
-
-            // Armor destroyed ?
-            if (armor.CurrentArmorDurability <= 0)
-            {
-                EngineHealth -= Mathf.Abs(armor.CurrentArmorDurability);
-                armor.CurrentArmorDurability = 0;
-            }
-        }
-        else
-        {
-            EngineHealth -= damage;
-        }
-    }
-
-    public void TakeLeftDamage(int damage)
-    {
-        if (Invincibility) return;
-
-        // Reduce damage taken by armor value
-        damage -= (int)LeftFlankArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
-
-        // Get armor
-        var armor = equipmentPanel.ContainsEquipmentType(EquipmentType.LeftArmor);
-
-        Debug.Log($"Left Armor: {armor}");
-
-        // Armor equipped ?
-        if (armor != null)
-        {
-            // Reduce the armor durability first from damage
-            Debug.Log("Durability before hit: " + armor.CurrentArmorDurability);
-            armor.CurrentArmorDurability -= damage;
-            Debug.Log("Durability after hit: " + armor.CurrentArmorDurability);
-
-            // Armor destroyed ?
-            if (armor.CurrentArmorDurability <= 0)
-            {
-                EngineHealth -= Mathf.Abs(armor.CurrentArmorDurability);
-                armor.CurrentArmorDurability = 0;
-            }
-        }
-        else
-        {
-            EngineHealth -= damage;
-        }
-    }
-
-    public void TakeWheelDamage(int damage)
-    {
-        if (Invincibility) return;
-
-        // Reduce damage taken by armor value
-        damage -= (int)WheelArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
-
-        // Get armor
-        var armor = equipmentPanel.ContainsEquipmentType(EquipmentType.Wheel);
-
-        Debug.Log($"Wheel Armor: {armor}");
-
-        // Armor equipped ?
-        if (armor != null)
-        {
-            // Reduce the armor durability first from damage
-            Debug.Log("Durability before hit: " + armor.CurrentArmorDurability);
-            armor.CurrentArmorDurability -= damage;
-            Debug.Log("Durability after hit: " + armor.CurrentArmorDurability);
-
-            // Armor destroyed ?
-            if (armor.CurrentArmorDurability <= 0)
-            {
-                EngineHealth -= Mathf.Abs(armor.CurrentArmorDurability);
-                armor.CurrentArmorDurability = 0;
-            }
-        }
-        else
-        {
-            EngineHealth -= damage;
-        }
-    }
-
-    public void TakeTiresDamage(int damage)
-    {
-        if (Invincibility) return;
-
-        // Reduce damage taken by armor value
-        damage -= (int)TiresArmor.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
-
-        // Get armor
-        var armor = equipmentPanel.ContainsEquipmentType(EquipmentType.Tires);
-
-        Debug.Log($"Tires Armor: {armor}");
-
-        // Armor equipped ?
-        if (armor != null)
-        {
-            // Reduce the armor durability first from damage
-            Debug.Log("Durability before hit: " + armor.CurrentArmorDurability);
-            armor.CurrentArmorDurability -= damage;
-            Debug.Log("Durability after hit: " + armor.CurrentArmorDurability);
+            Debug.Log($"{equipmentType} Durability after hit: " + armor.CurrentArmorDurability);
 
             // Armor destroyed ?
             if (armor.CurrentArmorDurability <= 0)
