@@ -32,6 +32,7 @@ public class Character : MonoBehaviour
     [Header("Public")]
     [SerializeField] Inventory inventory;
     [SerializeField] EquipmentPanel equipmentPanel;
+    [SerializeField] UsablePanel usablePanel;
 
     [Header("Serialize Field")]
     [SerializeField] CraftingWindow craftingWindow;
@@ -65,26 +66,33 @@ public class Character : MonoBehaviour
         // Right Click
         inventory.OnRightClickEvent += InventoryRightClick;
         equipmentPanel.OnRightClickEvent += EquipmentPanelRightClick;
+        usablePanel.OnRightClickEvent += UsablePanelRightClick;
         // Pointer Enter
         inventory.OnPointerEnterEvent += ShowTooltip;
         equipmentPanel.OnPointerEnterEvent += ShowTooltip;
+        usablePanel.OnPointerEnterEvent += ShowTooltip;
         craftingWindow.OnPointerEnterEvent += ShowTooltip;
         // Pointer Exit
         inventory.OnPointerExitEvent += HideTooltip;
         equipmentPanel.OnPointerExitEvent += HideTooltip;
+        usablePanel.OnPointerExitEvent += HideTooltip;
         craftingWindow.OnPointerExitEvent += HideTooltip;
         // Begin Drag
         inventory.OnBeginDragEvent += BeginDrag;
         equipmentPanel.OnBeginDragEvent += BeginDrag;
+        usablePanel.OnBeginDragEvent += BeginDrag;
         // End Drag
         inventory.OnEndDragEvent += EndDrag;
         equipmentPanel.OnEndDragEvent += EndDrag;
+        usablePanel.OnEndDragEvent += EndDrag;
         // Drag
         inventory.OnDragEvent += Drag;
         equipmentPanel.OnDragEvent += Drag;
+        usablePanel.OnDragEvent += Drag;
         // Drop
         inventory.OnDropEvent += Drop;
         equipmentPanel.OnDropEvent += Drop;
+        usablePanel.OnDropEvent += Drop;
         dropItemArea.OnDropEvent += DropItemOutsideUI;
     }
 
@@ -96,14 +104,15 @@ public class Character : MonoBehaviour
         }
         else if (itemSlot.Item is UsableItem)
         {
-            UsableItem usableItem = (UsableItem)itemSlot.Item;
-            usableItem.Use(this);
+            EquipUsableItem((UsableItem)itemSlot.Item);
+        }
+    }
 
-            if (usableItem.IsConsumable)
-            {
-                inventory.RemoveItem(usableItem);
-                usableItem.Destroy();
-            }
+    private void UsablePanelRightClick(BaseItemSlot itemSlot)
+    {
+        if (itemSlot.Item is UsableItem)
+        {
+            UnequipUsableItem((UsableItem)itemSlot.Item);
         }
     }
 
@@ -273,6 +282,33 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void EquipUsableItem(UsableItem item)
+    {
+        if (inventory.RemoveItem(item))
+        {
+            UsableItem previousItem;
+            if (usablePanel.AddItem(item, out previousItem))
+            {
+                if (previousItem != null)
+                {
+                    inventory.AddItem(previousItem);
+                }
+            }
+            else
+            {
+                inventory.AddItem(item);
+            }
+        }
+    }
+
+    public void UnequipUsableItem(UsableItem item)
+    {
+        if (inventory.CanAddItem(item) && usablePanel.RemoveItem(item))
+        {
+            inventory.AddItem(item);
+        }
+    }
+
     public void UpdateStatValues()
     {
         statPanel.UpdateStatValues();
@@ -282,23 +318,85 @@ public class Character : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TakeDamage(10, EquipmentType.FrontArmor, FrontBumperArmor);
-            TakeDamage(10, EquipmentType.RearArmor, RearBumperArmor);
-            TakeDamage(10, EquipmentType.RightArmor, RightFlankArmor);
-            TakeDamage(10, EquipmentType.LeftArmor, LeftFlankArmor);
-            TakeDamage(10, EquipmentType.Wheel, WheelArmor);
-            TakeDamage(10, EquipmentType.Tires, TiresArmor);
+            TakeDamage(10, EquipmentType.FrontArmor);
+            TakeDamage(10, EquipmentType.RearArmor);
+            TakeDamage(10, EquipmentType.RightArmor);
+            TakeDamage(10, EquipmentType.LeftArmor);
+            TakeDamage(10, EquipmentType.Wheel);
+            TakeDamage(10, EquipmentType.Tires);
             Debug.Log(EngineHealth);
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            UsableItem usableItem = usablePanel.usableSlots[0].Item as UsableItem;
+            if (usableItem != null)
+            {
+                usableItem.Use(this);
+
+                if (usableItem.IsConsumable)
+                {
+                    Debug.Log("test");
+                    inventory.RemoveItem(usableItem);
+                    usableItem.Destroy();
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            UsableItem usableItem = usablePanel.usableSlots[1].Item as UsableItem;
+            if (usableItem != null)
+            {
+                usableItem.Use(this);
+
+                if (usableItem.IsConsumable)
+                {
+                    Debug.Log("test");
+                    inventory.RemoveItem(usableItem);
+                    usableItem.Destroy();
+                }
+            }
         }
     }
 
-    public void TakeDamage(int damage, EquipmentType equipmentType, CharacterStat armorType)
+    public void TakeDamage(int damage, EquipmentType equipmentType)
     {
         if (Invincibility) return;
 
+        CharacterStat stat = null;
+
+        switch (equipmentType)
+        {
+            case EquipmentType.FrontArmor:
+                stat = FrontBumperArmor;
+                break;
+            case EquipmentType.RearArmor:
+                stat = RearBumperArmor;
+                break;
+            case EquipmentType.RightArmor:
+                stat = RightFlankArmor;
+                break;
+            case EquipmentType.LeftArmor:
+                stat = LeftFlankArmor;
+                break;
+            case EquipmentType.Wheel:
+                stat = WheelArmor;
+                break;
+            case EquipmentType.Tires:
+                stat = TiresArmor;
+                break;
+            default:
+                Debug.Log($"No equipped armor.Taking full damage");
+                break;
+        }
+
         // Reduce damage taken by armor value
-        damage -= (int)armorType.Value;
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        if (stat != null)
+        {
+            damage -= (int)stat.Value;
+            damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        }
 
         // Get armor
         var armor = equipmentPanel.ContainsEquipmentType(equipmentType);

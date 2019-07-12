@@ -427,6 +427,7 @@ MonoBehaviour:
     BaseValue: 0
   inventory: {fileID: 1057329371}
   equipmentPanel: {fileID: 1816344032}
+  usablePanel: {fileID: 1170665571}
   craftingWindow: {fileID: 4670751475679373430}
   garageWindows: {fileID: 1399494155}
   statPanel: {fileID: 1725376992071077804}
@@ -703,6 +704,18 @@ Transform:
   m_Father: {fileID: 260250191}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170665571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7889634032608552695, guid: 0a5f17f3c01c5314f8ba86a7b24296ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 6074703706499708751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8bd68fae9d624438322a6fb3c76b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1399494153 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 327590452405948674, guid: 0a5f17f3c01c5314f8ba86a7b24296ed,
