@@ -27,7 +27,7 @@
   <text key="TURN_LEFT">Turn on the left</text>
   <text key="OPEN_INVENTORY">Open inventory</text>
   <text key="INTERACT_OBJECT">Interact with an object</text>
-  <text key="INTERACT_FACTORY">Interact with the factory</text>
+  <text key="INTERACT_BUILDING">Interact with a building</text>
   <!-- Character Panel -->
   <text key="STATS">Stats</text>
   <text key="FRONT_ARMOR">Front armor</text>
@@ -59,6 +59,7 @@
   <text key="CONSUMABLE">Consumable</text>
   <text key="USABLE">Usable</text>
   <text key="ENGINE_REPAIR_KIT">Engine repair kit</text>
+  <text key="ITEM_REPAIR_KIT">Item repair kit</text>
   <text key="INVINCIBILITY">Invincibility</text>
   <text key="SCRAP_COIN">Scrap coin</text>
   <text key="DURABILITY">Durability</text>

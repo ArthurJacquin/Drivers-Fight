@@ -4985,7 +4985,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Interact with the factory
+  m_Text: Interact with a building
 --- !u!222 &1530112912
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5006,7 +5006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: INTERACT_FACTORY
+  key: INTERACT_BUILDING
 --- !u!1 &1565278462
 GameObject:
   m_ObjectHideFlags: 0

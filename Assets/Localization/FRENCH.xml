@@ -27,7 +27,7 @@
   <text key="TURN_LEFT">Tourner sur la gauche</text>
   <text key="OPEN_INVENTORY">Ouvrir l'inventaire</text>
   <text key="INTERACT_OBJECT">Intéragir avec un objet</text>
-  <text key="INTERACT_FACTORY">Intéragir avec l'usine</text>
+  <text key="INTERACT_BUILDING">Intéragir avec un bâtiment</text>
   <!-- Character Panel -->
   <text key="STATS">Stats</text>
   <text key="FRONT_ARMOR">Armure frontale</text>
@@ -59,6 +59,7 @@
   <text key="CONSUMABLE">Consommable</text>
   <text key="USABLE">Utilisable</text>
   <text key="ENGINE_REPAIR_KIT">Kit de réparation moteur</text>
+  <text key="ITEM_REPAIR_KIT">Kit de réparation d'armure</text>
   <text key="INVINCIBILITY">Invincibilité</text>
   <text key="SCRAP_COIN">Pièce de ferraille</text>
   <text key="DURABILITY">Durabilité</text>

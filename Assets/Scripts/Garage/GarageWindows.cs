@@ -8,7 +8,7 @@ public class GarageWindows : MonoBehaviour
 
     public void RepairFrontArmor()
     {
-        var item = ItemContainer.ItemSearch("Item Repair Kit");
+        var item = ItemContainer.ItemSearch("Item repair kit");
 
         if (item != null)
         {
@@ -48,7 +48,7 @@ public class GarageWindows : MonoBehaviour
 
     public void RepairRearArmor()
     {
-        var item = ItemContainer.ItemSearch("Item Repair Kit");
+        var item = ItemContainer.ItemSearch("Item repair kit");
 
         if (item != null)
         {
@@ -88,7 +88,7 @@ public class GarageWindows : MonoBehaviour
 
     public void RepairRightArmor()
     {
-        var item = ItemContainer.ItemSearch("Item Repair Kit");
+        var item = ItemContainer.ItemSearch("Item repair kit");
 
         if (item != null)
         {
@@ -128,7 +128,7 @@ public class GarageWindows : MonoBehaviour
 
     public void RepairLeftArmor()
     {
-        var item = ItemContainer.ItemSearch("Item Repair Kit");
+        var item = ItemContainer.ItemSearch("Item repair kit");
 
         if (item != null)
         {
@@ -168,7 +168,7 @@ public class GarageWindows : MonoBehaviour
 
     public void RepairWheelArmor()
     {
-        var item = ItemContainer.ItemSearch("Item Repair Kit");
+        var item = ItemContainer.ItemSearch("Item repair kit");
 
         if (item != null)
         {
@@ -208,7 +208,7 @@ public class GarageWindows : MonoBehaviour
 
     public void RepairTiresArmor()
     {
-        var item = ItemContainer.ItemSearch("Item Repair Kit");
+        var item = ItemContainer.ItemSearch("Item repair kit");
 
         if (item != null)
         {
