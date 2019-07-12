@@ -336,8 +336,7 @@ public class Character : MonoBehaviour
 
                 if (usableItem.IsConsumable)
                 {
-                    Debug.Log("test");
-                    inventory.RemoveItem(usableItem);
+                    usablePanel.RemoveItem(usableItem);
                     usableItem.Destroy();
                 }
             }
@@ -352,8 +351,7 @@ public class Character : MonoBehaviour
 
                 if (usableItem.IsConsumable)
                 {
-                    Debug.Log("test");
-                    inventory.RemoveItem(usableItem);
+                    usablePanel.RemoveItem(usableItem);
                     usableItem.Destroy();
                 }
             }
