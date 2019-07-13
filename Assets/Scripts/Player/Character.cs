@@ -243,10 +243,18 @@ public class Character : MonoBehaviour
         questionDialog.OnYesEvent += () => DestroyItemInSlot(baseItemSlot);
     }
 
-    private void DestroyItemInSlot(BaseItemSlot baseItemSlot)
+    private void DestroyItemInSlot(BaseItemSlot itemSlot)
     {
-        baseItemSlot.Item.Destroy();
-        baseItemSlot.Item = null;
+        // If the item is equiped, unequip first
+        if (itemSlot is EquipmentSlot)
+        {
+            EquippableItem equippableItem = (EquippableItem)itemSlot.Item;
+            equippableItem.Unequip(this);
+            statPanel.UpdateStatValues();
+        }
+
+        itemSlot.Item.Destroy();
+        itemSlot.Item = null;
     }
 
     public void Equip(EquippableItem item)
