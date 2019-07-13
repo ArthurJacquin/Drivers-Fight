@@ -30,9 +30,6 @@ namespace DriversFight.Scripts
         private Button joinRoomButton;
 
         [SerializeField]
-        private Text welcomeMessageText;
-
-        [SerializeField]
         private GameObject endGamePanel;
 
         public event Action OnlinePlayReady;
@@ -45,7 +42,7 @@ namespace DriversFight.Scripts
 
         public event Action<int> PlayerSetup;
 
-        public event Action Disconnected;
+        public event Action<string, string> Disconnected;
 
         public event Action MasterClientSwitched;
 
@@ -68,7 +65,7 @@ namespace DriversFight.Scripts
 
             localPlayButton.gameObject.SetActive(true);
             onlinePlayButton.gameObject.SetActive(true);
-            localPlayButton.interactable = true;
+            localPlayButton.interactable = false;
             onlinePlayButton.interactable = true;
             gameModeSelection.SetActive(false);
 
@@ -76,8 +73,6 @@ namespace DriversFight.Scripts
             joinRoomButton.gameObject.SetActive(false);
             createRoomButton.interactable = false;
             joinRoomButton.interactable = false;
-
-            welcomeMessageText.text = "Choose Game Mode !";
         }
 
         private void LocalPlaySetup()
@@ -86,8 +81,6 @@ namespace DriversFight.Scripts
             onlinePlayButton.gameObject.SetActive(false);
             createRoomButton.gameObject.SetActive(false);
             joinRoomButton.gameObject.SetActive(false);
-
-            welcomeMessageText.text = "Let's Play !";
 
             OfflinePlayReady?.Invoke();
 
@@ -106,8 +99,6 @@ namespace DriversFight.Scripts
             createRoomButton.interactable = false;
             joinRoomButton.interactable = false;
 
-            welcomeMessageText.text = "Create or Join an existing Game ?";
-
             PhotonNetwork.ConnectUsingSettings();
         }
 
@@ -119,7 +110,8 @@ namespace DriversFight.Scripts
 
         public override void OnDisconnected(DisconnectCause cause)
         {
-            Disconnected?.Invoke();
+            if (cause == DisconnectCause.ClientTimeout || cause == DisconnectCause.ServerTimeout)
+                Disconnected?.Invoke("Connection lost !", "");
         }
 
         public override void OnMasterClientSwitched(Player player)
@@ -132,7 +124,7 @@ namespace DriversFight.Scripts
             PhotonNetwork.CreateRoom("Drivers Fight", new RoomOptions
             {
                 MaxPlayers = 8,
-                PlayerTtl = 10000
+                PlayerTtl = 1000000000
             });
         }
 

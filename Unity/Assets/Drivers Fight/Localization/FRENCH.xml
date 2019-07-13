@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language LANG="french" ID="1">
+  <!-- Main Menu -->
+  <text key="PLAY">Jouer</text>
+  <text key="OPTIONS">Options</text>
+  <text key="KEY_BINDINGS">Raccourcis clavier</text>
+  <text key="QUIT">Quitter</text>
+  <!-- Options Menu -->
+  <text key="FULLSCREEN">Plein écran</text>
+  <text key="GRAPHICS">Graphiques</text>
+  <text key="VOLUME">Volume</text>
+  <text key="LANGUAGE">Langage</text>
+  <text key="ENGLISH">Anglais</text>
+  <text key="FRENCH">Français</text>
+  <text key="BACK">Retour</text>
+  <!-- Graphics Options -->
+  <text key="VERY_LOW">Très bas</text>
+  <text key="LOW">Bas</text>
+  <text key="MEDIUM">Moyen</text>
+  <text key="HIGH">Haut</text>
+  <text key="VERY_HIGH">Très haut</text>
+  <text key="ULTRA">Extrème</text>
+  <!-- Key Bindings Panel -->
+  <text key="MOVING_FORWARD">Avancer</text>
+  <text key="MOVING_BACKWARD">Reculer</text>
+  <text key="TURN_RIGHT">Tourner sur la droite</text>
+  <text key="TURN_LEFT">Tourner sur la gauche</text>
+  <text key="OPEN_INVENTORY">Ouvrir l'inventaire</text>
+  <text key="INTERACT_OBJECT">Intéragir avec un objet</text>
+  <text key="INTERACT_BUILDING">Intéragir avec un bâtiment</text>
+  <text key="USE_CAPACITY_1">Utiliser capacité 1</text>
+  <text key="USE_CAPACITY_2">Utiliser capacité 2</text>
+  <!-- Character Panel -->
+  <text key="STATS">Stats</text>
+  <text key="FRONT_ARMOR">Armure frontale</text>
+  <text key="REAR_ARMOR">Armure arrière</text>
+  <text key="LEFT_ARMOR">Armure gauche</text>
+  <text key="RIGHT_ARMOR">Armure droite</text>
+  <text key="TIRES_ARMOR">Armure pneus</text>
+  <text key="WHEEL_ARMOR">Armure volant</text>
+  <text key="MAX_SPEED">Vitesse max.</text>
+  <text key="ACCELERATION">Accélération</text>
+  <text key="DECELERATION">Décéleration</text>
+  <text key="MANEUVERABILITY">Maniabilité</text>
+  <text key="DAMAGE">Dommage</text>
+  <text key="MODIFIERS">Modificateurs</text>
+  <!-- Inventory Panel -->
+  <text key="INVENTORY">Inventaire</text>
+  <text key="EQUIPMENT">Equipement</text>
+  <text key="CONFIRM_DELETE">Êtes-vous sûr de vouloir détruire l'objet ?</text>
+  <text key="YES">Oui</text>
+  <text key="NO">Non</text>
+  <!-- Equipment -->
+  <text key="ENGINE">Moteur</text>
+  <text key="FRONT_BUMPER">Pare-choc avant</text>
+  <text key="REAR_BUMPER">Pare-choc arrière</text>
+  <text key="LEFT_PROTECTION">Portière gauche</text>
+  <text key="RIGHT_PROTECTION">Portière droite</text>
+  <text key="STEERING_WHEEL">Volant</text>
+  <text key="TIRES">Pneus</text>
+  <text key="CONSUMABLE">Consommable</text>
+  <text key="USABLE">Utilisable</text>
+  <text key="HARROW">Herse</text>
+  <text key="ENGINE_REPAIR_KIT">Kit de réparation moteur</text>
+  <text key="ITEM_REPAIR_KIT">Kit de réparation d'armure</text>
+  <text key="INVINCIBILITY">Invincibilité</text>
+  <text key="SCRAP_COIN">Pièce de ferraille</text>
+  <text key="DURABILITY">Durabilité</text>
+  <!-- Craft Panel -->
+  <text key="FACTORY">Usine</text>
+  <!-- Garage Panel -->
+  <text key="GARAGE">Garage</text>
+  <text key="GARAGE_DESCRIPTION">Vous pouvez réparer une pièce de votre équipement contre un kit de réparation</text>
+  <text key="REPAIR_FRONT_ARMOR">Réparer l'armure frontale</text>
+  <text key="REPAIR_REAR_ARMOR">Réparer l'armure arrière</text>
+  <text key="REPAIR_LEFT_ARMOR">Réparer l'armure gauche</text>
+  <text key="REPAIR_RIGHT_ARMOR">Réparer l'armure droite</text>
+  <text key="REPAIR_TIRES_ARMOR">Réparer les pneus</text>
+  <text key="REPAIR_WHEEL_ARMOR">Réparer le volant</text>
+  <!-- Usable Item -->
+  <text key="GRANTS">Donne</text>
+  <text key="SECONDS">secondes</text>
+  <text key="MAX_SPEED_FOR">vitesse max. pour</text>
+  <text key="YOU_ARE_INVINCIBLE_FOR">Vous êtes invincible pour</text>
+  <text key="REPAIR_ENGINE_FOR">Répare le moteur pour</text>
+  <text key="ACCELERATION_FOR">accélération pour</text>
+  <text key="HEALTH">santé</text>
+  <text key="MINE_DESCRIPTION">Pose une mine dérrière le véhicule</text>
+  <text key="HARROW_DESCRIPTION">Pose une herse dérrière le véhicule</text>
+  <!-- Item -->
+  <text key="COIN_DESCRIPTION">Peut être utilisé a l'usine pour fabriquer des pièces d'équipement.</text>
+  <text key="REPAIR_KIT_DESCRIPTION">Permet de réparer une pièce d'équipement au garage.</text>
+  <!-- Controller Script -->
+  <text key="ULTIMATE_DRIVER">Vous êtes l'ULTIME DRIVER !</text>
+  <text key="CONGRATULATION">Félicitation !</text>
+  <text key="DEFEAT_MESSAGE">Tu conduis moins bien que ma \ngrand - mère !</text>
+  <text key="YOU_FINISH_IN">Tu termines en </text>
+  <text key="POSITION">ème position.</text>
+</Language>

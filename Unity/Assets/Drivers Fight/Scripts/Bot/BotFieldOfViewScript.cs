@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,38 +15,40 @@ public class BotFieldOfViewScript : MonoBehaviour
     [SerializeField]
     private BotExposerScript bot;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger");
-        if(other.tag == "Player")
+        if(other.tag == "Car")
         {
             if (bot.BotControllerScript.wander)
                 bot.BotControllerScript.wander = false;
-            else if (bot.BotControllerScript.collectObject)
-                bot.BotControllerScript.collectObject = false;
+            if (bot.BotControllerScript.dodgeWall)
+                bot.BotControllerScript.dodgeWall = false;
 
             bot.BotControllerScript.attackPlayer = true;
+            bot.BotControllerScript.targetObject = other.gameObject;
         }
-        else if(other.tag == "Collectible" && !bot.BotControllerScript.attackPlayer)
+
+        if(other.tag == "Wall" && bot.BotControllerScript.wander)
         {
-            if (bot.BotControllerScript.wander)
-                bot.BotControllerScript.wander = false;
-            bot.BotControllerScript.collectObject = true;
+            bot.BotControllerScript.dodgeWall = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         bot.BotControllerScript.attackPlayer = false;
-        if (other.tag == "Player")
+        if (other.tag == "Car")
         {
             if (!bot.BotControllerScript.wander)
-                bot.BotControllerScript.wander = true;  
+                bot.BotControllerScript.wander = true;
+            bot.BotControllerScript.targetObject = null;
         }
-        else if (other.tag == "Collectible" && !bot.BotControllerScript.attackPlayer)
+
+        if (other.tag == "Wall" && bot.BotControllerScript.wander)
         {
-            bot.BotControllerScript.collectObject = false;
-            if (!bot.BotControllerScript.wander)
+            bot.BotControllerScript.dodgeWall = false;
+
+            if(!bot.BotControllerScript.wander)
                 bot.BotControllerScript.wander = true;
         }
     }

@@ -15,10 +15,17 @@ public enum EquipmentType
 [CreateAssetMenu(menuName ="Items/Equippable Item")]
 public class EquippableItem : Item
 {
+    [Space]
+    [Header("Armor durability")]
+    public int ArmorDurability;
+    public int CurrentArmorDurability;
+
+    [Space]
+    [Header("Armor bonus")]
     public int FrontBumperArmorBonus;
     public int RearBumperArmorBonus;
-    public int RightFlankArmorBonus;
     public int LeftFlankArmorBonus;
+    public int RightFlankArmorBonus;
     public int WheelArmorBonus;
     public int TiresArmorBonus;
     public int MaximumSpeedBonus;
@@ -28,10 +35,11 @@ public class EquippableItem : Item
     public int DamageBonus;
 
     [Space]
+    [Header("Armor percent bonus")]
     public float FrontBumperArmorPercentBonus;
     public float RearBumperArmorPercentBonus;
-    public float RightFlankArmorPercentBonus;
     public float LeftFlankArmorPercentBonus;
+    public float RightFlankArmorPercentBonus;
     public float WheelArmorPercentBonus;
     public float TiresArmorPercentBonus;
     public float MaximumSpeedPercentBonus;
@@ -41,6 +49,7 @@ public class EquippableItem : Item
     public float DamagePercentBonus;
 
     [Space]
+    [Header("Equipment type")]
     public EquipmentType EquipmentType;
 
     public override Item GetCopy()
@@ -64,13 +73,13 @@ public class EquippableItem : Item
         {
             c.RearBumperArmor.AddModifier(new StatModifier(RearBumperArmorBonus, StatModType.Flat, this));
         }
-        if (RightFlankArmorBonus != 0)
-        {
-            c.RightFlankArmor.AddModifier(new StatModifier(RightFlankArmorBonus, StatModType.Flat, this));
-        }
         if (LeftFlankArmorBonus != 0)
         {
             c.LeftFlankArmor.AddModifier(new StatModifier(LeftFlankArmorBonus, StatModType.Flat, this));
+        }
+        if (RightFlankArmorBonus != 0)
+        {
+            c.RightFlankArmor.AddModifier(new StatModifier(RightFlankArmorBonus, StatModType.Flat, this));
         }
         if (WheelArmorBonus != 0)
         {
@@ -110,13 +119,13 @@ public class EquippableItem : Item
         {
             c.RearBumperArmor.AddModifier(new StatModifier(RearBumperArmorPercentBonus, StatModType.PercentMult, this));
         }
-        if (RightFlankArmorPercentBonus != 0)
-        {
-            c.RightFlankArmor.AddModifier(new StatModifier(RightFlankArmorPercentBonus, StatModType.PercentMult, this));
-        }
         if (LeftFlankArmorPercentBonus != 0)
         {
             c.LeftFlankArmor.AddModifier(new StatModifier(LeftFlankArmorPercentBonus, StatModType.PercentMult, this));
+        }
+        if (RightFlankArmorPercentBonus != 0)
+        {
+            c.RightFlankArmor.AddModifier(new StatModifier(RightFlankArmorPercentBonus, StatModType.PercentMult, this));
         }
         if (WheelArmorPercentBonus != 0)
         {
@@ -152,8 +161,8 @@ public class EquippableItem : Item
     {
         c.FrontBumperArmor.RemoveAllModifiersFromSource(this);
         c.RearBumperArmor.RemoveAllModifiersFromSource(this);
-        c.RightFlankArmor.RemoveAllModifiersFromSource(this);
         c.LeftFlankArmor.RemoveAllModifiersFromSource(this);
+        c.RightFlankArmor.RemoveAllModifiersFromSource(this);
         c.TiresArmor.RemoveAllModifiersFromSource(this);
         c.WheelArmor.RemoveAllModifiersFromSource(this);
         c.MaximumSpeed.RemoveAllModifiersFromSource(this);
@@ -175,8 +184,8 @@ public class EquippableItem : Item
         // Not percent stat
         AddStat(FrontBumperArmorBonus, "Front armor");
         AddStat(RearBumperArmorBonus, "Rear armor");
-        AddStat(RightFlankArmorBonus, "Right armor");
         AddStat(LeftFlankArmorBonus, "Left armor");
+        AddStat(RightFlankArmorBonus, "Right armor");
         AddStat(TiresArmorBonus, "Tires armor");
         AddStat(WheelArmorBonus, "Wheel armor");
         AddStat(MaximumSpeedBonus, "Max. speed");
@@ -188,8 +197,8 @@ public class EquippableItem : Item
         // Percent stat
         AddStat(FrontBumperArmorPercentBonus, "Front armor", isPercent: true);
         AddStat(RearBumperArmorPercentBonus, "Rear armor", isPercent: true);
-        AddStat(RightFlankArmorPercentBonus, "Right armor", isPercent: true);
         AddStat(LeftFlankArmorPercentBonus, "Left armor", isPercent: true);
+        AddStat(RightFlankArmorPercentBonus, "Right armor", isPercent: true);
         AddStat(TiresArmorPercentBonus, "Tires armor", isPercent: true);
         AddStat(WheelArmorPercentBonus, "Wheel armor", isPercent: true);
         AddStat(MaximumSpeedPercentBonus, "Max. speed", isPercent: true);

@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c14ba79e139de4397b1db1cf6eb594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  craftPanelGameObject: {fileID: 0}
-  characterPanelGameObject: {fileID: 0}
+  craftPanelGameObject: {fileID: 1066326763131783216, guid: 064197d0635df3c44991c5fcb6f49bae,
+    type: 3}
+  characterPanelGameObject: {fileID: 7456524528635743183, guid: e32aeefc899813b4caf13e50c5e2dd4f,
+    type: 3}
   craftOpenKeyCode: 117

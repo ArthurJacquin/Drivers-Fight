@@ -52,5 +52,6 @@ MonoBehaviour:
   equipmentPanelGameObject: {fileID: 0}
   statPanelGameObject: {fileID: 0}
   craftPanelGameObject: {fileID: 0}
+  garagePanelGameObject: {fileID: 0}
   toggleCharacterPanelKeys: 6300000069000000
   toggleInventoryKeys: 62000000

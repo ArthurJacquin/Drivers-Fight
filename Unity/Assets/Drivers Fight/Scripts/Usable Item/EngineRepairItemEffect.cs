@@ -1,4 +1,4 @@
-﻿using Drivers.Localization;
+﻿using Drivers.LocalizationSettings;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="Item Effects/Engine Repair")]
@@ -17,11 +17,6 @@ public class EngineRepairItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
-        if (Locale.CurrentLanguage == "French")
-        {
-            return "Répare le moteur pour " + HealthAmount + " santé.";
-        }
-
-        return "Repair engine for " + HealthAmount + " health.";
+        return LocalizationManager.Instance.GetText("REPAIR_ENGINE_FOR") + " " + HealthAmount + " " + LocalizationManager.Instance.GetText("HEALTH") + ".";
     }
 }

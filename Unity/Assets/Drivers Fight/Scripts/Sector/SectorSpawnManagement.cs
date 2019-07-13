@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
+using System;
 
 namespace DriversFight.Scripts
 {
@@ -12,10 +13,10 @@ namespace DriversFight.Scripts
         private GameObject[] sectors;
         
         [SerializeField]
-        private int firstSectorSpawn = 60;
+        private int firstSectorSpawn = 0;
 
         [SerializeField]
-        private int timeNextSectorSpawn = 30;
+        private int timeNextSectorSpawn = 2;
 
         [SerializeField]
         private int timeToShowWarning = 15;
@@ -35,6 +36,9 @@ namespace DriversFight.Scripts
         private int numberGeneratedSector = 0;
 
         private int sectorsFinalNumber = 0;
+
+        private bool endGameScale = false;
+        private float scaleSpeed = 0.03f;
 
         private List<int> sectorNumbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7 };
 
@@ -63,6 +67,7 @@ namespace DriversFight.Scripts
             }
 
             numberGeneratedSector = 0;
+            endGameScale = false;
         }
 
         private void OnDisable()
@@ -88,6 +93,7 @@ namespace DriversFight.Scripts
             }
 
             numberGeneratedSector = 0;
+            endGameScale = false;
         }
 
         void Update()
@@ -99,6 +105,26 @@ namespace DriversFight.Scripts
                     StartCoroutine(RandomSpawnSector());
                 }
             }
+            else
+            {
+                if (!endGameScale)
+                {
+                    StartCoroutine(WaitBeforeEndSectorScale());
+                }
+                else
+                {
+                    sectors[1].transform.localScale = Vector3.Lerp(sectors[1].transform.localScale, new Vector3(320, 350, 550), scaleSpeed * Time.deltaTime);
+                    sectors[5].transform.localScale = Vector3.Lerp(sectors[5].transform.localScale, new Vector3(320, 350, 550), scaleSpeed * Time.deltaTime);
+                    sectors[3].transform.localScale = Vector3.Lerp(sectors[3].transform.localScale, new Vector3(550, 350, 320), scaleSpeed * Time.deltaTime);
+                    sectors[7].transform.localScale = Vector3.Lerp(sectors[7].transform.localScale, new Vector3(550, 350, 320), scaleSpeed * Time.deltaTime);
+                }
+            }
+        }
+
+        IEnumerator WaitBeforeEndSectorScale()
+        {
+            yield return new WaitForSeconds(2);
+            endGameScale = true;
         }
 
         public void Shuffle(List<int> list)

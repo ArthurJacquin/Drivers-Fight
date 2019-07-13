@@ -13,13 +13,6 @@ public class PlayerCameraScript : MonoBehaviour
     private float rotationDamping = 3f;
     private float heightDamping = 2f;
 
-
-    private void Start()
-    {
-        //if (target == null)
-            //target = GameObject.FindGameObjectWithTag("Car").transform;
-    }
-
     private void LateUpdate()
     {
 
