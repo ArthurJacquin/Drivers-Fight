@@ -99,6 +99,7 @@ public class StatTooltip : MonoBehaviour
 
     private string CheckItemNameLanguage(string itemName)
     {
+        itemName = itemName.Replace("Engine repair kit", LocalizationManager.Instance.GetText("ENGINE_REPAIR_KIT"));
         itemName = itemName.Replace("Engine", LocalizationManager.Instance.GetText("ENGINE"));
         itemName = itemName.Replace("Front bumper", LocalizationManager.Instance.GetText("FRONT_BUMPER"));
         itemName = itemName.Replace("Rear bumper", LocalizationManager.Instance.GetText("REAR_BUMPER"));

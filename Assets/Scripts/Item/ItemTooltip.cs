@@ -16,6 +16,7 @@ public class ItemTooltip : MonoBehaviour
     private string CheckItemNameLanguage(string itemName)
     {
         itemName = itemName.Replace("Engine repair kit", LocalizationManager.Instance.GetText("ENGINE_REPAIR_KIT"));
+        itemName = itemName.Replace("Harrow", LocalizationManager.Instance.GetText("HARROW"));
         itemName = itemName.Replace("Item repair kit", LocalizationManager.Instance.GetText("ITEM_REPAIR_KIT"));
         itemName = itemName.Replace("Invincibility", LocalizationManager.Instance.GetText("INVINCIBILITY"));
         itemName = itemName.Replace("Scrap coin", LocalizationManager.Instance.GetText("SCRAP_COIN"));

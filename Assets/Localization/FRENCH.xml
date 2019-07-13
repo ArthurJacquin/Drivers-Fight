@@ -60,6 +60,7 @@
   <text key="TIRES">Pneus</text>
   <text key="CONSUMABLE">Consommable</text>
   <text key="USABLE">Utilisable</text>
+  <text key="HARROW">Herse</text>
   <text key="ENGINE_REPAIR_KIT">Kit de réparation moteur</text>
   <text key="ITEM_REPAIR_KIT">Kit de réparation d'armure</text>
   <text key="INVINCIBILITY">Invincibilité</text>
@@ -85,6 +86,7 @@
   <text key="ACCELERATION_FOR">accélération pour</text>
   <text key="HEALTH">santé</text>
   <text key="MINE_DESCRIPTION">Pose une mine dérrière le véhicule</text>
+  <text key="HARROW_DESCRIPTION">Pose une herse dérrière le véhicule</text>
   <!-- Item -->
   <text key="COIN_DESCRIPTION">Peut être utilisé a l'usine pour fabriquer des pièces d'équipement.</text>
   <text key="REPAIR_KIT_DESCRIPTION">Permet de réparer une pièce d'équipement au garage.</text>

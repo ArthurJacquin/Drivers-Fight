@@ -60,6 +60,7 @@
   <text key="TIRES">Tires</text>
   <text key="CONSUMABLE">Consumable</text>
   <text key="USABLE">Usable</text>
+  <text key="HARROW">Harrow</text>
   <text key="ENGINE_REPAIR_KIT">Engine repair kit</text>
   <text key="ITEM_REPAIR_KIT">Item repair kit</text>
   <text key="INVINCIBILITY">Invincibility</text>
@@ -85,6 +86,7 @@
   <text key="ACCELERATION_FOR">acceleration for</text>
   <text key="HEALTH">health</text>
   <text key="MINE_DESCRIPTION">Put a mine behind the vehicle</text>
+  <text key="HARROW_DESCRIPTION">Put a harrow behind the vehicle</text>
   <!-- Item -->
   <text key="COIN_DESCRIPTION">Can be used at the factory to manufacture equipment parts.</text>
   <text key="REPAIR_KIT_DESCRIPTION">Used to repair a piece of equipment in the garage.</text>

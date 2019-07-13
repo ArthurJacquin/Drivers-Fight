@@ -26,11 +26,11 @@ public class PlayerScript : MonoBehaviour
     private int carTiresArmor;
 
     private float carSpeed;
-    private float carMaximumSpeed;
-    private float carAccelerationSpeed;
-    private float carDecelerationSpeed;
+    public float carMaximumSpeed;
+    public float carAccelerationSpeed;
+    public float carDecelerationSpeed;
 
-    private int carManeuverability;
+    public int carManeuverability;
 
     private int carDamage;
 
