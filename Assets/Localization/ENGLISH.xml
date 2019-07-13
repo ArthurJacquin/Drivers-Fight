@@ -28,6 +28,8 @@
   <text key="OPEN_INVENTORY">Open inventory</text>
   <text key="INTERACT_OBJECT">Interact with an object</text>
   <text key="INTERACT_BUILDING">Interact with a building</text>
+  <text key="USE_CAPACITY_1">Use capacity 1</text>
+  <text key="USE_CAPACITY_2">Use capacity 2</text>
   <!-- Character Panel -->
   <text key="STATS">Stats</text>
   <text key="FRONT_ARMOR">Front armor</text>
@@ -82,6 +84,7 @@
   <text key="REPAIR_ENGINE_FOR">Repair engine for</text>
   <text key="ACCELERATION_FOR">acceleration for</text>
   <text key="HEALTH">health</text>
+  <text key="MINE_DESCRIPTION">Put a mine behind the vehicle</text>
   <!-- Item -->
   <text key="COIN_DESCRIPTION">Can be used at the factory to manufacture equipment parts.</text>
   <text key="REPAIR_KIT_DESCRIPTION">Used to repair a piece of equipment in the garage.</text>

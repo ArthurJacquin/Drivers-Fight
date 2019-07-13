@@ -28,6 +28,8 @@
   <text key="OPEN_INVENTORY">Ouvrir l'inventaire</text>
   <text key="INTERACT_OBJECT">Intéragir avec un objet</text>
   <text key="INTERACT_BUILDING">Intéragir avec un bâtiment</text>
+  <text key="USE_CAPACITY_1">Utiliser capacité 1</text>
+  <text key="USE_CAPACITY_2">Utiliser capacité 2</text>
   <!-- Character Panel -->
   <text key="STATS">Stats</text>
   <text key="FRONT_ARMOR">Armure frontale</text>
@@ -82,6 +84,7 @@
   <text key="REPAIR_ENGINE_FOR">Répare le moteur pour</text>
   <text key="ACCELERATION_FOR">accélération pour</text>
   <text key="HEALTH">santé</text>
+  <text key="MINE_DESCRIPTION">Pose une mine dérrière le véhicule</text>
   <!-- Item -->
   <text key="COIN_DESCRIPTION">Peut être utilisé a l'usine pour fabriquer des pièces d'équipement.</text>
   <text key="REPAIR_KIT_DESCRIPTION">Permet de réparer une pièce d'équipement au garage.</text>

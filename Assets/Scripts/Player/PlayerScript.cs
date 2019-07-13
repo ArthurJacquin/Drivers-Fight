@@ -3,7 +3,7 @@
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform targetTransform;
+    public Transform targetTransform;
 
     [SerializeField]
     private Character carStats;
@@ -139,13 +139,6 @@ public class PlayerScript : MonoBehaviour
         UpdateCarManeuverability();
         UpdateCarTiresArmor();
         UpdateCarWheelArmor();
-
-        /*
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
-        */
 
         if (Input.GetKey(KeyCode.Z) && wantToMoveBackward == false)
         {
