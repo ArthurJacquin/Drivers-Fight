@@ -21,7 +21,6 @@ public class BotControllerScript : MonoBehaviour
     float heading;
     Vector3 targetRotation;
 
-
     void Awake()
     {
         //Initial states
@@ -44,7 +43,7 @@ public class BotControllerScript : MonoBehaviour
         else if (wander && dodgeWall)
         {
             StartCoroutine(NewHeading());
-            transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, new Vector3(0, 240.0f, 0), Time.deltaTime * directionChangeInterval);
+            transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, new Vector3(0, -transform.rotation.eulerAngles.y, 0), Time.deltaTime * directionChangeInterval);
             var forward = transform.TransformDirection(Vector3.forward);
             bot.CharacterController.SimpleMove(forward * speed);
         }
