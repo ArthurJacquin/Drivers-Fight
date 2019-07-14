@@ -112,6 +112,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 798536400a4ea0743bf31d917c1eaf46, type: 2}
+--- !u!114 &80871808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7423085735044292688, guid: b6096cf00ce28b040b154f4b64c46797,
+    type: 3}
+  m_PrefabInstance: {fileID: 1866268521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea25a5d183c5654c86b5533f19199a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &82217861
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +457,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 101657049}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &107028076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5020629311369225768, guid: b6096cf00ce28b040b154f4b64c46797,
+    type: 3}
+  m_PrefabInstance: {fileID: 1866268521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e22bc53e71df34bb6bbd545d84d27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &141769179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,12 +1524,12 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 107028076}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: equipmentPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877262934}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: usablePanel
@@ -1520,12 +1544,12 @@ PrefabInstance:
         type: 3}
       propertyPath: garageWindows
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80871808}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: statPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665177897}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: itemTooltip
@@ -1832,12 +1856,12 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 107028076}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: equipmentPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877262934}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: usablePanel
@@ -1852,12 +1876,12 @@ PrefabInstance:
         type: 3}
       propertyPath: garageWindows
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80871808}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: statPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665177897}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: itemTooltip
@@ -1951,12 +1975,12 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 107028076}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: equipmentPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877262934}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: craftingWindow
@@ -1966,7 +1990,7 @@ PrefabInstance:
         type: 3}
       propertyPath: statPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665177897}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: itemTooltip
@@ -1996,7 +2020,7 @@ PrefabInstance:
         type: 3}
       propertyPath: garageWindows
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80871808}
     - target: {fileID: 33, guid: a8366a057e8cd7c42bd5871cd5fbb477, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2154,12 +2178,12 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 107028076}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: equipmentPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877262934}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: craftingWindow
@@ -2169,7 +2193,7 @@ PrefabInstance:
         type: 3}
       propertyPath: statPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665177897}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: itemTooltip
@@ -2199,7 +2223,7 @@ PrefabInstance:
         type: 3}
       propertyPath: garageWindows
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80871808}
     - target: {fileID: 33, guid: a8366a057e8cd7c42bd5871cd5fbb477, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2704,6 +2728,18 @@ Transform:
   m_Father: {fileID: 229488559}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 114.936005, z: 0}
+--- !u!114 &877262934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5020629311369225777, guid: b6096cf00ce28b040b154f4b64c46797,
+    type: 3}
+  m_PrefabInstance: {fileID: 1866268521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24348d5a003d29240b72d923026b0939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &888219268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,12 +3290,12 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 107028076}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: equipmentPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877262934}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: craftingWindow
@@ -3269,7 +3305,7 @@ PrefabInstance:
         type: 3}
       propertyPath: statPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665177897}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: itemTooltip
@@ -3299,7 +3335,7 @@ PrefabInstance:
         type: 3}
       propertyPath: garageWindows
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80871808}
     - target: {fileID: 33, guid: a8366a057e8cd7c42bd5871cd5fbb477, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4732,12 +4768,12 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 107028076}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: equipmentPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877262934}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: craftingWindow
@@ -4747,7 +4783,7 @@ PrefabInstance:
         type: 3}
       propertyPath: statPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665177897}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: itemTooltip
@@ -4777,7 +4813,7 @@ PrefabInstance:
         type: 3}
       propertyPath: garageWindows
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80871808}
     - target: {fileID: 33, guid: a8366a057e8cd7c42bd5871cd5fbb477, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4954,6 +4990,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4469516744132589169, guid: 27b464b062389074fa972e58b80d983f,
+        type: 3}
+      propertyPath: settingsMenu
+      value: 
+      objectReference: {fileID: 1731876221}
+    - target: {fileID: 4469516744132589169, guid: 27b464b062389074fa972e58b80d983f,
+        type: 3}
+      propertyPath: pauseSettingsMenu
+      value: 
+      objectReference: {fileID: 1731876225}
     - target: {fileID: 4469516744132589166, guid: 27b464b062389074fa972e58b80d983f,
         type: 3}
       propertyPath: m_Name
@@ -5014,16 +5060,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4469516744132589169, guid: 27b464b062389074fa972e58b80d983f,
-        type: 3}
-      propertyPath: settingsMenu
-      value: 
-      objectReference: {fileID: 1731876221}
-    - target: {fileID: 4469516744132589169, guid: 27b464b062389074fa972e58b80d983f,
-        type: 3}
-      propertyPath: pauseSettingsMenu
-      value: 
-      objectReference: {fileID: 1731876225}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27b464b062389074fa972e58b80d983f, type: 3}
 --- !u!4 &1525270190 stripped
@@ -5226,6 +5262,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1665177897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5020629311369225897, guid: b6096cf00ce28b040b154f4b64c46797,
+    type: 3}
+  m_PrefabInstance: {fileID: 1866268521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf6c590a553bea4f8443d22081e30c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1713901826 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8046993629525467287, guid: 7cd13892b8693424a86f7401162a6e52,
@@ -5265,12 +5313,12 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 107028076}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: equipmentPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877262934}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: craftingWindow
@@ -5280,7 +5328,7 @@ PrefabInstance:
         type: 3}
       propertyPath: statPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665177897}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: itemTooltip
@@ -5310,7 +5358,7 @@ PrefabInstance:
         type: 3}
       propertyPath: garageWindows
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80871808}
     - target: {fileID: 33, guid: a8366a057e8cd7c42bd5871cd5fbb477, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5737,6 +5785,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1549674956791312935, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: audioSource
@@ -5850,32 +5918,32 @@ PrefabInstance:
     - target: {fileID: 114116395621639562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114116395621639562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114307695455827982, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114307695455827982, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114296454338782332, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114296454338782332, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8784274909162398562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
@@ -5900,32 +5968,32 @@ PrefabInstance:
     - target: {fileID: 3882595804473190127, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882595804473190127, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5159739488616278506, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5159739488616278506, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3028685861372861510, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3028685861372861510, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd13892b8693424a86f7401162a6e52, type: 3}
@@ -7071,12 +7139,12 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 107028076}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: equipmentPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 877262934}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: craftingWindow
@@ -7086,7 +7154,7 @@ PrefabInstance:
         type: 3}
       propertyPath: statPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665177897}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: itemTooltip
@@ -7116,7 +7184,7 @@ PrefabInstance:
         type: 3}
       propertyPath: garageWindows
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80871808}
     - target: {fileID: 33, guid: a8366a057e8cd7c42bd5871cd5fbb477, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
