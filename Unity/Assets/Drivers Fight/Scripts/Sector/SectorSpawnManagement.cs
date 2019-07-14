@@ -11,7 +11,7 @@ namespace DriversFight.Scripts
     {
         [SerializeField]
         private GameObject[] sectors;
-        
+
         [SerializeField]
         private int firstSectorSpawn = 0;
 
@@ -24,6 +24,15 @@ namespace DriversFight.Scripts
         [SerializeField]
         private PhotonView photonView;
 
+        [SerializeField]
+        private Color colorBefore;
+
+        [SerializeField]
+        private Color colorAfter;
+
+        private Collider colliderino;
+        private Renderer rendererino;
+
         private System.Random rng = new System.Random();
 
         /*[SerializeField]
@@ -34,9 +43,11 @@ namespace DriversFight.Scripts
         private List<int> sectorsAlreadyPop;
 
         private int numberGeneratedSector = 0;
+        private int numberGeneratedSectorSave = 0;
 
         private int sectorsFinalNumber = 0;
 
+        private bool warningSector = true;
         private bool endGameScale = false;
         private float scaleSpeed = 0.03f;
 
@@ -100,6 +111,10 @@ namespace DriversFight.Scripts
         {
             if (numberGeneratedSector <= sectorsFinalNumber)
             {
+                if (PhotonNetwork.IsMasterClient && Time.time > (timeToSpawnTheSector-10) && warningSector)
+                {
+                    StartCoroutine(RandomSpawnSector());
+                }
                 if (PhotonNetwork.IsMasterClient && Time.time > timeToSpawnTheSector)
                 {
                     StartCoroutine(RandomSpawnSector());
@@ -142,12 +157,29 @@ namespace DriversFight.Scripts
 
         private IEnumerator RandomSpawnSector()
         {
-            sectors[sectorNumbers[numberGeneratedSector]].SetActive(true);
-            sectorsAlreadyPop.Add(sectorNumbers[numberGeneratedSector]);
-            photonView.RPC("SpawnSector", RpcTarget.OthersBuffered, sectorNumbers[numberGeneratedSector]);
-
-            numberGeneratedSector++;
-            timeToSpawnTheSector += timeNextSectorSpawn;
+            if (warningSector)
+            {
+                numberGeneratedSectorSave = numberGeneratedSector;
+                sectors[sectorNumbers[numberGeneratedSector]].SetActive(true);
+                colliderino = sectors[sectorNumbers[numberGeneratedSector]].GetComponent<Collider>();
+                colliderino.enabled = false;
+                rendererino = sectors[sectorNumbers[numberGeneratedSector]].GetComponent<Renderer>();
+                rendererino.sharedMaterial.color = colorBefore;
+                sectorsAlreadyPop.Add(sectorNumbers[numberGeneratedSector]);
+                photonView.RPC("SpawnSector", RpcTarget.OthersBuffered, sectorNumbers[numberGeneratedSector]);
+                warningSector = false;
+            }
+            else
+            {
+                rendererino = sectors[sectorNumbers[numberGeneratedSector]].GetComponent<Renderer>();
+                rendererino.sharedMaterial.color = colorAfter;
+                colliderino = sectors[sectorNumbers[numberGeneratedSector]].GetComponent<Collider>();
+                colliderino.enabled = true;
+                photonView.RPC("SpawnSector", RpcTarget.OthersBuffered, sectorNumbers[numberGeneratedSector]);
+                numberGeneratedSector++;
+                timeToSpawnTheSector += timeNextSectorSpawn;
+                warningSector = true;
+            }
 
             yield return new WaitForSeconds(1);
         }

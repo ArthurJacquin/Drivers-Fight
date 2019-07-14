@@ -8,6 +8,7 @@ TagManager:
   - Sector
   - Factory
   - Collectible
+  - Buidling
   layers:
   - Default
   - TransparentFX

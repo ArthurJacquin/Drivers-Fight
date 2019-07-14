@@ -32759,15 +32759,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3373462127303322529}
     m_Modifications:
-    - target: {fileID: 3076306851535727690, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: ItemContainer
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4063327774804172946, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: m_Name
       value: Crafting Recipe UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076306851535727690, guid: 2c6c8fef216cb0341808d939d982bca4,
+        type: 3}
+      propertyPath: ItemContainer
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1805013164516200327, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
