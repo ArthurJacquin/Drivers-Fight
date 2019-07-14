@@ -7,10 +7,18 @@ namespace DriversFight.Scripts
     {
         public event Action<CollisionEnterDispatcherScript, Collider> CollisionEvent;
         public event Action<CollisionEnterDispatcherScript> SectorTriggerEvent;
+        public event Action<CollisionEnterDispatcherScript, Collider> BotCollisionEvent;
 
         public void OnCollisionEnter(Collision col)
         {
-            CollisionEvent?.Invoke(this, col.collider);
+            if (col.gameObject.tag == "Car")
+            {
+                CollisionEvent?.Invoke(this, col.collider);
+            } 
+            else if (col.gameObject.tag == "Bot")
+            {
+                BotCollisionEvent?.Invoke(this, col.collider);
+            }
         }
 
         private void OnTriggerEnter(Collider col)
@@ -18,6 +26,5 @@ namespace DriversFight.Scripts
             if(col.gameObject.tag == "Sector")
                 SectorTriggerEvent?.Invoke(this);
         }
-
     }
 }

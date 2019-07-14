@@ -91,6 +91,9 @@ namespace DriversFight.Scripts
         private readonly Dictionary<Collider, AvatarExposerScript>
             colliderToAvatar = new Dictionary<Collider, AvatarExposerScript>();
 
+        private readonly Dictionary<Collider, BotExposerScript>
+            colliderToBot = new Dictionary<Collider, BotExposerScript>();
+
         private bool GameStarted
         {
             get { return gameStarted; }
@@ -111,6 +114,7 @@ namespace DriversFight.Scripts
             {
                 avatar.CollisionDispatcher.CollisionEvent += HandleCollision;
                 avatar.CollisionDispatcher.SectorTriggerEvent += HandleTrigger;
+                avatar.CollisionDispatcher.BotCollisionEvent += HandleBotCollision;
             }
         }
 
@@ -129,8 +133,6 @@ namespace DriversFight.Scripts
                 RaycastHit hit;
                 if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, out hit, 3, 1 << 8))
                 {
-                    Debug.DrawLine(this.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, Color.blue, 999f, false);
-                    Debug.Log("Hit : " + hit.rigidbody.gameObject.name);
                     if (hit.normal == targetAvatar.transform.forward)
                         targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.FrontArmor);
                     if (hit.normal == -targetAvatar.transform.forward)
@@ -140,6 +142,29 @@ namespace DriversFight.Scripts
                     if (hit.normal == -targetAvatar.transform.right)
                         targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.LeftArmor);
                 }
+            }
+        }
+
+        private void HandleBotCollision(CollisionEnterDispatcherScript collisionDispatcher,
+           Collider col)
+        {
+            if (!dispatcherToAvatar.TryGetValue(collisionDispatcher, out var targetAvatar)
+                || !colliderToBot.TryGetValue(col, out var sourceBot))
+            {
+                return;
+            }
+            Debug.Log("hit bot");
+            RaycastHit hit;
+            if (Physics.Raycast(sourceBot.transform.position, targetAvatar.transform.position - sourceBot.transform.position, out hit, 3, 1 << 8))
+            {
+                if (hit.normal == targetAvatar.transform.forward)
+                    targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.FrontArmor);
+                if (hit.normal == -targetAvatar.transform.forward)
+                    targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.RearArmor);
+                if (hit.normal == targetAvatar.transform.right)
+                    targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.RightArmor);
+                if (hit.normal == -targetAvatar.transform.right)
+                    targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.LeftArmor);
             }
         }
 
@@ -173,6 +198,11 @@ namespace DriversFight.Scripts
             {
                 dispatcherToAvatar.Add(avatar.CollisionDispatcher, avatar);
                 colliderToAvatar.Add(avatar.MainCollider, avatar);
+            }
+
+            foreach(var bot in bots)
+            {
+                colliderToBot.Add(bot.MainCollider, bot);
             }
         }
 
