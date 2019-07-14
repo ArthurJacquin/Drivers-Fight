@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5449195928008614044}
   - component: {fileID: 5449195928008614043}
   - component: {fileID: 7561883274834834658}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5449195928008614046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.73, y: 2.55, z: 19.05}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 5449195928451968508}
   m_Father: {fileID: 0}
@@ -58,10 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6c86cf8cc71b54a8d12c875274833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  garagePanelGameObject: {fileID: 4998685716438374892, guid: 456518e464132fa448f30d13d2c8b8fd,
-    type: 3}
-  characterPanelGameObject: {fileID: 7456524528635743183, guid: e32aeefc899813b4caf13e50c5e2dd4f,
-    type: 3}
+  garagePanelGameObject: {fileID: 0}
+  characterPanelGameObject: {fileID: 0}
   garageOpenKeyCode: 117
 --- !u!1 &5449195928451968509
 GameObject:
@@ -75,7 +73,7 @@ GameObject:
   - component: {fileID: 5449195928451968505}
   - component: {fileID: 5449195928451968506}
   - component: {fileID: 5449195928451968507}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &257476435420482854
+--- !u!1 &130
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7923049538144698298}
-  - component: {fileID: 4512625938165062663}
-  - component: {fileID: 940681270345568188}
-  - component: {fileID: 1871868597731844199}
+  - component: {fileID: 227}
+  - component: {fileID: 184}
+  - component: {fileID: 299}
+  - component: {fileID: 308}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -19,18 +19,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7923049538144698298
+--- !u!224 &227
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257476435420482854}
+  m_GameObject: {fileID: 130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3931310097731198946}
+  m_Father: {fileID: 212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -38,21 +38,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4512625938165062663
+--- !u!222 &184
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257476435420482854}
+  m_GameObject: {fileID: 130}
   m_CullTransparentMesh: 0
---- !u!114 &940681270345568188
+--- !u!114 &299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257476435420482854}
+  m_GameObject: {fileID: 130}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -80,20 +80,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Repair wheel armor
---- !u!114 &1871868597731844199
+--- !u!114 &308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257476435420482854}
+  m_GameObject: {fileID: 130}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   key: REPAIR_WHEEL_ARMOR
---- !u!1 &624592288634096641
+--- !u!1 &133
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,10 +101,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7061887468941397276}
-  - component: {fileID: 1416071664683414325}
-  - component: {fileID: 4854383855906533910}
-  - component: {fileID: 1206046675897763295}
+  - component: {fileID: 222}
+  - component: {fileID: 174}
+  - component: {fileID: 330}
+  - component: {fileID: 302}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -112,18 +112,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7061887468941397276
+--- !u!224 &222
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624592288634096641}
+  m_GameObject: {fileID: 133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4376339466439654508}
+  m_Father: {fileID: 215}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -131,21 +131,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1416071664683414325
+--- !u!222 &174
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624592288634096641}
+  m_GameObject: {fileID: 133}
   m_CullTransparentMesh: 0
---- !u!114 &4854383855906533910
+--- !u!114 &330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624592288634096641}
+  m_GameObject: {fileID: 133}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -173,20 +173,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Repair right armor
---- !u!114 &1206046675897763295
+--- !u!114 &302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624592288634096641}
+  m_GameObject: {fileID: 133}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   key: REPAIR_RIGHT_ARMOR
---- !u!1 &1299650889864695074
+--- !u!1 &134
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,10 +194,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8989673270998020155}
-  - component: {fileID: 3932898502506969181}
-  - component: {fileID: 3523587189955810823}
-  - component: {fileID: 9222769517347851673}
+  - component: {fileID: 231}
+  - component: {fileID: 182}
+  - component: {fileID: 318}
+  - component: {fileID: 352}
   m_Layer: 5
   m_Name: Repair Tires Armor Button
   m_TagString: Untagged
@@ -205,19 +205,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8989673270998020155
+--- !u!224 &231
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299650889864695074}
+  m_GameObject: {fileID: 134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1018814719972834534}
-  m_Father: {fileID: 1143659398695067443}
+  - {fileID: 201}
+  m_Father: {fileID: 202}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -225,21 +225,21 @@ RectTransform:
   m_AnchoredPosition: {x: -25, y: -170}
   m_SizeDelta: {x: 220, y: 50}
   m_Pivot: {x: 1, y: 1}
---- !u!222 &3932898502506969181
+--- !u!222 &182
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299650889864695074}
+  m_GameObject: {fileID: 134}
   m_CullTransparentMesh: 0
---- !u!114 &3523587189955810823
+--- !u!114 &318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299650889864695074}
+  m_GameObject: {fileID: 134}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -262,13 +262,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &9222769517347851673
+--- !u!114 &352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299650889864695074}
+  m_GameObject: {fileID: 134}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -298,11 +298,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3523587189955810823}
+  m_TargetGraphic: {fileID: 318}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8967508322823235234}
+      - m_Target: {fileID: 348}
         m_MethodName: RepairArmor
         m_Mode: 3
         m_Arguments:
@@ -315,7 +315,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &2077881081569155895
+--- !u!1 &138
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -323,10 +323,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7604947610081873523}
-  - component: {fileID: 3194983636306069383}
-  - component: {fileID: 4304127921464499953}
-  - component: {fileID: 5346375999167910130}
+  - component: {fileID: 224}
+  - component: {fileID: 179}
+  - component: {fileID: 322}
+  - component: {fileID: 331}
   m_Layer: 5
   m_Name: Repair Left Armor Button
   m_TagString: Untagged
@@ -334,19 +334,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7604947610081873523
+--- !u!224 &224
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077881081569155895}
+  m_GameObject: {fileID: 138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6190220915758698502}
-  m_Father: {fileID: 1143659398695067443}
+  - {fileID: 220}
+  m_Father: {fileID: 202}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -354,21 +354,21 @@ RectTransform:
   m_AnchoredPosition: {x: 25, y: -170}
   m_SizeDelta: {x: 220, y: 50}
   m_Pivot: {x: 0, y: 1}
---- !u!222 &3194983636306069383
+--- !u!222 &179
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077881081569155895}
+  m_GameObject: {fileID: 138}
   m_CullTransparentMesh: 0
---- !u!114 &4304127921464499953
+--- !u!114 &322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077881081569155895}
+  m_GameObject: {fileID: 138}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -391,13 +391,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5346375999167910130
+--- !u!114 &331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077881081569155895}
+  m_GameObject: {fileID: 138}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -427,11 +427,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4304127921464499953}
+  m_TargetGraphic: {fileID: 322}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8967508322823235234}
+      - m_Target: {fileID: 348}
         m_MethodName: RepairArmor
         m_Mode: 3
         m_Arguments:
@@ -444,7 +444,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &2831944700620803022
+--- !u!1 &141
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -452,10 +452,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2684228493621604571}
-  - component: {fileID: 3448566821816447911}
-  - component: {fileID: 7749106156177862293}
-  - component: {fileID: 7414762579226580766}
+  - component: {fileID: 208}
+  - component: {fileID: 180}
+  - component: {fileID: 345}
+  - component: {fileID: 342}
   m_Layer: 5
   m_Name: Repair Front Armor Button
   m_TagString: Untagged
@@ -463,19 +463,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2684228493621604571
+--- !u!224 &208
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831944700620803022}
+  m_GameObject: {fileID: 141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7985212194836860389}
-  m_Father: {fileID: 1143659398695067443}
+  - {fileID: 228}
+  m_Father: {fileID: 202}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -483,21 +483,21 @@ RectTransform:
   m_AnchoredPosition: {x: 25, y: -110}
   m_SizeDelta: {x: 220, y: 50}
   m_Pivot: {x: 0, y: 1}
---- !u!222 &3448566821816447911
+--- !u!222 &180
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831944700620803022}
+  m_GameObject: {fileID: 141}
   m_CullTransparentMesh: 0
---- !u!114 &7749106156177862293
+--- !u!114 &345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831944700620803022}
+  m_GameObject: {fileID: 141}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -520,13 +520,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &7414762579226580766
+--- !u!114 &342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831944700620803022}
+  m_GameObject: {fileID: 141}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -556,11 +556,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7749106156177862293}
+  m_TargetGraphic: {fileID: 345}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8967508322823235234}
+      - m_Target: {fileID: 348}
         m_MethodName: RepairArmor
         m_Mode: 3
         m_Arguments:
@@ -573,7 +573,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &3007398895023186645
+--- !u!1 &142
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -581,10 +581,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3394151142260742882}
-  - component: {fileID: 6110502139924939517}
-  - component: {fileID: 3974488159350605768}
-  - component: {fileID: 7258515623264594744}
+  - component: {fileID: 209}
+  - component: {fileID: 189}
+  - component: {fileID: 320}
+  - component: {fileID: 341}
   m_Layer: 5
   m_Name: Garage Description Text
   m_TagString: Untagged
@@ -592,18 +592,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3394151142260742882
+--- !u!224 &209
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3007398895023186645}
+  m_GameObject: {fileID: 142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1143659398695067443}
+  m_Father: {fileID: 202}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -611,21 +611,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: -20, y: 50}
   m_Pivot: {x: 0.5, y: 1}
---- !u!222 &6110502139924939517
+--- !u!222 &189
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3007398895023186645}
+  m_GameObject: {fileID: 142}
   m_CullTransparentMesh: 0
---- !u!114 &3974488159350605768
+--- !u!114 &320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3007398895023186645}
+  m_GameObject: {fileID: 142}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -653,20 +653,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: You can repair a piece of your equipment against a repair kit
---- !u!114 &7258515623264594744
+--- !u!114 &341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3007398895023186645}
+  m_GameObject: {fileID: 142}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   key: GARAGE_DESCRIPTION
---- !u!1 &3450474769884300353
+--- !u!1 &144
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -674,9 +674,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7681216437650734446}
-  - component: {fileID: 39836967863534647}
-  - component: {fileID: 9167083242279335758}
+  - component: {fileID: 225}
+  - component: {fileID: 169}
+  - component: {fileID: 349}
   m_Layer: 5
   m_Name: Garage Header
   m_TagString: Untagged
@@ -684,19 +684,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7681216437650734446
+--- !u!224 &225
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3450474769884300353}
+  m_GameObject: {fileID: 144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3523552641641230985}
-  m_Father: {fileID: 1143659398695067443}
+  - {fileID: 211}
+  m_Father: {fileID: 202}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -704,21 +704,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: -50, y: 80}
   m_Pivot: {x: 0.5, y: 1}
---- !u!222 &39836967863534647
+--- !u!222 &169
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3450474769884300353}
+  m_GameObject: {fileID: 144}
   m_CullTransparentMesh: 0
---- !u!114 &9167083242279335758
+--- !u!114 &349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3450474769884300353}
+  m_GameObject: {fileID: 144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1 &4998685716438374892
+--- !u!1 &149
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -749,10 +749,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1143659398695067443}
-  - component: {fileID: 6610426766661575189}
-  - component: {fileID: 2112520898489342247}
-  - component: {fileID: 8967508322823235234}
+  - component: {fileID: 202}
+  - component: {fileID: 192}
+  - component: {fileID: 309}
+  - component: {fileID: 348}
   m_Layer: 5
   m_Name: Garage Windows
   m_TagString: Untagged
@@ -760,25 +760,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!224 &1143659398695067443
+--- !u!224 &202
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998685716438374892}
+  m_GameObject: {fileID: 149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7681216437650734446}
-  - {fileID: 3394151142260742882}
-  - {fileID: 2684228493621604571}
-  - {fileID: 2302105064987698159}
-  - {fileID: 4376339466439654508}
-  - {fileID: 7604947610081873523}
-  - {fileID: 3931310097731198946}
-  - {fileID: 8989673270998020155}
+  - {fileID: 225}
+  - {fileID: 209}
+  - {fileID: 208}
+  - {fileID: 206}
+  - {fileID: 215}
+  - {fileID: 224}
+  - {fileID: 212}
+  - {fileID: 231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -787,21 +787,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 750, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6610426766661575189
+--- !u!222 &192
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998685716438374892}
+  m_GameObject: {fileID: 149}
   m_CullTransparentMesh: 0
---- !u!114 &2112520898489342247
+--- !u!114 &309
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998685716438374892}
+  m_GameObject: {fileID: 149}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -824,13 +824,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8967508322823235234
+--- !u!114 &348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998685716438374892}
+  m_GameObject: {fileID: 149}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ea25a5d183c5654c86b5533f19199a9, type: 3}
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentPanel: {fileID: 0}
   ItemContainer: {fileID: 0}
---- !u!1 &5233361055036064428
+--- !u!1 &150
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -846,10 +846,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2302105064987698159}
-  - component: {fileID: 5036325052448613224}
-  - component: {fileID: 1478103237330100765}
-  - component: {fileID: 4735794814735277791}
+  - component: {fileID: 206}
+  - component: {fileID: 185}
+  - component: {fileID: 303}
+  - component: {fileID: 329}
   m_Layer: 5
   m_Name: Repair Rear Armor Button
   m_TagString: Untagged
@@ -857,19 +857,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2302105064987698159
+--- !u!224 &206
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5233361055036064428}
+  m_GameObject: {fileID: 150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7604718763707964301}
-  m_Father: {fileID: 1143659398695067443}
+  - {fileID: 223}
+  m_Father: {fileID: 202}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -877,21 +877,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -110}
   m_SizeDelta: {x: 220, y: 50}
   m_Pivot: {x: 0.5, y: 1}
---- !u!222 &5036325052448613224
+--- !u!222 &185
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5233361055036064428}
+  m_GameObject: {fileID: 150}
   m_CullTransparentMesh: 0
---- !u!114 &1478103237330100765
+--- !u!114 &303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5233361055036064428}
+  m_GameObject: {fileID: 150}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -914,13 +914,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4735794814735277791
+--- !u!114 &329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5233361055036064428}
+  m_GameObject: {fileID: 150}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -950,11 +950,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1478103237330100765}
+  m_TargetGraphic: {fileID: 303}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8967508322823235234}
+      - m_Target: {fileID: 348}
         m_MethodName: RepairArmor
         m_Mode: 3
         m_Arguments:
@@ -967,7 +967,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &6053781261068839577
+--- !u!1 &152
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -975,10 +975,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3523552641641230985}
-  - component: {fileID: 5496907304653383754}
-  - component: {fileID: 6537517431451236858}
-  - component: {fileID: 9218895575793543947}
+  - component: {fileID: 211}
+  - component: {fileID: 188}
+  - component: {fileID: 337}
+  - component: {fileID: 351}
   m_Layer: 5
   m_Name: Garage Text
   m_TagString: Untagged
@@ -986,18 +986,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3523552641641230985
+--- !u!224 &211
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6053781261068839577}
+  m_GameObject: {fileID: 152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000149, y: 1.0000149, z: 1.0000149}
   m_Children: []
-  m_Father: {fileID: 7681216437650734446}
+  m_Father: {fileID: 225}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1005,21 +1005,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0024414062, y: 0}
   m_SizeDelta: {x: -0.005249, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5496907304653383754
+--- !u!222 &188
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6053781261068839577}
+  m_GameObject: {fileID: 152}
   m_CullTransparentMesh: 0
---- !u!114 &6537517431451236858
+--- !u!114 &337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6053781261068839577}
+  m_GameObject: {fileID: 152}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1047,20 +1047,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Garage
---- !u!114 &9218895575793543947
+--- !u!114 &351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6053781261068839577}
+  m_GameObject: {fileID: 152}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   key: GARAGE
---- !u!1 &6375179817639466238
+--- !u!1 &153
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1068,10 +1068,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3931310097731198946}
-  - component: {fileID: 7414866708560642771}
-  - component: {fileID: 2216725862823522545}
-  - component: {fileID: 2394839299365789280}
+  - component: {fileID: 212}
+  - component: {fileID: 193}
+  - component: {fileID: 310}
+  - component: {fileID: 311}
   m_Layer: 5
   m_Name: Repair Wheel Armor Button
   m_TagString: Untagged
@@ -1079,19 +1079,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3931310097731198946
+--- !u!224 &212
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6375179817639466238}
+  m_GameObject: {fileID: 153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7923049538144698298}
-  m_Father: {fileID: 1143659398695067443}
+  - {fileID: 227}
+  m_Father: {fileID: 202}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -1099,21 +1099,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -170}
   m_SizeDelta: {x: 220, y: 50}
   m_Pivot: {x: 0.5, y: 1}
---- !u!222 &7414866708560642771
+--- !u!222 &193
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6375179817639466238}
+  m_GameObject: {fileID: 153}
   m_CullTransparentMesh: 0
---- !u!114 &2216725862823522545
+--- !u!114 &310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6375179817639466238}
+  m_GameObject: {fileID: 153}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1136,13 +1136,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2394839299365789280
+--- !u!114 &311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6375179817639466238}
+  m_GameObject: {fileID: 153}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1172,11 +1172,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2216725862823522545}
+  m_TargetGraphic: {fileID: 310}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8967508322823235234}
+      - m_Target: {fileID: 348}
         m_MethodName: RepairArmor
         m_Mode: 3
         m_Arguments:
@@ -1189,7 +1189,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &7060272347025344459
+--- !u!1 &155
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1197,10 +1197,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7604718763707964301}
-  - component: {fileID: 3886215778288125225}
-  - component: {fileID: 2986390701171029244}
-  - component: {fileID: 7223334635964785310}
+  - component: {fileID: 223}
+  - component: {fileID: 181}
+  - component: {fileID: 314}
+  - component: {fileID: 340}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1208,18 +1208,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7604718763707964301
+--- !u!224 &223
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060272347025344459}
+  m_GameObject: {fileID: 155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2302105064987698159}
+  m_Father: {fileID: 206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1227,21 +1227,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3886215778288125225
+--- !u!222 &181
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060272347025344459}
+  m_GameObject: {fileID: 155}
   m_CullTransparentMesh: 0
---- !u!114 &2986390701171029244
+--- !u!114 &314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060272347025344459}
+  m_GameObject: {fileID: 155}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1269,20 +1269,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Repair rear armor
---- !u!114 &7223334635964785310
+--- !u!114 &340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060272347025344459}
+  m_GameObject: {fileID: 155}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   key: REPAIR_REAR_ARMOR
---- !u!1 &7488540809671722999
+--- !u!1 &157
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1290,10 +1290,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7985212194836860389}
-  - component: {fileID: 698403417411047330}
-  - component: {fileID: 5891608401767315249}
-  - component: {fileID: 4501536086358879226}
+  - component: {fileID: 228}
+  - component: {fileID: 171}
+  - component: {fileID: 333}
+  - component: {fileID: 326}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1301,18 +1301,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7985212194836860389
+--- !u!224 &228
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7488540809671722999}
+  m_GameObject: {fileID: 157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2684228493621604571}
+  m_Father: {fileID: 208}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1320,21 +1320,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &698403417411047330
+--- !u!222 &171
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7488540809671722999}
+  m_GameObject: {fileID: 157}
   m_CullTransparentMesh: 0
---- !u!114 &5891608401767315249
+--- !u!114 &333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7488540809671722999}
+  m_GameObject: {fileID: 157}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1362,20 +1362,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Repair front armor
---- !u!114 &4501536086358879226
+--- !u!114 &326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7488540809671722999}
+  m_GameObject: {fileID: 157}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   key: REPAIR_FRONT_ARMOR
---- !u!1 &8303475497364541499
+--- !u!1 &159
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1383,10 +1383,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4376339466439654508}
-  - component: {fileID: 9108859346220246151}
-  - component: {fileID: 7602300991171251472}
-  - component: {fileID: 3708937285241572178}
+  - component: {fileID: 215}
+  - component: {fileID: 199}
+  - component: {fileID: 343}
+  - component: {fileID: 319}
   m_Layer: 5
   m_Name: Repair Right Armor Button
   m_TagString: Untagged
@@ -1394,19 +1394,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4376339466439654508
+--- !u!224 &215
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303475497364541499}
+  m_GameObject: {fileID: 159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7061887468941397276}
-  m_Father: {fileID: 1143659398695067443}
+  - {fileID: 222}
+  m_Father: {fileID: 202}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -1414,21 +1414,21 @@ RectTransform:
   m_AnchoredPosition: {x: -25, y: -110}
   m_SizeDelta: {x: 220, y: 50}
   m_Pivot: {x: 1, y: 1}
---- !u!222 &9108859346220246151
+--- !u!222 &199
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303475497364541499}
+  m_GameObject: {fileID: 159}
   m_CullTransparentMesh: 0
---- !u!114 &7602300991171251472
+--- !u!114 &343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303475497364541499}
+  m_GameObject: {fileID: 159}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1451,13 +1451,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3708937285241572178
+--- !u!114 &319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303475497364541499}
+  m_GameObject: {fileID: 159}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1487,11 +1487,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7602300991171251472}
+  m_TargetGraphic: {fileID: 343}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8967508322823235234}
+      - m_Target: {fileID: 348}
         m_MethodName: RepairArmor
         m_Mode: 3
         m_Arguments:
@@ -1504,7 +1504,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &8738494901786018038
+--- !u!1 &161
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1512,10 +1512,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6190220915758698502}
-  - component: {fileID: 9060511791113797664}
-  - component: {fileID: 4604735904536321947}
-  - component: {fileID: 1616636001882221220}
+  - component: {fileID: 220}
+  - component: {fileID: 198}
+  - component: {fileID: 327}
+  - component: {fileID: 306}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1523,18 +1523,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6190220915758698502
+--- !u!224 &220
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8738494901786018038}
+  m_GameObject: {fileID: 161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7604947610081873523}
+  m_Father: {fileID: 224}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1542,21 +1542,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &9060511791113797664
+--- !u!222 &198
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8738494901786018038}
+  m_GameObject: {fileID: 161}
   m_CullTransparentMesh: 0
---- !u!114 &4604735904536321947
+--- !u!114 &327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8738494901786018038}
+  m_GameObject: {fileID: 161}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1584,20 +1584,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Repair left armor
---- !u!114 &1616636001882221220
+--- !u!114 &306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8738494901786018038}
+  m_GameObject: {fileID: 161}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   key: REPAIR_LEFT_ARMOR
---- !u!1 &9100287270456382215
+--- !u!1 &163
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1605,10 +1605,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1018814719972834534}
-  - component: {fileID: 3031721609445729338}
-  - component: {fileID: 2595917163308483563}
-  - component: {fileID: 4606203500953911287}
+  - component: {fileID: 201}
+  - component: {fileID: 178}
+  - component: {fileID: 312}
+  - component: {fileID: 328}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1616,18 +1616,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1018814719972834534
+--- !u!224 &201
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9100287270456382215}
+  m_GameObject: {fileID: 163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8989673270998020155}
+  m_Father: {fileID: 231}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1635,21 +1635,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3031721609445729338
+--- !u!222 &178
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9100287270456382215}
+  m_GameObject: {fileID: 163}
   m_CullTransparentMesh: 0
---- !u!114 &2595917163308483563
+--- !u!114 &312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9100287270456382215}
+  m_GameObject: {fileID: 163}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -1677,13 +1677,13 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Repair tires armor
---- !u!114 &4606203500953911287
+--- !u!114 &328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9100287270456382215}
+  m_GameObject: {fileID: 163}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10c453ff7ee717d4aa78bc36f3704a8f, type: 3}
