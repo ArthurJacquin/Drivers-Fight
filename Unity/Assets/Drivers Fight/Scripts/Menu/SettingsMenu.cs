@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Drivers.LocalizationSettings;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -6,8 +7,12 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour {
 
+    public AudioMixer audioMixer;
+
     [SerializeField]
     private Dropdown resolutionDropdown;
+
+    public Dropdown graphicDropdown;
 
     [SerializeField]
     private Slider audioVolumeSlider;
@@ -43,12 +48,32 @@ public class SettingsMenu : MonoBehaviour {
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
+        DisplayGraphicDropdown();
+
         audioVolumeSlider.value = volume;
+    }
+
+    public void DisplayGraphicDropdown()
+    {
+        graphicDropdown.ClearOptions();
+        List<string> graphicOptions = new List<string> { LocalizationManager.Instance.GetText("VERY_LOW"), LocalizationManager.Instance.GetText("LOW"), LocalizationManager.Instance.GetText("MEDIUM"), LocalizationManager.Instance.GetText("HIGH"), LocalizationManager.Instance.GetText("VERY_HIGH"), LocalizationManager.Instance.GetText("ULTRA") };
+        graphicDropdown.AddOptions(graphicOptions);
+        graphicDropdown.RefreshShownValue();
     }
 
     public void SetVolume(float v)
     {
         volume = v;
+    }
+
+    /*public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
+    }*/
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void SetFullScreen(bool isFullscreen)

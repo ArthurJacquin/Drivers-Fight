@@ -20,6 +20,7 @@ namespace Drivers.LocalizationSettings
 
         [Space]
         public SettingsMenu settingsMenu;
+        public PauseSettingsMenu pauseSettingsMenu;
 
         private static LocalizationManager instance;   // GameSystem local instance
 
@@ -86,13 +87,15 @@ namespace Drivers.LocalizationSettings
         public void SetEnglish()
         {
             ID = 0;
-            //settingsMenu.DisplayGraphicDropdown();
+            settingsMenu.DisplayGraphicDropdown();
+            pauseSettingsMenu.DisplayGraphicDropdown();
         }
 
         public void SetFrench()
         {
             ID = 1;
-            //settingsMenu.DisplayGraphicDropdown();
+            settingsMenu.DisplayGraphicDropdown();
+            pauseSettingsMenu.DisplayGraphicDropdown();
         }
     }
 }

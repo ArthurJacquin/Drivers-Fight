@@ -49,3 +49,4 @@ MonoBehaviour:
   - {fileID: 4900000, guid: d6bfb5c1c21f9314ba1e2139083cd869, type: 3}
   languages: []
   settingsMenu: {fileID: 0}
+  pauseSettingsMenu: {fileID: 0}

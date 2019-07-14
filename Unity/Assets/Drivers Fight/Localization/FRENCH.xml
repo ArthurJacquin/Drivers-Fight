@@ -96,4 +96,15 @@
   <text key="DEFEAT_MESSAGE">Tu conduis moins bien que ma \ngrand - mère !</text>
   <text key="YOU_FINISH_IN">Tu termines en </text>
   <text key="POSITION">ème position.</text>
+  <!-- Menu Game Mode -->
+  <text key="GAME_MODE">Choisissez un mode de jeu</text>
+  <text key="PARTY_MODE">Créer ou rejoindre une partie existante ?</text>
+  <text key="OFFLINE">Hors ligne</text>
+  <text key="ONLINE">En ligne</text>
+  <text key="JOIN">Joindre</text>
+  <text key="CREATE">Créer</text>
+  <!-- Menu Pause -->
+  <text key="RESUME">Reprendre</text>
+  <!-- Menu End Game -->
+  <text key="BACK_TO_MENU">Retour au menu</text>
 </Language>
