@@ -36905,7 +36905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1066326763532634975}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 9198470792537928021, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: image
@@ -36916,8 +36915,6 @@ PrefabInstance:
       propertyPath: amountText
       value: 
       objectReference: {fileID: 6942293656034957016}
-=======
->>>>>>> 310a686811550a584637fb92ee168b50ab5f4658
     - target: {fileID: 3076306851535727690, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: itemSlots.Array.data[0]
@@ -37048,49 +37045,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
-    - target: {fileID: 1805013164516200327, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4063327774804172946, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: m_Name
-      value: Crafting Recipe UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4036898110285986877, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 7911074540990911760}
-    - target: {fileID: 4036898110285986877, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: amountText
-      value: 
-      objectReference: {fileID: 4163626395780050485}
-    - target: {fileID: 9198470792537928021, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 2833279325891632560}
-    - target: {fileID: 9198470792537928021, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: amountText
-      value: 
-      objectReference: {fileID: 6942293656034957016}
-    - target: {fileID: 6760113789927449313, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 6620315194967703569}
-    - target: {fileID: 6760113789927449313, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: amountText
-      value: 
-      objectReference: {fileID: 1626609734386891615}
->>>>>>> 310a686811550a584637fb92ee168b50ab5f4658
     - target: {fileID: 7701437001155501852, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: image

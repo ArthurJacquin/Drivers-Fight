@@ -1425,7 +1425,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 486274591}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -1508,6 +1508,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1866268521}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &486274591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 371048180240083195, guid: b6096cf00ce28b040b154f4b64c46797,
+    type: 3}
+  m_PrefabInstance: {fileID: 1866268521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486274590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0546363312dbe134da9d27a6137f898f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &492410523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2288587603963330564, guid: b6096cf00ce28b040b154f4b64c46797,
@@ -1557,11 +1569,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 129208791221119648, guid: e924b49c5f824aa40a18096136915808,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 7792007103245433810, guid: e924b49c5f824aa40a18096136915808,
         type: 3}
       propertyPath: m_Name
@@ -1573,6 +1580,11 @@ PrefabInstance:
       value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7792007103245433810, guid: e924b49c5f824aa40a18096136915808,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 129208791221119648, guid: e924b49c5f824aa40a18096136915808,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -4718,7 +4730,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 486274591}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -4833,7 +4845,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 486274591}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -5032,7 +5044,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 486274591}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -6026,7 +6038,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 486274591}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -7404,7 +7416,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 486274591}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -7939,7 +7951,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 486274591}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -8396,29 +8408,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1324387113636854, guid: 7cd13892b8693424a86f7401162a6e52, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
-        type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224510306868231386, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
@@ -8528,32 +8526,32 @@ PrefabInstance:
     - target: {fileID: 114116395621639562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114116395621639562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114307695455827982, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114307695455827982, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114296454338782332, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114296454338782332, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8784274909162398562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
@@ -8578,32 +8576,32 @@ PrefabInstance:
     - target: {fileID: 3882595804473190127, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3882595804473190127, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5159739488616278506, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5159739488616278506, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3028685861372861510, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3028685861372861510, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6506337841512827600, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
@@ -9114,7 +9112,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 486274591}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
