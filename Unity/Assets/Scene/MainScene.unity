@@ -723,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 7945547867819774867, guid: 2a7f72b4c35aa794cb7a816764f5f9bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 157.3
+      value: -95.7
       objectReference: {fileID: 0}
     - target: {fileID: 7945547867819774867, guid: 2a7f72b4c35aa794cb7a816764f5f9bb,
         type: 3}
@@ -733,7 +733,7 @@ PrefabInstance:
     - target: {fileID: 7945547867819774867, guid: 2a7f72b4c35aa794cb7a816764f5f9bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100.3
+      value: -241.6
       objectReference: {fileID: 0}
     - target: {fileID: 7945547867819774867, guid: 2a7f72b4c35aa794cb7a816764f5f9bb,
         type: 3}
@@ -1425,7 +1425,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 486274592}
+      objectReference: {fileID: 0}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -1508,18 +1508,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1866268521}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &486274592 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 371048180240083195, guid: b6096cf00ce28b040b154f4b64c46797,
-    type: 3}
-  m_PrefabInstance: {fileID: 1866268521}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486274590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0546363312dbe134da9d27a6137f898f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &492410523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2288587603963330564, guid: b6096cf00ce28b040b154f4b64c46797,
@@ -1838,7 +1826,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 486274592}
+      objectReference: {fileID: 0}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -1953,7 +1941,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 486274592}
+      objectReference: {fileID: 0}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -2152,7 +2140,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 486274592}
+      objectReference: {fileID: 0}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -3237,7 +3225,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 486274592}
+      objectReference: {fileID: 0}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -4615,7 +4603,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 486274592}
+      objectReference: {fileID: 0}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -5150,7 +5138,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 486274592}
+      objectReference: {fileID: 0}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
@@ -6130,7 +6118,7 @@ PrefabInstance:
     - target: {fileID: 7945547867819774867, guid: 2a7f72b4c35aa794cb7a816764f5f9bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 111.1
+      value: 219
       objectReference: {fileID: 0}
     - target: {fileID: 7945547867819774867, guid: 2a7f72b4c35aa794cb7a816764f5f9bb,
         type: 3}
@@ -6187,6 +6175,16 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 107028076}
+    - target: {fileID: 1439251229629033722, guid: 2a7f72b4c35aa794cb7a816764f5f9bb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439251229629033722, guid: 2a7f72b4c35aa794cb7a816764f5f9bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7f72b4c35aa794cb7a816764f5f9bb, type: 3}
 --- !u!4 &2033154556 stripped
@@ -6332,7 +6330,7 @@ PrefabInstance:
         type: 3}
       propertyPath: craftingWindow
       value: 
-      objectReference: {fileID: 486274592}
+      objectReference: {fileID: 0}
     - target: {fileID: 7135334696376235270, guid: a8366a057e8cd7c42bd5871cd5fbb477,
         type: 3}
       propertyPath: garageWindows
