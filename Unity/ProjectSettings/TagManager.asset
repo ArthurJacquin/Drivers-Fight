@@ -8,7 +8,9 @@ TagManager:
   - Sector
   - Factory
   - Collectible
-  - Buidling
+  - Environment
+  - Bot
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - Car
   - Sector
-  - Environnement
+  - Environment
   - Collectible
   - BotFOV
   - 

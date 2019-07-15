@@ -42,7 +42,7 @@ namespace DriversFight.Scripts
 
         public event Action<int> PlayerSetup;
 
-        public event Action Disconnected;
+        public event Action<string, string> Disconnected;
 
         public event Action MasterClientSwitched;
 
@@ -110,7 +110,8 @@ namespace DriversFight.Scripts
 
         public override void OnDisconnected(DisconnectCause cause)
         {
-            Disconnected?.Invoke();
+            if (cause == DisconnectCause.ClientTimeout || cause == DisconnectCause.ServerTimeout)
+                Disconnected?.Invoke("Connection lost !", "");
         }
 
         public override void OnMasterClientSwitched(Player player)
@@ -123,7 +124,7 @@ namespace DriversFight.Scripts
             PhotonNetwork.CreateRoom("Drivers Fight", new RoomOptions
             {
                 MaxPlayers = 8,
-                PlayerTtl = 10000
+                PlayerTtl = 1000000000
             });
         }
 

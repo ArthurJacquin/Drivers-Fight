@@ -1,0 +1,44 @@
+A corriger
+
+- switch master
+- souris desactiver avec l'inventaire
+- dernier restant
+- collision usine
+- options
+
+A faire:
+- usine / craft
+- bots
+- graphismes
+- lobby
+- plus d'objets
+- consommable
+- ameliorer zones
+- reseaux sociaux
+- pause globale
+- langues
+
+
+Baptiste:
+- usine 
+- ameliorer zones
+- graphismes voitures
+- reseaux sociaux
+- pause globale
+
+Benoit:
+- fonction reset des stats/inventaire
+- souris desactiver dans le menu pause si on a ouvert l'inventaire avant
+- plus d'objets / craft
+- spawn des objets
+- consommable
+- langues
+
+Arthur:
+- switch master
+- reset game
+- dernier restant
+- bots
+- lobby
+
+

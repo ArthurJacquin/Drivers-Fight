@@ -1,12 +1,24 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+public enum UsableType
+{
+    Usable
+}
+
 [CreateAssetMenu(menuName ="Items/Usable Item")]
 public class UsableItem : Item
 {
+    [Space]
     public bool IsConsumable;
 
+    [Space]
+    [Header("Usable effect")]
     public List<UsableItemEffect> Effects;
+
+    [Space]
+    [Header("Usable type")]
+    public UsableType UsableType;
 
     public virtual void Use(Character character)
     {

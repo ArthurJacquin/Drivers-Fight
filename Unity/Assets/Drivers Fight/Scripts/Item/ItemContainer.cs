@@ -126,6 +126,20 @@ public abstract class ItemContainer : MonoBehaviour, IItemContainer
         return number;
     }
 
+    public virtual Item ItemSearch(string itemName)
+    {
+        for (int i = 0; i < itemSlots.Count; i++)
+        {
+            Item item = itemSlots[i].Item;
+            if (item != null && item.ItemName == itemName)
+            {
+                return item;
+            }
+        }
+
+        return null;
+    }
+
     public virtual void Clear()
     {
         for (int i = 0; i < itemSlots.Count; i++)

@@ -60,11 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Drivers Fight\Localization\Locale.cs" />
-    <Compile Include="Assets\Drivers Fight\Localization\Localize.cs" />
-    <Compile Include="Assets\Drivers Fight\Localization\LocalizeBase.cs" />
-    <Compile Include="Assets\Drivers Fight\Localization\LocalizeTM.cs" />
-    <Compile Include="Assets\Drivers Fight\Localization\MenuManager.cs" />
+    <Compile Include="Assets\Drivers Fight\Localization\LocalizationManager.cs" />
+    <Compile Include="Assets\Drivers Fight\Localization\LocalizationUIText.cs" />
+    <Compile Include="Assets\Drivers Fight\Localization\LocalizationUITextMeshPro.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotCameraScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotControllerScript.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Bot\BotExposerScript.cs" />
@@ -78,6 +76,8 @@
     <Compile Include="Assets\Drivers Fight\Scripts\Factory\CraftInput.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Factory\DisplayItemButton.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Factory\FactoryController.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Garage\GarageInput.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Garage\GarageWindows.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Inventory\DropItemArea.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Inventory\InventoryInput.cs" />
@@ -113,10 +113,16 @@
     <Compile Include="Assets\Drivers Fight\Scripts\Stat\StatTooltip.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\AccelerationBuffItemEffect.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\EngineRepairItemEffect.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\Harrow.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\HarrowItemEffect.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\InvincibilityBuffItemEffect.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\MaxSpeedBuffItemEffect.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\Mine.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\MineItemEffect.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\UsableItem.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\UsableItemEffect.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\UsablePanel.cs" />
+    <Compile Include="Assets\Drivers Fight\Scripts\Usable Item\UsableSlot.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Utility\DataCollector\DataCollector.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Utility\DataCollector\DataDisplayer.cs" />
     <Compile Include="Assets\Drivers Fight\Scripts\Utility\DataCollector\DataVault.cs" />
@@ -230,14 +236,15 @@
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\PunCockpit\Scripts\ScoreHelper.cs" />
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\PunCockpit\Scripts\ThirdParty\PunCockpitEmbed.cs" />
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Demos\Shared Assets\Scripts\DocLinks.cs" />
+    <None Include="Assets\Drivers Fight\Scripts\InsideObject.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Drivers Fight\Localization\FRENCH.xml" />
     <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
     <None Include="Assets\Photon\PhotonUnityNetworking\Demos\DemoSlotRacer\Kenney Assets\Copyrights.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\Drivers Fight\Localization\Resources\localization\English.txt" />
     <None Include="Assets\Photon\PhotonLibs\release_history.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -249,28 +256,28 @@
     <None Include="Assets\Photon\PhotonUnityNetworking\Demos\Shared Assets\Skin\3dText.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Photon\PhotonUnityNetworking\readme.txt" />
+    <None Include="Assets\Drivers Fight\Localization\ENGLISH.xml" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Drivers Fight\Localization\Resources\localization\French.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -474,25 +481,25 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.3f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Baptiste/Desktop/PA/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/Baptiste/Desktop/PA - Copie/Drivers-Fight/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.3f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

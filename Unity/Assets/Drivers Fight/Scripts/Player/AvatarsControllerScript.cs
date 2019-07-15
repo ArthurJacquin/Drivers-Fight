@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
-using Drivers.Localization;
+using Drivers.LocalizationSettings;
 
 namespace DriversFight.Scripts
 {
@@ -15,6 +15,12 @@ namespace DriversFight.Scripts
 
         [SerializeField]
         private Transform[] startPositions; //Spawn position
+
+        [SerializeField]
+        private BotExposerScript[] bots;
+
+        [SerializeField]
+        private Transform[] botStartPosition; 
 
         [SerializeField]
         private AIntentReceiver[] onlineIntentReceivers;
@@ -63,6 +69,9 @@ namespace DriversFight.Scripts
         private GameObject endGamePanel;
 
         [SerializeField]
+        private GameObject dropItemArea;
+
+        [SerializeField]
         private TextMeshProUGUI mainText;
 
         [SerializeField]
@@ -81,6 +90,9 @@ namespace DriversFight.Scripts
 
         private readonly Dictionary<Collider, AvatarExposerScript>
             colliderToAvatar = new Dictionary<Collider, AvatarExposerScript>();
+
+        private readonly Dictionary<Collider, BotExposerScript>
+            colliderToBot = new Dictionary<Collider, BotExposerScript>();
 
         private bool GameStarted
         {
@@ -102,6 +114,7 @@ namespace DriversFight.Scripts
             {
                 avatar.CollisionDispatcher.CollisionEvent += HandleCollision;
                 avatar.CollisionDispatcher.SectorTriggerEvent += HandleTrigger;
+                avatar.CollisionDispatcher.BotCollisionEvent += HandleBotCollision;
             }
         }
 
@@ -120,17 +133,38 @@ namespace DriversFight.Scripts
                 RaycastHit hit;
                 if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, out hit, 3, 1 << 8))
                 {
-                    Debug.DrawLine(this.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, Color.blue, 999f, false);
-                    Debug.Log("Hit : " + hit.rigidbody.gameObject.name);
                     if (hit.normal == targetAvatar.transform.forward)
-                        targetAvatar.Stats.TakeFrontDamage((int)sourceAvatar.Stats.currentSpeed * 5);
+                        targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.FrontArmor);
                     if (hit.normal == -targetAvatar.transform.forward)
-                        targetAvatar.Stats.TakeRearDamage((int)sourceAvatar.Stats.currentSpeed * 5);
+                        targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.RearArmor);
                     if (hit.normal == targetAvatar.transform.right)
-                        targetAvatar.Stats.TakeRightDamage((int)sourceAvatar.Stats.currentSpeed * 5);
+                        targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.RightArmor);
                     if (hit.normal == -targetAvatar.transform.right)
-                        targetAvatar.Stats.TakeLeftDamage((int)sourceAvatar.Stats.currentSpeed * 5);
+                        targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.LeftArmor);
                 }
+            }
+        }
+
+        private void HandleBotCollision(CollisionEnterDispatcherScript collisionDispatcher,
+           Collider col)
+        {
+            if (!dispatcherToAvatar.TryGetValue(collisionDispatcher, out var targetAvatar)
+                || !colliderToBot.TryGetValue(col, out var sourceBot))
+            {
+                return;
+            }
+            Debug.Log("hit bot");
+            RaycastHit hit;
+            if (Physics.Raycast(sourceBot.transform.position, targetAvatar.transform.position - sourceBot.transform.position, out hit, 3, 1 << 8))
+            {
+                if (hit.normal == targetAvatar.transform.forward)
+                    targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.FrontArmor);
+                if (hit.normal == -targetAvatar.transform.forward)
+                    targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.RearArmor);
+                if (hit.normal == targetAvatar.transform.right)
+                    targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.RightArmor);
+                if (hit.normal == -targetAvatar.transform.right)
+                    targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.LeftArmor);
             }
         }
 
@@ -165,9 +199,15 @@ namespace DriversFight.Scripts
                 dispatcherToAvatar.Add(avatar.CollisionDispatcher, avatar);
                 colliderToAvatar.Add(avatar.MainCollider, avatar);
             }
+
+            foreach(var bot in bots)
+            {
+                colliderToBot.Add(bot.MainCollider, bot);
+            }
         }
 
         //Mise en place de la camera et du HUD du joueur
+        //For master and clients
         private void SetupPlayer(int id)
         {
             //Camera setup for client
@@ -193,6 +233,16 @@ namespace DriversFight.Scripts
                 playerUI.gameObject.SetActive(true);
                 playerUIScript.enabled = true;
             }
+
+            dropItemArea.SetActive(true);
+
+            //Sector reset
+            sectorSpawnManagementScript.enabled = true;
+            sectorSpawnManagementScript.enabled = false;
+
+            //Hide mouse cursor
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 
             gameStarted = false;
             PauseMenu.inGame = true;
@@ -272,6 +322,7 @@ namespace DriversFight.Scripts
         }
 
         //Réinitialise les paramètres de partie
+        //Only for master
         private void ResetGame()
         {
             for (var i = 0; i < avatars.Length; i++)
@@ -285,9 +336,7 @@ namespace DriversFight.Scripts
                 avatar.IsAlive = true;
 
                 //Stats/Inventory
-                //TODO : Fonction pour full reset des stats et inventaire
-                avatar.Stats.EngineHealth = 500;
-                avatar.Stats.currentSpeed = 0f;
+                avatar.Stats.ResetStats();
             }
 
             StartCoroutine("WaitForPlayersAndStartTheGame");
@@ -421,8 +470,35 @@ namespace DriversFight.Scripts
             }
         }
 
-        public void EndGame()
+        public void EndGame(string com, string rank)
         {
+            endGamePanelRankText.text = rank;
+            endGamePanelCommentaryText.text = com;
+
+            //Reset 
+            //Camera
+            PlayerCameraScript camScript = Camera.main.GetComponent<PlayerCameraScript>();
+            camScript.enabled = false;
+
+            //UI
+            playerUI.SetActive(false);
+            PauseMenu.inGame = false;
+
+            //Sectors
+            sectorSpawnManagementScript.enabled = false;
+
+            //Bots
+            for (int i = 0; i < bots.Length; i++)
+            {
+                bots[i].BotRootGameObject.SetActive(false);
+            }
+
+            dropItemArea.SetActive(false);
+
+            //Activate mouse cursor
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
             GameStarted = false;
             waitingForPlayers = false;
             activatedIntentReceivers = null;
@@ -433,10 +509,6 @@ namespace DriversFight.Scripts
             }
 
             DisableIntentReceivers();
-            if (PhotonNetwork.IsConnected)
-            {
-                LeaveRoom();
-            }
         }
 
         //Wait for players to connect to the game and disconnect if nobody in the room
@@ -453,6 +525,7 @@ namespace DriversFight.Scripts
             //Wait for players
             while(timeWaited < 30)
             {
+        
                 if (endGamePanel.activeSelf)
                    yield break;
 
@@ -473,7 +546,7 @@ namespace DriversFight.Scripts
             totalPlayer = PlayerNumbering.SortedPlayers.Length;
 
             //if alone, leave the game
-            if (timeWaited == 30 && totalPlayer <= 1)
+            if (totalPlayer <= 1)
             {
                 LeaveRoom();
                 Cursor.visible = true;
@@ -505,18 +578,22 @@ namespace DriversFight.Scripts
                         photonView.RPC("UpdateTimeWaited", RpcTarget.OthersBuffered, timeWaited);
                     }
                 }
+
+                //Game start
                 waitingForPlayers = false;
-
-                timeWaited = 0;
-                mainText.text = "FIGHT !";
-
-                yield return new WaitForSeconds(3);
-                mainText.text = "DRIVER'S FIGHT !";
-                mainText.gameObject.SetActive(false);
 
                 EnableIntentReceivers();
                 GameStarted = true;
                 //items.SetActive(true);
+
+                //Bots
+                for (int i = 0; i < bots.Length; i++)
+                {
+                    bots[i].BotRootTransform.position = botStartPosition[i].position;
+                    bots[i].BotRootTransform.rotation = botStartPosition[i].rotation;
+                    bots[i].BotRootGameObject.SetActive(true);
+                    Debug.Log(botStartPosition[i].position);
+                }
 
                 //Sector reset
                 if (PhotonNetwork.IsMasterClient)
@@ -526,6 +603,12 @@ namespace DriversFight.Scripts
                     sectorSpawnManagementScript.enabled = true;
                     sectorSpawnManagementScript.enabled = false;
                 }
+
+                mainText.text = "FIGHT !";
+
+                yield return new WaitForSeconds(3);
+                mainText.text = "DRIVER'S FIGHT !";
+                mainText.gameObject.SetActive(false);
             }
         }
 
@@ -540,57 +623,32 @@ namespace DriversFight.Scripts
         {
             avatars[avatarId].AvatarRootGameObject.SetActive(false);
             avatars[avatarId].IsAlive = isAlive;
-            deadAvatarsCount++;
 
             if (PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[avatarId].ActorNumber)
             {
+                string commentary = "";
+                string rank = "";
+
                 //Good or bad end
                 if ((totalPlayer - deadAvatarsCount <= 1 && avatars[avatarId].IsAlive) || totalPlayer == 1)
                 {
-                    if (Locale.CurrentLanguage == "French")
-                    {
-                        endGamePanelRankText.text = "Vous êtes l'ULTIME DRIVER !";
-                        endGamePanelCommentaryText.text = "Félicitation !";
-                    }
-
-                    if (Locale.CurrentLanguage == "English")
-                    {
-                        endGamePanelRankText.text = "You are the ULTIMATE DRIVER !";
-                        endGamePanelCommentaryText.text = "Congratulation !";
-                    }
+                    rank = LocalizationManager.Instance.GetText("ULTIMATE_DRIVER");
+                    commentary = LocalizationManager.Instance.GetText("CONGRATULATION");
                 }
                 else
                 {
-                    if (Locale.CurrentLanguage == "French")
+                    rank = LocalizationManager.Instance.GetText("YOU_FINISH_IN") + (totalPlayer - deadAvatarsCount) + LocalizationManager.Instance.GetText("POSITION");
+                    if (totalPlayer - deadAvatarsCount == 3)
                     {
-                        endGamePanelRankText.text = "Tu termines en " + (totalPlayer - deadAvatarsCount) + "eme position.";
-                        endGamePanelCommentaryText.text = "Tu conduis moins bien que ma \ngrand - mère !";
+                        rank = rank.Replace("nd", "rd");
                     }
-
-                    if (Locale.CurrentLanguage == "English")
-                    {
-                        endGamePanelRankText.text = "You finish in " + (totalPlayer - deadAvatarsCount);
-                        if(totalPlayer - deadAvatarsCount == 2)
-                            endGamePanelCommentaryText.text += "nd position.";
-                        if (totalPlayer - deadAvatarsCount == 3)
-                            endGamePanelCommentaryText.text += "rd position.";
-                        endGamePanelCommentaryText.text = "Even my grandma drives better than you !";
-                    }
+                    commentary = LocalizationManager.Instance.GetText("DEFEAT_MESSAGE");
                 }
 
-                //Reset 
-                //Camera
-                PlayerCameraScript camScript = Camera.main.GetComponent<PlayerCameraScript>();
-                camScript.enabled = false;
+                EndGame(commentary, rank);
 
-                //UI
-                playerUI.SetActive(false);
-                PauseMenu.inGame = false;
-
-                //Sectors
-                sectorSpawnManagementScript.enabled = false;
-
-                DisableIntentReceivers();
+                //Stats
+                avatars[avatarId].Stats.ResetStats();
 
                 //Leave room
                 if (!PhotonNetwork.IsMasterClient)
@@ -601,14 +659,23 @@ namespace DriversFight.Scripts
                 {
                     if (totalPlayer - deadAvatarsCount <= 1)
                     {
-                        deadAvatarsCount = 0;
-                        gameStarted = false;
-                        
-                        PhotonNetwork.LeaveRoom();
-                        PhotonNetwork.Disconnect();
+                        StartCoroutine(WaitBeforeDeconnectMaster());
                     } 
                 }
             }
+
+            deadAvatarsCount++;
+        }
+
+        IEnumerator WaitBeforeDeconnectMaster()
+        {
+            yield return new WaitForSeconds(2);
+
+            deadAvatarsCount = 0;
+            gameStarted = false;
+
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.Disconnect();
         }
 
         //Update client player stats

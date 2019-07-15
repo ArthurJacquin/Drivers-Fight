@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Drivers.CharacterStats;
-using Drivers.Localization;
+using Drivers.LocalizationSettings;
 
 public class StatTooltip : MonoBehaviour
 {
@@ -26,75 +26,6 @@ public class StatTooltip : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private string CheckStatNameLanguage(string statName)
-    {
-        if (Locale.CurrentLanguage == "French")
-        {
-            if (statName == "Front armor")
-            {
-                statName = "Armure frontale";
-            }
-            else if (statName == "Rear armor")
-            {
-                statName = "Armure arrière";
-            }
-            else if (statName == "Left armor")
-            {
-                statName = "Armure gauche";
-            }
-            else if (statName == "Right armor")
-            {
-                statName = "Armure droite";
-            }
-            else if (statName == "Tires armor")
-            {
-                statName = "Armure pneus";
-            }
-            else if (statName == "Wheel armor")
-            {
-                statName = "Armure volant";
-            }
-            else if (statName == "Max. speed")
-            {
-                statName = "Vitesse max.";
-            }
-            else if (statName == "Acceleration")
-            {
-                statName = "Accélération";
-            }
-            else if (statName == "Deceleration")
-            {
-                statName = "Décélération";
-            }
-            else if (statName == "Maneuverability")
-            {
-                statName = "Maniabilité";
-            }
-            else if (statName == "Damage")
-            {
-                statName = "Dommage";
-            }
-        }
-
-        return statName;
-    }
-
-    private string CheckItemNameLanguage(string itemName)
-    {
-        if (Locale.CurrentLanguage == "French")
-        {
-            itemName = itemName.Replace("Engine", "Moteur");
-            itemName = itemName.Replace("Front bumper", "Pare-choc avant");
-            itemName = itemName.Replace("Rear bumper", "Pare-choc arrière");
-            itemName = itemName.Replace("Left protection", "Portière gauche");
-            itemName = itemName.Replace("Right protection", "Portière droite");
-            itemName = itemName.Replace("Steering wheel", "Volant");
-            itemName = itemName.Replace("Tires", "Pneus");
-        }
-
-        return itemName;
-    }
-
     private string GetStatTopText(CharacterStat stat, string statName)
     {
         sb.Length = 0;
@@ -102,6 +33,8 @@ public class StatTooltip : MonoBehaviour
         sb.Append(statName);
         sb.Append(" ");
         sb.Append(stat.Value);
+
+        StatModifiersLabelText.enabled = false;
 
         if (stat.Value != stat.BaseValue)
         {
@@ -112,9 +45,10 @@ public class StatTooltip : MonoBehaviour
             {
                 sb.Append("+");
             }
-
-            sb.Append(System.Math.Round(stat.Value - stat.BaseValue, 4));
+            
+            sb.Append("<color=lime>" + System.Math.Round(stat.Value - stat.BaseValue, 4) + "</color>");
             sb.Append(")");
+            StatModifiersLabelText.enabled = true;
         }
 
         return sb.ToString();
@@ -161,5 +95,69 @@ public class StatTooltip : MonoBehaviour
         }
 
         return sb.ToString();
+    }
+
+    private string CheckItemNameLanguage(string itemName)
+    {
+        itemName = itemName.Replace("Engine repair kit", LocalizationManager.Instance.GetText("ENGINE_REPAIR_KIT"));
+        itemName = itemName.Replace("Engine", LocalizationManager.Instance.GetText("ENGINE"));
+        itemName = itemName.Replace("Front bumper", LocalizationManager.Instance.GetText("FRONT_BUMPER"));
+        itemName = itemName.Replace("Rear bumper", LocalizationManager.Instance.GetText("REAR_BUMPER"));
+        itemName = itemName.Replace("Left protection", LocalizationManager.Instance.GetText("LEFT_PROTECTION"));
+        itemName = itemName.Replace("Right protection", LocalizationManager.Instance.GetText("RIGHT_PROTECTION"));
+        itemName = itemName.Replace("Steering wheel", LocalizationManager.Instance.GetText("STEERING_WHEEL"));
+        itemName = itemName.Replace("Tires", LocalizationManager.Instance.GetText("TIRES"));
+
+        return itemName;
+    }
+
+    private string CheckStatNameLanguage(string statName)
+    {
+        if (statName == "Front armor")
+        {
+            statName = LocalizationManager.Instance.GetText("FRONT_ARMOR");
+        }
+        else if (statName == "Rear armor")
+        {
+            statName = LocalizationManager.Instance.GetText("REAR_ARMOR");
+        }
+        else if (statName == "Left armor")
+        {
+            statName = LocalizationManager.Instance.GetText("LEFT_ARMOR");
+        }
+        else if (statName == "Right armor")
+        {
+            statName = LocalizationManager.Instance.GetText("RIGHT_ARMOR");
+        }
+        else if (statName == "Tires armor")
+        {
+            statName = LocalizationManager.Instance.GetText("TIRES_ARMOR");
+        }
+        else if (statName == "Wheel armor")
+        {
+            statName = LocalizationManager.Instance.GetText("WHEEL_ARMOR");
+        }
+        else if (statName == "Max. speed")
+        {
+            statName = LocalizationManager.Instance.GetText("MAX_SPEED");
+        }
+        else if (statName == "Acceleration")
+        {
+            statName = LocalizationManager.Instance.GetText("ACCELERATION");
+        }
+        else if (statName == "Deceleration")
+        {
+            statName = LocalizationManager.Instance.GetText("DECELERATION");
+        }
+        else if (statName == "Maneuverability")
+        {
+            statName = LocalizationManager.Instance.GetText("MANEUVERABILITY");
+        }
+        else if (statName == "Damage")
+        {
+            statName = LocalizationManager.Instance.GetText("DAMAGE");
+        }
+
+        return statName;
     }
 }

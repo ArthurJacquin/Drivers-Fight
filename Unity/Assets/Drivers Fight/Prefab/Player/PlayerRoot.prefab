@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &33
 Transform:
   m_ObjectHideFlags: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 70}
-  viewIdField: 0
-  InstantiationId: 1
+  viewIdField: 7
+  InstantiationId: 7
   isRuntimeInstantiated: 0
 --- !u!114 &70
 MonoBehaviour:
@@ -155,9 +155,9 @@ MonoBehaviour:
     BaseValue: 0
   RearBumperArmor:
     BaseValue: 0
-  RightFlankArmor:
-    BaseValue: 0
   LeftFlankArmor:
+    BaseValue: 0
+  RightFlankArmor:
     BaseValue: 0
   WheelArmor:
     BaseValue: 0
@@ -176,7 +176,9 @@ MonoBehaviour:
     BaseValue: 0
   inventory: {fileID: 0}
   equipmentPanel: {fileID: 0}
+  usablePanel: {fileID: 0}
   craftingWindow: {fileID: 0}
+  garageWindows: {fileID: 0}
   statPanel: {fileID: 0}
   itemTooltip: {fileID: 0}
   draggableItem: {fileID: 0}

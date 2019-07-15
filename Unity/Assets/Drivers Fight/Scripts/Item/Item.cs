@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Text;
+using Drivers.LocalizationSettings;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -13,6 +14,10 @@ public class Item : ScriptableObject
     public Sprite Icon;
     [Range(1,999)]
     public int MaximumStacks = 1;
+
+    [Space]
+    [Header("Description of the item")]
+    [SerializeField] string ItemDescription;
 
     protected static readonly StringBuilder sb = new StringBuilder();
 
@@ -41,6 +46,14 @@ public class Item : ScriptableObject
 
     public virtual string GetDescription()
     {
+        if (ItemDescription == "COIN_DESCRIPTION")
+        {
+            return LocalizationManager.Instance.GetText("COIN_DESCRIPTION");
+        }
+        else if (ItemDescription == "REPAIR_KIT_DESCRIPTION")
+        {
+            return LocalizationManager.Instance.GetText("REPAIR_KIT_DESCRIPTION");
+        }
         return "";
     }
 }

@@ -59,7 +59,7 @@ namespace DriversFight.Scripts
 
             //Reset
             sectorsAlreadyPop = new List<int>();
-            foreach(var sector in sectors)
+            foreach (var sector in sectors)
             {
                 if (sector.activeSelf)
                     sector.SetActive(false);
@@ -111,7 +111,7 @@ namespace DriversFight.Scripts
         {
             if (numberGeneratedSector <= sectorsFinalNumber)
             {
-                if (PhotonNetwork.IsMasterClient && Time.time > (timeToSpawnTheSector-10) && warningSector)
+                if (PhotonNetwork.IsMasterClient && Time.time > (timeToSpawnTheSector - 10) && warningSector)
                 {
                     StartCoroutine(RandomSpawnSector());
                 }
@@ -159,7 +159,6 @@ namespace DriversFight.Scripts
         {
             if (warningSector)
             {
-                numberGeneratedSectorSave = numberGeneratedSector;
                 sectors[sectorNumbers[numberGeneratedSector]].SetActive(true);
                 colliderino = sectors[sectorNumbers[numberGeneratedSector]].GetComponent<Collider>();
                 colliderino.enabled = false;

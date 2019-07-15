@@ -16,10 +16,12 @@ MonoBehaviour:
   ItemName: Right protection lvl 3
   Icon: {fileID: 21300000, guid: 3c3df2e7b3b3a9040b9532b3e6e9f162, type: 3}
   MaximumStacks: 1
+  ArmorDurability: 100
+  CurrentArmorDurability: 100
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
-  RightFlankArmorBonus: 20
   LeftFlankArmorBonus: 0
+  RightFlankArmorBonus: 20
   WheelArmorBonus: 0
   TiresArmorBonus: 0
   MaximumSpeedBonus: 0
@@ -29,8 +31,8 @@ MonoBehaviour:
   DamageBonus: 0
   FrontBumperArmorPercentBonus: 0
   RearBumperArmorPercentBonus: 0
-  RightFlankArmorPercentBonus: 0
   LeftFlankArmorPercentBonus: 0
+  RightFlankArmorPercentBonus: 0
   WheelArmorPercentBonus: 0
   TiresArmorPercentBonus: 0
   MaximumSpeedPercentBonus: 0

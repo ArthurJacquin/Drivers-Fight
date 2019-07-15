@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1659568792590901613}
   - component: {fileID: 5451939814569149881}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Item Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7945547867819774867}
   - component: {fileID: 4330353557137881984}
   - component: {fileID: 2466426935904275097}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scrap Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3754998910978861157}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.18, y: 0.3, z: -3.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 604298165408325223}
   - component: {fileID: 1534754424742447019}
   - component: {fileID: 1146708591393827999}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

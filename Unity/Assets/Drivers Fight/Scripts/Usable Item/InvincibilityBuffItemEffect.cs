@@ -1,4 +1,4 @@
-﻿using Drivers.Localization;
+﻿using Drivers.LocalizationSettings;
 using System.Collections;
 using UnityEngine;
 
@@ -15,12 +15,7 @@ public class InvincibilityBuffItemEffect : UsableItemEffect
 
     public override string GetDescription()
     {
-        if (Locale.CurrentLanguage == "French")
-        {
-            return "Vous êtes invincible pour " + Duration + " secondes.";
-        }
-
-        return "You are invincible for " + Duration + " seconds.";
+        return LocalizationManager.Instance.GetText("YOU_ARE_INVINCIBLE_FOR") + " " + Duration + " " + LocalizationManager.Instance.GetText("SECONDS") + ".";
     }
 
     private static IEnumerator RemoveBuff(Character character, float duration)
