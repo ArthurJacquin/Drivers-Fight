@@ -95,10 +95,10 @@
   <text key="CONGRATULATION">Congratulation !</text>
   <text key="DEFEAT_MESSAGE">Even my grandma drives better than you !</text>
   <text key="YOU_FINISH_IN">You finish in </text>
-  <text key="POSITION">nd position.</text>
+  <text key="POSITION"> nd position.</text>
   <!-- Menu Game Mode -->
   <text key="GAME_MODE">Choose a game mode</text>
-  <text key="PARTY_MODE">Create or join an existing game ?</text>
+  <text key="PARTY_MODE">Create or join a game</text>
   <text key="OFFLINE">Offline</text>
   <text key="ONLINE">Online</text>
   <text key="JOIN">Join</text>
