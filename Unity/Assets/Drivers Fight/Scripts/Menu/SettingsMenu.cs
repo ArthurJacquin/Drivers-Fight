@@ -1,5 +1,4 @@
 ﻿using Drivers.LocalizationSettings;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -9,17 +8,14 @@ public class SettingsMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
 
-    [SerializeField]
-    private Dropdown resolutionDropdown;
-
+    public Dropdown resolutionDropdown;
     public Dropdown graphicDropdown;
 
-    [SerializeField]
-    private Slider audioVolumeSlider;
-
     Resolution[] resolutions;
-    
-    public static float volume = 1f;
+
+    /*[SerializeField]
+    private Slider audioVolumeSlider;*/
+    // public static float volume = 1f;
 
     private void Start()
     {
@@ -31,26 +27,24 @@ public class SettingsMenu : MonoBehaviour {
 
         int currentResolutionIndex = 0;
 
-        for(int i = 0; i < resolutions.Length; i++)
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
-
+            string option = resolutions[i].width + " x " + resolutions[i].height + " : " + resolutions[i].refreshRate + " Hz";
             options.Add(option);
 
-            if(resolutions[i].width == Screen.currentResolution.width && 
-               resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
             {
                 currentResolutionIndex = i;
             }
         }
-        
+
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
         DisplayGraphicDropdown();
 
-        audioVolumeSlider.value = volume;
+        //audioVolumeSlider.value = volume;
     }
 
     public void DisplayGraphicDropdown()
@@ -59,21 +53,6 @@ public class SettingsMenu : MonoBehaviour {
         List<string> graphicOptions = new List<string> { LocalizationManager.Instance.GetText("VERY_LOW"), LocalizationManager.Instance.GetText("LOW"), LocalizationManager.Instance.GetText("MEDIUM"), LocalizationManager.Instance.GetText("HIGH"), LocalizationManager.Instance.GetText("VERY_HIGH"), LocalizationManager.Instance.GetText("ULTRA") };
         graphicDropdown.AddOptions(graphicOptions);
         graphicDropdown.RefreshShownValue();
-    }
-
-    public void SetVolume(float v)
-    {
-        volume = v;
-    }
-
-    /*public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("volume", volume);
-    }*/
-
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void SetFullScreen(bool isFullscreen)
@@ -86,5 +65,20 @@ public class SettingsMenu : MonoBehaviour {
         Resolution resolution = resolutions[resolutionIndex];
         print("Want to set the resolution to " + resolution);
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    /*public void SetVolume(float v)
+    {
+        volume = v;
+    }*/
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
     }
 }

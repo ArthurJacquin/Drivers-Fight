@@ -3805,6 +3805,11 @@ PrefabInstance:
       propertyPath: amountText
       value: 
       objectReference: {fileID: 4089417807225669308}
+    - target: {fileID: 8414265111258209173, guid: 064197d0635df3c44991c5fcb6f49bae,
+        type: 3}
+      propertyPath: ItemContainer
+      value: 
+      objectReference: {fileID: 5020629311369225768}
     - target: {fileID: 8414265111258209195, guid: 064197d0635df3c44991c5fcb6f49bae,
         type: 3}
       propertyPath: arrowParent
@@ -3885,7 +3890,7 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8414265111258209173, guid: 064197d0635df3c44991c5fcb6f49bae,
+    - target: {fileID: 8414265111258209172, guid: 064197d0635df3c44991c5fcb6f49bae,
         type: 3}
       propertyPath: ItemContainer
       value: 
