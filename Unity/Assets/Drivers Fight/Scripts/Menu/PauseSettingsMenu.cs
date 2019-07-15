@@ -1,5 +1,4 @@
 ﻿using Drivers.LocalizationSettings;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -8,20 +7,20 @@ using UnityEngine.UI;
 public class PauseSettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
+
+    public Dropdown resolutionDropdown;
     public Dropdown graphicDropdown;
 
-    public AudioSource audioSource;
-
-    public Dropdown dropdown;
-    public Slider slider;
-
     Resolution[] resolutions;
+
+    //public AudioSource audioSource;
+    //public Slider slider;
 
     private void Start()
     {
         resolutions = Screen.resolutions;
 
-        dropdown.ClearOptions();
+        resolutionDropdown.ClearOptions();
 
         List<string> options = new List<string>();
 
@@ -29,24 +28,23 @@ public class PauseSettingsMenu : MonoBehaviour
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
+            string option = resolutions[i].width + " x " + resolutions[i].height + " : " + resolutions[i].refreshRate + " Hz";
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width &&
-               resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
             {
                 currentResolutionIndex = i;
             }
         }
 
-        dropdown.AddOptions(options);
-        dropdown.value = currentResolutionIndex;
-        dropdown.RefreshShownValue();
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
 
         DisplayGraphicDropdown();
 
-        slider.value = SettingsMenu.volume;
-        audioSource.volume = SettingsMenu.volume;
+        //slider.value = SettingsMenu.volume;
+        //audioSource.volume = SettingsMenu.volume;
     }
 
     public void DisplayGraphicDropdown()
@@ -55,22 +53,6 @@ public class PauseSettingsMenu : MonoBehaviour
         List<string> graphicOptions = new List<string> { LocalizationManager.Instance.GetText("VERY_LOW"), LocalizationManager.Instance.GetText("LOW"), LocalizationManager.Instance.GetText("MEDIUM"), LocalizationManager.Instance.GetText("HIGH"), LocalizationManager.Instance.GetText("VERY_HIGH"), LocalizationManager.Instance.GetText("ULTRA") };
         graphicDropdown.AddOptions(graphicOptions);
         graphicDropdown.RefreshShownValue();
-    }
-
-    public void SetVolume(float volume)
-    {
-        audioSource.volume = volume;
-        SettingsMenu.volume = volume;
-    }
-
-    /*public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("volume", volume);
-    }*/
-
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void SetFullScreen(bool isFullscreen)
@@ -82,5 +64,21 @@ public class PauseSettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    /*public void SetVolume(float volume)
+    {
+        audioSource.volume = volume;
+        SettingsMenu.volume = volume;
+    }*/
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
     }
 }

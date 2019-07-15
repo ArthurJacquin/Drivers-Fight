@@ -93,12 +93,12 @@
   <!-- Controller Script -->
   <text key="ULTIMATE_DRIVER">Vous êtes l'ULTIME DRIVER !</text>
   <text key="CONGRATULATION">Félicitation !</text>
-  <text key="DEFEAT_MESSAGE">Tu conduis moins bien que ma \ngrand - mère !</text>
+  <text key="DEFEAT_MESSAGE">Tu conduis moins bien que ma grand-mère !</text>
   <text key="YOU_FINISH_IN">Tu termines en </text>
-  <text key="POSITION">ème position.</text>
+  <text key="POSITION"> ème position.</text>
   <!-- Menu Game Mode -->
   <text key="GAME_MODE">Choisissez un mode de jeu</text>
-  <text key="PARTY_MODE">Créer ou rejoindre une partie existante ?</text>
+  <text key="PARTY_MODE">Créer ou rejoindre une partie</text>
   <text key="OFFLINE">Hors ligne</text>
   <text key="ONLINE">En ligne</text>
   <text key="JOIN">Joindre</text>

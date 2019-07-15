@@ -48,10 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84b4a85d3e2e4c4b9413bcfdaadfa7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPanelGameObject: {fileID: 0}
-  equipmentPanelGameObject: {fileID: 0}
-  statPanelGameObject: {fileID: 0}
-  craftPanelGameObject: {fileID: 0}
-  garagePanelGameObject: {fileID: 0}
+  characterPanelGameObject: {fileID: 230, guid: e32aeefc899813b4caf13e50c5e2dd4f,
+    type: 3}
+  equipmentPanelGameObject: {fileID: 6519711481751077309, guid: 8ab20bf41e25e5147ac8a90bd748d0e3,
+    type: 3}
+  statPanelGameObject: {fileID: 3322420236743493139, guid: 576502866753e8b418cb0171b2175cb6,
+    type: 3}
+  craftPanelGameObject: {fileID: 1066326763131783216, guid: 064197d0635df3c44991c5fcb6f49bae,
+    type: 3}
+  garagePanelGameObject: {fileID: 149, guid: 456518e464132fa448f30d13d2c8b8fd, type: 3}
   toggleCharacterPanelKeys: 6300000069000000
   toggleInventoryKeys: 62000000

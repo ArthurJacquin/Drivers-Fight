@@ -1871,6 +1871,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &560677389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4469516744132589169, guid: 27b464b062389074fa972e58b80d983f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1514527164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24923ad2cdd6dfa409a268f06cd889a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &588266462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5775,29 +5787,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
-        type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2513266363186096344, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1549674956791312935, guid: 7cd13892b8693424a86f7401162a6e52,
-        type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 908814615}
     - target: {fileID: 224510306868231386, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5906,32 +5903,32 @@ PrefabInstance:
     - target: {fileID: 114116395621639562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114116395621639562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114307695455827982, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114307695455827982, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114296454338782332, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114296454338782332, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8784274909162398562, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
@@ -5956,43 +5953,52 @@ PrefabInstance:
     - target: {fileID: 3882595804473190127, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3882595804473190127, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5159739488616278506, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5159739488616278506, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3028685861372861510, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3028685861372861510, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114972431732647308, guid: 7cd13892b8693424a86f7401162a6e52,
+    - target: {fileID: 6506337841512827600, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 8784274910235667124, guid: 7cd13892b8693424a86f7401162a6e52,
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 560677389}
+    - target: {fileID: 6506337840325817897, guid: 7cd13892b8693424a86f7401162a6e52,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 560677389}
+    - target: {fileID: 942083778653843, guid: 7cd13892b8693424a86f7401162a6e52, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 560677389}
+    - target: {fileID: 450455137119863148, guid: 7cd13892b8693424a86f7401162a6e52,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 560677389}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd13892b8693424a86f7401162a6e52, type: 3}
 --- !u!1001 &1866268521
