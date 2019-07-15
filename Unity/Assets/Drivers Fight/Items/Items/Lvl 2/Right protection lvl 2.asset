@@ -16,12 +16,13 @@ MonoBehaviour:
   ItemName: Right protection lvl 2
   Icon: {fileID: 21300000, guid: 2d68ab791d3eb3d449de02ee0d4fb80c, type: 3}
   MaximumStacks: 1
+  ItemDescription: 
   ArmorDurability: 100
   CurrentArmorDurability: 100
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
   LeftFlankArmorBonus: 0
-  RightFlankArmorBonus: 20
+  RightFlankArmorBonus: 10
   WheelArmorBonus: 0
   TiresArmorBonus: 0
   MaximumSpeedBonus: 0

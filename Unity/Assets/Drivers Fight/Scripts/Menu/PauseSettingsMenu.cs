@@ -13,8 +13,12 @@ public class PauseSettingsMenu : MonoBehaviour
 
     Resolution[] resolutions;
 
+    public SettingsMenu settingsMenu;
+
+    public Slider pauseVolumeSlider;
+    public Slider settingsVolumeSlider;
+
     //public AudioSource audioSource;
-    //public Slider slider;
 
     private void Start()
     {
@@ -43,7 +47,7 @@ public class PauseSettingsMenu : MonoBehaviour
 
         DisplayGraphicDropdown();
 
-        //slider.value = SettingsMenu.volume;
+        pauseVolumeSlider.value = settingsVolumeSlider.value;
         //audioSource.volume = SettingsMenu.volume;
     }
 
@@ -80,5 +84,11 @@ public class PauseSettingsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
+        settingsMenu.SetVolumeSliderValue(volume);
+    }
+
+    public void SetVolumeSliderValue(float volume)
+    {
+        pauseVolumeSlider.value = volume;
     }
 }

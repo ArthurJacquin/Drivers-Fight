@@ -16,11 +16,12 @@ MonoBehaviour:
   ItemName: Left protection lvl 3
   Icon: {fileID: 21300000, guid: b6987ddb3ba4ccf48880c2b858e1ad94, type: 3}
   MaximumStacks: 1
+  ItemDescription: 
   ArmorDurability: 100
   CurrentArmorDurability: 100
   FrontBumperArmorBonus: 0
   RearBumperArmorBonus: 0
-  LeftFlankArmorBonus: 20
+  LeftFlankArmorBonus: 15
   RightFlankArmorBonus: 0
   WheelArmorBonus: 0
   TiresArmorBonus: 0

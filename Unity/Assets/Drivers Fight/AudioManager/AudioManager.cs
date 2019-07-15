@@ -37,6 +37,11 @@ public class AudioManager : MonoBehaviour
         Play("Theme");
     }
 
+    public void PlayMusic(string sound)
+    {
+        FindObjectOfType<AudioManager>().Play(sound);
+    }
+
     public void Play(string sound)
     {
         Sound s = Array.Find(sounds, item => item.name == sound);
@@ -50,5 +55,22 @@ public class AudioManager : MonoBehaviour
         s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
         s.source.Play();
+    }
+
+    public void StopMusic(string sound)
+    {
+        FindObjectOfType<AudioManager>().Stop(sound);
+    }
+
+    public void Stop(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.Stop();
     }
 }

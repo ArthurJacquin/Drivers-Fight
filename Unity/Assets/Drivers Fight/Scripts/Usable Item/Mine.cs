@@ -31,6 +31,8 @@ public class Mine : MonoBehaviour
             var character = gameObject.GetComponent<Character>();
             isInRange = state;
 
+            FindObjectOfType<AudioManager>().Play("Mine");
+
             if (!character.Invincibility)
             {
                 character.EngineHealth -= 50;

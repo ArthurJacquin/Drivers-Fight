@@ -16,10 +16,11 @@ MonoBehaviour:
   ItemName: Rear bumper lvl 2
   Icon: {fileID: 21300000, guid: 6a9c998c446bf6a459402960a0552711, type: 3}
   MaximumStacks: 1
+  ItemDescription: 
   ArmorDurability: 100
   CurrentArmorDurability: 100
   FrontBumperArmorBonus: 0
-  RearBumperArmorBonus: 20
+  RearBumperArmorBonus: 10
   LeftFlankArmorBonus: 0
   RightFlankArmorBonus: 0
   WheelArmorBonus: 0

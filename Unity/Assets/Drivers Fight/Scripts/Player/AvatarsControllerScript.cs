@@ -133,6 +133,8 @@ namespace DriversFight.Scripts
                 RaycastHit hit;
                 if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, out hit, 3, 1 << 8))
                 {
+                    FindObjectOfType<AudioManager>().Play("Collision");
+
                     if (hit.normal == targetAvatar.transform.forward)
                         targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.FrontArmor);
                     if (hit.normal == -targetAvatar.transform.forward)
@@ -157,6 +159,8 @@ namespace DriversFight.Scripts
             RaycastHit hit;
             if (Physics.Raycast(sourceBot.transform.position, targetAvatar.transform.position - sourceBot.transform.position, out hit, 3, 1 << 8))
             {
+                FindObjectOfType<AudioManager>().Play("Collision");
+
                 if (hit.normal == targetAvatar.transform.forward)
                     targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.FrontArmor);
                 if (hit.normal == -targetAvatar.transform.forward)
@@ -375,6 +379,10 @@ namespace DriversFight.Scripts
                     {
                         mystats.currentSpeed += mystats.AccelerationSpeed.Value;
                     }
+                    if (mystats.currentSpeed > mystats.MaximumSpeed.Value)
+                    {
+                        mystats.currentSpeed = mystats.MaximumSpeed.Value;
+                    }
 
                     //Turn Left
                     if (intentReceiver.WantToMoveLeft)
@@ -401,9 +409,13 @@ namespace DriversFight.Scripts
                 if (intentReceiver.WantToMoveForward)
                 {
                     //Update speed
-                    if (mystats.currentSpeed < mystats.MaximumSpeed.Value  && !intentReceiver.WantToStopTheCar)
+                    if (mystats.currentSpeed < mystats.MaximumSpeed.Value && !intentReceiver.WantToStopTheCar)
                     {
-                        mystats.currentSpeed += mystats.AccelerationSpeed.Value ;
+                        mystats.currentSpeed += mystats.AccelerationSpeed.Value;
+                    }
+                    if (mystats.currentSpeed > mystats.MaximumSpeed.Value)
+                    {
+                        mystats.currentSpeed = mystats.MaximumSpeed.Value;
                     }
 
                     //Turn Left
@@ -634,6 +646,7 @@ namespace DriversFight.Scripts
                 {
                     rank = LocalizationManager.Instance.GetText("ULTIMATE_DRIVER");
                     commentary = LocalizationManager.Instance.GetText("CONGRATULATION");
+                    FindObjectOfType<AudioManager>().Play("Flawless victory");
                 }
                 else
                 {
@@ -643,6 +656,7 @@ namespace DriversFight.Scripts
                         rank = rank.Replace("nd", "rd");
                     }
                     commentary = LocalizationManager.Instance.GetText("DEFEAT_MESSAGE");
+                    FindObjectOfType<AudioManager>().Play("Game over");
                 }
 
                 EndGame(commentary, rank);

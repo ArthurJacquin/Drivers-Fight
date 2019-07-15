@@ -40,6 +40,8 @@ public class Harrow : MonoBehaviour
             var player = gameObject.GetComponent<PlayerScript>();
             isInRange = state;
 
+            FindObjectOfType<AudioManager>().Play("Mine");
+
             if (!character.Invincibility)
             {
                 MaximumSpeed = -player.carMaximumSpeed / 2;

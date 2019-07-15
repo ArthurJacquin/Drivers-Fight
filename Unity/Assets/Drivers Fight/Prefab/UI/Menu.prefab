@@ -334,6 +334,9 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: d1e65cf3d31600e4aadbfb5ef90f70c9, type: 2}
   resolutionDropdown: {fileID: 6506337840112130239}
   graphicDropdown: {fileID: 6506337840437732128}
+  pauseSettingsMenu: {fileID: 1549674956791312935}
+  pauseVolumeSlider: {fileID: 2311774918133111185}
+  settingsVolumeSlider: {fileID: 6506337840748422195}
 --- !u!114 &7755948019577721870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +366,9 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: d1e65cf3d31600e4aadbfb5ef90f70c9, type: 2}
   resolutionDropdown: {fileID: 259746852251504372}
   graphicDropdown: {fileID: 429676890099154906}
+  settingsMenu: {fileID: 114109549425413106}
+  pauseVolumeSlider: {fileID: 2311774918133111185}
+  settingsVolumeSlider: {fileID: 6506337840748422195}
 --- !u!1 &1590116676889962
 GameObject:
   m_ObjectHideFlags: 0
@@ -8551,6 +8557,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3927950017486549322, guid: 69ed35f5c1c405846a3844f8ed514a5c,
+          type: 3}
+        m_MethodName: StopMusic
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Theme
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3927950017486549322, guid: 69ed35f5c1c405846a3844f8ed514a5c,
+          type: 3}
+        m_MethodName: PlayMusic
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Prepare yourself
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &4235968955721803033
@@ -9827,6 +9857,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3927950017486549322, guid: 69ed35f5c1c405846a3844f8ed514a5c,
+          type: 3}
+        m_MethodName: StopMusic
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Theme
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3927950017486549322, guid: 69ed35f5c1c405846a3844f8ed514a5c,
+          type: 3}
+        m_MethodName: PlayMusic
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Prepare yourself
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -18706,6 +18760,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: DRIVER'S FIGHT !
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3927950017486549322, guid: 69ed35f5c1c405846a3844f8ed514a5c,
+          type: 3}
+        m_MethodName: PlayMusic
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Theme
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

@@ -13,6 +13,11 @@ public class SettingsMenu : MonoBehaviour {
 
     Resolution[] resolutions;
 
+    public PauseSettingsMenu pauseSettingsMenu;
+
+    public Slider pauseVolumeSlider;
+    public Slider settingsVolumeSlider;
+
     /*[SerializeField]
     private Slider audioVolumeSlider;*/
     // public static float volume = 1f;
@@ -80,5 +85,12 @@ public class SettingsMenu : MonoBehaviour {
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
+        Debug.Log(volume);
+        pauseSettingsMenu.SetVolumeSliderValue(volume);
+    }
+
+    public void SetVolumeSliderValue(float volume)
+    {
+        settingsVolumeSlider.value = volume;
     }
 }

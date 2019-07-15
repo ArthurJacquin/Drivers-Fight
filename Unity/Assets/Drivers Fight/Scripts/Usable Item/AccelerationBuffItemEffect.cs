@@ -14,6 +14,7 @@ public class AccelerationBuffItemEffect : UsableItemEffect
         StatModifier statModifier = new StatModifier(Acceleration, StatModType.Flat, parentItem);
         character.AccelerationSpeed.AddModifier(statModifier);
         character.UpdateStatValues();
+        FindObjectOfType<AudioManager>().Play("Nitro");
         character.StartCoroutine(RemoveBuff(character, statModifier, Duration));
     }
 
