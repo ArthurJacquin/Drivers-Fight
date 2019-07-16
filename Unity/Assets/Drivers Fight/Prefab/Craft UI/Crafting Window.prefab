@@ -36905,16 +36905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1066326763532634975}
     m_Modifications:
-    - target: {fileID: 9198470792537928021, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 8414265111258209153}
-    - target: {fileID: 9198470792537928021, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: amountText
-      value: 
-      objectReference: {fileID: 8414265111258209180}
     - target: {fileID: 3076306851535727690, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: itemSlots.Array.data[0]
@@ -37045,6 +37035,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9198470792537928021, guid: 2c6c8fef216cb0341808d939d982bca4,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 8414265111258209153}
+    - target: {fileID: 9198470792537928021, guid: 2c6c8fef216cb0341808d939d982bca4,
+        type: 3}
+      propertyPath: amountText
+      value: 
+      objectReference: {fileID: 8414265111258209180}
     - target: {fileID: 7701437001155501852, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: image

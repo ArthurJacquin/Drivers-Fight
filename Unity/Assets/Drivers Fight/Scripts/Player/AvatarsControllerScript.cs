@@ -133,7 +133,7 @@ namespace DriversFight.Scripts
                 RaycastHit hit;
                 if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, out hit, 3, 1 << 8))
                 {
-                    photonView.RPC("playSound", RpcTarget.AllBuffered, "Collision");
+                    photonView.RPC("playSoundRPC", RpcTarget.AllBuffered, "Collision");
 
                     if (hit.normal == targetAvatar.transform.forward)
                         targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.FrontArmor);
@@ -159,7 +159,7 @@ namespace DriversFight.Scripts
             RaycastHit hit;
             if (Physics.Raycast(sourceBot.transform.position, targetAvatar.transform.position - sourceBot.transform.position, out hit, 3, 1 << 8))
             {
-                photonView.RPC("playSound", RpcTarget.AllBuffered, "Collision");
+                photonView.RPC("playSoundRPC", RpcTarget.AllBuffered, "Collision");
 
                 if (hit.normal == targetAvatar.transform.forward)
                     targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.FrontArmor);
@@ -646,7 +646,7 @@ namespace DriversFight.Scripts
                 {
                     rank = LocalizationManager.Instance.GetText("ULTIMATE_DRIVER");
                     commentary = LocalizationManager.Instance.GetText("CONGRATULATION");
-                    photonView.RPC("playSound", RpcTarget.AllBuffered, "Flawless victory");
+                    photonView.RPC("playSoundRPC", RpcTarget.AllBuffered, "Flawless victory");
                 }
                 else
                 {
@@ -656,7 +656,7 @@ namespace DriversFight.Scripts
                         rank = rank.Replace("nd", "rd");
                     }
                     commentary = LocalizationManager.Instance.GetText("DEFEAT_MESSAGE");
-                    photonView.RPC("playSound", RpcTarget.AllBuffered, "Game over");
+                    photonView.RPC("playSoundRPC", RpcTarget.AllBuffered, "Game over");
                 }
 
                 EndGame(commentary, rank);

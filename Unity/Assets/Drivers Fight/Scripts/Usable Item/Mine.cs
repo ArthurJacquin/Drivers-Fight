@@ -34,7 +34,7 @@ public class Mine : MonoBehaviour
             var character = gameObject.GetComponent<Character>();
             isInRange = state;
 
-            photonView.RPC("playSound", RpcTarget.AllBuffered, "Mine");
+            photonView.RPC("playSoundRPC", RpcTarget.AllBuffered, "Mine");
 
             if (!character.Invincibility)
             {

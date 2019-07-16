@@ -44,7 +44,7 @@ namespace DriversFight.Scripts
                 var player = gameObject.GetComponent<AvatarExposerScript>();
                 isInRange = state;
 
-                photonView.RPC("playSound", RpcTarget.AllBuffered, "Mine");
+                photonView.RPC("playSoundRPC", RpcTarget.AllBuffered, "Mine");
 
                 if (!character.Invincibility)
                 {
