@@ -421,6 +421,8 @@ public class Character : MonoBehaviour
         EngineHealth = 500;
         currentSpeed = 0f;
 
+        equipmentPanel.RemoveAll();
+
         FrontBumperArmor.RemoveAllModifiersFromSource(FrontBumperArmor);
         RearBumperArmor.RemoveAllModifiersFromSource(RearBumperArmor);
         RightFlankArmor.RemoveAllModifiersFromSource(RightFlankArmor);

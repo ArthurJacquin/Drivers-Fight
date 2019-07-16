@@ -36905,11 +36905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1066326763532634975}
     m_Modifications:
-    - target: {fileID: 4063327774804172946, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: m_Name
-      value: Crafting Recipe UI
-      objectReference: {fileID: 0}
     - target: {fileID: 3076306851535727690, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: itemSlots.Array.data[0]
@@ -36934,6 +36929,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ItemContainer
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063327774804172946, guid: 2c6c8fef216cb0341808d939d982bca4,
+        type: 3}
+      propertyPath: m_Name
+      value: Crafting Recipe UI
       objectReference: {fileID: 0}
     - target: {fileID: 4036898110285986877, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
@@ -36975,11 +36975,6 @@ PrefabInstance:
       propertyPath: amountText
       value: 
       objectReference: {fileID: 8839623911084366755}
-    - target: {fileID: 1805013164516200327, guid: 2c6c8fef216cb0341808d939d982bca4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8793598244725521655, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37083,6 +37078,11 @@ PrefabInstance:
     - target: {fileID: 8793598244725521655, guid: 2c6c8fef216cb0341808d939d982bca4,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805013164516200327, guid: 2c6c8fef216cb0341808d939d982bca4,
+        type: 3}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6022628819959580455, guid: 2c6c8fef216cb0341808d939d982bca4,

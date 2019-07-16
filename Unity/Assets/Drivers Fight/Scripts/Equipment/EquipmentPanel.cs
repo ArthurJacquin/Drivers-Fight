@@ -70,4 +70,13 @@ public class EquipmentPanel : MonoBehaviour
         var slot = Array.Find(equipmentSlots, x => x.EquipmentType == type);
         return slot.Item as EquippableItem;
     }
+
+    public void RemoveAll()
+    {
+        for (int i = 0; i < equipmentSlots.Length; i++)
+        {
+            equipmentSlots[i].Item = null;
+            equipmentSlots[i].Amount = 0;
+        }
+    }
 }
