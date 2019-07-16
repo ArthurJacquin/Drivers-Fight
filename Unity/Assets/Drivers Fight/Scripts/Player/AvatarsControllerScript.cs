@@ -172,7 +172,7 @@ namespace DriversFight.Scripts
             }
         }
 
-        private void HandleTrigger(CollisionEnterDispatcherScript collisionDispatcher, int id)
+        private void HandleTrigger(CollisionEnterDispatcherScript collisionDispatcher)
         {
             if (!dispatcherToAvatar.TryGetValue(collisionDispatcher, out var sourceAvatar))
             {
@@ -183,7 +183,7 @@ namespace DriversFight.Scripts
             {
                 if(sourceAvatar.name == avatars[i].name)
                 {
-                    photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, id, false);
+                    photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i, false);
                     break;
                 }
             }

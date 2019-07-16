@@ -8,7 +8,7 @@ namespace DriversFight.Scripts
     public class CollisionEnterDispatcherScript : MonoBehaviour
     {
         public event Action<CollisionEnterDispatcherScript, Collider> CollisionEvent;
-        public event Action<CollisionEnterDispatcherScript, int> SectorTriggerEvent;
+        public event Action<CollisionEnterDispatcherScript> SectorTriggerEvent;
         public event Action<CollisionEnterDispatcherScript, Collider> BotCollisionEvent;
 
         public void OnCollisionEnter(Collision col)
@@ -25,17 +25,8 @@ namespace DriversFight.Scripts
 
         private void OnTriggerEnter(Collider col)
         {
-            var i = 0;
-            for (; i < PlayerNumbering.SortedPlayers.Length; i++)
-            {
-                if (PhotonNetwork.LocalPlayer.ActorNumber == PlayerNumbering.SortedPlayers[i].ActorNumber)
-                {
-                    break;
-                }
-            }
-
             if (col.gameObject.tag == "Sector")
-                SectorTriggerEvent?.Invoke(this, i);
+                SectorTriggerEvent?.Invoke(this);
         }
     }
 }
