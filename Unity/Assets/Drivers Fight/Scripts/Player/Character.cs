@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using Drivers.CharacterStats;
 using System.Collections.Generic;
+using Photon.Pun;
 
 public class Character : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class Character : MonoBehaviour
     private BaseItemSlot dragItemSlot;
 
     public IEnumerable<StatModifier> StatModifiers { get; internal set; }
+
+    private PhotonView photonView;
 
     private void OnValidate()
     {
@@ -94,6 +97,8 @@ public class Character : MonoBehaviour
         equipmentPanel.OnDropEvent += Drop;
         usablePanel.OnDropEvent += Drop;
         dropItemArea.OnDropEvent += DropItemOutsideUI;
+
+        photonView = GetComponent<PhotonView>();
     }
 
     private void InventoryRightClick(BaseItemSlot itemSlot)
@@ -337,32 +342,12 @@ public class Character : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            UsableItem usableItem = usablePanel.usableSlots[0].Item as UsableItem;
-            if (usableItem != null)
-            {
-                usableItem.Use(this);
-
-                if (usableItem.IsConsumable)
-                {
-                    usablePanel.RemoveItem(usableItem);
-                    usableItem.Destroy();
-                }
-            }
+            photonView.RPC("UseItemRPC", RpcTarget.AllBuffered, 0);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            UsableItem usableItem = usablePanel.usableSlots[1].Item as UsableItem;
-            if (usableItem != null)
-            {
-                usableItem.Use(this);
-
-                if (usableItem.IsConsumable)
-                {
-                    usablePanel.RemoveItem(usableItem);
-                    usableItem.Destroy();
-                }
-            }
+            photonView.RPC("UseItemRPC", RpcTarget.AllBuffered, 1);
         }
     }
 
@@ -448,5 +433,21 @@ public class Character : MonoBehaviour
         DecelerationSpeed.RemoveAllModifiersFromSource(DecelerationSpeed);
 
         inventory.Clear();
+    }
+
+    [PunRPC]
+    private void UseItemRPC(int i)
+    {
+        UsableItem usableItem = usablePanel.usableSlots[i].Item as UsableItem;
+        if (usableItem != null)
+        {
+            usableItem.Use(this);
+
+            if (usableItem.IsConsumable)
+            {
+                usablePanel.RemoveItem(usableItem);
+                usableItem.Destroy();
+            }
+        }
     }
 }

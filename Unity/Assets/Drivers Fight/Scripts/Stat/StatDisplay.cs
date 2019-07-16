@@ -56,6 +56,7 @@ public class StatDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         IsPointerOver = true;
+        Debug.Log(Name);
         tooltip.ShowTooltip(Stat, Name);
     }
 

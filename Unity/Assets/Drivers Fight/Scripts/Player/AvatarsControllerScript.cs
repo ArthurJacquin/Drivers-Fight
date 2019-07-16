@@ -133,7 +133,7 @@ namespace DriversFight.Scripts
                 RaycastHit hit;
                 if (Physics.Raycast(sourceAvatar.transform.position, targetAvatar.transform.position - sourceAvatar.transform.position, out hit, 3, 1 << 8))
                 {
-                    FindObjectOfType<AudioManager>().Play("Collision");
+                    photonView.RPC("playSound", RpcTarget.AllBuffered, "Collision");
 
                     if (hit.normal == targetAvatar.transform.forward)
                         targetAvatar.Stats.TakeDamage((int)sourceAvatar.Stats.currentSpeed * 5, EquipmentType.FrontArmor);
@@ -155,11 +155,11 @@ namespace DriversFight.Scripts
             {
                 return;
             }
-            Debug.Log("hit bot");
+
             RaycastHit hit;
             if (Physics.Raycast(sourceBot.transform.position, targetAvatar.transform.position - sourceBot.transform.position, out hit, 3, 1 << 8))
             {
-                FindObjectOfType<AudioManager>().Play("Collision");
+                photonView.RPC("playSound", RpcTarget.AllBuffered, "Collision");
 
                 if (hit.normal == targetAvatar.transform.forward)
                     targetAvatar.Stats.TakeDamage((int)sourceBot.NavMeshAgent.speed * 5, EquipmentType.FrontArmor);
@@ -172,7 +172,7 @@ namespace DriversFight.Scripts
             }
         }
 
-        private void HandleTrigger(CollisionEnterDispatcherScript collisionDispatcher)
+        private void HandleTrigger(CollisionEnterDispatcherScript collisionDispatcher, int id)
         {
             if (!dispatcherToAvatar.TryGetValue(collisionDispatcher, out var sourceAvatar))
             {
@@ -181,9 +181,9 @@ namespace DriversFight.Scripts
 
             for(var i = 0; i < avatars.Length; i++)
             {
-                if(sourceAvatar == avatars[i])
+                if(sourceAvatar.name == avatars[i].name)
                 {
-                    photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i, false);
+                    photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, id, false);
                     break;
                 }
             }
@@ -646,17 +646,17 @@ namespace DriversFight.Scripts
                 {
                     rank = LocalizationManager.Instance.GetText("ULTIMATE_DRIVER");
                     commentary = LocalizationManager.Instance.GetText("CONGRATULATION");
-                    FindObjectOfType<AudioManager>().Play("Flawless victory");
+                    photonView.RPC("playSound", RpcTarget.AllBuffered, "Flawless victory");
                 }
                 else
                 {
-                    rank = LocalizationManager.Instance.GetText("YOU_FINISH_IN") + (totalPlayer - deadAvatarsCount) + LocalizationManager.Instance.GetText("POSITION");
+                    rank = LocalizationManager.Instance.GetText("YOU_FINISH_IN") + (totalPlayer - deadAvatarsCount + 1) + LocalizationManager.Instance.GetText("POSITION");
                     if (totalPlayer - deadAvatarsCount == 3)
                     {
                         rank = rank.Replace("nd", "rd");
                     }
                     commentary = LocalizationManager.Instance.GetText("DEFEAT_MESSAGE");
-                    FindObjectOfType<AudioManager>().Play("Game over");
+                    photonView.RPC("playSound", RpcTarget.AllBuffered, "Game over");
                 }
 
                 EndGame(commentary, rank);
@@ -720,6 +720,12 @@ namespace DriversFight.Scripts
             }
 
             photonView.RPC("DeactivateAvatarRPC", RpcTarget.AllBuffered, i, false);
+        }
+
+        [PunRPC]
+        private void playSoundRPC(string title)
+        {
+            FindObjectOfType<AudioManager>().Play(title);
         }
     }
 }

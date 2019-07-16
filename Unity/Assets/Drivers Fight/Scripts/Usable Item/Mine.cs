@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 public class Mine : MonoBehaviour
 {
     private bool isInRange;
+
+    public PhotonView photonView;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,7 +34,7 @@ public class Mine : MonoBehaviour
             var character = gameObject.GetComponent<Character>();
             isInRange = state;
 
-            FindObjectOfType<AudioManager>().Play("Mine");
+            photonView.RPC("playSound", RpcTarget.AllBuffered, "Mine");
 
             if (!character.Invincibility)
             {
@@ -45,5 +48,11 @@ public class Mine : MonoBehaviour
 
             Destroy(this.gameObject);
         }
+    }
+
+    [PunRPC]
+    private void playSoundRPC(string title)
+    {
+        FindObjectOfType<AudioManager>().Play(title);
     }
 }
