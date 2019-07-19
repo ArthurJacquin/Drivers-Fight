@@ -75,6 +75,9 @@ namespace DriversFight.Scripts
         private TextMeshProUGUI mainText;
 
         [SerializeField]
+        private Transform usine;
+
+        [SerializeField]
         private TextMeshProUGUI endGamePanelCommentaryText;
 
         private bool collisionSubscriptionDone = false;
@@ -633,6 +636,12 @@ namespace DriversFight.Scripts
         [PunRPC]
         private void DeactivateAvatarRPC(int avatarId, bool isAlive)
         {
+            //Collecte de data
+            if (Vector3.Distance(avatars[avatarId].AvatarRootTransform.position, usine.position) <= 5)
+                DataCollector.RegisterEntityKillNearFactoryWithTime(Time.time);
+            else
+                DataCollector.RegisterEntityKillWithTime(avatars[avatarId].AvatarRootTransform.position, Time.time);
+
             avatars[avatarId].AvatarRootGameObject.SetActive(false);
             avatars[avatarId].IsAlive = isAlive;
 

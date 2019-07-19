@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Factory Kill Vault
+  m_EditorClassIdentifier: Assembly-CSharp::FactoryKillDataVault
+  entities:
+  - GameTime: 1
+  - GameTime: 14
+  - GameTime: 13
+  - GameTime: 13
+  - GameTime: 2
+  - GameTime: 2
+  - GameTime: 7
+  - GameTime: 6
+  - GameTime: 3
+  - GameTime: 12
+  - GameTime: 0
+  - GameTime: 2
+  - GameTime: 10
+  - GameTime: 13
+  - GameTime: 2
+  - GameTime: 2
+  - GameTime: 9
+  - GameTime: 6
+  - GameTime: 10
+  - GameTime: 1
+  - GameTime: 3
+  - GameTime: 10
+  - GameTime: 7
+  - GameTime: 0
+  - GameTime: 13
+  - GameTime: 14
+  - GameTime: 6
+  - GameTime: 11
+  - GameTime: 2
+  - GameTime: 11
+  - GameTime: 2
+  - GameTime: 1
+  - GameTime: 8
+  - GameTime: 8
+  - GameTime: 1
+  - GameTime: 11
+  - GameTime: 7
+  - GameTime: 4
+  - GameTime: 4
+  - GameTime: 11
+  - GameTime: 1
+  - GameTime: 10
+  - GameTime: 6
+  - GameTime: 13
+  - GameTime: 1
+  - GameTime: 2
+  - GameTime: 10
+  - GameTime: 6
+  - GameTime: 9
+  - GameTime: 6

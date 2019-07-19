@@ -11,30 +11,57 @@ public class DataDisplayer : MonoBehaviour
     private Transform dataCollectorGO;
 
     [SerializeField]
-    private KillDataVault data;
+    private KillDataVault KillData;
 
     [SerializeField]
-    private AnimationCurve chart;
-    
-    private void OnEnable()
-    {
-        chart = new AnimationCurve();
-        int playerKilled = 0;
+    private FactoryKillDataVault FactoryKillData;
 
-        foreach (var entity in data.KillDatas)
-        {
-            Instantiate(KillIndicator, entity.pos, Quaternion.identity, dataCollectorGO);
+    [SerializeField]
+    private GameDurationDataVault GameDurationData;
 
-            playerKilled++;
-            chart.AddKey(entity.GameTime, playerKilled);
-        }
-    }
+    [SerializeField]
+    private AnimationCurve Killchart;
 
-    private void OnDisable()
+    [SerializeField]
+    private AnimationCurve FactoryKillchart;
+
+    [SerializeField]
+    private AnimationCurve GameDurationchart;
+
+    public void ClearData()
     {
        foreach(Transform child in dataCollectorGO)
         {
             Destroy(child.gameObject);
+        }
+    }
+
+    public void UpdateData()
+    {
+        Killchart = new AnimationCurve();
+        int playerKilled = 0;
+
+        foreach (var entity in KillData.KillDatas)
+        {
+            Instantiate(KillIndicator, entity.pos, Quaternion.identity, dataCollectorGO);
+
+            playerKilled++;
+            Killchart.AddKey(entity.GameTime, playerKilled);
+        }
+
+        FactoryKillchart = new AnimationCurve();
+        playerKilled = 0;
+        foreach(var data in FactoryKillData.KillDatas)
+        {
+            playerKilled++;
+            FactoryKillchart.AddKey(data.GameTime, playerKilled);
+        }
+
+        GameDurationchart = new AnimationCurve();
+
+        foreach (var data in GameDurationData.datas)
+        {
+            GameDurationchart.AddKey(data.GameTime, data.TotalPlayers);
         }
     }
 }

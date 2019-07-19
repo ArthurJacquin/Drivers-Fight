@@ -12,4 +12,104 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Kill Vault
   m_EditorClassIdentifier: Assembly-CSharp::KillDataVault
-  entities: []
+  entities:
+  - pos: {x: -236, y: 0.5, z: 428}
+    GameTime: 7
+  - pos: {x: -23, y: 0.5, z: 132}
+    GameTime: 5
+  - pos: {x: -313, y: 0.5, z: 30}
+    GameTime: 1
+  - pos: {x: -216, y: 0.5, z: 102}
+    GameTime: 12
+  - pos: {x: 156, y: 0.5, z: 28}
+    GameTime: 14
+  - pos: {x: 87, y: 0.5, z: 418}
+    GameTime: 14
+  - pos: {x: 178, y: 0.5, z: 54}
+    GameTime: 12
+  - pos: {x: 134, y: 0.5, z: -244}
+    GameTime: 8
+  - pos: {x: 369, y: 0.5, z: 183}
+    GameTime: 5
+  - pos: {x: -96, y: 0.5, z: 81}
+    GameTime: 2
+  - pos: {x: 223, y: 0.5, z: 430}
+    GameTime: 0
+  - pos: {x: 359, y: 0.5, z: -224}
+    GameTime: 6
+  - pos: {x: 223, y: 0.5, z: 40}
+    GameTime: 6
+  - pos: {x: -493, y: 0.5, z: -19}
+    GameTime: 10
+  - pos: {x: 111, y: 0.5, z: -64}
+    GameTime: 3
+  - pos: {x: 307, y: 0.5, z: 98}
+    GameTime: 3
+  - pos: {x: -214, y: 0.5, z: 33}
+    GameTime: 7
+  - pos: {x: -327, y: 0.5, z: 215}
+    GameTime: 13
+  - pos: {x: 459, y: 0.5, z: 326}
+    GameTime: 0
+  - pos: {x: 146, y: 0.5, z: 326}
+    GameTime: 6
+  - pos: {x: -165, y: 0.5, z: -50}
+    GameTime: 8
+  - pos: {x: -362, y: 0.5, z: 177}
+    GameTime: 2
+  - pos: {x: 454, y: 0.5, z: 444}
+    GameTime: 8
+  - pos: {x: 52, y: 0.5, z: -406}
+    GameTime: 13
+  - pos: {x: 320, y: 0.5, z: 351}
+    GameTime: 5
+  - pos: {x: -111, y: 0.5, z: 249}
+    GameTime: 6
+  - pos: {x: -307, y: 0.5, z: 286}
+    GameTime: 14
+  - pos: {x: 48, y: 0.5, z: -449}
+    GameTime: 1
+  - pos: {x: -410, y: 0.5, z: -78}
+    GameTime: 11
+  - pos: {x: -8, y: 0.5, z: -411}
+    GameTime: 12
+  - pos: {x: 226, y: 0.5, z: 272}
+    GameTime: 9
+  - pos: {x: 472, y: 0.5, z: -166}
+    GameTime: 3
+  - pos: {x: 159, y: 0.5, z: -256}
+    GameTime: 5
+  - pos: {x: -321, y: 0.5, z: -292}
+    GameTime: 9
+  - pos: {x: 233, y: 0.5, z: -150}
+    GameTime: 0
+  - pos: {x: 222, y: 0.5, z: 417}
+    GameTime: 10
+  - pos: {x: -172, y: 0.5, z: -324}
+    GameTime: 3
+  - pos: {x: 468, y: 0.5, z: 195}
+    GameTime: 7
+  - pos: {x: -409, y: 0.5, z: 111}
+    GameTime: 12
+  - pos: {x: 401, y: 0.5, z: 166}
+    GameTime: 9
+  - pos: {x: 170, y: 0.5, z: -75}
+    GameTime: 14
+  - pos: {x: -382, y: 0.5, z: -217}
+    GameTime: 5
+  - pos: {x: 329, y: 0.5, z: -194}
+    GameTime: 9
+  - pos: {x: -500, y: 0.5, z: -98}
+    GameTime: 4
+  - pos: {x: 385, y: 0.5, z: -422}
+    GameTime: 3
+  - pos: {x: 334, y: 0.5, z: -414}
+    GameTime: 1
+  - pos: {x: 245, y: 0.5, z: 496}
+    GameTime: 0
+  - pos: {x: 108, y: 0.5, z: 356}
+    GameTime: 9
+  - pos: {x: -113, y: 0.5, z: 416}
+    GameTime: 9
+  - pos: {x: 191, y: 0.5, z: 361}
+    GameTime: 13

@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Game Duration Vault
+  m_EditorClassIdentifier: Assembly-CSharp::GameDurationDataVault
+  entities:
+  - TotalPlayers: 3
+    GameTime: 9
+  - TotalPlayers: 2
+    GameTime: 13
+  - TotalPlayers: 1
+    GameTime: 1
+  - TotalPlayers: 1
+    GameTime: 2
+  - TotalPlayers: 5
+    GameTime: 14
+  - TotalPlayers: 5
+    GameTime: 7
+  - TotalPlayers: 2
+    GameTime: 1
+  - TotalPlayers: 6
+    GameTime: 8
+  - TotalPlayers: 7
+    GameTime: 6
+  - TotalPlayers: 7
+    GameTime: 3
+  - TotalPlayers: 2
+    GameTime: 10
+  - TotalPlayers: 5
+    GameTime: 3
+  - TotalPlayers: 5
+    GameTime: 1
+  - TotalPlayers: 6
+    GameTime: 11
+  - TotalPlayers: 1
+    GameTime: 12
+  - TotalPlayers: 2
+    GameTime: 6
+  - TotalPlayers: 6
+    GameTime: 6
+  - TotalPlayers: 6
+    GameTime: 11
+  - TotalPlayers: 1
+    GameTime: 7
+  - TotalPlayers: 6
+    GameTime: 13
+  - TotalPlayers: 2
+    GameTime: 14
+  - TotalPlayers: 7
+    GameTime: 1
+  - TotalPlayers: 2
+    GameTime: 3
+  - TotalPlayers: 6
+    GameTime: 3
+  - TotalPlayers: 2
+    GameTime: 13
+  - TotalPlayers: 7
+    GameTime: 2
+  - TotalPlayers: 4
+    GameTime: 1
+  - TotalPlayers: 0
+    GameTime: 9
+  - TotalPlayers: 1
+    GameTime: 13
+  - TotalPlayers: 4
+    GameTime: 7
+  - TotalPlayers: 7
+    GameTime: 4
+  - TotalPlayers: 5
+    GameTime: 11
+  - TotalPlayers: 6
+    GameTime: 6
+  - TotalPlayers: 0
+    GameTime: 9
+  - TotalPlayers: 7
+    GameTime: 9
+  - TotalPlayers: 1
+    GameTime: 6
+  - TotalPlayers: 5
+    GameTime: 10
+  - TotalPlayers: 3
+    GameTime: 13
+  - TotalPlayers: 4
+    GameTime: 6
+  - TotalPlayers: 3
+    GameTime: 8
+  - TotalPlayers: 4
+    GameTime: 5
+  - TotalPlayers: 4
+    GameTime: 6
+  - TotalPlayers: 2
+    GameTime: 1
+  - TotalPlayers: 0
+    GameTime: 7
+  - TotalPlayers: 7
+    GameTime: 8
+  - TotalPlayers: 0
+    GameTime: 3
+  - TotalPlayers: 4
+    GameTime: 6
+  - TotalPlayers: 1
+    GameTime: 7
+  - TotalPlayers: 0
+    GameTime: 12
+  - TotalPlayers: 3
+    GameTime: 14

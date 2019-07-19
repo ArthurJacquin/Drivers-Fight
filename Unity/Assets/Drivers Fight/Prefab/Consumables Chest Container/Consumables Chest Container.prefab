@@ -406,6 +406,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6003763697449252288}
     m_Modifications:
+    - target: {fileID: 4292451028431547810, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
+        type: 3}
+      propertyPath: m_Name
+      value: Nitro
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292451028431547810, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4292451028431547809, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -476,16 +486,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4292451028431547810, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
-        type: 3}
-      propertyPath: m_Name
-      value: Nitro
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292451028431547810, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 4292451027559284134, guid: 0f8c4ad0e5fe9d94db25e35030d2d2b1,
         type: 3}
       propertyPath: m_Layer
@@ -527,6 +527,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6003763697449252288}
     m_Modifications:
+    - target: {fileID: 2865098615482744220, guid: 6849b68e1c265c74789de51e54ed183e,
+        type: 3}
+      propertyPath: m_Name
+      value: Engine Repair Kit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865098615482744220, guid: 6849b68e1c265c74789de51e54ed183e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2865098615482744221, guid: 6849b68e1c265c74789de51e54ed183e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -597,16 +607,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2865098615482744220, guid: 6849b68e1c265c74789de51e54ed183e,
-        type: 3}
-      propertyPath: m_Name
-      value: Engine Repair Kit
-      objectReference: {fileID: 0}
-    - target: {fileID: 2865098615482744220, guid: 6849b68e1c265c74789de51e54ed183e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 2865098614760822380, guid: 6849b68e1c265c74789de51e54ed183e,
         type: 3}
       propertyPath: m_Layer
@@ -648,6 +648,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6003763697449252288}
     m_Modifications:
+    - target: {fileID: 3243759033996070550, guid: fd387ac8dfc438144b236c030d92cde4,
+        type: 3}
+      propertyPath: m_Name
+      value: Invincibility
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243759033996070550, guid: fd387ac8dfc438144b236c030d92cde4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3243759033996070551, guid: fd387ac8dfc438144b236c030d92cde4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -717,16 +727,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3243759033996070550, guid: fd387ac8dfc438144b236c030d92cde4,
-        type: 3}
-      propertyPath: m_Name
-      value: Invincibility
-      objectReference: {fileID: 0}
-    - target: {fileID: 3243759033996070550, guid: fd387ac8dfc438144b236c030d92cde4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3243759033996070544, guid: fd387ac8dfc438144b236c030d92cde4,
         type: 3}
